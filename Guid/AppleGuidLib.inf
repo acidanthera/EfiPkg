@@ -1,0 +1,19 @@
+[Defines]
+  BASE_NAME      = AppleGuidLib
+  COMPONENT_TYPE = LIBRARY
+
+[Includes]
+  ../Include
+  $(EDK_SOURCE)/Foundation/Efi
+  $(EDK_SOURCE)/Foundation/Include
+  $(EDK_SOURCE)/Foundation/Efi/Include
+  $(EDK_SOURCE)/Foundation/Framework/
+  $(EDK_SOURCE)/Foundation/Framework/Include
+
+[Sources]
+  ../Include/Guid/AppleBless.h
+  AppleBless/AppleBless.c
+  ../Include/Guid/AppleNvram.h
+  AppleNvram/AppleNvram.c
+  ../Include/Guid/AppleSystemInfo.h
+  AppleSystemInfo/AppleSystemInfo.c

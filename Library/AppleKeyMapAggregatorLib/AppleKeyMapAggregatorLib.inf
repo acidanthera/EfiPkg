@@ -1,0 +1,14 @@
+[Defines]
+  BASE_NAME     = AppleKeyMapAggregatorLib
+  INF_VERSION   = 0x00010005
+  MODULE_TYPE   = UEFI_DRIVER
+  LIBRARY_CLASS = AppleKeyMapAggregatorLib
+
+[Packages]
+  ApplePkg/ApplePkg.dec
+  EfiMiscPkg/EfiMiscPkg.dec
+  EdkBridgePkg/EdkBridgePkg.dec
+
+[Sources]
+  ../../Include/Library/AppleKeyMapAggregatorLib.h
+  AppleKeyMapAggregatorLib.c

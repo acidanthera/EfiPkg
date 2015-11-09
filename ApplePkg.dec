@@ -1,0 +1,137 @@
+## @file 
+#
+# This Package provides all definitions(including functions, MACROs, structures and library classes)
+# and libraries instances, which are only used by Duet platform.
+#
+# Copyright (c) 2007 - 2011, Intel Corporation. All rights reserved.<BR>
+#
+# This program and the accompanying materials are licensed and made available under
+# the terms and conditions of the BSD License which accompanies this distribution.
+# The full text of the license may be found at
+# http://opensource.org/licenses/bsd-license.php
+#
+# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+[Defines]
+  PACKAGE_NAME                   = ApplePkg
+  PACKAGE_GUID                   = 0adcc78e-2fdc-4481-998d-8684a7b602e9 # REPLACE
+  PACKAGE_VERSION                = 1.0
+  DEC_SPECIFICATION              = 0x00010005
+
+[Includes]
+  Include
+
+[Includes.AArch64]
+  Include/AArch64
+  ../EdkCompatibilityPkg/Foundation/Include/AArch64
+
+[Includes.Arm]
+  Include/Arm
+  ../EdkCompatibilityPkg/Foundation/Include/Arm
+
+[Includes.Ebc]
+  Include/Ebc
+  ../EdkCompatibilityPkg/Foundation/Include/Ebc
+
+[Includes.Ia32]
+  Include/Ia32
+  ../EdkCompatibilityPkg/Foundation/Include/Ia32
+
+[Includes.Ipf]
+  Include/Ipf
+  ../EdkCompatibilityPkg/Foundation/Include/Ipf
+
+[Includes.X64]
+  Include/X64
+  ../EdkCompatibilityPkg/Foundation/Include/X64
+
+[Guids]
+  #
+  # Apple EFI Guids
+  #
+
+  # Include/Guid/AppleBless.h
+  gAppleBlessedFileInfoId             = { 0xCA7E4814, 0x2ADC, 0x4ADD, { 0xAB, 0xFF, 0x73, 0x4E, 0x3C, 0xFE, 0x13, 0xF3 }}
+
+  # Include/Guid/AppleBless.h
+  gAppleBlessedFolderInfoId           = { 0x7BD1F02D, 0x9C2F, 0x4581, { 0xBF, 0x12, 0xD5, 0x4a, 0xBA, 0x0D, 0x98, 0xD6 }}
+
+  # Include/Guid/AppleNvram.h
+  gAppleVendorNvramGuid               = { 0x4D1EDE05, 0x38C7, 0x4A6A, { 0x9C, 0xC6, 0x4B, 0xCC, 0xA8, 0xB3, 0x8C, 0x14 }}
+
+  # Include/Guid/AppleNvram.h
+  gAppleBootGuid                      = { 0x7C436110, 0xAB2A, 0x4BBB, { 0xA8, 0x80, 0xFE, 0x41, 0x99, 0x5C, 0x9F, 0x82 }}
+
+  # Include/Guid/AppleNvram.h
+  gAppleCoreStorageGuid               = { 0x8D63D4FE, 0xBD3C, 0x4AAD, { 0x88, 0x1D, 0x86, 0xFD, 0x97, 0x4B, 0xC1, 0xDF }}
+
+  # Include/Guid/AppleNvram.h
+  gAppleEfiNvramTrbStagingCommandGuid = { 0x5D62B28D, 0x6ED2, 0x40B4, { 0xA5, 0x60, 0x6C, 0xD7, 0x9B, 0x93, 0xD3, 0x66 }}
+
+  # Include/Guid/AppleNvram.h
+  gAppleWirelessNetworkNvramGuid      = { 0x36C28AB5, 0x6566, 0x4C50, { 0x9E, 0xBD, 0xCB, 0xB9, 0x20, 0xF8, 0x38, 0x43 }}
+
+  # Include/Guid/AppleNvram.h
+  gAppleEfiAppearanceNvramGuid        = { 0xFA4CE28D, 0xB62F, 0x4C99, { 0x9C, 0xC3, 0x68, 0x15, 0x68, 0x6E, 0x30, 0xF9 }}
+
+  # Include/Guid/AppleNvram.h
+  gAppleEfiNvramTrbSecureVariableGuid = { 0xF68DA75E, 0x1B55, 0x4E70, { 0xB4, 0x1B, 0xA7, 0xB7, 0xA5, 0xB7, 0x58, 0xEA }}
+
+  # Include/Guid/AppleNvram.h
+  gAppleOsLoadedNamedEventGuid        = { 0xC5C5DA95, 0x7D5C, 0x45E6, { 0x83, 0x72, 0x89, 0xBD, 0x52, 0x6D, 0xE9, 0x56 }}
+  
+
+[Protocols]
+  #
+  # Apple EFI protocols
+  #
+
+  # Include/Protocol/AppleBootBeepGenProtocol.h
+  gAppleBootBeepGenProtocolGuid              = { 0xC32332DF, 0xFC56, 0x4FE1, { 0x93, 0x58, 0xBA, 0x0D, 0x52, 0x9B, 0x24, 0xCD }}
+
+  # Include/Protocol/AppleBootPolicy.h
+  gAppleBootPolicyProtocolGuid               = { 0x62257758, 0x350C, 0x4D0A, { 0xB0, 0xBD, 0xF6, 0xBE, 0x2E, 0x1E, 0x27, 0x2C }}
+
+  # Include/Protocol/AppleDeviceControl.h
+  gAppleDeviceControlProtocolGuid            = { 0x8ECE08D8, 0xA6D4, 0x430B, { 0xA7, 0xB0, 0x2D, 0xF3, 0x18, 0xE7, 0x88, 0x4A }}
+
+  # Include/Protocol/AppleDiskIo.h
+  gAppleDiskIoProtocolGuid                   = { 0x5B27263B, 0x9083, 0x415E, { 0x88, 0x9E, 0x64, 0x32, 0xCA, 0xA9, 0xB8, 0x13 }}
+
+  # Include/Protocol/AppleEvent.h
+  gAppleEventProtocolGuid                    = { 0x33BE0EF1, 0x89C9, 0x4A6D, { 0xBB, 0x9F, 0x69, 0xDC, 0x8D, 0xD5, 0x16, 0xB9 }}
+
+  # Include/Protocol/AppleFirmwarePassword.h
+  gAppleFirmwarePasswordProtocolGuid         = { 0x8FFEEB3A, 0x4C98, 0x4630, { 0x80, 0x3F, 0x74, 0x0F, 0x95, 0x67, 0x09, 0x1D }}
+
+  # Include/Protocol/
+  gAppleFramebufferInfoProtocolGuid          = { 0xE316E100, 0x0751, 0x4C49, { 0x90, 0x56, 0x48, 0x6C, 0x7E, 0x47, 0x29, 0x03 }}
+
+  # Include/Protocol/AppleImageCodec.h
+  gAppleImageCodecProtocolGuid               = { 0x0DFCE9F6, 0xC4E3, 0x45EE, { 0xA0, 0x6A, 0xA8, 0x61, 0x3B, 0x98, 0xA5, 0x07 }}
+
+  # Include/Protocol/
+  gAppleKeyMapAggregatorProtocolGuid         = { 0x5B213447, 0x6E73, 0x4901, { 0xA4, 0xF1, 0xB8, 0x64, 0xF3, 0xB7, 0xA1, 0x72 }}
+
+  # Include/Protocol/AppleKeyMapDatabase.h
+  gAppleKeyMapDatabaseProtocolGuid           = { 0x584B9EBE, 0x80C1, 0x4BD6, { 0x98, 0xB0, 0xA7, 0x78, 0x6E, 0xC2, 0xF2, 0xE2 }}
+
+  # Include/Protocol/AppleNetBoot.h
+  gAppleNetBootProtocolGuid                  = { 0x78EE99FB, 0x6A5E, 0x4186, { 0x97, 0xDE, 0xCD, 0x0A, 0xBA, 0x34, 0x5A, 0x74 }}
+
+  # Include/Protocol/ApplePlatformInfoDatabase.h
+  gApplePlatformInfoDatabaseProtocolGuid     = { 0xAC5E4829, 0xA8FD, 0x440B, { 0xAF, 0x33, 0x9F, 0xFE, 0x01, 0x3B, 0x12, 0xD8 }}
+
+  # Include/Protocol/AppleSmcIo.h
+  gAppleSmcIoProtocolGuid                    = { 0x17407E5A, 0xAF6C, 0x4EE8, { 0x98, 0xA8, 0x00, 0x21, 0x04, 0x53, 0xCD, 0xD9 }}
+
+  # Include/Protocol/DevicePathPropertyDatabase
+  gEfiDevicePathPropertyDatabaseProtocolGuid = { 0x91BD12FE, 0xF6C3, 0x44FB, { 0xA5, 0xB7, 0x51, 0x22, 0xAB, 0x30, 0x3A, 0xE0 }}
+
+  # Include/Protocol/KeyboardInfo.h
+  gEfiKeyboardInfoProtocolGuid               = { 0xE82A0A1E, 0x0E4D, 0x45AC, { 0xA6, 0xDC, 0x2A, 0xE0, 0x58, 0x00, 0xD3, 0x11 }}
+
+  # Include/Protocol/OsIdentification.h
+  gEfiOsIdentificationProtocolGuid           = { 0xC5C5DA95, 0x7D5C, 0x45E6, { 0xB2, 0xF1, 0x3F, 0xD5, 0x2B, 0xB1, 0x00, 0x77 }}

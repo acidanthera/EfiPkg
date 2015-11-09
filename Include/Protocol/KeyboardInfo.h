@@ -1,0 +1,27 @@
+// 13/10/2015
+
+#ifndef _EFI_KEYBOARD_INFO_H_
+#define _EFI_KEYBOARD_INFO_H_
+
+// EFI_KEYBOARD_INFO_PROTOCOL_GUID
+#define EFI_KEYBOARD_INFO_PROTOCOL_GUID \
+  { 0xE82A0A1E, 0x0E4D, 0x45AC, { 0xA6, 0xDC, 0x2A, 0xE0, 0x58, 0x00, 0xD3, 0x11 } }
+
+// GET_KEYBOARD_INFO
+typedef
+EFI_STATUS
+(EFIAPI *GET_KEYBOARD_INFO)(
+  OUT UINT16 *IdVendor,
+  OUT UINT16 *IdProduct,
+  OUT UINT8  *CountryCode
+  );
+
+// EFI_KEYBOARD_INFO_PROTOCOL
+typedef struct _EFI_KEYBOARD_INFO_PROTOCOL {
+  GET_KEYBOARD_INFO GetKeyboardInfo;
+} EFI_KEYBOARD_INFO_PROTOCOL;
+
+// gEfiKeyboardInfoProtocolGuid
+extern EFI_GUID gEfiKeyboardInfoProtocolGuid;
+
+#endif // ifndef _EFI_KEYBOARD_INFO_H_
