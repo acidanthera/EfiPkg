@@ -1,7 +1,7 @@
 // 31/10/2015
 
-#ifndef _APPLE_SMC_H_
-#define _APPLE_SMC_H_
+#ifndef __APPLE_SMC_H__
+#define __APPLE_SMC_H__
 
 //
 // PMIO
@@ -49,7 +49,7 @@
 #define SMC_MMIO_WRITE_KEY_ATTRIBUTES  (SMC_MMIO_DATA_FIXED + SMC_MMIO_OFFSET_KEY_ATTRIBUTES)
 #define SMC_MMIO_WRITE_COMMAND         (SMC_MMIO_DATA_FIXED + SMC_MMIO_OFFSET_COMMAND)
 
-typedef UINT32 SMC_MMIO_ADDRESS;
+typedef UINT32 SMC_ADDRESS;
 
 //
 // Modes
@@ -59,20 +59,32 @@ typedef UINT32 SMC_MMIO_ADDRESS;
 #define SMC_MODE_UPDATE   'U'
 #define SMC_MODE_BASE     'B'
 
-#define SMC_RESET_MODE_MASTER   0
-#define SMC_RESET_MODE_APPCODE  1
-#define SMC_RESET_MODE_UPDATE   2
-#define SMC_RESET_MODE_BASE     3
+typedef CHAR8 *SMC_MODE;
 
-#define SMC_FLASH_TYPE_APPCODE  1
-#define SMC_FLASH_TYPE_BASE     2
-#define SMC_FLASH_TYPE_UPDATE   3
-#define SMC_FLASH_TYPE_EPM      4
+enum _SMC_RESET_MODE {
+  SmcResetModeMaster  = 0,
+  SmcResetModeAppCode = 1,
+  SmcResetModeUpdate  = 2,
+  SmcResetModeBase    = 3
+};
 
-#define SMC_FLASH_MODE_APPCODE  SMC_RESET_MODE_MASTER
-#define SMC_FLASH_MODE_UPDATE   SMC_RESET_MODE_BASE
-#define SMC_FLASH_MODE_BASE     SMC_RESET_MODE_UPDATE
-#define SMC_FLASH_TYPE_EPM      SMC_RESET_MODE_MASTER
+typedef UINT32 SMC_RESET_MODE;
+
+enum _SMC_FLASH_TYPE {
+  SmcFlashTypeAppCode = 1,
+  SmcFlashTypeBase    = 2,
+  SmcFlashTypeUpdate  = 3,
+  SmcFlashTypeEpm     = 4
+};
+
+typedef UINT8 SMC_FLASH_TYPE;
+
+enum _SMC_FLASH_MODE {
+  SmcFlashModeAppCode = SmcResetModeMaster,
+  SmcFlashModeUpdate  = SmcResetModeBase,
+  SmcFlashModeBase    = SmcResetModeUpdate,
+  SmcFlashModeEpm     = SmcResetModeMaster
+};
 
 //
 // Commands
@@ -89,7 +101,8 @@ enum _SMC_COMMAND {
   SmcCmdUnknown1             = 0x77,
   SmcCmdFlashWrite           = 0xF1,
   SmcCmdFlashAuth            = 0xF2,
-  SmcCmdFlashType            = 0xF4
+  SmcCmdFlashType            = 0xF4,
+  SmcCmdFlashWriteMoreData   = 0xF5 // write more data than the 0x78 data available
 };
 
 typedef UINT8 SMC_COMMAND;
@@ -98,14 +111,15 @@ typedef UINT8 SMC_COMMAND;
 // Reports
 //
 
-#define SMC_STATUS_RECEIVED   BIT (0)
+#define SMC_STATUS_AWAITING_MORE_BYTES   BIT (0)
 #define SMC_STATUS_IB_CLOSED  BIT (1)
 #define SMC_STATUS_BUSY       BIT (2)
-// lacking bits 3 & 4
+#define SMC_STATUS_COMMAND_RECEIVED  BIT (3)
+// lacking bit 4
 #define SMC_STATUS_OK         BIT (5) // wrong name?
 // lacking bit 6
 
-typedef UINT8  SMC_STATUS;
+typedef UINT8 SMC_STATUS;
 
 #define SMC_SUCCESS                 0
 #define SMC_ERROR                   1
@@ -131,9 +145,10 @@ typedef UINT8  SMC_STATUS;
 #define SMC_UNSUPPORTED_FEATURE     203
 #define SMC_SMB_ACCESS_ERROR        204
 
-#define SMC_BUFFER_TOO_SMALL_ERROR  206
+#define SMC_INVALID_SIZE  206
 
-#define SMC_ERROR(a) (((UINTN)(a)) > 0)
+#define SMC_ERROR(a)                  (((UINTN)(a)) > 0)
+#define EFI_STATUS_FROM_SMC_RESULT(x) (((x) != SMC_SUCCESS) ? EFIERR (x) : EFI_SUCCESS)
 
 #define EFI_SMC_SUCCESS                 SMC_SUCCESS
 #define EFI_SMC_ERROR                   EFIERR (SMC_ERROR)
@@ -159,7 +174,7 @@ typedef UINT8  SMC_STATUS;
 #define EFI_SMC_UNSUPPORTED_FEATURE     EFIERR (SMC_UNSUPPORTED_FEATURE)
 #define EFI_SMC_SMB_ACCESS_ERROR        EFIERR (SMC_SMB_ACCESS_ERROR)
 
-#define EFI_SMC_BUFFER_TOO_SMALL_ERROR  EFIERR (SMC_BUFFER_TOO_SMALL_ERROR)
+#define EFI_SMC_INVALID_SIZE  EFIERR (SMC_INVALID_SIZE)
 
 typedef UINT8  SMC_RESULT;
 
@@ -167,37 +182,37 @@ typedef UINT8  SMC_RESULT;
 // Key Types
 //
 
-#define SMC_KEY_TYPE_FP1F         "fp1f"
-#define SMC_KEY_TYPE_FP4C         "fp4c"
-#define SMC_KEY_TYPE_FP5B         "fp5b"
-#define SMC_KEY_TYPE_FP6A         "fp6a"
-#define SMC_KEY_TYPE_FP79         "fp79"
-#define SMC_KEY_TYPE_FP88         "fp88"
-#define SMC_KEY_TYPE_FPA6         "fpa6"
-#define SMC_KEY_TYPE_FPC4         "fpc4"
-#define SMC_KEY_TYPE_FPE2         "fpe2"
+#define SMC_KEY_TYPE_FP1F      "fp1f"
+#define SMC_KEY_TYPE_FP4C      "fp4c"
+#define SMC_KEY_TYPE_FP5B      "fp5b"
+#define SMC_KEY_TYPE_FP6A      "fp6a"
+#define SMC_KEY_TYPE_FP79      "fp79"
+#define SMC_KEY_TYPE_FP88      "fp88"
+#define SMC_KEY_TYPE_FPA6      "fpa6"
+#define SMC_KEY_TYPE_FPC4      "fpc4"
+#define SMC_KEY_TYPE_FPE2      "fpe2"
 
-#define SMC_KEY_TYPE_SP1E         "sp1e"
-#define SMC_KEY_TYPE_SP3C         "sp3c"
-#define SMC_KEY_TYPE_SP4B         "sp4b"
-#define SMC_KEY_TYPE_SP5A         "sp5a"
-#define SMC_KEY_TYPE_SP69         "sp69"
-#define SMC_KEY_TYPE_SP78         "sp78"
-#define SMC_KEY_TYPE_SP87         "sp87"
-#define SMC_KEY_TYPE_SP96         "sp96"
-#define SMC_KEY_TYPE_SPB4         "spb4"
-#define SMC_KEY_TYPE_SPF0         "spf0"
+#define SMC_KEY_TYPE_SP1E      "sp1e"
+#define SMC_KEY_TYPE_SP3C      "sp3c"
+#define SMC_KEY_TYPE_SP4B      "sp4b"
+#define SMC_KEY_TYPE_SP5A      "sp5a"
+#define SMC_KEY_TYPE_SP69      "sp69"
+#define SMC_KEY_TYPE_SP78      "sp78"
+#define SMC_KEY_TYPE_SP87      "sp87"
+#define SMC_KEY_TYPE_SP96      "sp96"
+#define SMC_KEY_TYPE_SPB4      "spb4"
+#define SMC_KEY_TYPE_SPF0      "spf0"
 
-#define SMC_KEY_TYPE_UINT8        "ui8 "
-#define SMC_KEY_TYPE_UINT16       "ui16"
-#define SMC_KEY_TYPE_UINT32       "ui32"
+#define SMC_KEY_TYPE_UINT8     "ui8 "
+#define SMC_KEY_TYPE_UINT16    "ui16"
+#define SMC_KEY_TYPE_UINT32    "ui32"
 
-#define SMC_KEY_TYPE_SI8          "si8 "
-#define SMC_KEY_TYPE_SI16         "si16"
+#define SMC_KEY_TYPE_SI8       "si8 "
+#define SMC_KEY_TYPE_SI16      "si16"
 
-#define SMC_KEY_TYPE_FLAG         "flag"
-#define SMC_KEY_TYPE_CHARSTAR     "ch8*"
-#define SMC_KEY_TYPE_PWM          "{pwm"
+#define SMC_KEY_TYPE_FLAG      "flag"
+#define SMC_KEY_TYPE_CHARSTAR  "ch8*"
+#define SMC_KEY_TYPE_PWM       "{pwm"
 
 typedef UINT32 SMC_KEY_TYPE;
 
@@ -226,14 +241,10 @@ typedef UINT8  SMC_DATA;
 typedef UINT8  SMC_DATA_SIZE;
 
 //
-// Types
-//
-
-//
 // Keys
 //
 
 typedef UINT32 SMC_KEY;
 typedef UINT32 SMC_INDEX;
 
-#endif // ifndef _APPLE_SMC_H_
+#endif // ifndef __APPLE_SMC_H__

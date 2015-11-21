@@ -1,8 +1,6 @@
 ///
-/// @file      Library/AppleKeyMapLib.h
+/// @file      Library/AppleKeyMapAggregatorLib.h
 ///
-///            The AppleKeyMap library to be used with the AppleKeyMap protocol. Contains necessary
-///            structure definitions and useful additional data.
 ///
 /// @author    Download-Fritz
 /// @date      15/03/2015: Initial version
@@ -14,19 +12,18 @@
 //
 // CREDITS:
 //   Reversed from AppleKeyMapAggregator.efi and AppleEvent.efi, which are Apple Inc. property
-//	 Key modifier and identifier list by tiamo (macosxbootloader, UsbHidKbKeyState.h)
 //   Decompiled by Download-Fritz
 //
 
-#ifndef _APPLE_KEY_MAP_AGGREGATOR_LIB_H_
-#define _APPLE_KEY_MAP_AGGREGATOR_LIB_H_
+#ifndef __APPLE_KEY_MAP_AGGREGATOR_LIB_H__
+#define __APPLE_KEY_MAP_AGGREGATOR_LIB_H__
 
 // GetAppleKeyStrokes
 EFI_STATUS
 GetAppleKeyStrokes (
-	OUT APPLE_MODIFIER_MAP *Modifiers,
-	OUT UINTN              *NoKeys,
-	OUT APPLE_KEY          **Keys
+	OUT APPLE_MODIFIER_MAP  *Modifiers,
+	OUT UINTN               *NoKeys,
+	OUT APPLE_KEY           **Keys
 	);
 
 // GetModifierStrokes
@@ -38,4 +35,4 @@ GetModifierStrokes (
 // mAppleKeyMapAggregator
 extern APPLE_KEY_MAP_AGGREGATOR_PROTOCOL *mAppleKeyMapAggregator;
 
-#endif // ifndef _APPLE_KEY_MAP_AGGREGATOR_LIB_H_
+#endif // ifndef __APPLE_KEY_MAP_AGGREGATOR_LIB_H__

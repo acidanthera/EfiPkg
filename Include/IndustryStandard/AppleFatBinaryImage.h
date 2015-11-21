@@ -1,5 +1,5 @@
-#ifndef _APPLE_FAT_BINARY_IMAGE_H_
-#define _APPLE_FAT_BINARY_IMAGE_H_
+#ifndef __APPLE_FAT_BINARY_IMAGE_H__
+#define __APPLE_FAT_BINARY_IMAGE_H__
 
 // FAT_BINARY_SIGNATURE
 /// The common "Fat Binary Magic" number used to identify a Fat binary.
@@ -11,7 +11,7 @@
 
 // MACHO_FAT_BINARY_SIGNATURE
 /// The common "Fat Binary Magic" number used to identify a Fat binary.
-#define MACHO_FAT_BINARY_INVERT_SIGNATURE  SIGNATURE_32 (0xCA, 0xFE, 0xBA, 0xBE)
+#define MACHO_FAT_BINARY_INVERT_SIGNATURE  0xBEBAFECA
 
 // FAT_ARCH
 /// Defintion of the the Fat architecture-specific file header.
@@ -31,4 +31,4 @@ typedef struct _FAT_HEADER {
 	FAT_ARCH FatArch;    ///< The first FAT_ARCH child of the FAT binary.
 } FAT_HEADER;
 
-#endif // ifndef _APPLE_FAT_BINARY_IMAGE_H_
+#endif // ifndef __APPLE_FAT_BINARY_IMAGE_H__

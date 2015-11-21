@@ -5,8 +5,8 @@
 //	purpose:	apple firmware password
 //********************************************************************
 
-#ifndef _APPLE_FIRMWARE_PASSWORD_H_
-#define _APPLE_FIRMWARE_PASSWORD_H_
+#ifndef __APPLE_FIRMWARE_PASSWORD_H__
+#define __APPLE_FIRMWARE_PASSWORD_H__
 
 // APPLE_FIRMWARE_PASSWORD_PROTOCOL_GUID
 #define APPLE_FIRMWARE_PASSWORD_PROTOCOL_GUID \
@@ -32,4 +32,4 @@ struct _APPLE_FIRMWARE_PASSWORD_PROTOCOL {
 // gAppleFirmwarePasswordProtocolGuid
 extern EFI_GUID gAppleFirmwarePasswordProtocolGuid;
 
-#endif // ifndef _APPLE_FIRMWARE_PASSWORD_H_
+#endif // ifndef __APPLE_FIRMWARE_PASSWORD_H__

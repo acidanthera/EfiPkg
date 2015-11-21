@@ -13,9 +13,6 @@
   $(EDK_SOURCE)/Foundation/Framework/Include
   $(EDK_SOURCE)/Foundation/Library/Dxe/Include
 
-[Libraries]
-  AppleKeyMapLib
-
 [Sources]
   ../Include/Protocol/AppleBootPolicy.h
   AppleBootPolicy/AppleBootPolicy.c
@@ -31,3 +28,5 @@
   ApplePlatformInfoDatabase/ApplePlatformInfoDatabase.c
   ../Include/Protocol/KeyboardInfo.h
   KeyboardInfo/KeyboardInfo.c
+  ../Include/Protocol/OsIdentification.h
+  OsIdentification/OsIdentification.c

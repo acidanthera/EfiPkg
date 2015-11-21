@@ -1,16 +1,16 @@
-#ifndef _APPLE_HID_TYPES_H_
-#define _APPLE_HID_TYPES_H_
+#ifndef __APPLE_HID_TYPES_H__
+#define __APPLE_HID_TYPES_H__
 
 #include <IndustryStandard/UsbHid.h>
 
 // APPLE_USAGE
-#define APPLE_HID_USAGE(UsageId, PageId) (((PageId) << 12) | (UsageId))
+#define APPLE_HID_GENERIC_USAGE(UsageId, PageId) (((PageId) << 12) | (UsageId))
 
 ///
 /// @{
-#define APPLE_HID_USB_KB_KP_USGAE(UsbHidUsageIdKbKp) APPLE_HID_USAGE ((UsbHidUsageIdKbKp), AppleHidKeyboardKeypadPage)
-#define APPLE_HID_KP_SCAN_USAGE(UsbHidUsageIdKbKp)   APPLE_HID_USAGE ((UsbHidUsageIdKbKp), AppleHidUsbKbUsageKeypadScanPage)
-#define APPLE_HID_REMOTE_USAGE(AppleRemoteUsageId)   APPLE_HID_USAGE ((AppleRemoteUsageId), AppleHidRemotePage)
+#define APPLE_HID_USB_KB_KP_USGAE(UsbHidUsageIdKbKp) APPLE_HID_GENERIC_USAGE ((UsbHidUsageIdKbKp), AppleHidKeyboardKeypadPage)
+#define APPLE_HID_KP_SCAN_USAGE(UsbHidUsageIdKbKp)   APPLE_HID_GENERIC_USAGE ((UsbHidUsageIdKbKp), AppleHidUsbKbUsageKeypadScanPage)
+#define APPLE_HID_REMOTE_USAGE(AppleRemoteUsageId)   APPLE_HID_GENERIC_USAGE ((AppleRemoteUsageId), AppleHidRemotePage)
 /// @}
 
 // IS_APPLE_KEY_LETTER
@@ -292,4 +292,4 @@ enum _APPLE_HID_USB_KB_USAGE {
 // APPLE_KEY
 typedef APPLE_HID_USAGE APPLE_KEY;
 
-#endif // ifndef _APPLE_HID_TYPES_H_
+#endif // ifndef __APPLE_HID_TYPES_H__

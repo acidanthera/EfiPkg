@@ -1,7 +1,7 @@
 // 13/10/2015
 
-#ifndef _EFI_KEYBOARD_INFO_H_
-#define _EFI_KEYBOARD_INFO_H_
+#ifndef __EFI_KEYBOARD_INFO_H__
+#define __EFI_KEYBOARD_INFO_H__
 
 // EFI_KEYBOARD_INFO_PROTOCOL_GUID
 #define EFI_KEYBOARD_INFO_PROTOCOL_GUID \
@@ -11,9 +11,9 @@
 typedef
 EFI_STATUS
 (EFIAPI *GET_KEYBOARD_INFO)(
-  OUT UINT16 *IdVendor,
-  OUT UINT16 *IdProduct,
-  OUT UINT8  *CountryCode
+  OUT UINT16  *IdVendor,
+  OUT UINT16  *IdProduct,
+  OUT UINT8   *CountryCode
   );
 
 // EFI_KEYBOARD_INFO_PROTOCOL
@@ -24,4 +24,4 @@ typedef struct _EFI_KEYBOARD_INFO_PROTOCOL {
 // gEfiKeyboardInfoProtocolGuid
 extern EFI_GUID gEfiKeyboardInfoProtocolGuid;
 
-#endif // ifndef _EFI_KEYBOARD_INFO_H_
+#endif // ifndef __EFI_KEYBOARD_INFO_H__

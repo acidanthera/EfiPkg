@@ -16,8 +16,8 @@
 //   Decompiled by Download-Fritz
 //
 
-#ifndef _APPLE_KEY_MAP_AGGREGATOR_H_
-#define _APPLE_KEY_MAP_AGGREGATOR_H_
+#ifndef __APPLE_KEY_MAP_AGGREGATOR_H__
+#define __APPLE_KEY_MAP_AGGREGATOR_H__
 
 // APPLE_KEY_MAP_AGGREGATOR_PROTOCOL_GUID
 /// The GUID of the APPLE_KEY_MAP_AGGREGATOR_PROTOCOL.
@@ -83,4 +83,4 @@ struct _APPLE_KEY_MAP_AGGREGATOR_PROTOCOL {
 /// A global variable storing the GUID of the APPLE_KEY_MAP_AGGREGATOR_PROTOCOL.
 extern EFI_GUID gAppleKeyMapAggregatorProtocolGuid;
 
-#endif // ifndef _APPLE_KEY_MAP_AGGREGATOR_H_
+#endif // ifndef __APPLE_KEY_MAP_AGGREGATOR_H__

@@ -1,5 +1,5 @@
-#ifndef _APPLE_NEC_H_
-#define _APPLE_NEC_H_
+#ifndef __APPLE_NEC_H__
+#define __APPLE_NEC_H__
 
 // https://en.wikipedia.org/wiki/Apple_Remote#Technical_details
 
@@ -56,4 +56,4 @@ typedef struct _APPLE_REMOTE_DATA_PACKAGE {
 
 #pragma pack()
 
-#endif // ifndef _APPLE_NEC_H_
+#endif // ifndef __APPLE_NEC_H__

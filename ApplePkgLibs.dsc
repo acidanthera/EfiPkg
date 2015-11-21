@@ -1,9 +1,0 @@
-  EdkCompatibilityPkg/Foundation/Framework/Guid/EdkFrameworkGuidLib.inf
-  EdkCompatibilityPkg/Foundation/Guid/EdkGuidLib.inf
-  EdkCompatibilityPkg/Foundation/Efi/Protocol/EfiProtocolLib.inf
-  EdkCompatibilityPkg/Foundation/Framework/Protocol/EdkFrameworkProtocolLib.inf
-  EdkCompatibilityPkg/Foundation/Protocol/EdkProtocolLib.inf
-  EdkCompatibilityPkg/Foundation/Core/Dxe/ArchProtocol/ArchProtocolLib.inf
-  EdkCompatibilityPkg/Foundation/Efi/Guid/EfiGuidLib.inf
-  EdkCompatibilityPkg/Foundation/Cpu/Pentium/CpuIA32Lib/CpuIA32Lib_Edk2.inf
-  EdkCompatibilityPkg/Foundation/Library/CompilerStub/CompilerStubLib_Edk2.inf

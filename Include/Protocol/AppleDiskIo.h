@@ -1,5 +1,13 @@
-#ifndef _APPLE_DISK_IO_H_
-#define _APPLE_DISK_IO_H_
+//******************************************************************** 
+//	created:	15:9:2012   23:53 
+//	filename: 	AppleDiskIo.h 
+//	author:		tiamo 
+//	purpose:	apple disk io protocol 
+//******************************************************************** 
+
+
+#ifndef __APPLE_DISK_IO_H__
+#define __APPLE_DISK_IO_H__
 
 // APPLE_DISK_IO_PROTOCOL_GUID
 #define APPLE_DISK_IO_PROTOCOL_GUID \
@@ -34,4 +42,4 @@ struct _APPLE_DISK_IO_PROTOCOL {
 // gAppleDiskIoProtocolGuid
 extern EFI_GUID gAppleDiskIoProtocolGuid;
 
-#endif // ifndef _APPLE_DISK_IO_H_
+#endif // ifndef __APPLE_DISK_IO_H__

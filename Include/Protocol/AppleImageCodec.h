@@ -8,10 +8,10 @@
 //         to UINT32 from UINTN to get it working in 64 bit
 //********************************************************************
 
-#ifndef _APPLE_IMAGE_CODEC_H_
-#define _APPLE_IMAGE_CODEC_H_
+#ifndef __APPLE_IMAGE_CODEC_H__
+#define __APPLE_IMAGE_CODEC_H__
 
-#include EFI_PROTOCOL_CONSUMER (UgaDraw)
+#include <Protocol/UgaDraw/UgaDraw.h>
 
 // APPLE_IMAGE_CODEC_PROTOCOL_GUID
 #define APPLE_IMAGE_CODEC_PROTOCOL_GUID \
@@ -57,4 +57,4 @@ typedef struct _APPLE_IMAGE_CODEC_PROTOCOL {
 // gAppleImageCodecProtocolGuid
 extern EFI_GUID gAppleImageCodecProtocolGuid;
 
-#endif // ifndef _APPLE_IMAGE_CODEC_H_
+#endif // ifndef __APPLE_IMAGE_CODEC_H__

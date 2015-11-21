@@ -18,26 +18,26 @@
 //   Decompiled by Download-Fritz
 //
 
-#ifndef _APPLE_KEY_MAP_LIB_H_
-#define _APPLE_KEY_MAP_LIB_H_
+#ifndef __APPLE_KEY_MAP_LIB_H__
+#define __APPLE_KEY_MAP_LIB_H__
 
 // _APPLE_KEY_DESCRIPTOR
 typedef struct _APPLE_KEY_DESCRIPTOR {
-	APPLE_KEY     AppleKey;         ///< The Apple key identifier identifying the key.
-	EFI_INPUT_KEY InputKey;         ///< 
-	EFI_INPUT_KEY ShiftedInputKey;  ///< 
+  APPLE_KEY     AppleKey;         ///< The Apple key identifier identifying the key.
+  EFI_INPUT_KEY InputKey;         ///< 
+  EFI_INPUT_KEY ShiftedInputKey;  ///< 
 } APPLE_KEY_DESCRIPTOR;
 
 // InputKeyFromAppleKey
 VOID
 InputKeyFromAppleKey (
-	IN     APPLE_KEY      AppleKey,
-	   OUT EFI_INPUT_KEY  *InputKey,
-	IN     BOOLEAN        Shifted
-	);
+  IN  APPLE_KEY      AppleKey,
+  OUT EFI_INPUT_KEY  *InputKey,
+  IN  BOOLEAN        Shifted
+  );
 
 // gAppleHidUsbKbKeyMap
 /// The default United States key map for Apple keyboards.
 extern APPLE_KEY_DESCRIPTOR gAppleKeyMap[91];
 
-#endif // ifndef _APPLE_KEY_MAP_LIB_H_
+#endif // ifndef __APPLE_KEY_MAP_LIB_H__

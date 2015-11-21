@@ -1,5 +1,13 @@
-#ifndef _APPLE_NET_BOOT_H_
-#define _APPLE_NET_BOOT_H_
+//******************************************************************** 
+//	created:	21:8:2012   22:43 
+//	filename: 	AppleNetBoot.h 
+//	author:		tiamo 
+//	purpose:	apple net boot 
+//******************************************************************** 
+
+
+#ifndef __APPLE_NET_BOOT_H__
+#define __APPLE_NET_BOOT_H__
 
 // APPLE_NET_BOOT_PROTOCOL_GUID
 #define APPLE_NET_BOOT_PROTOCOL_GUID \
@@ -11,18 +19,18 @@ FORWARD_DECLARATION (APPLE_NET_BOOT_PROTOCOL);
 typedef
 EFI_STATUS
 (EFIAPI *GET_DHCP_RESPONSE)(
-  APPLE_NET_BOOT_PROTOCOL  *This,
-  UINTN                    *BufferSize,
-  VOID                     *DataBuffer
+  IN  APPLE_NET_BOOT_PROTOCOL  *This,
+  OUT UINTN                    *BufferSize,
+  OUT VOID                     *DataBuffer
   );
 
 // GET_BSDP_RESPONSE
 typedef
 EFI_STATUS
 (EFIAPI *GET_BSDP_RESPONSE)(
-  APPLE_NET_BOOT_PROTOCOL  *This,
-  UINTN                    *BufferSize,
-  VOID                     *DataBuffer
+  IN  APPLE_NET_BOOT_PROTOCOL  *This,
+  OUT UINTN                    *BufferSize,
+  OUT VOID                     *DataBuffer
   );
 
 // _APPLE_NET_BOOT_PROTOCOL
@@ -34,4 +42,4 @@ struct _APPLE_NET_BOOT_PROTOCOL {
 // gAppleNetBootProtocolGuid
 extern EFI_GUID gAppleNetBootProtocolGuid;
 
-#endif // ifndef _APPLE_NET_BOOT_H_
+#endif // ifndef __APPLE_NET_BOOT_H__

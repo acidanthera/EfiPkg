@@ -1,13 +1,11 @@
+// 18/07/2015
+
 ///
 /// @file AppleEfiSpec.h
 ///
 
-#ifndef _APPLE_EFI_SPEC_H_
-#define _APPLE_EFI_SPEC_H_
-
-#define EFI_SPECIFICATION_VERSION  0x0001000A
-#define PI_SPECIFICATION_VERSION   0x00000009
-#define TIANO_RELEASE_VERSION      0x00080006
+#ifndef __APPLE_EFI_SPEC_H__
+#define __APPLE_EFI_SPEC_H__
 
 #include <Tiano.h>
 #include <AppleCpuType.h>
@@ -83,4 +81,4 @@
 /// The default location of the property list identifying the OS version
 #define APPLE_SYSTEM_VERSION_FILE_NAME  L"\\System\\Library\\CoreServices\\SystemVersion.plist"
 
-#endif // ifndef _APPLE_EFI_SPEC_H_
+#endif // ifndef __APPLE_EFI_SPEC_H__

@@ -5,10 +5,8 @@
 //	purpose:	graph info
 //********************************************************************
 
-// DEPRECATED IN FAVOR OF GOP
-
-#ifndef _APPLE_FRAMEBUFFER_INFO_H_
-#define _APPLE_FRAMEBUFFER_INFO_H_
+#ifndef __APPLE_FRAMEBUFFER_INFO_H__
+#define __APPLE_FRAMEBUFFER_INFO_H__
 
 // APPLE_FRAMEBUFFER_INFO_PROTOCOL_GUID
 #define APPLE_FRAMEBUFFER_INFO_PROTOCOL_GUID \
@@ -20,13 +18,13 @@ FORWARD_DECLARATION (APPLE_FRAMEBUFFER_INFO_PROTOCOL);
 typedef
 EFI_STATUS
 (EFIAPI *GET_INFO)(
-  APPLE_FRAMEBUFFER_INFO_PROTOCOL  *This,
-  UINT64                           *BaseAddress,
-  UINT64                           *FrameBufferSize,
-  UINT32                           *ByterPerRow,
-  UINT32                           *Width,
-  UINT32                           *Height,
-  UINT32                           *ColorDepth
+  IN  APPLE_FRAMEBUFFER_INFO_PROTOCOL  *This,
+  OUT UINT64                           *BaseAddress,
+  OUT UINT64                           *FrameBufferSize,
+  OUT UINT32                           *ByterPerRow,
+  OUT UINT32                           *Width,
+  OUT UINT32                           *Height,
+  OUT UINT32                           *ColorDepth
   );
 
 // _APPLE_FRAMEBUFFER_INFO_PROTOCOL
@@ -37,4 +35,4 @@ struct _APPLE_FRAMEBUFFER_INFO_PROTOCOL {
 // gAppleFramebufferInfoProtocolGuid
 extern EFI_GUID gAppleFramebufferInfoProtocolGuid;
 
-#endif // ifndef _APPLE_FRAMEBUFFER_INFO_H_
+#endif // ifndef __APPLE_FRAMEBUFFER_INFO_H__

@@ -1,5 +1,5 @@
-#ifndef _APPLE_BOOT_BEEP_GEN_H_
-#define _APPLE_BOOT_BEEP_GEN_H_
+#ifndef __APPLE_BOOT_BEEP_GEN_H__
+#define __APPLE_BOOT_BEEP_GEN_H__
 
 // APPLE_BOOT_BEEP_GEN_PROTOCOL_GUID
 #define APPLE_BOOT_BEEP_GEN_PROTOCOL_GUID \
@@ -22,4 +22,4 @@ typedef struct _APPLE_BOOT_BEEP_GEN_PROTOCOL {
 // gAppleBootBeepGenProtocolGuid
 extern EFI_GUID gAppleBootBeepGenProtocolGuid;
 
-#endif // ifndef _APPLE_BOOT_BEEP_GEN_H_
+#endif // ifndef __APPLE_BOOT_BEEP_GEN_H__

@@ -45,7 +45,7 @@ GetAppleKeyStrokes (
 						Status = mAppleKeyMapAggregator->GetKeyStrokes (mAppleKeyMapAggregator, Modifiers, NoKeys, *Keys);
 
 						if (EFI_ERROR (Status)) {
-							gBS->FreePool (*Keys);
+							gBS->FreePool ((VOID *)*Keys);
 
 							*Keys   = NULL;
 							*NoKeys = 0;
@@ -67,14 +67,14 @@ GetModifierStrokes (
 {
 	APPLE_MODIFIER_MAP Modifiers;
 
-	EFI_STATUS           Status;
-	UINTN                NoKeys;
-	APPLE_KEY            *Keys;
+	EFI_STATUS         Status;
+	UINTN              NoKeys;
+	APPLE_KEY          *Keys;
 
 	Status = GetAppleKeyStrokes (&Modifiers, &NoKeys, &Keys);
 
 	if (!EFI_ERROR (Status)) {
-		gBS->FreePool (Keys);
+		gBS->FreePool ((VOID *)Keys);
 	} else {
 		Modifiers = 0;
 	}

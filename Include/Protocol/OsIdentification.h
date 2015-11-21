@@ -1,13 +1,11 @@
-#ifndef _APPLE_OS_IDENTIFICATION_H_
-#define _APPLE_OS_IDENTIFICATION_H_
+// 18/07/2015
+
+#ifndef __EFI_OS_IDENTIFICATION_H__
+#define __EFI_OS_IDENTIFICATION_H__
 
 // EFI_OS_IDENTIFICATION_PROTOCOL_GUID
 #define EFI_OS_IDENTIFICATION_PROTOCOL_GUID \
   { 0xC5C5DA95, 0x7D5C, 0x45E6, { 0xB2, 0xF1, 0x3F, 0xD5, 0x2B, 0xB1, 0x00, 0x77 } }
-
-// APPLE_OS_LOADED_EVENT_NAME
-#define APPLE_OS_LOADED_EVENT_NAME_GUID \
-  { 0xC5C5DA95, 0x7D5C, 0x45E6, { 0x83, 0x72, 0x89, 0xBD, 0x52, 0x6D, 0xE9, 0x56 } }
 
 // SET_OS_VENDOR
 typedef
@@ -33,7 +31,4 @@ typedef struct _EFI_OS_IDENTIFICATION_PROTOCOL {
 // gEfiOsIdentificationProtocolGuid
 EFI_GUID gEfiOsIdentificationProtocolGuid;
 
-// gAppleOsLoadedNamedEventGuid
-EFI_GUID gAppleOsLoadedNamedEventGuid;
-
-#endif // ifndef _APPLE_OS_IDENTIFICATION_H_
+#endif // ifndef __EFI_OS_IDENTIFICATION_H__

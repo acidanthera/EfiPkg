@@ -17,8 +17,8 @@
 //   Decompiled by Download-Fritz
 //
 
-#ifndef _DEVICE_PATH_PROPERTY_DATABASE_H_
-#define _DEVICE_PATH_PROPERTY_DATABASE_H_
+#ifndef __DEVICE_PATH_PROPERTY_DATABASE_H__
+#define __DEVICE_PATH_PROPERTY_DATABASE_H__
 
 //
 // Related definitions
@@ -87,7 +87,7 @@ EFI_STATUS
   IN     EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL  *This,
   IN     EFI_DEVICE_PATH_PROTOCOL                    *DevicePath,
   IN     CHAR16                                      *Name,
-     OUT VOID                                        *Value,
+  OUT    VOID                                        *Value,
   IN OUT UINTN                                       *Size
   );
 
@@ -165,4 +165,4 @@ struct _EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL {
 /// A global variable storing the GUID of the EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL.
 extern EFI_GUID gEfiDevicePathPropertyDatabaseProtocolGuid;
 
-#endif // ifndef _DEVICE_PATH_PROPERTY_DATABASE_H_
+#endif // ifndef __DEVICE_PATH_PROPERTY_DATABASE_H__

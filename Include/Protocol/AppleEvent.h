@@ -1,5 +1,5 @@
-#ifndef _APPLE_EVENT_H_
-#define _APPLE_EVENT_H_
+#ifndef __APPLE_EVENT_H__
+#define __APPLE_EVENT_H__
 
 //
 // Related definitions
@@ -8,18 +8,18 @@
 // Apple Event Type
 ///@{
 #define APPLE_EVENT_TYPE_NONE                0
-#define APPLE_EVENT_TYPE_MOUSE_MOVED         BIT (4)
-#define APPLE_EVENT_TYPE_MOUSE_DOWN          BIT (4)
-#define APPLE_EVENT_TYPE_MOUSE_UP            BIT (4)
-#define APPLE_EVENT_TYPE_MOUSE_CLICK         BIT (4)
+#define APPLE_EVENT_TYPE_MOUSE_MOVED         BIT (0)
+#define APPLE_EVENT_TYPE_MOUSE_DOWN          BIT (1)
+#define APPLE_EVENT_TYPE_MOUSE_UP            BIT (2)
+#define APPLE_EVENT_TYPE_MOUSE_CLICK         BIT (3)
 #define APPLE_EVENT_TYPE_MOUSE_DOUBLE_CLICK  BIT (4)
-#define APPLE_EVENT_TYPE_LEFT_BUTTON         BIT (4)
-#define APPLE_EVENT_TYPE_RIGHT_BUTTON        BIT (4)
-#define APPLE_EVENT_TYPE_RESERVED_BUTTON     BIT (4)
-#define APPLE_EVENT_TYPE_KEY_DOWN            BIT (4)
-#define APPLE_EVENT_TYPE_KEY_UP              BIT (4)
-#define APPLE_EVENT_TYPE_MODIFIER_DOWN       BIT (4)
-#define APPLE_EVENT_TYPE_MODIFIER_UP         BIT (4)
+#define APPLE_EVENT_TYPE_LEFT_BUTTON         BIT (5)
+#define APPLE_EVENT_TYPE_RIGHT_BUTTON        BIT (6)
+#define APPLE_EVENT_TYPE_RESERVED_BUTTON     BIT (7)
+#define APPLE_EVENT_TYPE_KEY_DOWN            BIT (8)
+#define APPLE_EVENT_TYPE_KEY_UP              BIT (9)
+#define APPLE_EVENT_TYPE_MODIFIER_DOWN       BIT (10)
+#define APPLE_EVENT_TYPE_MODIFIER_UP         BIT (11)
 ///@}
 
 #define APPLE_CLICK_MOUSE_EVENTS   (APPLE_EVENT_TYPE_MOUSE_DOWN | APPLE_EVENT_TYPE_MOUSE_UP | APPLE_EVENT_TYPE_MOUSE_CLICK | APPLE_EVENT_TYPE_LEFT_BUTTON | APPLE_EVENT_TYPE_RIGHT_BUTTON)
@@ -61,13 +61,13 @@ typedef struct _DIMENSION {
 // _APPLE_EVENT_QUERY_INFORMATION
 typedef struct _APPLE_EVENT_QUERY_INFORMATION {
   struct {
-    UINT16           Year;
-    UINT8            Month;
-    UINT8            Day;
-    UINT8            Hour;
-    UINT8            Minute;
-    UINT8            Second;
-    UINT8            Pad1;
+    UINT16 Year;
+    UINT8  Month;
+    UINT8  Day;
+    UINT8  Hour;
+    UINT8  Minute;
+    UINT8  Second;
+    UINT8  Pad1;
   }                  CreationTime;
   APPLE_EVENT_TYPE   EventType;
   APPLE_EVENT_DATA   EventData;
@@ -155,4 +155,4 @@ typedef struct _APPLE_EVENT_PROTOCOL {
 // gAppleEventProtocolGuid
 extern EFI_GUID gAppleEventProtocolGuid;
 
-#endif // ifndef _APPLE_EVENT_H_
+#endif // ifndef __APPLE_EVENT_H__

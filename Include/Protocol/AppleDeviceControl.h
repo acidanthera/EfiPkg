@@ -5,8 +5,8 @@
 //	purpose:	apple device control
 //********************************************************************
 
-#ifndef _APPLE_DEVICE_CONTROL_H_
-#define _APPLE_DEVICE_CONTROL_H_
+#ifndef __APPLE_DEVICE_CONTROL_H__
+#define __APPLE_DEVICE_CONTROL_H__
 
 // APPLE_DEVICE_CONTROL_PROTOCOL_GUID
 #define APPLE_DEVICE_CONTROL_PROTOCOL_GUID \
@@ -37,7 +37,7 @@ typedef struct _APPLE_DEVICE_CONTROL_PROTOCOL {
 // gAppleDeviceControlProtocolGuid
 extern EFI_GUID gAppleDeviceControlProtocolGuid;
 
-#endif // ifndef _APPLE_DEVICE_CONTROL_H_
+#endif // ifndef __APPLE_DEVICE_CONTROL_H__
 
 //********************************************************************
 //	created:	28:8:2012   18:15
@@ -46,7 +46,7 @@ extern EFI_GUID gAppleDeviceControlProtocolGuid;
 //	purpose:	graph config
 //********************************************************************
 
-#ifndef _APPLE_DEVICE_CONTROL_H_
+#ifndef __APPLE_DEVICE_CONTROL_H__
 #define _APPLE_DEVICE_CONTROL_H_
 
 // APPLE_DEVICE_CONTROL_PROTOCOL_GUID
@@ -76,4 +76,4 @@ struct _APPLE_DEVICE_CONTROL_PROTOCOL {
 // gAppleDeviceControlProtocolGuid
 extern EFI_GUID gAppleDeviceControlProtocolGuid;
 
-#endif // ifndef _APPLE_DEVICE_CONTROL_H_
+#endif // ifndef __APPLE_DEVICE_CONTROL_H__

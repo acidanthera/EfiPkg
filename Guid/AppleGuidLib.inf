@@ -17,3 +17,5 @@
   AppleNvram/AppleNvram.c
   ../Include/Guid/AppleSystemInfo.h
   AppleSystemInfo/AppleSystemInfo.c
+  ../Include/Guid/AppleOsLoaded.h
+  AppleOsLoaded/AppleOsLoaded.c

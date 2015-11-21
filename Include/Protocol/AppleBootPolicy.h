@@ -19,8 +19,8 @@
 //   Decompiled by Download-Fritz
 //
 
-#ifndef _APPLE_BOOT_POLICY_H_
-#define _APPLE_BOOT_POLICY_H_
+#ifndef __APPLE_BOOT_POLICY_H__
+#define __APPLE_BOOT_POLICY_H__
 
 // APPLE_BOOT_POLICY_PROTOCOL_GUID
 /// The GUID of the APPLE_BOOT_POLICY_PROTOCOL.
@@ -60,4 +60,4 @@ typedef struct _APPLE_BOOT_POLICY_PROTOCOL {
 /// A global variable storing the GUID of the APPLE_BOOT_POLICY_PROTOCOL.
 extern EFI_GUID gAppleBootPolicyProtocolGuid;
 
-#endif // ifndef _APPLE_BOOT_POLICY_H_
+#endif // ifndef __APPLE_BOOT_POLICY_H__

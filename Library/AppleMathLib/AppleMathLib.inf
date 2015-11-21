@@ -1,0 +1,31 @@
+## @file
+#
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = AppleMathLib
+  FILE_GUID                      = 822D4BAD-CEBF-4984-9539-68BE8EFE988E
+  MODULE_TYPE                    = BASE
+  LIBRARY_CLASS                  = AppleMathLib 
+
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC ARM AARCH64
+#
+
+[Sources]
+  DivS64x64.c
+
+[Sources.X64, Sources.IPF, Sources.EBC, Sources.ARM, Sources.AARCH64]
+  Common/DivS64x64.c
+
+[Sources.Ia32]
+  Ia32/DivS64x64.c
+  Ia32/DivU64x64.asm | MSFT
+  Ia32/DivU64x64.asm | INTEL 
+  Ia32/DivU64x64.S   | GCC 
+
+[Packages]
+  ApplePkg/ApplePkg.dec
+  EdkBridgePkg/EdkBridgePkg.dec
