@@ -1,20 +1,25 @@
+//
+// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+//
+// This program and the accompanying materials have not been licensed.
+// Neither is its usage, its redistribution, in source or binary form,
+// licensed, nor implicitely or explicitely permitted, except when
+// required by applicable law.
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+// OR CONDITIONS OF ANY KIND, either express or implied.
+//
+
 ///
-/// @file      Protocol/AppleKeyMapAggregator/AppleKeyMapAggregator.h
+/// @file      Include/Protocol/AppleKeyMapAggregator.h
 ///
 ///            The Apple protocol to output the pressed keys during the boot process.
 ///
 /// @author    Download-Fritz
 /// @date      15/03/2015: Initial version
-/// @copyright The decompilation is of an educational purpose to better understand the behavior of the
-///            Apple EFI implementation and making use of it. In no way is the content's usage licensed
-///            or allowed. All rights remain at Apple Inc. To be used under the terms of 'Fair use'.
+/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
 ///
-
-//
-// CREDITS:
-//   Reversed from AppleKeyMapAggregator.efi and AppleEvent.efi, which are Apple Inc. property
-//   Decompiled by Download-Fritz
-//
 
 #ifndef __APPLE_KEY_MAP_AGGREGATOR_H__
 #define __APPLE_KEY_MAP_AGGREGATOR_H__
@@ -26,7 +31,7 @@
 
 FORWARD_DECLARATION (APPLE_KEY_MAP_AGGREGATOR_PROTOCOL);
 
-// GET_KEY_STROKES
+// KEY_MAP_GET_KEY_STROKES
 /// Returns all pressed keys and key modifiers into the appropiate buffers.
 ///
 /// @param[in]  This      A pointer to the protocol instance.
@@ -38,18 +43,19 @@ FORWARD_DECLARATION (APPLE_KEY_MAP_AGGREGATOR_PROTOCOL);
 /// @return                      Returned is the status of the operation.
 /// @retval EFI_SUCCESS          The pressed keys have been returned into Keys.
 /// @retval EFI_BUFFER_TOO_SMALL The memory required to return the value exceeds the size of the allocated buffer.
-///                              The required number of keys to allocate to complete the operation has been returned into NoKeys.
+///                              The required number of keys to allocate to complete the operation has been returned
+///                              into NoKeys.
 /// @retval other                An error returned by a sub-operation.
 typedef
 EFI_STATUS
-(EFIAPI *GET_KEY_STROKES)(
+(EFIAPI *KEY_MAP_GET_KEY_STROKES)(
   IN  APPLE_KEY_MAP_AGGREGATOR_PROTOCOL  *This,
   OUT APPLE_MODIFIER_MAP                 *Modifiers,
   OUT UINTN                              *NoKeys,
   OUT APPLE_KEY                          *Keys
   );
 
-// CONTAINS_KEY_STROKES
+// KEY_MAP_CONTAINS_KEY_STROKES
 /// Returns whether or not a list of keys and their modifiers are part of the database of pressed keys.
 ///
 /// @param[in]      This       A pointer to the protocol instance.
@@ -58,12 +64,13 @@ EFI_STATUS
 /// @param[in, out] Keys       The list of keys to check for. The children may be sorted in the process.
 /// @param[in]      ExactMatch Specifies whether Modifiers and Keys should be exact matches or just contained.
 ///
-/// @return               Returns whether or not a list of keys and their modifiers are part of the database of pressed keys.
+/// @return               Returns whether or not a list of keys and their modifiers are part of the database of pressed
+///                       keys.
 /// @retval EFI_SUCCESS   The queried keys are part of the database.
 /// @retval EFI_NOT_FOUND The queried keys could not be found.
 typedef
 EFI_STATUS
-(EFIAPI *CONTAINS_KEY_STROKES)(
+(EFIAPI *KEY_MAP_CONTAINS_KEY_STROKES)(
   IN     APPLE_KEY_MAP_AGGREGATOR_PROTOCOL  *This,
   IN     APPLE_MODIFIER_MAP                 Modifiers,
   IN     UINTN                              NoKeys,
@@ -74,9 +81,9 @@ EFI_STATUS
 // _APPLE_KEY_MAP_AGGREGATOR_PROTOCOL
 /// The structure exposed by the APPLE_KEY_MAP_AGGREGATOR_PROTOCOL.
 struct _APPLE_KEY_MAP_AGGREGATOR_PROTOCOL {
-  UINTN                Revision;            ///< The revision of the installed protocol.
-  GET_KEY_STROKES      GetKeyStrokes;       ///< A pointer to the AppleKeyMapGetKeyStrokesImpl function.
-  CONTAINS_KEY_STROKES ContainsKeyStrokes;  ///< A pointer to the ContainsKeyStrokes function.
+  UINTN                        Revision;            ///< The revision of the installed protocol.
+  KEY_MAP_GET_KEY_STROKES      GetKeyStrokes;       ///< A pointer to the AppleKeyMapGetKeyStrokesImpl function.
+  KEY_MAP_CONTAINS_KEY_STROKES ContainsKeyStrokes;  ///< A pointer to the ContainsKeyStrokes function.
 };
 
 // gAppleKeyMapAggregatorProtocolGuid

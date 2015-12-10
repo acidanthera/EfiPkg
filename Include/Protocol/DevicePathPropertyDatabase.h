@@ -1,21 +1,26 @@
+//
+// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+//
+// This program and the accompanying materials have not been licensed.
+// Neither is its usage, its redistribution, in source or binary form,
+// licensed, nor implicitely or explicitely permitted, except when
+// required by applicable law.
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+// OR CONDITIONS OF ANY KIND, either express or implied.
+//
+
 ///
-/// @file      Protocol/DevicePathPropertyDatabase/DevicePathPropertyDatabase.h
+/// @file      Include/Protocol/DevicePathPropertyDatabase.h
 ///
 ///            Apple protocol to manage Device Properties from firmware.
 ///
 /// @author    Download-Fritz
 /// @date      23/02/2015: Initial version
 /// @date      15/03/2015: Updated documentation
-/// @copyright The decompilation is of an educational purpose to better understand the behavior of the
-///            Apple EFI implementation and making use of it. In no way is the content's usage licensed
-///            or allowed. All rights remain at Apple Inc. To be used under the terms of 'Fair use'.
+/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
 ///
-
-//
-// CREDITS:
-//   Reversed from EfiDevicePathPropertyDatabase.efi, which is Apple Inc. property
-//   Decompiled by Download-Fritz
-//
 
 #ifndef __DEVICE_PATH_PROPERTY_DATABASE_H__
 #define __DEVICE_PATH_PROPERTY_DATABASE_H__
@@ -29,8 +34,8 @@
 typedef struct _DEVICE_PATH_PROPERTY_DATA {
   struct {
     UINT32 Size;  ///< The size, in bytes, of the current data set.
-  }     Hdr;
-  UINT8 Data;     ///< The begin of the data.
+  }     Hdr;  ///< 
+  UINT8 Data; ///< The begin of the data.
 } EFI_DEVICE_PATH_PROPERTY_DATA;
 
 // _DEVICE_PATH_PROPERTY_BUFFER_NODE
@@ -39,9 +44,9 @@ typedef struct _DEVICE_PATH_PROPERTY_BUFFER_NODE {
   struct {
     UINT32                       Size;          ///< The size, in bytes, of the entire node.
     UINT32                       NoProperties;  ///< The number of properties within the node.
-  }                              Hdr;           ///< The node header structure.
-  EFI_DEVICE_PATH_PROTOCOL       DevicePath;    ///< The device path for the current node.
-// EFI_DEVICE_PATH_PROPERTY_DATA Data;          ///< The begin of the Device Property data set.
+  }                              Hdr;         ///< The node header structure.
+  EFI_DEVICE_PATH_PROTOCOL       DevicePath;  ///< The device path for the current node.
+// EFI_DEVICE_PATH_PROPERTY_DATA Data;        ///< The begin of the Device Property data set.
 } EFI_DEVICE_PATH_PROPERTY_BUFFER_NODE;
 
 // _DEVICE_PATH_PROPERTY_BUFFER
@@ -51,8 +56,8 @@ typedef struct _DEVICE_PATH_PROPERTY_BUFFER {
     UINT32                             Size;     ///< The size, in bytes, of the entire buffer.
     UINT32                             MustBe1;  ///< Must be 1.
     UINT32                             NoNodes;  ///< The number of nodes in the buffer.
-  }                                    Hdr;      ///< The buffer header structure.
-  EFI_DEVICE_PATH_PROPERTY_BUFFER_NODE Node;     ///< The first node in the buffer.
+  }                                    Hdr;   ///< The buffer header structure.
+  EFI_DEVICE_PATH_PROPERTY_BUFFER_NODE Node;  ///< The first node in the buffer.
 } EFI_DEVICE_PATH_PROPERTY_BUFFER;
 
 //
@@ -66,7 +71,7 @@ typedef struct _DEVICE_PATH_PROPERTY_BUFFER {
 
 FORWARD_DECLARATION (EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL);
 
-// GET_EFI_DEVICE_PATH_PROPERTY_VALUE
+// DPP_DATABASE_GET_PROPERTY_VALUE
 /// Locates a device property in the database and returns its value into Value.
 ///
 /// @param[in]      This       A pointer to the protocol instance.
@@ -83,7 +88,7 @@ FORWARD_DECLARATION (EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL);
 /// @retval EFI_SUCCESS          The operation completed successfully.
 typedef
 EFI_STATUS
-(EFIAPI *GET_EFI_DEVICE_PATH_PROPERTY_VALUE)(
+(EFIAPI *DPP_DATABASE_GET_PROPERTY_VALUE)(
   IN     EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL  *This,
   IN     EFI_DEVICE_PATH_PROTOCOL                    *DevicePath,
   IN     CHAR16                                      *Name,
@@ -91,7 +96,7 @@ EFI_STATUS
   IN OUT UINTN                                       *Size
   );
 
-// SET_EFI_DEVICE_PATH_PROPERTY
+// DPP_DATABASE_SET_PROPERTY
 /// Sets the sepcified property of the given device path to the provided Value.
 ///
 /// @param[in]  This       A pointer to the protocol instance.
@@ -105,7 +110,7 @@ EFI_STATUS
 /// @retval EFI_SUCCESS          The operation completed successfully.
 typedef
 EFI_STATUS
-(EFIAPI *SET_EFI_DEVICE_PATH_PROPERTY)(
+(EFIAPI *DPP_DATABASE_SET_PROPERTY)(
   IN EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL  *This,
   IN EFI_DEVICE_PATH_PROTOCOL                    *DevicePath,
   IN CHAR16                                      *Name,
@@ -113,7 +118,7 @@ EFI_STATUS
   IN UINTN                                       Size
   );
 
-// REMOVE_EFI_DEVICE_PATH_PROPERTY
+// DPP_DATABASE_REMOVE_PROPERTY
 /// Removes the sepcified property from the given device path.
 ///
 /// @param[in] This       A pointer to the protocol instance.
@@ -125,13 +130,13 @@ EFI_STATUS
 /// @retval EFI_SUCCESS   The operation completed successfully.
 typedef
 EFI_STATUS
-(EFIAPI *REMOVE_EFI_DEVICE_PATH_PROPERTY)(
+(EFIAPI *DPP_DATABASE_REMOVE_PROPERTY)(
   IN EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL  *This,
   IN EFI_DEVICE_PATH_PROTOCOL                    *DevicePath,
   IN CHAR16                                      *Name
   );
 
-// GET_EFI_DEVICE_PATH_PROPERTY_BUFFER
+// DPP_DATABASE_GET_PROPERTY_BUFFER
 /// Returns a buffer of all device properties into Buffer.
 ///
 /// @param[in]      This   A pointer to the protocol instance.
@@ -145,7 +150,7 @@ EFI_STATUS
 /// @retval EFI_SUCCESS          The operation completed successfully.
 typedef
 EFI_STATUS
-(EFIAPI *GET_EFI_DEVICE_PATH_PROPERTY_BUFFER)(
+(EFIAPI *DPP_DATABASE_GET_PROPERTY_BUFFER)(
   IN     EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL  *This,
   OUT    EFI_DEVICE_PATH_PROPERTY_BUFFER             *Buffer,
   IN OUT UINTN                                       *Size
@@ -154,11 +159,20 @@ EFI_STATUS
 // _EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL
 /// The structure exposed by the EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL.
 struct _EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL {
-  UINT64                              Revision;           ///< The revision of the installed protocol.
-  GET_EFI_DEVICE_PATH_PROPERTY_VALUE  DevicePathPropertyDbGetPropertyValue;   ///< Locates a device property in the database and returns its value into Value.
-  SET_EFI_DEVICE_PATH_PROPERTY        DevicePathPropertyDbSetProperty;        ///< Sets the sepcified property of the given device path to the provided Value.
-  REMOVE_EFI_DEVICE_PATH_PROPERTY     DevicePathPropertyDbRemoveProperty;     ///< Removes the sepcified property from the given device path.
-  GET_EFI_DEVICE_PATH_PROPERTY_BUFFER DevicePathPropertyDbGetPropertyBuffer;  ///< Returns a buffer of all device properties into Buffer.
+  /// The revision of the installed protocol.
+  UINT64                           Revision;
+
+  /// Locates a device property in the database and returns its value into Value.
+  DPP_DATABASE_GET_PROPERTY_VALUE  GetPropertyValue;
+
+  /// Sets the sepcified property of the given device path to the provided Value.
+  DPP_DATABASE_SET_PROPERTY        SetProperty;
+
+  /// Removes the sepcified property from the given device path.
+  DPP_DATABASE_REMOVE_PROPERTY     RemoveProperty;
+
+  /// Returns a buffer of all device properties into Buffer.
+  DPP_DATABASE_GET_PROPERTY_BUFFER GetPropertyBuffer;
 };
 
 // gEfiDevicePathPropertyDatabaseProtocolGuid

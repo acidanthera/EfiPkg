@@ -1,5 +1,28 @@
-#ifndef _APPLE_SYSTEM_INFO_H_
-#define _APPLE_SYSTEM_INFO_H_
+//
+// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+//
+// This program and the accompanying materials have not been licensed.
+// Neither is its usage, its redistribution, in source or binary form,
+// licensed, nor implicitely or explicitely permitted, except when
+// required by applicable law.
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+// OR CONDITIONS OF ANY KIND, either express or implied.
+//
+
+///
+/// @file      Include/Guid/AppleSystemInfo.h
+///
+///            
+///
+/// @author    Download-Fritz
+/// @date      
+/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+///
+
+#ifndef __APPLE_SYSTEM_INFO_H__
+#define __APPLE_SYSTEM_INFO_H__
 
 // APPLE_SYSTEM_INFO_PRODUCER_NAME_GUID
 #define APPLE_SYSTEM_INFO_PRODUCER_NAME_GUID \
@@ -7,12 +30,12 @@
 
 // _APPLE_SYSTEM_INFO_DATA_RECORD
 typedef struct _APPLE_SYSTEM_INFO_DATA_RECORD {
-  EFI_SUBCLASS_TYPE1_HEADER Header;
-  UINT32                    NameSize;
-  UINT32                    ValueSize;
+  EFI_SUBCLASS_TYPE1_HEADER Header;     ///< 
+  UINT32                    NameSize;   ///< 
+  UINT32                    ValueSize;  ///< 
 } APPLE_SYSTEM_INFO_DATA_RECORD;
 
 // gAppleSystemInfoProducerNameGuid
 extern EFI_GUID gAppleSystemInfoProducerNameGuid;
 
-#endif // ifndef _APPLE_SYSTEM_INFO_H_
+#endif // ifndef __APPLE_SYSTEM_INFO_H__

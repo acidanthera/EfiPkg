@@ -1,20 +1,25 @@
+//
+// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+//
+// This program and the accompanying materials have not been licensed.
+// Neither is its usage, its redistribution, in source or binary form,
+// licensed, nor implicitely or explicitely permitted, except when
+// required by applicable law.
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+// OR CONDITIONS OF ANY KIND, either express or implied.
+//
+
 ///
-/// @file      Protocol/AppleKeyMapDatabase/AppleKeyMapDatabase.h
+/// @file      Include/Protocol/AppleKeyMapDatabase.h
 ///
 ///            The Apple protocol to manage the database of pressed keys during the boot process.
 ///
 /// @author    Download-Fritz
 /// @date      15/03/2015: Initial version
-/// @copyright The decompilation is of an educational purpose to better understand the behavior of the
-///            Apple EFI implementation and making use of it. In no way is the content's usage licensed
-///            or allowed. All rights remain at Apple Inc. To be used under the terms of 'Fair use'.
+/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
 ///
-
-//
-// CREDITS:
-//   Reversed from AppleKeyMapAggregator.efi and AppleEvent.efi, which are Apple Inc. property
-//   Decompiled by Download-Fritz
-//
 
 #ifndef __APPLE_KEY_MAP_DATABASE_H__
 #define __APPLE_KEY_MAP_DATABASE_H__
@@ -26,7 +31,7 @@
 
 FORWARD_DECLARATION (APPLE_KEY_MAP_DATABASE_PROTOCOL);
 
-// CREATE_KEY_STROKES_BUFFER
+// KEY_MAP_CREATE_KEY_STROKES_BUFFER
 /// Creates a new key set with a given number of keys allocated. The index within the database is returned.
 ///
 /// @param[in]  This          A pointer to the protocol instance.
@@ -39,13 +44,13 @@ FORWARD_DECLARATION (APPLE_KEY_MAP_DATABASE_PROTOCOL);
 /// @retval other                An error returned by a sub-operation.
 typedef
 EFI_STATUS
-(EFIAPI *CREATE_KEY_STROKES_BUFFER)(
+(EFIAPI *KEY_MAP_CREATE_KEY_STROKES_BUFFER)(
   IN  APPLE_KEY_MAP_DATABASE_PROTOCOL  *This,
   IN  UINTN                            KeyBufferSize,
   OUT UINTN                            *Index
   );
 
-// REMOVE_KEY_STROKES_BUFFER
+// KEY_MAP_REMOVE_KEY_STROKES_BUFFER
 /// Removes a key set specified by its index from the database.
 ///
 /// @param[in] This  A pointer to the protocol instance.
@@ -57,12 +62,12 @@ EFI_STATUS
 /// @retval other         An error returned by a sub-operation.
 typedef
 EFI_STATUS
-(EFIAPI *REMOVE_KEY_STROKES_BUFFER)(
+(EFIAPI *KEY_MAP_REMOVE_KEY_STROKES_BUFFER)(
   IN APPLE_KEY_MAP_DATABASE_PROTOCOL  *This,
   IN UINTN                            Index
   );
 
-// SET_KEY_STROKES_KEYS
+// KEY_MAP_SET_KEY_STROKES_KEYS
 /// Sets the keys of a key set specified by its index to the given Keys buffer.
 ///
 /// @param[in] This      A pointer to the protocol instance.
@@ -78,7 +83,7 @@ EFI_STATUS
 /// @retval other                An error returned by a sub-operation.
 typedef
 EFI_STATUS
-(EFIAPI *SET_KEY_STROKES_KEYS)(
+(EFIAPI *KEY_MAP_SET_KEY_STROKES_KEYS)(
   IN APPLE_KEY_MAP_DATABASE_PROTOCOL  *This,
   IN UINTN                            Index,
   IN APPLE_MODIFIER_MAP               Modifiers,
@@ -89,10 +94,10 @@ EFI_STATUS
 // _APPLE_KEY_MAP_DATABASE_PROTOCOL
 /// The structure exposed by the APPLE_KEY_MAP_DATABASE_PROTOCOL.
 struct _APPLE_KEY_MAP_DATABASE_PROTOCOL {
-  UINTN                     Revision;                ///< The revision of the installed protocol.
-  CREATE_KEY_STROKES_BUFFER CreateKeyStrokesBuffer;  ///< A pointer to the CreateKeyStrokesBuffer function.
-  REMOVE_KEY_STROKES_BUFFER RemoveKeyStrokesBuffer;  ///< A pointer to the RemoveKeyStrokes function.
-  SET_KEY_STROKES_KEYS      SetKeyStrokeBufferKeys;        ///< A pointer to the SetKeyStrokeBufferKeys function.
+  UINTN                             Revision;                ///< The revision of the installed protocol.
+  KEY_MAP_CREATE_KEY_STROKES_BUFFER CreateKeyStrokesBuffer;  ///< A pointer to the CreateKeyStrokesBuffer function.
+  KEY_MAP_REMOVE_KEY_STROKES_BUFFER RemoveKeyStrokesBuffer;  ///< A pointer to the RemoveKeyStrokes function.
+  KEY_MAP_SET_KEY_STROKES_KEYS      SetKeyStrokeBufferKeys;  ///< A pointer to the SetKeyStrokeBufferKeys function.
 };
 
 // gAppleKeyMapDatabaseProtocolGuid

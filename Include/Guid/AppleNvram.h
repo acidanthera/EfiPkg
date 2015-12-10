@@ -1,18 +1,28 @@
+//
+// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+//
+// This program and the accompanying materials have not been licensed.
+// Neither is its usage, its redistribution, in source or binary form,
+// licensed, nor implicitely or explicitely permitted, except when
+// required by applicable law.
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+// OR CONDITIONS OF ANY KIND, either express or implied.
+//
+
 ///
-/// @file      Guid/AppleBless/AppleBless.h
+/// @file      Include/Guid/AppleNvram.h
 ///
-///            Apple protocol to get a volume's bootable file.
+///            
 ///
 /// @author    Download-Fritz
-/// @date      04/03/2014: Initial version
-/// @date      28/03/2015: Updated documentation
-/// @copyright The decompilation is of an educational purpose to better understand the behavior of the
-///            Apple EFI implementation and making use of it. In no way is the content's usage licensed
-///            or allowed. All rights remain at Apple Inc. To be used under the terms of 'Fair use'.
+/// @date      
+/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
 ///
 
-#ifndef _APPLE_NVRAM_H_
-#define _APPLE_NVRAM_H_
+#ifndef __APPLE_NVRAM_H__
+#define __APPLE_NVRAM_H__
 
 // APPLE_VENDOR_NVRAM_GUID
 /// The Apple firmware NVRAM-vendor GUID.
@@ -91,4 +101,4 @@ extern EFI_GUID gAppleEfiAppearanceNvramGuid;
 /// A global variable storing the GUID of the APPLE_EFI_NVRAM_TRB_SECURE EFI variable scope.
 extern EFI_GUID gAppleEfiNvramTrbSecureVariableGuid;
 
-#endif // ifndef _APPLE_NVRAM_H_
+#endif // ifndef __APPLE_NVRAM_H__

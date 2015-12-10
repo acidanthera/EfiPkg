@@ -162,12 +162,12 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 //
 // Descriptor header for Report/Physical Descriptors
 //
-typedef struct hid_class_descriptor {
+typedef PACKED struct hid_class_descriptor {
   UINT8   DescriptorType;
   UINT16  DescriptorLength;
 } EFI_USB_HID_CLASS_DESCRIPTOR;
 
-typedef struct hid_descriptor {
+typedef PACKED struct hid_descriptor {
   UINT8                         Length;
   UINT8                         DescriptorType;
   UINT16                        BcdHID;

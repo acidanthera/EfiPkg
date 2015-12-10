@@ -1,19 +1,27 @@
-/// @file
-/// Declaration of internal functions in BaseLib.
+//
+// Copyright (c) 2006 - 2010, Intel Corporation. All rights reserved.<BR>
+// This program and the accompanying materials
+// are licensed and made available under the terms and conditions of the BSD License
+// which accompanies this distribution.  The full text of the license may be found at
+// http://opensource.org/licenses/bsd-license.php.
+//
+// THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+// WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+//
+
 ///
-/// Copyright (c) 2006 - 2010, Intel Corporation. All rights reserved.<BR>
-/// This program and the accompanying materials
-/// are licensed and made available under the terms and conditions of the BSD License
-/// which accompanies this distribution.  The full text of the license may be found at
-/// http://opensource.org/licenses/bsd-license.php.
+/// @file      Library/AppleMathLib/AppleMathLibInternals.h
 ///
-/// THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-/// WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+///            Declaration of internal functions in BaseLib.
+///
+/// @copyright Copyright (c) 2006 - 2010, Intel Corporation. All rights reserved.
+///
 
 #ifndef __APPLE_MATH_LIB_INTERNALS__
 #define __APPLE_MATH_LIB_INTERNALS__
 
 #include <AppleEfi.h>
+
 #include <Library/AppleMathLib.h>
 
 // InternalMathDivU64x32

@@ -1,9 +1,25 @@
-//********************************************************************
-//	created:	28:8:2012   18:40
-//	filename: 	AppleFramebufferInfo.h
-//	author:		tiamo
-//	purpose:	graph info
-//********************************************************************
+//
+// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+//
+// This program and the accompanying materials have not been licensed.
+// Neither is its usage, its redistribution, in source or binary form,
+// licensed, nor implicitely or explicitely permitted, except when
+// required by applicable law.
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+// OR CONDITIONS OF ANY KIND, either express or implied.
+//
+
+///
+/// @file      Include/Protocol/AppleFramebufferInfo.h
+///
+///            
+///
+/// @author    tiamo
+/// @date      28/08/2012: Initial version
+/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+///
 
 #ifndef __APPLE_FRAMEBUFFER_INFO_H__
 #define __APPLE_FRAMEBUFFER_INFO_H__
@@ -14,10 +30,16 @@
 
 FORWARD_DECLARATION (APPLE_FRAMEBUFFER_INFO_PROTOCOL);
 
-// GET_INFO
+// FRAMEBUFFER_INFO_GET_INFO
+/// 
+///
+/// @param 
+///
+/// @return 
+/// @retval 
 typedef
 EFI_STATUS
-(EFIAPI *GET_INFO)(
+(EFIAPI *FRAMEBUFFER_INFO_GET_INFO)(
   IN  APPLE_FRAMEBUFFER_INFO_PROTOCOL  *This,
   OUT UINT64                           *BaseAddress,
   OUT UINT64                           *FrameBufferSize,
@@ -29,7 +51,7 @@ EFI_STATUS
 
 // _APPLE_FRAMEBUFFER_INFO_PROTOCOL
 struct _APPLE_FRAMEBUFFER_INFO_PROTOCOL {
-  GET_INFO GetInfo;
+  FRAMEBUFFER_INFO_GET_INFO GetInfo;  ///< 
 };
 
 // gAppleFramebufferInfoProtocolGuid

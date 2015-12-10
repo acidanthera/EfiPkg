@@ -1,10 +1,24 @@
-//******************************************************************** 
-//	created:	15:9:2012   23:53 
-//	filename: 	AppleDiskIo.h 
-//	author:		tiamo 
-//	purpose:	apple disk io protocol 
-//******************************************************************** 
+//
+// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+//
+// This program and the accompanying materials have not been licensed.
+// Neither is its usage, its redistribution, in source or binary form,
+// licensed, nor implicitely or explicitely permitted, except when
+// required by applicable law.
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+// OR CONDITIONS OF ANY KIND, either express or implied.
+//
 
+///
+/// @file      Include/Protocol/AppleDiskIo.h
+///
+///            
+///
+/// @author    tiamo
+/// @date      15/09/2012: Initial version
+/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
 
 #ifndef __APPLE_DISK_IO_H__
 #define __APPLE_DISK_IO_H__
@@ -15,10 +29,16 @@
 
 FORWARD_DECLARATION (APPLE_DISK_IO_PROTOCOL);
 
-// APPLE_DISK_READ
+// DISK_IO_READ
+/// 
+///
+/// @param 
+///
+/// @return 
+/// @retval 
 typedef
 EFI_STATUS
-(EFIAPI *APPLE_DISK_READ)(
+(EFIAPI *DISK_IO_READ)(
   IN  APPLE_DISK_IO_PROTOCOL  *This,
   IN  UINT32                  MediaId,
   IN  UINT64                  LBA,
@@ -27,16 +47,22 @@ EFI_STATUS
   );
 
 // APPLE_DISK_FLUSH
+/// 
+///
+/// @param 
+///
+/// @return 
+/// @retval 
 typedef
 EFI_STATUS
-(EFIAPI *APPLE_DISK_FLUSH)(
+(EFIAPI *DISK_IO_FLUSH)(
   IN APPLE_DISK_IO_PROTOCOL  *This
   );
 
 // _APPLE_DISK_IO_PROTOCOL
 struct _APPLE_DISK_IO_PROTOCOL {
-  APPLE_DISK_READ  ReadDisk;
-  APPLE_DISK_FLUSH Flush;
+  DISK_IO_READ  Read;   ///< 
+  DISK_IO_FLUSH Flush;  ///< 
 };
 
 // gAppleDiskIoProtocolGuid

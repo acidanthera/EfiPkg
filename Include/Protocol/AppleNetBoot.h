@@ -1,10 +1,25 @@
-//******************************************************************** 
-//	created:	21:8:2012   22:43 
-//	filename: 	AppleNetBoot.h 
-//	author:		tiamo 
-//	purpose:	apple net boot 
-//******************************************************************** 
+//
+// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+//
+// This program and the accompanying materials have not been licensed.
+// Neither is its usage, its redistribution, in source or binary form,
+// licensed, nor implicitely or explicitely permitted, except when
+// required by applicable law.
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+// OR CONDITIONS OF ANY KIND, either express or implied.
+//
 
+///
+/// @file      Include/Protocol/AppleNetBoot.h
+///
+///            
+///
+/// @author    tiamo
+/// @date      21/08/2012: Initial version
+/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+///
 
 #ifndef __APPLE_NET_BOOT_H__
 #define __APPLE_NET_BOOT_H__
@@ -15,19 +30,31 @@
 
 FORWARD_DECLARATION (APPLE_NET_BOOT_PROTOCOL);
 
-// GET_DHCP_RESPONSE
+// NET_BOOT_GET_DHCP_RESPONSE
+/// 
+///
+/// @param 
+///
+/// @return 
+/// @retval 
 typedef
 EFI_STATUS
-(EFIAPI *GET_DHCP_RESPONSE)(
+(EFIAPI *NET_BOOT_GET_DHCP_RESPONSE)(
   IN  APPLE_NET_BOOT_PROTOCOL  *This,
   OUT UINTN                    *BufferSize,
   OUT VOID                     *DataBuffer
   );
 
-// GET_BSDP_RESPONSE
+// NET_BOOT_GET_BSDP_RESPONSE
+/// 
+///
+/// @param 
+///
+/// @return 
+/// @retval 
 typedef
 EFI_STATUS
-(EFIAPI *GET_BSDP_RESPONSE)(
+(EFIAPI *NET_BOOT_GET_BSDP_RESPONSE)(
   IN  APPLE_NET_BOOT_PROTOCOL  *This,
   OUT UINTN                    *BufferSize,
   OUT VOID                     *DataBuffer
@@ -35,8 +62,8 @@ EFI_STATUS
 
 // _APPLE_NET_BOOT_PROTOCOL
 struct _APPLE_NET_BOOT_PROTOCOL {
-  GET_DHCP_RESPONSE GetDhcpResponse;
-  GET_BSDP_RESPONSE GetBsdpResponse;
+  NET_BOOT_GET_DHCP_RESPONSE GetDhcpResponse;  ///< 
+  NET_BOOT_GET_BSDP_RESPONSE GetBsdpResponse;  ///< 
 };
 
 // gAppleNetBootProtocolGuid

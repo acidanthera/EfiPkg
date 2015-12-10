@@ -1,4 +1,25 @@
-// 31/10/2015
+//
+// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+//
+// This program and the accompanying materials have not been licensed.
+// Neither is its usage, its redistribution, in source or binary form,
+// licensed, nor implicitely or explicitely permitted, except when
+// required by applicable law.
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+// OR CONDITIONS OF ANY KIND, either express or implied.
+//
+
+///
+/// @file      Include/IndustryStandard/AppleSmc.h
+///
+///            
+///
+/// @author    Download-Fritz
+/// @date      31/10/2015: Initial version
+/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+///
 
 #ifndef __APPLE_SMC_H__
 #define __APPLE_SMC_H__
@@ -23,21 +44,21 @@
 #define	SMC_MMIO_BASE_ADDRESS  0xFEF00000
 #define	SMC_MMIO_LENGTH        0x00010000
 
-#define SMC_MMIO_DATA_VARIABLE  0x0000
-#define SMC_MMIO_DATA_FIXED     0x0078
+#define SMC_MMIO_DATA_VARIABLE  0x00
+#define SMC_MMIO_DATA_FIXED     0x78
 
-#define SMC_MMIO_OFFSET_KEY             0x0000
+#define SMC_MMIO_OFFSET_KEY             0x00
 #define SMC_MMIO_OFFSET_KEY_TYPE        SMC_MMIO_OFFSET_KEY
 #define SMC_MMIO_OFFSET_SMC_MODE        SMC_MMIO_OFFSET_KEY
-#define SMC_MMIO_OFFSET_KEY_SIZE        0x0005
-#define SMC_MMIO_OFFSET_KEY_ATTRIBUTES  0x0006
-#define SMC_MMIO_OFFSET_COMMAND         0x0007
+#define SMC_MMIO_OFFSET_DATA_SIZE       0x05
+#define SMC_MMIO_OFFSET_KEY_ATTRIBUTES  0x06
+#define SMC_MMIO_OFFSET_COMMAND         0x07
 #define SMC_MMIO_OFFSET_RESULT          SMC_MMIO_OFFSET_COMMAND
 
 #define SMC_MMIO_READ_KEY              (SMC_MMIO_DATA_VARIABLE + SMC_MMIO_OFFSET_KEY)
 #define SMC_MMIO_READ_KEY_TYPE         (SMC_MMIO_DATA_VARIABLE + SMC_MMIO_OFFSET_KEY_TYPE)
-#define SMC_MMIO_READ_KEY_SIZE         (SMC_MMIO_DATA_VARIABLE + SMC_MMIO_OFFSET_KEY_SIZE)
-#define SMC_MMIO_READ_KEY_ATTRIBUTES   (SMC_MMIO_DATA_VARIABLE + SMC_MMIO_OFFSET_KEY_ATTRIBUTES) 
+#define SMC_MMIO_READ_DATA_SIZE        (SMC_MMIO_DATA_VARIABLE + SMC_MMIO_OFFSET_DATA_SIZE)
+#define SMC_MMIO_READ_KEY_ATTRIBUTES   (SMC_MMIO_DATA_VARIABLE + SMC_MMIO_OFFSET_KEY_ATTRIBUTES)
 #define SMC_MMIO_READ_RESULT           (SMC_MMIO_DATA_FIXED + SMC_MMIO_OFFSET_RESULT)
 #define SMC_MMIO_READ_UNKNOWN1         0x4004
 #define SMC_MMIO_READ_KEY_STATUS       0x4005
@@ -45,7 +66,7 @@
 #define SMC_MMIO_WRITE_MODE            (SMC_MMIO_DATA_VARIABLE + SMC_MMIO_OFFSET_SMC_MODE)
 #define SMC_MMIO_WRITE_KEY             (SMC_MMIO_DATA_FIXED + SMC_MMIO_OFFSET_KEY)
 #define SMC_MMIO_WRITE_INDEX           (SMC_MMIO_DATA_FIXED + SMC_MMIO_OFFSET_KEY_TYPE)
-#define SMC_MMIO_WRITE_KEY_SIZE        (SMC_MMIO_DATA_FIXED + SMC_MMIO_OFFSET_KEY_SIZE)
+#define SMC_MMIO_WRITE_DATA_SIZE       (SMC_MMIO_DATA_FIXED + SMC_MMIO_OFFSET_DATA_SIZE)
 #define SMC_MMIO_WRITE_KEY_ATTRIBUTES  (SMC_MMIO_DATA_FIXED + SMC_MMIO_OFFSET_KEY_ATTRIBUTES)
 #define SMC_MMIO_WRITE_COMMAND         (SMC_MMIO_DATA_FIXED + SMC_MMIO_OFFSET_COMMAND)
 
@@ -68,7 +89,7 @@ enum _SMC_RESET_MODE {
   SmcResetModeBase    = 3
 };
 
-typedef UINT32 SMC_RESET_MODE;
+typedef UINT8 SMC_RESET_MODE;
 
 enum _SMC_FLASH_TYPE {
   SmcFlashTypeAppCode = 1,
@@ -102,7 +123,8 @@ enum _SMC_COMMAND {
   SmcCmdFlashWrite           = 0xF1,
   SmcCmdFlashAuth            = 0xF2,
   SmcCmdFlashType            = 0xF4,
-  SmcCmdFlashWriteMoreData   = 0xF5 // write more data than the 0x78 data available
+  SmcCmdFlashWriteMoreData   = 0xF5, // write more data than the 0x78 data available
+  SmcCmdFlashAuthMoreData    = 0xF6  // write more data than the 0x78 data available
 };
 
 typedef UINT8 SMC_COMMAND;
@@ -111,13 +133,14 @@ typedef UINT8 SMC_COMMAND;
 // Reports
 //
 
-#define SMC_STATUS_AWAITING_MORE_BYTES   BIT (0)
-#define SMC_STATUS_IB_CLOSED  BIT (1)
-#define SMC_STATUS_BUSY       BIT (2)
-#define SMC_STATUS_COMMAND_RECEIVED  BIT (3)
-// lacking bit 4
-#define SMC_STATUS_OK         BIT (5) // wrong name?
-// lacking bit 6
+#define SMC_STATUS_AWAITING_MORE_BYTES  BIT (0)
+#define SMC_STATUS_IB_CLOSED            BIT (1)
+#define SMC_STATUS_BUSY                 BIT (2)
+#define SMC_STATUS_COMMAND_RECEIVED     BIT (3)
+#define SMC_STATUS_UKN_0x16             BIT (4)
+#define SMC_STATUS_KEY_DONE             BIT (5)
+#define SMC_STATUS_UKN_0x40             BIT (6)  // error
+#define SMC_STATUS_UKN_0x80             BIT (7)  // error
 
 typedef UINT8 SMC_STATUS;
 
@@ -147,8 +170,8 @@ typedef UINT8 SMC_STATUS;
 
 #define SMC_INVALID_SIZE  206
 
-#define SMC_ERROR(a)                  (((UINTN)(a)) > 0)
-#define EFI_STATUS_FROM_SMC_RESULT(x) (((x) != SMC_SUCCESS) ? EFIERR (x) : EFI_SUCCESS)
+#define SMCERR(a)                     (((UINTN)(a)) > 0)
+#define EFI_STATUS_FROM_SMC_RESULT(x) ((((UINTN)(x)) == SMC_SUCCESS) ? EFI_SUCCESS : EFIERR ((UINTN)(x)))
 
 #define EFI_SMC_SUCCESS                 SMC_SUCCESS
 #define EFI_SMC_ERROR                   EFIERR (SMC_ERROR)
@@ -176,7 +199,7 @@ typedef UINT8 SMC_STATUS;
 
 #define EFI_SMC_INVALID_SIZE  EFIERR (SMC_INVALID_SIZE)
 
-typedef UINT8  SMC_RESULT;
+typedef UINT8 SMC_RESULT;
 
 //
 // Key Types
@@ -229,7 +252,7 @@ typedef UINT32 SMC_KEY_TYPE;
 #define	SMC_KEY_ATTRIBUTE_WRITE     BIT (6)
 #define	SMC_KEY_ATTRIBUTE_READ      BIT (7)
 
-typedef UINT8  SMC_KEY_ATTRIBUTES;
+typedef UINT8 SMC_KEY_ATTRIBUTES;
 
 //
 // Data
@@ -237,8 +260,8 @@ typedef UINT8  SMC_KEY_ATTRIBUTES;
 
 #define SMC_MAX_DATA_SIZE  (SMC_MMIO_DATA_FIXED - SMC_MMIO_DATA_VARIABLE)
 
-typedef UINT8  SMC_DATA;
-typedef UINT8  SMC_DATA_SIZE;
+typedef UINT8 SMC_DATA;
+typedef UINT8 SMC_DATA_SIZE;
 
 //
 // Keys
@@ -246,5 +269,25 @@ typedef UINT8  SMC_DATA_SIZE;
 
 typedef UINT32 SMC_KEY;
 typedef UINT32 SMC_INDEX;
+
+//
+// Flash data
+//
+
+#define SMC_FLASH_SIZE_MAX  0x0800
+
+typedef UINT16 SMC_FLASH_SIZE;
+
+#define SMC_KEY_IS_VALID_CHAR(x) (((x) >= 0x20) && ((x) <= 0x7E))
+
+#define SMC_MAKE_KEY(A, B, C, D) (((A) << 24) | ((B) << 16) | ((C) << 8) | (D))
+
+///
+/// @{
+#define SMC_KEY_NUM      SMC_MAKE_KEY ('$', 'N', 'u', 'm')
+#define SMC_KEY_ADR      SMC_MAKE_KEY ('$', 'A', 'd', 'r')
+#define SMC_KEY_NO_KEYS  SMC_MAKE_KEY ('#', 'K', 'e', 'y')
+#define SMC_KEY_LDKN     SMC_MAKE_KEY ('L', 'D', 'K', 'N')
+/// @}
 
 #endif // ifndef __APPLE_SMC_H__

@@ -111,8 +111,8 @@
   # Include/Protocol/DevicePathPropertyDatabase
   gEfiDevicePathPropertyDatabaseProtocolGuid = { 0x91BD12FE, 0xF6C3, 0x44FB, { 0xA5, 0xB7, 0x51, 0x22, 0xAB, 0x30, 0x3A, 0xE0 }}
 
-  # Include/Protocol/KeyboardInfo.h
-  gEfiKeyboardInfoProtocolGuid               = { 0xE82A0A1E, 0x0E4D, 0x45AC, { 0xA6, 0xDC, 0x2A, 0xE0, 0x58, 0x00, 0xD3, 0x11 }}
+  # Include/Protocol/KeyboardInformation.h
+  gEfiKeyboardInformationProtocolGuid               = { 0xE82A0A1E, 0x0E4D, 0x45AC, { 0xA6, 0xDC, 0x2A, 0xE0, 0x58, 0x00, 0xD3, 0x11 }}
 
   # Include/Protocol/OsIdentification.h
   gEfiOsIdentificationProtocolGuid           = { 0xC5C5DA95, 0x7D5C, 0x45E6, { 0xB2, 0xF1, 0x3F, 0xD5, 0x2B, 0xB1, 0x00, 0x77 }}
@@ -126,6 +126,9 @@
 
   ##  @libraryclass  
   AppleMathLib|ApplePkg/Include/Library/AppleMathLib.h
+
+  ##  @libraryclass  
+  AppleSmcIoLib|ApplePkg/Include/Library/AppleSmcIoLib.h
 
   ##  @libraryclass  
   UsbDxeLib|ApplePkg/Include/Library/UsbDxeLib.h

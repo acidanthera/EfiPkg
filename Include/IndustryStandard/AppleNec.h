@@ -1,3 +1,26 @@
+//
+// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+//
+// This program and the accompanying materials have not been licensed.
+// Neither is its usage, its redistribution, in source or binary form,
+// licensed, nor implicitely or explicitely permitted, except when
+// required by applicable law.
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+// OR CONDITIONS OF ANY KIND, either express or implied.
+//
+
+///
+/// @file      Include/IndustryStandard/AppleNex.h
+///
+///            
+///
+/// @author    Download-Fritz
+/// @date      
+/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+///
+
 #ifndef __APPLE_NEC_H__
 #define __APPLE_NEC_H__
 
@@ -46,7 +69,7 @@ enum _APPLE_REMOTE_USAGE_ID {
 #pragma pack(1)
 
 // _APPLE_REMOTE_DATA_PACKAGE
-typedef struct _APPLE_REMOTE_DATA_PACKAGE {
+typedef PACKED struct _APPLE_REMOTE_DATA_PACKAGE {
   UINT8  Vendor[11];      ///< This is always 0x43f and can be used to identify an Apple Remote
   UINT8  CommandPage[5];  ///< 0x0 for the pairing and other commands, 0xe for the different buttons
   UINT64 DeviceId;        ///< A unique device ID, used to allow pairing of a remote to a specific device. It can be changed with the pairing command

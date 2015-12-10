@@ -1,3 +1,26 @@
+//
+// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+//
+// This program and the accompanying materials have not been licensed.
+// Neither is its usage, its redistribution, in source or binary form,
+// licensed, nor implicitely or explicitely permitted, except when
+// required by applicable law.
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+// OR CONDITIONS OF ANY KIND, either express or implied.
+//
+
+///
+/// @file      Include/Protocol/ApplePlatformInfoDatabase.h
+///
+///            
+///
+/// @author    Download-Fritz
+/// @date      11/10/2015: Initial version
+/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+///
+
 #ifndef __APPLE_PLATFORM_INFO_DATABASE_H__
 #define __APPLE_PLATFORM_INFO_DATABASE_H__
 
@@ -7,29 +30,47 @@
 
 FORWARD_DECLARATION (APPLE_PLATFORM_INFO_DATABASE_PROTOCOL);
 
-// GET_FIRST_PLATFORM_INFO_DATA
+// PLATFORM_INFO_GET_FIRST_DATA
+/// 
+///
+/// @param 
+///
+/// @return 
+/// @retval 
 typedef
 EFI_STATUS
-(EFIAPI *GET_FIRST_PLATFORM_INFO_DATA)(
+(EFIAPI *PLATFORM_INFO_GET_FIRST_DATA)(
   IN     APPLE_PLATFORM_INFO_DATABASE_PROTOCOL  *This,
   IN     EFI_GUID                               *NameGuid,
   IN OUT VOID                                   *Data,
   IN OUT UINTN                                  *Size
   );
 
-// GET_FIRST_PLATFORM_INFO_DATA_SIZE
+// PLATFORM_INFO_GET_FIRST_DATA_SIZE
+/// 
+///
+/// @param 
+///
+/// @return 
+/// @retval 
 typedef
 EFI_STATUS
-(EFIAPI *GET_FIRST_PLATFORM_INFO_DATA_SIZE)(
+(EFIAPI *PLATFORM_INFO_GET_FIRST_DATA_SIZE)(
   IN     APPLE_PLATFORM_INFO_DATABASE_PROTOCOL  *This,
   IN     EFI_GUID                               *NameGuid,
   IN OUT UINTN                                  *Size
   );
 
-// GET_PLATFORM_INFO_DATA
+// PLATFORM_INFO_GET_DATA
+/// 
+///
+/// @param 
+///
+/// @return 
+/// @retval 
 typedef
 EFI_STATUS
-(EFIAPI *GET_PLATFORM_INFO_DATA)(
+(EFIAPI *PLATFORM_INFO_GET_DATA)(
   IN     APPLE_PLATFORM_INFO_DATABASE_PROTOCOL  *This,
   IN     EFI_GUID                               *NameGuid,
   IN     UINTN                                  Index,
@@ -37,10 +78,16 @@ EFI_STATUS
   IN OUT UINTN                                  *Size
   );
 
-// GET_PLATFORM_INFO_DATA_SIZE
+// PLATFORM_INFO_GET_DATA_SIZE
+/// 
+///
+/// @param 
+///
+/// @return 
+/// @retval 
 typedef
 EFI_STATUS
-(EFIAPI *GET_PLATFORM_INFO_DATA_SIZE)(
+(EFIAPI *PLATFORM_INFO_GET_DATA_SIZE)(
   IN     APPLE_PLATFORM_INFO_DATABASE_PROTOCOL  *This,
   IN     EFI_GUID                               *NameGuid,
   IN     UINTN                                  XorValue,
@@ -49,11 +96,11 @@ EFI_STATUS
 
 // _APPLE_PLATFORM_INFO_DATABASE_PROTOCOL
 struct _APPLE_PLATFORM_INFO_DATABASE_PROTOCOL {
-  UINTN                             Revision;                      ///<
-  GET_FIRST_PLATFORM_INFO_DATA      GetFirstPlatformInfoData;      ///<
-  GET_FIRST_PLATFORM_INFO_DATA_SIZE GetFirstPlatformInfoDataSize;  ///<
-  GET_PLATFORM_INFO_DATA            GetPlatformInfoData;           ///<
-  GET_PLATFORM_INFO_DATA_SIZE       GetPlatformInfoDataSize;       ///<
+  UINTN                             Revision;          ///<
+  PLATFORM_INFO_GET_FIRST_DATA      GetFirstData;      ///<
+  PLATFORM_INFO_GET_FIRST_DATA_SIZE GetFirstDataSize;  ///<
+  PLATFORM_INFO_GET_DATA            GetData;           ///<
+  PLATFORM_INFO_GET_DATA_SIZE       GetDataSize;       ///<
 };
 
 // gApplePlatformInfoDatabaseProtocolGuid

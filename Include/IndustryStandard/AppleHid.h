@@ -1,3 +1,26 @@
+//
+// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+//
+// This program and the accompanying materials have not been licensed.
+// Neither is its usage, its redistribution, in source or binary form,
+// licensed, nor implicitely or explicitely permitted, except when
+// required by applicable law.
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+// OR CONDITIONS OF ANY KIND, either express or implied.
+//
+
+///
+/// @file      Include/IndustryStandard/AppleHid.h
+///
+///            
+///
+/// @author    Download-Fritz
+/// @date      
+/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+///
+
 #ifndef __APPLE_HID_TYPES_H__
 #define __APPLE_HID_TYPES_H__
 
@@ -8,14 +31,19 @@
 
 ///
 /// @{
-#define APPLE_HID_USB_KB_KP_USGAE(UsbHidUsageIdKbKp) APPLE_HID_GENERIC_USAGE ((UsbHidUsageIdKbKp), AppleHidKeyboardKeypadPage)
-#define APPLE_HID_KP_SCAN_USAGE(UsbHidUsageIdKbKp)   APPLE_HID_GENERIC_USAGE ((UsbHidUsageIdKbKp), AppleHidUsbKbUsageKeypadScanPage)
+#define APPLE_HID_USB_KB_KP_USGAE(UsbHidUsageIdKbKp) \
+  APPLE_HID_GENERIC_USAGE ((UsbHidUsageIdKbKp), AppleHidKeyboardKeypadPage)
+
+#define APPLE_HID_KP_SCAN_USAGE(UsbHidUsageIdKbKp) \
+  APPLE_HID_GENERIC_USAGE ((UsbHidUsageIdKbKp), AppleHidUsbKbUsageKeypadScanPage)
+
 #define APPLE_HID_REMOTE_USAGE(AppleRemoteUsageId)   APPLE_HID_GENERIC_USAGE ((AppleRemoteUsageId), AppleHidRemotePage)
 /// @}
 
 // IS_APPLE_KEY_LETTER
-#define IS_APPLE_KEY_LETTER(AppleHidUsbKbUsage) \
-  ((((APPLE_HID_USAGE)(AppleHidUsbKbUsage)) >= AppleHidUsbKbUsageKeyA) && (((APPLE_HID_USAGE)(AppleHidUsbKbUsage)) <= AppleHidUsbKbUsageKeyZ))
+#define IS_APPLE_KEY_LETTER(Usage)                          \
+  ((((APPLE_HID_USAGE)(Usage)) >= AppleHidUsbKbUsageKeyA)   \
+ && (((APPLE_HID_USAGE)(Usage)) <= AppleHidUsbKbUsageKeyZ))
 
 // APPLE_HID_USAGE_ID
 typedef UINT8 APPLE_HID_USAGE_ID;
@@ -55,7 +83,7 @@ enum _APPLE_SCAN_CODE {
 };
 
 // Apple modifers
-///@{
+/// @{
 #define APPLE_MODIFIER_LEFT_CONTROL   USB_HID_KB_KP_MODIFIERS_CONTROL
 #define APPLE_MODIFIER_LEFT_SHIFT     USB_HID_KB_KP_MODIFIER_LEFT_SHIFT
 #define APPLE_MODIFIER_LEFT_OPTION    USB_HID_KB_KP_MODIFIER_LEFT_ALT
@@ -64,15 +92,15 @@ enum _APPLE_SCAN_CODE {
 #define APPLE_MODIFIER_RIGHT_SHIFT    USB_HID_KB_KP_MODIFIER_RIGHT_SHIFT
 #define APPLE_MODIFIER_RIGHT_OPTION   USB_HID_KB_KP_MODIFIER_RIGHT_ALT
 #define APPLE_MODIFIER_RIGHT_COMMAND  USB_HID_KB_KP_MODIFIER_RIGHT_GUI
-///@}
+/// @}
 
 // Shortcuts for multiple Apple modifers
-///@{
+/// @{
 #define APPLE_MODIFIERS_CONTROL  (APPLE_MODIFIER_LEFT_CONTROL | APPLE_MODIFIER_RIGHT_CONTROL)
 #define APPLE_MODIFIERS_SHIFT    (APPLE_MODIFIER_LEFT_CONTROL | APPLE_MODIFIER_RIGHT_CONTROL)
 #define APPLE_MODIFIERS_ALT      (APPLE_MODIFIER_LEFT_CONTROL | APPLE_MODIFIER_RIGHT_CONTROL)
 #define APPLE_MODIFIERS_GUI      (APPLE_MODIFIER_LEFT_CONTROL | APPLE_MODIFIER_RIGHT_CONTROL)
-///@}
+/// @}
 
 // APPLE_MODIFIER_MAP
 typedef UINT16 APPLE_MODIFIER_MAP;

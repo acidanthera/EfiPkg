@@ -1,9 +1,25 @@
-//********************************************************************
-//	created:	26:8:2012   17:08
-//	filename: 	AppleFirmwarePassword.h
-//	author:		tiamo
-//	purpose:	apple firmware password
-//********************************************************************
+//
+// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+//
+// This program and the accompanying materials have not been licensed.
+// Neither is its usage, its redistribution, in source or binary form,
+// licensed, nor implicitely or explicitely permitted, except when
+// required by applicable law.
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+// OR CONDITIONS OF ANY KIND, either express or implied.
+//
+
+///
+/// @file      Include/Protocol/AppleFirmwarePassword.h
+///
+///            
+///
+/// @author    tiamo
+/// @date      26/08/2012: Initial version
+/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+///
 
 #ifndef __APPLE_FIRMWARE_PASSWORD_H__
 #define __APPLE_FIRMWARE_PASSWORD_H__
@@ -14,19 +30,25 @@
 
 FORWARD_DECLARATION (APPLE_FIRMWARE_PASSWORD_PROTOCOL);
 
-// CHECK
+// FIRMWARE_PASSWORD_CHECK
+/// 
+///
+/// @param 
+///
+/// @return 
+/// @retval 
 typedef
 EFI_STATUS
-(EFIAPI *CHECK)(
+(EFIAPI *FIRMWARE_PASSWORD_CHECK)(
   IN  APPLE_FIRMWARE_PASSWORD_PROTOCOL  *This,
   OUT UINTN                             *CheckValue
   );
 
 // _APPLE_FIRMWARE_PASSWORD_PROTOCOL
 struct _APPLE_FIRMWARE_PASSWORD_PROTOCOL {
-  UINT64 Revision;
-  UINTN  Unknown[3];
-  CHECK  Check;
+  UINT64                  Revision;    ///< 
+  UINTN                   Unknown[3];  ///< 
+  FIRMWARE_PASSWORD_CHECK Check;       ///< 
 };
 
 // gAppleFirmwarePasswordProtocolGuid

@@ -1,5 +1,18 @@
+//
+// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+//
+// This program and the accompanying materials have not been licensed.
+// Neither is its usage, its redistribution, in source or binary form,
+// licensed, nor implicitely or explicitely permitted, except when
+// required by applicable law.
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+// OR CONDITIONS OF ANY KIND, either express or implied.
+//
+
 ///
-/// @file      Protocol/AppleBootPolicy/AppleBootPolicy.h
+/// @file      Include/Protocol/AppleBootPolicy.h
 ///
 ///            Apple protocol to get a volume's bootable file.
 ///
@@ -7,17 +20,8 @@
 /// @date      19/12/2014: Initial version
 /// @date      23/02/2015: Minor tweaks
 /// @date      15/03/2015: Updated documentation and restructuring
-/// @copyright The decompilation is of an educational purpose to better understand the behavior of the
-///            Apple EFI implementation and making use of it. In no way is the content's usage licensed
-///            or allowed. All rights remain at Apple Inc. To be used under the terms of 'Fair use'.
+/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
 ///
-
-//
-// CREDITS:
-//   Reversed from AppleBootPolicy.efi, which is Apple Inc. property
-//   Relies on HFSPlus.efi which is Apple Inc. property
-//   Decompiled by Download-Fritz
-//
 
 #ifndef __APPLE_BOOT_POLICY_H__
 #define __APPLE_BOOT_POLICY_H__
@@ -27,7 +31,7 @@
 #define APPLE_BOOT_POLICY_PROTOCOL_GUID \
   { 0x62257758, 0x350C, 0x4D0A, { 0xB0, 0xBD, 0xF6, 0xBE, 0x2E, 0x1E, 0x27, 0x2C } }
 
-// GET_BOOT_FILE
+// BOOT_POLICY_GET_BOOT_FILE
 /// Locates the bootable file of the given volume. Prefered are the values blessed,
 /// though if unavailable, hard-coded names are being verified and used if existing.
 ///
@@ -44,7 +48,7 @@
 /// @retval other                The status of an operation used to complete this operation is returned.
 typedef
 EFI_STATUS
-(EFIAPI *GET_BOOT_FILE)(
+(EFIAPI *BOOT_POLICY_GET_BOOT_FILE)(
   IN  EFI_HANDLE            Device,
   OUT FILEPATH_DEVICE_PATH  **BootFilePath
   );
@@ -52,8 +56,8 @@ EFI_STATUS
 // _APPLE_BOOT_POLICY_PROTOCOL
 /// The structure exposed by the APPLE_BOOT_POLICY_PROTOCOL.
 typedef struct _APPLE_BOOT_POLICY_PROTOCOL {
-  UINTN         Revision;     ///< The revision of the installed protocol.
-  GET_BOOT_FILE GetBootFile;  ///< A pointer to the function that locates the bootable file of the volume.
+  UINTN                     Revision;     ///< The revision of the installed protocol.
+  BOOT_POLICY_GET_BOOT_FILE GetBootFile;  ///< A pointer to the function that locates the bootable file of the volume.
 } APPLE_BOOT_POLICY_PROTOCOL;
 
 // gAppleBootPolicyProtocolGuid
