@@ -34,7 +34,7 @@
   ../Include/Guid/AppleFile.h
   AppleFile/AppleFile.c
   ../Include/Guid/AppleHob.h
-  AppleHob/AppleHib.c
+  AppleHob/AppleHob.c
   ../Include/Guid/AppleNvram.h
   AppleNvram/AppleNvram.c
   ../Include/Guid/AppleSystemInfo.h
