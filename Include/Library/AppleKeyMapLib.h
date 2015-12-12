@@ -24,6 +24,8 @@
 #ifndef __APPLE_KEY_MAP_LIB_H__
 #define __APPLE_KEY_MAP_LIB_H__
 
+#include <IndustryStandard/AppleHid.h>
+
 // _APPLE_KEY_DESCRIPTOR
 typedef struct _APPLE_KEY_DESCRIPTOR {
   APPLE_KEY     AppleKey;         ///< The Apple key identifier identifying the key.

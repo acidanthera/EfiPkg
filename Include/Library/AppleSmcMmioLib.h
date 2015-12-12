@@ -26,6 +26,8 @@
 #ifndef __APPLE_SMC_MMIO_LIB_H__
 #define __APPLE_SMC_MMIO_LIB_H__
 
+#include <IndustryStandard/AppleSmc.h>
+
 // SmcReadValueMmio
 /// 
 ///

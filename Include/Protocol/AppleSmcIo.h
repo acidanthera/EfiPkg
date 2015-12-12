@@ -196,6 +196,77 @@ EFI_STATUS
   VOID
   );
 
+// SMC_IO_SMC_UNKNOWN_1
+/// 
+///
+/// @param 
+///
+/// @return 
+/// @retval 
+typedef
+EFI_STATUS
+(EFIAPI *SMC_IO_SMC_UNKNOWN_1)(
+  VOID
+  );
+
+// SMC_IO_SMC_UNKNOWN_2
+/// 
+///
+/// @param 
+///
+/// @return 
+/// @retval 
+typedef
+EFI_STATUS
+(EFIAPI *SMC_IO_SMC_UNKNOWN_2)(
+  IN APPLE_SMC_IO_PROTOCOL  *This,
+  IN UINTN                  Ukn1,
+  IN UINTN                  Ukn2
+  );
+
+// SMC_IO_SMC_UNKNOWN_3
+/// 
+///
+/// @param 
+///
+/// @return 
+/// @retval 
+typedef
+EFI_STATUS
+(EFIAPI *SMC_IO_SMC_UNKNOWN_3)(
+  IN APPLE_SMC_IO_PROTOCOL  *This,
+  IN UINTN                  Ukn1,
+  IN UINTN                  Ukn2
+  );
+
+// SMC_IO_SMC_UNKNOWN_4
+/// 
+///
+/// @param 
+///
+/// @return 
+/// @retval 
+typedef
+EFI_STATUS
+(EFIAPI *SMC_IO_SMC_UNKNOWN_4)(
+  IN APPLE_SMC_IO_PROTOCOL  *This,
+  IN UINTN                  Ukn1
+  );
+
+// SMC_IO_SMC_UNKNOWN_5
+/// 
+///
+/// @param 
+///
+/// @return 
+/// @retval 
+typedef
+EFI_STATUS
+(EFIAPI *SMC_IO_SMC_UNKNOWN_5)(
+  IN APPLE_SMC_IO_PROTOCOL  *This,
+  IN UINTN                  Ukn1
+  );
+
 // _APPLE_SMC_IO_PROTOCOL
 struct _APPLE_SMC_IO_PROTOCOL {
   UINT64                        Revision;            ///< 
@@ -213,7 +284,11 @@ struct _APPLE_SMC_IO_PROTOCOL {
   SMC_INDEX                     Index;               ///< 
   SMC_ADDRESS                   Address;             ///< 
   BOOLEAN                       Mmio;                ///< 
-  UINTN                         Functions[5];        ///< 
+  SMC_IO_SMC_UNKNOWN_1          SmcUnknown1;         ///< 
+  SMC_IO_SMC_UNKNOWN_2          SmcUnknown2;         ///< 
+  SMC_IO_SMC_UNKNOWN_3          SmcUnknown3;         ///< 
+  SMC_IO_SMC_UNKNOWN_4          SmcUnknown4;         ///< 
+  SMC_IO_SMC_UNKNOWN_5          SmcUnknown5;         ///< 
 };
 
 // gAppleSmcIoProtocolGuid

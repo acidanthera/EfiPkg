@@ -118,6 +118,11 @@ VOID
   IN VOID                           *NotifyContext
   );
 
+/// @{
+#define APPLE_EVENT_HANDLE_SIGNATURE              EFI_SIGNATURE_32 ('A', 'L', 's', 't')
+#define APPLE_EVENT_HANDLE_FROM_LIST_ENTRY(Event) CR (Event, APPLE_EVENT_HANDLE, This, APPLE_EVENT_HANDLE_SIGNATURE)
+/// @}
+
 // _APPLE_EVENT_HANDLE
 typedef struct _APPLE_EVENT_HANDLE {
   UINT32                      Signature;       ///< 
@@ -131,7 +136,7 @@ typedef struct _APPLE_EVENT_HANDLE {
 } APPLE_EVENT_HANDLE;
 
 //
-// Protocol
+// Protocol definition
 //
 
 // APPLE_EVENT_PROTOCOL_GUID

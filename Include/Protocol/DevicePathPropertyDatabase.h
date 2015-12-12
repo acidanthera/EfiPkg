@@ -61,7 +61,7 @@ typedef struct _DEVICE_PATH_PROPERTY_BUFFER {
 } EFI_DEVICE_PATH_PROPERTY_BUFFER;
 
 //
-// Protocol
+// Protocol definition
 //
 
 // EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL_GUID

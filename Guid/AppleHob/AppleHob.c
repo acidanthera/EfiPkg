@@ -12,22 +12,24 @@
 //
 
 ///
-/// @file      Include/AppleUefi.h
+/// @file      Guid/AppleHob/AppleHob.c
 ///
 ///            
 ///
 /// @author    Download-Fritz
-/// @date      18/07/2015: Initial version
+/// @date      12/12/2015: Initial version
 /// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
 ///
 
-#ifndef __APPLE_UEFI_H__
-#define __APPLE_UEFI_H__
+#include <AppleEfi.h>
 
-#include <AppleCpuType.h>
+#include <Guid/AppleHob.h>
 
-#include <Uefi.h>
-#include <AppleEfi/AppleEfiSpec.h>
-#include <AppleCommon.h>
+// gAppleHob1Guid
+GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleHob1Guid = APPLE_HOB_1_GUID;
 
-#endif // ifndef __APPLE_UEFI_H__
+// gAppleHob1Guid
+GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleHob2Guid = APPLE_HOB_2_GUID;
+
+// gAppleHob1Guid
+GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleHob3Guid = APPLE_HOB_3_GUID;

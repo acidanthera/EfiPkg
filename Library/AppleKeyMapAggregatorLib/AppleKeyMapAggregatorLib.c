@@ -32,7 +32,7 @@
 #include <Library/AppleKeyMapAggregatorLib.h>
 
 // mAppleKeyMapAggregator
-APPLE_KEY_MAP_AGGREGATOR_PROTOCOL *mAppleKeyMapAggregator;
+APPLE_KEY_MAP_AGGREGATOR_PROTOCOL *mAppleKeyMapAggregator = NULL;
 
 // GetAppleKeyStrokes
 /// 

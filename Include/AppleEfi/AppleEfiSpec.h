@@ -24,8 +24,6 @@
 #ifndef __APPLE_EFI_SPEC_H__
 #define __APPLE_EFI_SPEC_H__
 
-#include <AppleCpuType.h>
-
 // APPLE_BOOTLOADER_FILE_PATH
 /// The default, preferred location of the Apple bootloader
 #define APPLE_BOOTER_FILE_PATH  L"\\System\\Library\\CoreServices\\boot.efi"

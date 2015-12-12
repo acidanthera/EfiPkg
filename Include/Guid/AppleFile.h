@@ -12,22 +12,23 @@
 //
 
 ///
-/// @file      Include/AppleUefi.h
+/// @file      Include/Guid/AppleFile.h
 ///
 ///            
 ///
 /// @author    Download-Fritz
-/// @date      18/07/2015: Initial version
+/// @date      12/12/2015: Initial version
 /// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
 ///
 
-#ifndef __APPLE_UEFI_H__
-#define __APPLE_UEFI_H__
+#ifndef __APPLE_FILE_H__
+#define __APPLE_FILE_H__
 
-#include <AppleCpuType.h>
+// APPLE_FILE_1_GUID
+#define APPLE_FILE_1_GUID \
+  { 0x95C8C131, 0x4467, 0x4447, { 0x8A, 0x71, 0xF0, 0x87, 0xAF, 0xCA, 0x07, 0xA5 } }
 
-#include <Uefi.h>
-#include <AppleEfi/AppleEfiSpec.h>
-#include <AppleCommon.h>
+// gAppleFile1Guid
+extern EFI_GUID gAppleFile1Guid;
 
-#endif // ifndef __APPLE_UEFI_H__
+#endif // ifndef __APPLE_FILE_H__

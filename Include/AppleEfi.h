@@ -24,6 +24,8 @@
 #ifndef __APPLE_EFI_H__
 #define __APPLE_EFI_H__
 
+#include <AppleCpuType.h>
+
 #include <Tiano.h>
 #include <AppleEfi/AppleEfiSpec.h>
 #include <AppleCommon.h>

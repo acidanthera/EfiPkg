@@ -12,22 +12,18 @@
 //
 
 ///
-/// @file      Include/AppleUefi.h
+/// @file      Guid/AppleFile/AppleFile.c
 ///
 ///            
 ///
 /// @author    Download-Fritz
-/// @date      18/07/2015: Initial version
+/// @date      12/12/2015: Initial version
 /// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
 ///
 
-#ifndef __APPLE_UEFI_H__
-#define __APPLE_UEFI_H__
+#include <AppleEfi.h>
 
-#include <AppleCpuType.h>
+#include <Guid/AppleFile.h>
 
-#include <Uefi.h>
-#include <AppleEfi/AppleEfiSpec.h>
-#include <AppleCommon.h>
-
-#endif // ifndef __APPLE_UEFI_H__
+// gAppleFile1Guid
+GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleFile1Guid = APPLE_FILE_1_GUID;

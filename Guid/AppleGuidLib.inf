@@ -31,6 +31,10 @@
 [Sources]
   ../Include/Guid/AppleBless.h
   AppleBless/AppleBless.c
+  ../Include/Guid/AppleFile.h
+  AppleFile/AppleFile.c
+  ../Include/Guid/AppleHob.h
+  AppleHob/AppleHib.c
   ../Include/Guid/AppleNvram.h
   AppleNvram/AppleNvram.c
   ../Include/Guid/AppleSystemInfo.h
