@@ -1,4 +1,5 @@
-## @file
+## @file Library/BaseMmioLib/BaseMmioLib.inf
+#
 #  Instance of Memory Mapped I/O Library.
 #
 #  Copyright (c) 2007 - 2014, Intel Corporation. All rights reserved.<BR>
@@ -15,10 +16,10 @@
 ##
 
 [Defines]
-  INF_VERSION   = 0x00010005
   BASE_NAME     = BaseMmioLib
   MODULE_TYPE   = BASE
   LIBRARY_CLASS = MmioLib
+  INF_VERSION   = 0x00010005
 
 [Packages]
   ApplePkg/ApplePkg.dec

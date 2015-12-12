@@ -12,7 +12,7 @@
 //
 
 ///
-/// @file      Guid/AppleHob/AppleHob.c
+/// @file      Include/Library/AppleDriverLib.h
 ///
 ///            
 ///
@@ -21,18 +21,22 @@
 /// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
 ///
 
-#include <AppleEfi.h>
+#ifndef __APPLE_DRIVER_LIB_H__
+#define __APPLE_DRIVER_LIB_H__
 
-#include <Guid/AppleHob.h>
+#include <EfiDriverLib.h>
 
-// gAppleHob1Guid
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleHob1Guid = APPLE_HOB_1_GUID;
+// AppleInitializeDriverLib
+/// Intialize Driver Lib if it has not yet been initialized.
+///
+/// @param[in] ImageHandle  Standard EFI Image entry parameter
+/// @param[in] SystemTable  Standard EFI Image entry parameter
+/// 
+/// @retval EFI_SUCCESS  Operation succeeded
+EFI_STATUS
+AppleInitializeDriverLib (
+  IN EFI_HANDLE        ImageHandle,
+  IN EFI_SYSTEM_TABLE  *SystemTable
+  );
 
-// gAppleHob1Guid
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleHob2Guid = APPLE_HOB_2_GUID;
-
-// gAppleHob1Guid
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleHob3Guid = APPLE_HOB_3_GUID;
-
-// gAppleDriverInitHobGuid
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleDriverInitHobGuid = APPLE_DRIVER_INIT_HOB_GUID;
+#endif // ifndef __APPLE_DRIVER_LIB_H__

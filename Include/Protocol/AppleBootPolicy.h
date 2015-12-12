@@ -38,14 +38,14 @@
 /// The blessed paths are to be determined by the HFS Driver via EFI_FILE_PROTOCOL.GetInfo().
 /// The related identifier definitions are to be found in AppleBless.h.
 ///
-/// @param[in]  Device       The Device's Handle to perform the search on.
-/// @param[out] BootFilePath A pointer to the device path pointer to set to the file path of the boot file.
+/// @param[in]  Device        The Device's Handle to perform the search on.
+/// @param[out] BootFilePath  A pointer to the device path pointer to set to the file path of the boot file.
 ///
-/// @return                      The status of the operation is returned.
-/// @retval EFI_NOT_FOUND        A bootable file could not be found on the given volume.
-/// @retval EFI_OUT_OF_RESOURCES The memory necessary to complete the operation could not be allocated.
-/// @retval EFI_SUCCESS          The operation completed successfully and the BootFilePath buffer has been filled.
-/// @retval other                The status of an operation used to complete this operation is returned.
+/// @return                       The status of the operation is returned.
+/// @retval EFI_NOT_FOUND         A bootable file could not be found on the given volume.
+/// @retval EFI_OUT_OF_RESOURCES  The memory necessary to complete the operation could not be allocated.
+/// @retval EFI_SUCCESS           The operation completed successfully and the BootFilePath buffer has been filled.
+/// @retval other                 The status of an operation used to complete this operation is returned.
 typedef
 EFI_STATUS
 (EFIAPI *BOOT_POLICY_GET_BOOT_FILE)(

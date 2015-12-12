@@ -1,4 +1,4 @@
-;------------------------------------------------------------------------------
+;; @file Library/BaseMmioLib/Arm/MemoryFence.asm
 ;
 ; MemoryFence() for AArch64
 ;
@@ -12,19 +12,18 @@
 ; THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
 ; WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 ;
-;------------------------------------------------------------------------------
+;
+;;
 
     EXPORT MemoryFence
 
     AREA MemoryBarriers, CODE, READONLY
 
-;/**
-;  Used to serialize load and store operations.
-;
-;  All loads and stores that proceed calls to this function are guaranteed to be
-;  globally visible when this function returns.
-;
-;**/
+;// MemoryFence
+;/// Used to serialize load and store operations.
+;///
+;/// All loads and stores that proceed calls to this function are guaranteed to be
+;/// globally visible when this function returns.
 ;VOID
 ;EFIAPI
 ;MemoryFence (

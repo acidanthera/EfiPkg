@@ -1,18 +1,30 @@
-## @file
+## @file Library/AppleMathLib/AppleMathLib.inf
 #
+# 
 #
+# Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+#
+# This program and the accompanying materials have not been licensed.
+# Neither is its usage, its redistribution, in source or binary form,
+# licensed, nor implicitely or explicitely permitted, except when
+# required by applicable law.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+# OR CONDITIONS OF ANY KIND, either express or implied.
+#
+#  
 ##
 
 [Defines]
-  INF_VERSION                    = 0x00010005
-  BASE_NAME                      = AppleMathLib
-  FILE_GUID                      = 822D4BAD-CEBF-4984-9539-68BE8EFE988E
-  MODULE_TYPE                    = BASE
-  LIBRARY_CLASS                  = AppleMathLib 
+  BASE_NAME     = AppleMathLib
+  MODULE_TYPE   = BASE
+  LIBRARY_CLASS = AppleMathLib
+  INF_VERSION   = 0x00010005
 
-#
-#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC ARM AARCH64
-#
+[Packages]
+  ApplePkg/ApplePkg.dec
+  EdkBridgePkg/EdkBridgePkg.dec
 
 [Sources]
   DivS64x64.c
@@ -23,9 +35,5 @@
 [Sources.Ia32]
   Ia32/DivS64x64.c
   Ia32/DivU64x64.asm | MSFT
-  Ia32/DivU64x64.asm | INTEL 
-  Ia32/DivU64x64.S   | GCC 
-
-[Packages]
-  ApplePkg/ApplePkg.dec
-  EdkBridgePkg/EdkBridgePkg.dec
+  Ia32/DivU64x64.asm | INTEL
+  Ia32/DivU64x64.S   | GCC

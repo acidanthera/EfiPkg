@@ -18,9 +18,9 @@
 
 [Defines]
   BASE_NAME     = AppleSmcMmioLib
-  INF_VERSION   = 0x00010005
   MODULE_TYPE   = BASE
   LIBRARY_CLASS = AppleSmcMmioLib
+  INF_VERSION   = 0x00010005
 
 [Packages]
   ApplePkg/ApplePkg.dec

@@ -17,6 +17,7 @@
   TIANO_RELEASE_VERSION     = 0x00080006
 
 [LibraryClasses]
+  AppleDriverLib|ApplePkg/Library/AppleDriverLib/AppleDriverLib.inf
   AppleKeyMapAggregatorLib|ApplePkg/Library/AppleKeyMapAggregatorLib/AppleKeyMapAggregatorLib.inf
   AppleKeyMapLib|ApplePkg/Library/AppleKeyMapLib/AppleKeyMapLib.inf
   AppleMathLib|ApplePkg/Library/AppleMathLib/AppleMathLib.inf
@@ -25,6 +26,7 @@
   UsbDxeLib|ApplePkg/Library/UsbDxeLib/UsbDxeLib.inf
 
 [Components]
+  ApplePkg/Library/AppleDriverLib/AppleDriverLib.inf
   ApplePkg/Guid/AppleGuidLib.inf
   ApplePkg/Protocol/AppleProtocolLib.inf
   ApplePkg/Library/BaseMmioLib/BaseMmioLib.inf
