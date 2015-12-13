@@ -31,7 +31,7 @@
 #include <EfiHobLib.h>
 
 // mAppleDriverInitHobData
-static VOID *mAppleDriverInitHobData;
+STATIC VOID *mAppleDriverInitHobData;
 
 // SaveAppleDriverInitHobData
 /// 
@@ -40,7 +40,7 @@ static VOID *mAppleDriverInitHobData;
 ///
 /// @return 
 /// @retval 
-static
+STATIC
 VOID
 SaveAppleDriverInitHobData (
   IN VOID  *Data

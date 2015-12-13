@@ -35,7 +35,7 @@
   X86MemoryFence.c
 
 [Sources.IPF]
-  Ipf/CpuBreakpoint.c  | INTEL
+  Ipf/MemoryFence.c  | INTEL
   Ipf/MemoryFenceMsc.c | MSFT
 
 [Sources.EBC]
