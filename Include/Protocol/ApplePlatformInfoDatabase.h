@@ -42,7 +42,7 @@ EFI_STATUS
 (EFIAPI *PLATFORM_INFO_GET_FIRST_DATA)(
   IN     APPLE_PLATFORM_INFO_DATABASE_PROTOCOL  *This,
   IN     EFI_GUID                               *NameGuid,
-  IN OUT VOID                                   *Data,
+  IN OUT VOID                                   *Data, OPTIONAL
   IN OUT UINTN                                  *Size
   );
 
@@ -73,8 +73,8 @@ EFI_STATUS
 (EFIAPI *PLATFORM_INFO_GET_DATA)(
   IN     APPLE_PLATFORM_INFO_DATABASE_PROTOCOL  *This,
   IN     EFI_GUID                               *NameGuid,
-  IN     UINTN                                  Index,
-  IN OUT VOID                                   *Data,
+  IN     UINTN                                  Index, OPTIONAL
+  IN OUT VOID                                   *Data, OPTIONAL
   IN OUT UINTN                                  *Size
   );
 
@@ -89,8 +89,8 @@ typedef
 EFI_STATUS
 (EFIAPI *PLATFORM_INFO_GET_DATA_SIZE)(
   IN     APPLE_PLATFORM_INFO_DATABASE_PROTOCOL  *This,
-  IN     EFI_GUID                               *NameGuid,
-  IN     UINTN                                  XorValue,
+  IN     EFI_GUID                               *NameGuid, OPTIONAL
+  IN     UINTN                                  Index, OPTIONAL
   IN OUT UINTN                                  *Size
   );
 

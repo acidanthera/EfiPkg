@@ -50,6 +50,9 @@ UsbGetHidDescriptor (
   EFI_STATUS              Result;
   EFI_USB_DEVICE_REQUEST  Request;
 
+  ASSERT (UsbIo != NULL);
+  ASSERT (HidDescriptor != NULL);
+
   Request.RequestType = 0x81;
   Request.Request     = 0x06;
   Request.Value       = (UINT16) (0x21 << 8);
@@ -101,6 +104,10 @@ UsbGetReportDescriptor (
   UINT32                  Status;
   EFI_STATUS              Result;
   EFI_USB_DEVICE_REQUEST  Request;
+
+  ASSERT (UsbIo != NULL);
+  ASSERT (DescriptorSize > 0);
+  ASSERT (DescriptorBuffer != NULL);
 
   //
   // Fill Device request packet
@@ -154,6 +161,9 @@ UsbGetProtocolRequest (
   EFI_STATUS              Result;
   EFI_USB_DEVICE_REQUEST  Request;
 
+  ASSERT (UsbIo != NULL);
+  ASSERT (Protocol != NULL);
+
   //
   // Fill Device request packet
   //
@@ -206,6 +216,8 @@ UsbSetProtocolRequest (
   UINT32                  Status;
   EFI_STATUS              Result;
   EFI_USB_DEVICE_REQUEST  Request;
+
+  ASSERT (UsbIo != NULL);
 
   //
   // Fill Device request packet
@@ -261,6 +273,9 @@ UsbSetIdleRequest (
   EFI_STATUS              Result;
   EFI_USB_DEVICE_REQUEST  Request;
 
+  ASSERT (UsbIo != NULL);
+  ASSERT (Duration > 0);
+
   //
   // Fill Device request packet
   //
@@ -313,6 +328,9 @@ UsbGetIdleRequest (
   UINT32                  Status;
   EFI_STATUS              Result;
   EFI_USB_DEVICE_REQUEST  Request;
+
+  ASSERT (UsbIo != NULL);
+  ASSERT (Duration != NULL);
 
   //
   // Fill Device request packet
@@ -373,6 +391,10 @@ UsbSetReportRequest (
   EFI_STATUS              Result;
   EFI_USB_DEVICE_REQUEST  Request;
 
+  ASSERT (UsbIo != NULL);
+  ASSERT (ReportLen > 0);
+  ASSERT (Report != NULL);
+
   //
   // Fill Device request packet
   //
@@ -430,6 +452,10 @@ UsbGetReportRequest (
   UINT32                  Status;
   EFI_STATUS              Result;
   EFI_USB_DEVICE_REQUEST  Request;
+
+  ASSERT (UsbIo != NULL);
+  ASSERT (ReportLen > 0);
+  ASSERT (Report != NULL);
 
   //
   // Fill Device request packet

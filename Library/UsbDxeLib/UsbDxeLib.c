@@ -52,6 +52,10 @@ Returns:
 {
   EFI_USB_DEVICE_REQUEST  DevReq;
 
+  ASSERT (UsbIo != NULL);
+  ASSERT (DescriptorLength > 0);
+  ASSERT (Descriptor != NULL);
+
   if (UsbIo == NULL) {
     return EFI_INVALID_PARAMETER;
   }
@@ -107,6 +111,11 @@ Returns:
 {
   EFI_USB_DEVICE_REQUEST  DevReq;
 
+  ASSERT (UsbIo != NULL);
+  ASSERT (DescriptorLength > 0);
+  ASSERT (Descriptor != NULL);
+  ASSERT (Status != NULL);
+
   if (UsbIo == NULL) {
     return EFI_INVALID_PARAMETER;
   }
@@ -161,6 +170,10 @@ Returns:
 {
   EFI_USB_DEVICE_REQUEST  DevReq;
 
+  ASSERT (UsbIo != NULL);
+  ASSERT (AltSetting != NULL);
+  ASSERT (Status != NULL);
+
   if (UsbIo == NULL) {
     return EFI_INVALID_PARAMETER;
   }
@@ -213,6 +226,9 @@ Returns:
 {
   EFI_USB_DEVICE_REQUEST  DevReq;
 
+  ASSERT (UsbIo != NULL);
+  ASSERT (Status != NULL);
+
   if (UsbIo == NULL) {
     return EFI_INVALID_PARAMETER;
   }
@@ -264,6 +280,10 @@ Returns:
 {
   EFI_USB_DEVICE_REQUEST  DevReq;
 
+  ASSERT (UsbIo != NULL);
+  ASSERT (ConfigValue != NULL);
+  ASSERT (Status != NULL);
+
   if (UsbIo == NULL) {
     return EFI_INVALID_PARAMETER;
   }
@@ -312,6 +332,9 @@ Returns:
 --*/
 {
   EFI_USB_DEVICE_REQUEST  DevReq;
+
+  ASSERT (UsbIo != NULL);
+  ASSERT (Status != NULL);
 
   if (UsbIo == NULL) {
     return EFI_INVALID_PARAMETER;
@@ -365,6 +388,9 @@ Returns:
 --*/
 {
   EFI_USB_DEVICE_REQUEST  DevReq;
+
+  ASSERT (UsbIo != NULL);
+  ASSERT (Status != NULL);
 
   if (UsbIo == NULL) {
     return EFI_INVALID_PARAMETER;
@@ -437,6 +463,9 @@ Returns:
 {
   EFI_USB_DEVICE_REQUEST  DevReq;
 
+  ASSERT (UsbIo != NULL);
+  ASSERT (Status != NULL);
+
   if (UsbIo == NULL) {
     return EFI_INVALID_PARAMETER;
   }
@@ -508,6 +537,10 @@ Returns:
 {
   EFI_USB_DEVICE_REQUEST  DevReq;
 
+  ASSERT (UsbIo != NULL);
+  ASSERT (DevStatus != NULL);
+  ASSERT (Status != NULL);
+
   if (UsbIo == NULL) {
     return EFI_INVALID_PARAMETER;
   }
@@ -578,6 +611,9 @@ Returns:
   EFI_USB_ENDPOINT_DESCRIPTOR   EndpointDescriptor;
   EFI_USB_INTERFACE_DESCRIPTOR  InterfaceDescriptor;
   UINT8                         Index;
+
+  ASSERT (UsbIo != NULL);
+  ASSERT (Status != NULL);
 
   EfiZeroMem (&EndpointDescriptor, sizeof (EFI_USB_ENDPOINT_DESCRIPTOR));
   //

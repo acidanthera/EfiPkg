@@ -119,6 +119,8 @@ SmcWriteDataSizeMmio (
   IN UINT32       Size
   )
 {
+  ASSERT (Size > 0);
+
   MmioWrite8 ((UINTN)(BaseAddress + SMC_MMIO_WRITE_DATA_SIZE), (UINT8)Size);
 
   return 0;
@@ -152,7 +154,7 @@ SmcWriteData8Mmio (
   IN SMC_DATA  Data
   )
 {
-  return MmioWrite8 ((UINTN)Address, (UINT8)Data);
+  return MmioWrite8 (Address, (UINT8)Data);
 }
 
 // SmcWriteData32Mmio
@@ -216,6 +218,9 @@ TimeoutWaitingForStatusFlagClearMmio (
 
   SMC_STATUS SmcStatus;
 
+  ASSERT (Flag != 0);
+  ASSERT (Iterations > 0);
+
   SmcStatus = (SMC_RESULT)SmcReadKeyStatusMmio ((UINTN)BaseAddress);
 
   while (TRUE) {
@@ -228,7 +233,7 @@ TimeoutWaitingForStatusFlagClearMmio (
     Status = EFI_TIMEOUT;
     --Iterations;
 
-    if (Iterations == 0) {
+    if (Iterations <= 0) {
       break;
     }
 
@@ -251,6 +256,9 @@ TimeoutWaitingForStatusFlagSetMmio (
 
   SMC_STATUS SmcStatus;
 
+  ASSERT (Flag != 0);
+  ASSERT (Iterations > 0);
+
   SmcStatus = (SMC_STATUS)SmcReadKeyStatusMmio ((UINTN)BaseAddress);
 
   while (TRUE) {
@@ -263,7 +271,7 @@ TimeoutWaitingForStatusFlagSetMmio (
     Status = EFI_TIMEOUT;
     --Iterations;
 
-    if (Iterations == 0) {
+    if (Iterations <= 0) {
       break;
     }
 
@@ -412,6 +420,9 @@ SmcReadValueMmio (
   SMC_DATA_SIZE KeySize;
   UINT8         Index;
 
+  ASSERT (Size != NULL);
+  ASSERT (Value != NULL);
+
   Status = ClearArbitration (BaseAddress);
 
   if (!EFI_ERROR (Status)) {
@@ -474,6 +485,10 @@ SmcWriteValueMmio (
   UINTN      Index;
   SMC_RESULT Result;
 
+  ASSERT (Size > 0);
+  ASSERT (Size <= SMC_MAX_DATA_SIZE);
+  ASSERT (Value != NULL);
+
   Status = EFI_INVALID_PARAMETER;
 
   if (((SMC_DATA_SIZE)Size > 0) && ((SMC_DATA_SIZE)Size <= SMC_MAX_DATA_SIZE) && (Value != NULL)) {
@@ -516,6 +531,8 @@ SmcGetKeyFromIndexMmio (
   EFI_STATUS Status;
 
   SMC_RESULT Result;
+
+  ASSERT (Key != NULL);
 
   Status = EFI_INVALID_PARAMETER;
 
@@ -571,6 +588,10 @@ SmcGetKeyInfoMmio (
   EFI_STATUS Status;
 
   SMC_RESULT Result;
+
+  ASSERT (Size != NULL);
+  ASSERT (Type != NULL);
+  ASSERT (Attributes != NULL);
 
   Status = EFI_INVALID_PARAMETER;
 
@@ -681,6 +702,10 @@ SmcFlashWriteMmio (
   UINT32     RemainingSize;
   UINT32     IterartionDataSize;
 
+  ASSERT (Size > 0);
+  ASSERT (Size <= SMC_FLASH_SIZE_MAX);
+  ASSERT (Data != NULL);
+
   Status = EFI_INVALID_PARAMETER;
 
   if (((SMC_FLASH_SIZE)Size > 0) && ((SMC_FLASH_SIZE)Size <= SMC_FLASH_SIZE_MAX) && (Data != NULL)) {
@@ -781,6 +806,10 @@ SmcFlashAuthMmio (
   SMC_RESULT Result;
   UINT32     RemainingSize;
   UINT32     IterartionDataSize;
+
+  ASSERT (Size > 0);
+  ASSERT (Size <= SMC_FLASH_SIZE_MAX);
+  ASSERT (Data != NULL);
 
   Status = EFI_INVALID_PARAMETER;
 

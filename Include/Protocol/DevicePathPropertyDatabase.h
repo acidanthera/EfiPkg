@@ -92,7 +92,7 @@ EFI_STATUS
   IN     EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL  *This,
   IN     EFI_DEVICE_PATH_PROTOCOL                    *DevicePath,
   IN     CHAR16                                      *Name,
-  OUT    VOID                                        *Value,
+  OUT    VOID                                        *Value, OPTIONAL
   IN OUT UINTN                                       *Size
   );
 
@@ -152,7 +152,7 @@ typedef
 EFI_STATUS
 (EFIAPI *DPP_DATABASE_GET_PROPERTY_BUFFER)(
   IN     EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL  *This,
-  OUT    EFI_DEVICE_PATH_PROPERTY_BUFFER             *Buffer,
+  OUT    EFI_DEVICE_PATH_PROPERTY_BUFFER             *Buffer, OPTIONAL
   IN OUT UINTN                                       *Size
   );
 

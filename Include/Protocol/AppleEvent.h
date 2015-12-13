@@ -199,7 +199,7 @@ EFI_STATUS
   IN     CHAR8               *EventName
   );
 
-// EVENT_IS_CAPS_LOCK_ACTIVE
+// EVENT_IS_CAPS_LOCK_ON
 /// 
 ///
 /// @param 
@@ -208,7 +208,7 @@ EFI_STATUS
 /// @retval 
 typedef
 EFI_STATUS
-(EFIAPI *EVENT_IS_CAPS_LOCK_ACTIVE)(
+(EFIAPI *EVENT_IS_CAPS_LOCK_ON)(
   IN OUT BOOLEAN  *CapsLockActive
   );
 
@@ -219,7 +219,7 @@ typedef struct _APPLE_EVENT_PROTOCOL {
   EVENT_UNREGISTER_HANDLER  UnregisterHandler;  ///< 
   EVENT_SET_CURSOR_POSITION SetCursorPosition;  ///< 
   EVENT_SET_EVENT_NAME      SetEventName;       ///< 
-  EVENT_IS_CAPS_LOCK_ACTIVE IsCapsLockActive;   ///< 
+  EVENT_IS_CAPS_LOCK_ON     IsCapsLockOn;       ///< 
 } APPLE_EVENT_PROTOCOL;
 
 // gAppleEventProtocolGuid

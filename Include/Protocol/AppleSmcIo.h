@@ -117,11 +117,11 @@ EFI_STATUS
 typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_GET_KEY_INFO)(
-  IN     APPLE_SMC_IO_PROTOCOL  *This,
-  IN     SMC_KEY                Key,
-  IN OUT SMC_DATA_SIZE          *Size,
-  IN OUT SMC_KEY_TYPE           *Type,
-  IN OUT SMC_KEY_ATTRIBUTES     *Attributes
+  IN  APPLE_SMC_IO_PROTOCOL  *This,
+  IN  SMC_KEY                Key,
+  OUT SMC_DATA_SIZE          *Size,
+  OUT SMC_KEY_TYPE           *Type,
+  OUT SMC_KEY_ATTRIBUTES     *Attributes
   );
 
 // SMC_IO_SMC_RESET
