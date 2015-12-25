@@ -12,12 +12,11 @@
 **/
 
 #include <AppleEfi.h>
-
-#include <Library/AppleDriverLib.h>
+#include <LinkedList.h>
 
 #include <IndustryStandard/AppleHid.h>
 
-#include <Protocol/AppleEvent.h>
+#include APPLE_PROTOCOL_DEFINITION (AppleEvent)
 
 // gAppleEventProtocolGuid
 GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleEventProtocolGuid = APPLE_EVENT_PROTOCOL_GUID;

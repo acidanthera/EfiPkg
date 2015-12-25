@@ -14,7 +14,7 @@
 
 #include <IndustryStandard/AppleHid.h>
 
-#include <Protocol/AppleKeyMapDatabase.h>
+#include APPLE_PROTOCOL_DEFINITION (AppleKeyMapDatabase)
 
 // gAppleKeyMapDatabaseProtocolGuid
 GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleKeyMapDatabaseProtocolGuid = APPLE_KEY_MAP_DATABASE_PROTOCOL_GUID;

@@ -13,7 +13,7 @@
 
 #include <AppleEfi.h>
 
-#include <Protocol/AppleSmcIo.h>
+#include APPLE_PROTOCOL_DEFINITION (AppleSmcIo)
 
 // gAppleSmcIoProtocolGuid
 GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleSmcIoProtocolGuid = APPLE_SMC_IO_PROTOCOL_GUID;

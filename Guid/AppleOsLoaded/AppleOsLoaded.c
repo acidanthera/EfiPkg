@@ -13,7 +13,7 @@
 
 #include <AppleEfi.h>
 
-#include <Guid/AppleOsLoaded.h>
+#include APPLE_GUID_DEFINITION (AppleOsLoaded)
 
 // gAppleOsLoadedNamedEventGuid
 GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleOsLoadedNamedEventGuid = APPLE_OS_LOADED_EVENT_NAME_GUID;

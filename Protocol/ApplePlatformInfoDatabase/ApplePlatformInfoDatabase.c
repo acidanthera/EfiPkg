@@ -13,7 +13,7 @@
 
 #include <AppleEfi.h>
 
-#include <Protocol/ApplePlatformInfoDatabase.h>
+#include APPLE_PROTOCOL_DEFINITION (ApplePlatformInfoDatabase)
 
 // gApplePlatformInfoDatabaseProtocolGuid
 GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gApplePlatformInfoDatabaseProtocolGuid =

@@ -1,5 +1,5 @@
 ## @file
-# Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.
+# Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.<BR>
 #
 # This program and the accompanying materials have not been licensed.
 # Neither is its usage, its redistribution, in source or binary form,
@@ -24,27 +24,21 @@
 
 [Includes.AArch64]
   Include/AArch64
-  ../EdkCompatibilityPkg/Foundation/Include/Aarch64
 
 [Includes.Arm]
   Include/Arm
-  ../EdkCompatibilityPkg/Foundation/Include/Arm
 
 [Includes.Ebc]
   Include/Ebc
-  ../EdkCompatibilityPkg/Foundation/Include/Ebc
 
 [Includes.Ia32]
   Include/Ia32
-  ../EdkCompatibilityPkg/Foundation/Include/Ia32
 
 [Includes.Ipf]
   Include/Ipf
-  ../EdkCompatibilityPkg/Foundation/Include/Ipf
 
 [Includes.X64]
   Include/X64
-  ../EdkCompatibilityPkg/Foundation/Include/X64
 
 [Guids]
   # Include/Guid/AppleBless.h
@@ -141,22 +135,3 @@
 
   # Include/Protocol/OsIdentification.h
   gEfiOsIdentificationProtocolGuid           = { 0xC5C5DA95, 0x7D5C, 0x45E6, { 0xB2, 0xF1, 0x3F, 0xD5, 0x2B, 0xB1, 0x00, 0x77 }}
-
-[LibraryClasses]
-  ##  @libraryclass
-  AppleDriverLib|ApplePkg/Include/Library/AppleDriverLib.h
-
-  ##  @libraryclass  
-  AppleKeyMapAggregatorLib|ApplePkg/Include/Library/AppleKeyMapAggregatorLib.h
-
-  ##  @libraryclass  
-  AppleKeyMapLib|ApplePkg/Include/Library/AppleKeyMapLib.h
-
-  ##  @libraryclass  
-  AppleMathLib|ApplePkg/Include/Library/AppleMathLib.h
-
-  ##  @libraryclass  
-  AppleSmcIoLib|ApplePkg/Include/Library/AppleSmcIoLib.h
-
-  ##  @libraryclass  
-  UsbDxeLib|ApplePkg/Include/Library/UsbDxeLib.h

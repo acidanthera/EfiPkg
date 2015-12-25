@@ -13,7 +13,7 @@
 
 #include <AppleEfi.h>
 
-#include <Protocol/AppleBootPolicy.h>
+#include APPLE_PROTOCOL_DEFINITION (AppleBootPolicy)
 
 // gAppleBootPolicyProtocolGuid
 GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleBootPolicyProtocolGuid = APPLE_BOOT_POLICY_PROTOCOL_GUID;

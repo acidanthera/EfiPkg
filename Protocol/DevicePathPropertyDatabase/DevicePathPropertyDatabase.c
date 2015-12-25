@@ -13,7 +13,7 @@
 
 #include <AppleEfi.h>
 
-#include <Protocol/DevicePathPropertyDatabase.h>
+#include APPLE_PROTOCOL_DEFINITION (DevicePathPropertyDatabase)
 
 // gEfiDevicePathPropertyProtocolGuid
 GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gEfiDevicePathPropertyDatabaseProtocolGuid =

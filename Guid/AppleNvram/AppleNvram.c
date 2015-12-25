@@ -13,7 +13,7 @@
 
 #include <AppleEfi.h>
 
-#include <Guid/AppleNvram.h>
+#include APPLE_GUID_DEFINITION (AppleNvram)
 
 // gAppleVendorNvramGuid
 /// A global variable storing the GUID of the APPLE_VENDOR_NVRAM EFI variable scope.

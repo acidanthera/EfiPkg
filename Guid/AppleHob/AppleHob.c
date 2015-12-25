@@ -13,7 +13,7 @@
 
 #include <AppleEfi.h>
 
-#include <Guid/AppleHob.h>
+#include APPLE_GUID_DEFINITION (AppleHob)
 
 // gAppleHob1Guid
 GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleHob1Guid = APPLE_HOB_1_GUID;

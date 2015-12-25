@@ -13,7 +13,7 @@
 
 #include <AppleEfi.h>
 
-#include <Guid/AppleSystemInfo.h>
+#include APPLE_GUID_DEFINITION (AppleSystemInfo)
 
 // gAppleSystemInfoProducerNameGuid
 GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleSystemInfoProducerNameGuid = APPLE_SYSTEM_INFO_PRODUCER_NAME_GUID;

@@ -20,4 +20,37 @@
 #include <AppleEfi/AppleEfiSpec.h>
 #include <AppleCommon.h>
 
+// Define macros for including Protocols and Guids.
+
+#define _STRINGIZE(a)              #a
+#define EFI_PROTOCOL_DEFINITION(a) _STRINGIZE (Protocol/a/a.h)
+#define EFI_GUID_DEFINITION(a)     _STRINGIZE EFI_STRINGIZE (Guid/a/a.h)
+
+
+// These should be used to include protocols.  If they are followed,
+// intelligent build tools can be created to check dependencies at build
+// time.
+
+#define EFI_PROTOCOL_PRODUCER(a)   EFI_PROTOCOL_DsEFINITION (a)
+#define EFI_PROTOCOL_CONSUMER(a)   EFI_PROTOCOL_DEFINITION (a)
+#define EFI_PROTOCOL_DEPENDENCY(a) EFI_PROTOCOL_DEFINITION (a)
+
+
+// Define macros for including Architectural Protocols and PPIs
+
+#define EFI_ARCH_PROTOCOL_DEFINITION(a) EFI_STRINGIZE (ArchProtocol/a/a.h)
+#define EFI_PPI_DEFINITION(a)           EFI_STRINGIZE (Ppi/a/a.h)
+
+// These should be used to include protocols.  If they are followed,
+// intelligent build tools can be created to check dependencies at build
+// time.
+
+#define EFI_ARCH_PROTOCOL_PRODUCER(a)   EFI_ARCH_PROTOCOL_DEFINITION (a)
+#define EFI_ARCH_PROTOCOL_CONSUMER(a)   EFI_ARCH_PROTOCOL_DEFINITION (a)
+#define EFI_ARCH_PROTOCOL_DEPENDENCY(a) EFI_ARCH_PROTOCOL_DEFINITION (a)
+
+#define EFI_PPI_PRODUCER(a)   EFI_PPI_DEFINITION (a)
+#define EFI_PPI_CONSUMER(a)   EFI_PPI_DEFINITION (a)
+#define EFI_PPI_DEPENDENCY(a) EFI_PPI_DEFINITION (a)
+
 #endif // APPLE_UEFI_H_

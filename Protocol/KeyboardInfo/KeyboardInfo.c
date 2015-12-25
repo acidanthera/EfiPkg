@@ -13,7 +13,7 @@
 
 #include <AppleEfi.h>
 
-#include <Protocol/KeyboardInfo.h>
+#include APPLE_PROTOCOL_DEFINITION (KeyboardInfo)
 
 // gEfiKeyboardInfoProtocolGuid
 GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gEfiKeyboardInfoProtocolGuid = EFI_KEYBOARD_INFO_PROTOCOL_GUID;

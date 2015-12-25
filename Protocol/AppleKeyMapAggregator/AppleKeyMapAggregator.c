@@ -15,7 +15,7 @@
 
 #include <IndustryStandard/AppleHid.h>
 
-#include <Protocol/AppleKeyMapAggregator.h>
+#include APPLE_PROTOCOL_DEFINITION (AppleKeyMapAggregator)
 
 // gAppleKeyMapAggregatorProtocolGuid
 GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleKeyMapAggregatorProtocolGuid = APPLE_KEY_MAP_AGGREGATOR_PROTOCOL_GUID;

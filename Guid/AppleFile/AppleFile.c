@@ -12,7 +12,7 @@
 **/
 #include <AppleEfi.h>
 
-#include <Guid/AppleFile.h>
+#include APPLE_GUID_DEFINITION (AppleFile)
 
 // gAppleFile1Guid
 GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleFile1Guid = APPLE_FILE_1_GUID;

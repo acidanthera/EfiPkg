@@ -20,5 +20,32 @@
 #include <AppleEfi/AppleEfiSpec.h>
 #include <AppleCommon.h>
 
+// The Microsoft* C compiler can removed references to unreferenced data items
+// if the /OPT:REF linker option is used.  We defined a macro as this is a
+// a non standard extension
+
+#ifndef GLOBAL_REMOVE_IF_UNREFERENCED
+  #if defined (_MSC_EXTENSIONS) && !defined (CPU_EBC)
+    /// Remove global variable from the linked image if there are no references to
+    /// it after all compiler and linker optimizations have been performed.
+    #define GLOBAL_REMOVE_IF_UNREFERENCED  __declspec (selectany)
+  #else // _MSC_EXTENSIONS && !CPU_EBC
+    /// Remove the global variable from the linked image if there are no references
+    /// to it after all compiler and linker optimizations have been performed.
+    #define GLOBAL_REMOVE_IF_UNREFERENCED
+  #endif // _MSC_EXTENSIONS && !CPU_EBC
+#endif // GLOBAL_REMOVE_IF_UNREFERENCED
+
+#ifndef PACKED
+  #ifdef __CC_ARM
+    // PACKED
+    /// Older RVCT ARM compilers don't fully support #pragma pack and require __packed
+    /// as a prefix for the structure.
+    #define PACKED  __packed
+  #else // __CC_ARM
+    #define PACKED
+  #endif // __CC_ARM
+#endif // PACKED
+
 #endif // APPLE_EFI_H_
 

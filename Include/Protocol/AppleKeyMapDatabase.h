@@ -21,7 +21,7 @@
 #define APPLE_KEY_MAP_DATABASE_PROTOCOL_GUID \
   { 0x584B9EBE, 0x80C1, 0x4BD6, { 0x98, 0xB0, 0xA7, 0x78, 0x6E, 0xC2, 0xF2, 0xE2 } }
 
-FORWARD_DECLARATION (APPLE_KEY_MAP_DATABASE_PROTOCOL);
+APPLE_FORWARD_DECLARATION (APPLE_KEY_MAP_DATABASE_PROTOCOL);
 
 // KEY_MAP_CREATE_KEY_STROKES_BUFFER
 /** Creates a new key set with a given number of keys allocated.  The index within the database is returned.

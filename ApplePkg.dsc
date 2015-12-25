@@ -1,5 +1,5 @@
 ## @file
-# Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.
+# Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.<BR>
 #
 # This program and the accompanying materials have not been licensed.
 # Neither is its usage, its redistribution, in source or binary form,
@@ -26,25 +26,9 @@
   PI_SPECIFICATION_VERSION  = 0x00000009
   TIANO_RELEASE_VERSION     = 0x00080006
 
-[LibraryClasses]
-  AppleDriverLib|ApplePkg/Library/AppleDriverLib/AppleDriverLib.inf
-  AppleKeyMapAggregatorLib|ApplePkg/Library/AppleKeyMapAggregatorLib/AppleKeyMapAggregatorLib.inf
-  AppleKeyMapLib|ApplePkg/Library/AppleKeyMapLib/AppleKeyMapLib.inf
-  AppleMathLib|ApplePkg/Library/AppleMathLib/AppleMathLib.inf
-  AppleSmcMmioLib|ApplePkg/Library/AppleSmcMmioLib/AppleSmcMmioLib.inf
-  MmioLib|ApplePkg/Library/BaseMmioLib/BaseMmioLib.inf
-  UsbDxeLib|ApplePkg/Library/UsbDxeLib/UsbDxeLib.inf
-
 [Components]
-  ApplePkg/Library/AppleDriverLib/AppleDriverLib.inf
   ApplePkg/Guid/AppleGuidLib.inf
   ApplePkg/Protocol/AppleProtocolLib.inf
-  ApplePkg/Library/BaseMmioLib/BaseMmioLib.inf
-  ApplePkg/Library/AppleKeyMapLib/AppleKeyMapLib.inf
-  ApplePkg/Library/AppleKeyMapAggregatorLib/AppleKeyMapAggregatorLib.inf
-  ApplePkg/Library/AppleMathLib/AppleMathLib.inf
-  ApplePkg/Library/AppleSmcMmioLib/AppleSmcMmioLib.inf
-  ApplePkg/Library/UsbDxeLib/UsbDxeLib.inf
 
 [BuildOptions]
 DEFINE SLASH_MACRO = /D EFI_SPECIFICATION_VERSION=$(EFI_SPECIFICATION_VERSION) /D PI_SPECIFICATION_VERSION=$(PI_SPECIFICATION_VERSION) /D TIANO_RELEASE_VERSION=$(TIANO_RELEASE_VERSION)

@@ -13,7 +13,7 @@
 
 #include <AppleEfi.h>
 
-#include <Protocol/AppleBootBeepGen.h>
+#include APPLE_PROTOCOL_DEFINITION (AppleBootBeepGen)
 
 // gAppleBootBeepGenProtocolGuid
 GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleBootBeepGenProtocolGuid = APPLE_BOOT_BEEP_GEN_PROTOCOL_GUID;

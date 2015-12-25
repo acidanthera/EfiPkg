@@ -13,7 +13,7 @@
 
 #include <AppleEfi.h>
 
-#include <Protocol/OsIdentification.h>
+#include APPLE_PROTOCOL_DEFINITION (OsIdentification)
 
 // gEfiOsIdentificationProtocolGuid
 GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gEfiOsIdentificationProtocolGuid = EFI_OS_IDENTIFICATION_PROTOCOL_GUID;

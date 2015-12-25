@@ -13,7 +13,7 @@
 
 #include <AppleEfi.h>
 
-#include <Guid/AppleBless.h>
+#include APPLE_GUID_DEFINITION (AppleBless)
 
 // gAppleBlessedFileInfoId
 /// A global variable storing the GUID of the APPLE_BLESSED_FILE_INFO_ID.
