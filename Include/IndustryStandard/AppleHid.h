@@ -1,35 +1,24 @@
-//
-// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-//
-// This program and the accompanying materials have not been licensed.
-// Neither is its usage, its redistribution, in source or binary form,
-// licensed, nor implicitely or explicitely permitted, except when
-// required by applicable law.
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
-// OR CONDITIONS OF ANY KIND, either express or implied.
-//
+/** @file
+  Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.<BR>
 
-///
-/// @file      Include/IndustryStandard/AppleHid.h
-///
-///            
-///
-/// @author    Download-Fritz
-/// @date      
-/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-///
+  This program and the accompanying materials have not been licensed.
+  Neither is its usage, its redistribution, in source or binary form,
+  licensed, nor implicitely or explicitely permitted, except when
+  required by applicable law.
 
-#ifndef __APPLE_HID_TYPES_H__
-#define __APPLE_HID_TYPES_H__
+  Unless required by applicable law or agreed to in writing, software
+  distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+  OR CONDITIONS OF ANY KIND, either express or implied.
+**/
+
+#ifndef APPLE_HID_H_
+#define APPLE_HID_H_
 
 #include <IndustryStandard/UsbHid.h>
 
 // APPLE_USAGE
 #define APPLE_HID_GENERIC_USAGE(UsageId, PageId) (((PageId) << 12) | (UsageId))
 
-///
 /// @{
 #define APPLE_HID_USB_KB_KP_USGAE(UsbHidUsageIdKbKp) \
   APPLE_HID_GENERIC_USAGE ((UsbHidUsageIdKbKp), AppleHidKeyboardKeypadPage)
@@ -52,7 +41,7 @@ typedef UINT8 APPLE_HID_USAGE_ID;
 typedef UINT16 APPLE_HID_USAGE;
 
 // APPLE_HID_PAGE_ID
-enum _APPLE_HID_PAGE_ID {
+enum {
   AppleHidKeyboardKeypadPage       = UsbHidKeyboardKeypadPage,
   AppleHidUsbKbUsageKeypadScanPage = 0x08,
   AppleHidRemotePage               = 0x08
@@ -61,8 +50,8 @@ enum _APPLE_HID_PAGE_ID {
 // APPLE_HID_PAGE_ID
 typedef UINT8 APPLE_HID_PAGE_ID;
 
-// _APPLE_SCAN_CODE
-enum _APPLE_SCAN_CODE {
+// APPLE_SCAN_CODE
+enum {
   AppleScanCodeKeypadSlash    = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeySlash),
   AppleScanCodeKeypadAsterisk = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyAsterisk),
   AppleScanCodeKeypadMinus    = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyMinus),
@@ -105,9 +94,9 @@ enum _APPLE_SCAN_CODE {
 // APPLE_MODIFIER_MAP
 typedef UINT16 APPLE_MODIFIER_MAP;
 
-// _APPLE_HID_USB_KB_USAGE
+// APPLE_HID_USB_KB_USAGE
 /// A set of Apple keys used with the AppleKeyMap protocols.
-enum _APPLE_HID_USB_KB_USAGE {
+enum {
   AppleHidUsbKbUsageKeyA                    = APPLE_HID_USB_KB_KP_USGAE (UsbHidUsageIdKbKpKeyA),
   AppleHidUsbKbUsageKeyB                    = APPLE_HID_USB_KB_KP_USGAE (UsbHidUsageIdKbKpKeyB),
   AppleHidUsbKbUsageKeyC                    = APPLE_HID_USB_KB_KP_USGAE (UsbHidUsageIdKbKpKeyC),
@@ -320,4 +309,4 @@ enum _APPLE_HID_USB_KB_USAGE {
 // APPLE_KEY
 typedef APPLE_HID_USAGE APPLE_KEY;
 
-#endif // ifndef __APPLE_HID_TYPES_H__
+#endif // APPLE_HID_H_

@@ -1,29 +1,19 @@
-//
-// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-//
-// This program and the accompanying materials have not been licensed.
-// Neither is its usage, its redistribution, in source or binary form,
-// licensed, nor implicitely or explicitely permitted, except when
-// required by applicable law.
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
-// OR CONDITIONS OF ANY KIND, either express or implied.
-//
+/** @file
+  Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.<BR>
 
-///
-/// @file      Library/AppleDriverLib/AppleDriverLib.c
-///
-///            
-///
-/// @author    Download-Fritz
-/// @date      12/12/2015: Initial version
-/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-///
+  This program and the accompanying materials have not been licensed.
+  Neither is its usage, its redistribution, in source or binary form,
+  licensed, nor implicitely or explicitely permitted, except when
+  required by applicable law.
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+  OR CONDITIONS OF ANY KIND, either express or implied.
+**/
 
 #include <AppleEfi.h>
 
-#include <EfiDriverLib.h>
+#include <Library/AppleDriverLib.h>
 
 #include EFI_GUID_DEFINITION (Hob)
 #include <Guid/AppleHob.h>
@@ -33,14 +23,7 @@
 // mAppleDriverInitHobData
 STATIC VOID *mAppleDriverInitHobData;
 
-// SaveAppleDriverInitHobData
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
-STATIC
+// SaveAppleDriverInitHobData 
 VOID
 SaveAppleDriverInitHobData (
   IN VOID  *Data
@@ -50,12 +33,13 @@ SaveAppleDriverInitHobData (
 }
 
 // AppleInitializeDriverLib
-/// Intialize Driver Lib if it has not yet been initialized.
-///
-/// @param[in] ImageHandle  Standard EFI Image entry parameter
-/// @param[in] SystemTable  Standard EFI Image entry parameter
-/// 
-/// @retval EFI_SUCCESS  Operation succeeded
+/** Intialize Driver Lib if it has not yet been initialized.
+
+  @param[in] ImageHandle  Standard EFI Image entry parameter
+  @param[in] SystemTable  Standard EFI Image entry parameter
+ 
+  @retval EFI_SUCCESS  Operation succeeded
+**/
 EFI_STATUS
 AppleInitializeDriverLib (
   IN EFI_HANDLE        ImageHandle,

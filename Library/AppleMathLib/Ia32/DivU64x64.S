@@ -23,11 +23,24 @@
 ASM_GLOBAL ASM_PFX(InternalMathDivU64x32), ASM_PFX(InternalMathDivU64x64)
 
 #------------------------------------------------------------------------------
+#/**
+#  Divides a 64-bit unsigned integer by a 32-bit unsigned integer and generates
+#  a 64-bit unsigned result.
+#
+#  This function divides the 64-bit unsigned value Dividend by the 32-bit
+#  unsigned value Divisor and generates a 64-bit unsigned quotient.
+#  This function returns the 64-bit unsigned quotient.
+#
+#  @param  Dividend  A 64-bit unsigned value.
+#  @param  Divisor   A 32-bit unsigned value.
+#
+#  @return  Dividend / Divisor.
+#**/
 # UINT64
 # EFIAPI
 # InternalMathDivU64x32 (
-#   IN      UINT64                    Dividend,
-#   IN      UINT32                    Divisor
+#   IN UINT64  Dividend,
+#   IN UINT32  Divisor
 #   );
 #------------------------------------------------------------------------------
 ASM_PFX(InternalMathDivU64x32):
@@ -42,12 +55,25 @@ ASM_PFX(InternalMathDivU64x32):
     ret
 
 #------------------------------------------------------------------------------
+#/**
+#  Divides a 64-bit unsigned integer by a 64-bit unsigned integer and generates
+#  a 64-bit unsigned result.
+#
+#  This function divides the 64-bit unsigned value Dividend by the 64-bit
+#  unsigned value Divisor and generates a 64-bit unsigned quotient.
+#  This function returns the 64-bit unsigned quotient.
+#
+#  @param[in]  Dividend  A 64-bit unsigned value.
+#  @param[out] Divisor   A 64-bit unsigned value.
+#
+#  @return  Dividend / Divisor.
+#**/
 # UINT64
 # EFIAPI
 # InternalMathDivU64x64 (
-#   IN      UINT64                    Dividend,
-#   IN      UINT64                    Divisor,
-#   OUT     UINT64                    *Remainder    OPTIONAL
+#   IN  UINT64 Dividend,
+#   IN  UINT64 Divisor,
+#   OUT UINT64 *Remainder OPTIONAL
 #   );
 #------------------------------------------------------------------------------
 ASM_PFX(InternalMathDivU64x64):

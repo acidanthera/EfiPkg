@@ -1,8 +1,5 @@
-## @file ApplePkg.dec
-#
-# 
-#
-# Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+## @file
+# Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.
 #
 # This program and the accompanying materials have not been licensed.
 # Neither is its usage, its redistribution, in source or binary form,
@@ -17,10 +14,10 @@
 ##
 
 [Defines]
-  PACKAGE_NAME                   = ApplePkg
-  PACKAGE_GUID                   = 1606DD51-F834-4F7F-9ED5-751E193C981F
-  PACKAGE_VERSION                = 2015-001
-  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME      = ApplePkg
+  PACKAGE_GUID      = 1606DD51-F834-4F7F-9ED5-751E193C981F
+  PACKAGE_VERSION   = 2015-001
+  DEC_SPECIFICATION = 0x00010005
 
 [Includes]
   Include
@@ -139,8 +136,8 @@
   # Include/Protocol/DevicePathPropertyDatabase
   gEfiDevicePathPropertyDatabaseProtocolGuid = { 0x91BD12FE, 0xF6C3, 0x44FB, { 0xA5, 0xB7, 0x51, 0x22, 0xAB, 0x30, 0x3A, 0xE0 }}
 
-  # Include/Protocol/KeyboardInformation.h
-  gEfiKeyboardInformationProtocolGuid               = { 0xE82A0A1E, 0x0E4D, 0x45AC, { 0xA6, 0xDC, 0x2A, 0xE0, 0x58, 0x00, 0xD3, 0x11 }}
+  # Include/Protocol/KeyboardInfo.h
+  gEfiKeyboardInfoProtocolGuid               = { 0xE82A0A1E, 0x0E4D, 0x45AC, { 0xA6, 0xDC, 0x2A, 0xE0, 0x58, 0x00, 0xD3, 0x11 }}
 
   # Include/Protocol/OsIdentification.h
   gEfiOsIdentificationProtocolGuid           = { 0xC5C5DA95, 0x7D5C, 0x45E6, { 0xB2, 0xF1, 0x3F, 0xD5, 0x2B, 0xB1, 0x00, 0x77 }}

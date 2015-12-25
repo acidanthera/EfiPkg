@@ -1,28 +1,18 @@
-//
-// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-//
-// This program and the accompanying materials have not been licensed.
-// Neither is its usage, its redistribution, in source or binary form,
-// licensed, nor implicitely or explicitely permitted, except when
-// required by applicable law.
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
-// OR CONDITIONS OF ANY KIND, either express or implied.
-//
+/** @file
+  Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.<BR>
 
-///
-/// @file      Include/Protocol/AppleSmcIo.h
-///
-///            
-///
-/// @author    Download-Fritz
-/// @date      31/10/2015: Initial version
-/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-///
+  This program and the accompanying materials have not been licensed.
+  Neither is its usage, its redistribution, in source or binary form,
+  licensed, nor implicitely or explicitely permitted, except when
+  required by applicable law.
 
-#ifndef __APPLE_SMC_IO_H__
-#define __APPLE_SMC_IO_H__
+  Unless required by applicable law or agreed to in writing, software
+  distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+  OR CONDITIONS OF ANY KIND, either express or implied.
+**/
+
+#ifndef APPLE_SMC_IO_H_
+#define APPLE_SMC_IO_H_
 
 #include <IndustryStandard/AppleSmc.h>
 
@@ -33,12 +23,6 @@
 FORWARD_DECLARATION (APPLE_SMC_IO_PROTOCOL);
 
 // SMC_IO_SMC_READ_VALUE
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval
 typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_READ_VALUE)(
@@ -49,12 +33,6 @@ EFI_STATUS
   );
 
 // SMC_IO_SMC_WRITE_VALUE
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_WRITE_VALUE)(
@@ -65,12 +43,6 @@ EFI_STATUS
   );
 
 // SMC_IO_SMC_GET_KEY_COUNT
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_GET_KEY_COUNT)(
@@ -79,12 +51,6 @@ EFI_STATUS
   );
 
 // SMC_IO_SMC_MAKE_KEY
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_MAKE_KEY)(
@@ -93,12 +59,6 @@ EFI_STATUS
   );
 
 // SMC_IO_SMC_GET_KEY_FROM_INDEX
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval
 typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_GET_KEY_FROM_INDEX)(
@@ -108,12 +68,6 @@ EFI_STATUS
   );
 
 // SMC_IO_SMC_GET_KEY_INFO
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval
 typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_GET_KEY_INFO)(
@@ -125,12 +79,6 @@ EFI_STATUS
   );
 
 // SMC_IO_SMC_RESET
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval
 typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_RESET)(
@@ -139,12 +87,6 @@ EFI_STATUS
   );
 
 // SMC_IO_SMC_FLASH_TYPE
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval
 typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_FLASH_TYPE)(
@@ -153,12 +95,6 @@ EFI_STATUS
   );
 
 // SMC_IO_SMC_FLASH_WRITE
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval
 typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_FLASH_WRITE)(
@@ -169,12 +105,6 @@ EFI_STATUS
   );
 
 // SMC_IO_SMC_FLASH_AUTH
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval
 typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_FLASH_AUTH)(
@@ -184,12 +114,6 @@ EFI_STATUS
   );
 
 // SMC_IO_SMC_UNSUPPORTED
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval
 typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_UNSUPPORTED)(
@@ -197,12 +121,6 @@ EFI_STATUS
   );
 
 // SMC_IO_SMC_UNKNOWN_1
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_UNKNOWN_1)(
@@ -210,12 +128,6 @@ EFI_STATUS
   );
 
 // SMC_IO_SMC_UNKNOWN_2
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_UNKNOWN_2)(
@@ -225,12 +137,6 @@ EFI_STATUS
   );
 
 // SMC_IO_SMC_UNKNOWN_3
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_UNKNOWN_3)(
@@ -240,12 +146,6 @@ EFI_STATUS
   );
 
 // SMC_IO_SMC_UNKNOWN_4
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_UNKNOWN_4)(
@@ -254,12 +154,6 @@ EFI_STATUS
   );
 
 // SMC_IO_SMC_UNKNOWN_5
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_UNKNOWN_5)(
@@ -267,8 +161,8 @@ EFI_STATUS
   IN UINTN                  Ukn1
   );
 
-// _APPLE_SMC_IO_PROTOCOL
-struct _APPLE_SMC_IO_PROTOCOL {
+// APPLE_SMC_IO_PROTOCOL
+struct APPLE_SMC_IO_PROTOCOL {
   UINT64                        Revision;            ///< 
   SMC_IO_SMC_READ_VALUE         SmcReadValue;        ///< 
   SMC_IO_SMC_WRITE_VALUE        SmcWriteValue;       ///< 
@@ -294,4 +188,4 @@ struct _APPLE_SMC_IO_PROTOCOL {
 // gAppleSmcIoProtocolGuid
 extern EFI_GUID gAppleSmcIoProtocolGuid;
 
-#endif // ifndef __APPLE_SMC_IO_H__
+#endif // APPLE_SMC_IO_H_

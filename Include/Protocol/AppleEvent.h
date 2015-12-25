@@ -1,32 +1,20 @@
-//
-// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-//
-// This program and the accompanying materials have not been licensed.
-// Neither is its usage, its redistribution, in source or binary form,
-// licensed, nor implicitely or explicitely permitted, except when
-// required by applicable law.
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
-// OR CONDITIONS OF ANY KIND, either express or implied.
-//
+/** @file
+  Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.<BR>
 
-///
-/// @file      Include/Protocol/AppleEvent.h
-///
-///            
-///
-/// @author    Download-Fritz
-/// @date      31/02/2015: Initial version
-/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-///
+  This program and the accompanying materials have not been licensed.
+  Neither is its usage, its redistribution, in source or binary form,
+  licensed, nor implicitely or explicitely permitted, except when
+  required by applicable law.
 
-#ifndef __APPLE_EVENT_H__
-#define __APPLE_EVENT_H__
+  Unless required by applicable law or agreed to in writing, software
+  distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+  OR CONDITIONS OF ANY KIND, either express or implied.
+**/
 
-//
+#ifndef APPLE_EVENT_H_
+#define APPLE_EVENT_H_
+
 // Related definitions
-//
 
 // Apple Event Type
 /// @{
@@ -61,10 +49,10 @@ typedef UINT32 APPLE_EVENT_TYPE;
 // APPLE_POINTER_EVENT_TYPE
 typedef UINTN APPLE_POINTER_EVENT_TYPE;
 
-#pragma pack(1)
+#pragma pack (1)
 
 // APPLE_KEY_EVENT_DATA
-typedef PACKED struct _APPLE_KEY_EVENT_DATA {
+typedef PACKED struct {
   UINT16          NoKeyPairs;  ///<
   struct {
     EFI_INPUT_KEY InputKey;  ///<
@@ -73,22 +61,22 @@ typedef PACKED struct _APPLE_KEY_EVENT_DATA {
   UINT16          Unknown;     ///< ?
 } APPLE_KEY_EVENT_DATA;
 
-#pragma pack()
+#pragma pack ()
 
-typedef union _APPLE_EVENT_DATA {
+typedef union {
   APPLE_KEY_EVENT_DATA     *AppleKeyEventData;  ///< 
   APPLE_POINTER_EVENT_TYPE PointerEventType;    ///< 
   UINTN                    Raw;                 ///< 
 } APPLE_EVENT_DATA;
 
-// _DIMENSION
-typedef struct _DIMENSION {
+// DIMENSION
+typedef struct {
   INT32 Horizontal;  ///< 
   INT32 Vertical;    ///< 
 } DIMENSION;
 
-// _APPLE_EVENT_QUERY_INFORMATION
-typedef struct _APPLE_EVENT_QUERY_INFORMATION {
+// APPLE_EVENT_QUERY_INFORMATION
+typedef struct {
   struct {
     UINT16 Year;    ///< 
     UINT8  Month;   ///< 
@@ -123,8 +111,8 @@ VOID
 #define APPLE_EVENT_HANDLE_FROM_LIST_ENTRY(Event) CR (Event, APPLE_EVENT_HANDLE, This, APPLE_EVENT_HANDLE_SIGNATURE)
 /// @}
 
-// _APPLE_EVENT_HANDLE
-typedef struct _APPLE_EVENT_HANDLE {
+// APPLE_EVENT_HANDLE
+typedef struct {
   UINT32                      Signature;       ///< 
   EFI_LIST_ENTRY              This;            ///< 
   BOOLEAN                     Ready;           ///< 
@@ -135,21 +123,13 @@ typedef struct _APPLE_EVENT_HANDLE {
   CHAR8                       *Name;           ///< 
 } APPLE_EVENT_HANDLE;
 
-//
-// Protocol definition
-//
+// Protocol declaration
 
 // APPLE_EVENT_PROTOCOL_GUID
 #define APPLE_EVENT_PROTOCOL_GUID \
   { 0x33BE0EF1, 0x89C9, 0x4A6D, { 0xBB, 0x9F, 0x69, 0xDC, 0x8D, 0xD5, 0x16, 0xB9 } }
 
 // EVENT_REGISTER_HANDLER
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 typedef
 EFI_STATUS
 (EFIAPI *EVENT_REGISTER_HANDLER)(
@@ -160,12 +140,6 @@ EFI_STATUS
   );
 
 // EVENT_UNREGISTER_HANDLER
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 typedef
 EFI_STATUS
 (EFIAPI *EVENT_UNREGISTER_HANDLER)(
@@ -173,12 +147,6 @@ EFI_STATUS
   );
 
 // EVENT_SET_CURSOR_POSITION
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 typedef
 EFI_STATUS
 (EFIAPI *EVENT_SET_CURSOR_POSITION)(
@@ -186,12 +154,6 @@ EFI_STATUS
   );
 
 // EVENT_SET_EVENT_NAME
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 typedef
 EFI_STATUS
 (EFIAPI *EVENT_SET_EVENT_NAME)(
@@ -200,20 +162,14 @@ EFI_STATUS
   );
 
 // EVENT_IS_CAPS_LOCK_ON
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 typedef
 EFI_STATUS
 (EFIAPI *EVENT_IS_CAPS_LOCK_ON)(
   IN OUT BOOLEAN  *CapsLockActive
   );
 
-// _APPLE_EVENT_PROTOCOL
-typedef struct _APPLE_EVENT_PROTOCOL {
+// APPLE_EVENT_PROTOCOL
+typedef struct {
   UINT64                    Revision;           ///< 
   EVENT_REGISTER_HANDLER    RegisterHandler;    ///< 
   EVENT_UNREGISTER_HANDLER  UnregisterHandler;  ///< 
@@ -225,4 +181,4 @@ typedef struct _APPLE_EVENT_PROTOCOL {
 // gAppleEventProtocolGuid
 extern EFI_GUID gAppleEventProtocolGuid;
 
-#endif // ifndef __APPLE_EVENT_H__
+#endif // APPLE_EVENT_H_

@@ -1,41 +1,30 @@
-//
-// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-//
-// This program and the accompanying materials have not been licensed.
-// Neither is its usage, its redistribution, in source or binary form,
-// licensed, nor implicitely or explicitely permitted, except when
-// required by applicable law.
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
-// OR CONDITIONS OF ANY KIND, either express or implied.
-//
+/** @file
+  Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.<BR>
 
-///
-/// @file      Library/AppleSmcMmioLib/AppleSmcMmioLib.c
-///
-///            
-///
-/// @author    Download-Fritz
-/// @date      31/10/2015: Initial version
-/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-///
+  This program and the accompanying materials have not been licensed.
+  Neither is its usage, its redistribution, in source or binary form,
+  licensed, nor implicitely or explicitely permitted, except when
+  required by applicable law.
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+  OR CONDITIONS OF ANY KIND, either express or implied.
+**/
 
 #include <AppleEfi.h>
 
 #include <IndustryStandard/AppleSmc.h>
 
-#include <Library/EdkIIGlueIoLib.h>
+#include <Library/MmioLib.h>
+#ifdef CPU_IA32
+#include <EfiCommonLib.h>
+#include <Library/AppleMathLib.h>
+#endif
 
 #define SwapBytes32(...) 0
+#define IoRead32(...) 0
 
-// SmcReadKeyStatusMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
+// SmcReadKeyStatusMmio 
 UINT32
 SmcReadKeyStatusMmio (
   IN UINTN  BaseAddress
@@ -45,12 +34,6 @@ SmcReadKeyStatusMmio (
 }
 
 // SmcReadResultMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 UINT32
 SmcReadResultMmio (
   IN UINTN  BaseAddress
@@ -60,12 +43,6 @@ SmcReadResultMmio (
 }
 
 // SmcWriteCommandMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 UINT8
 SmcWriteCommandMmio (
   IN UINTN   BaseAddress,
@@ -76,12 +53,6 @@ SmcWriteCommandMmio (
 }
 
 // SmcWriteAttributesMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 UINT8
 SmcWriteAttributesMmio (
   IN UINTN   BaseAddress,
@@ -92,12 +63,6 @@ SmcWriteAttributesMmio (
 }
 
 // SmcReadDataSizeMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 SMC_DATA_SIZE
 SmcReadDataSizeMmio (
   IN SMC_ADDRESS  BaseAddress
@@ -107,12 +72,6 @@ SmcReadDataSizeMmio (
 }
 
 // SmcWriteDataSizeMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 UINT8
 SmcWriteDataSizeMmio (
   IN SMC_ADDRESS  BaseAddress,
@@ -127,12 +86,6 @@ SmcWriteDataSizeMmio (
 }
 
 // SmcReadData8Mmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 SMC_DATA
 SmcReadData8Mmio (
   IN SMC_ADDRESS  Address
@@ -142,12 +95,6 @@ SmcReadData8Mmio (
 }
 
 // SmcWriteData8Mmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 UINT8
 SmcWriteData8Mmio (
   IN UINTN     Address,
@@ -158,12 +105,6 @@ SmcWriteData8Mmio (
 }
 
 // SmcWriteData32Mmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 SmcWriteData32Mmio (
   IN SMC_ADDRESS  Address,
@@ -179,12 +120,6 @@ SmcWriteData32Mmio (
 }
 
 // SmcReadData32Mmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 UINT32
 SmcReadData32Mmio (
   IN UINTN  Address
@@ -201,12 +136,6 @@ SmcReadData32Mmio (
 }
 
 // TimeoutWaitingForStatusFlagClearMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 TimeoutWaitingForStatusFlagClearMmio (
   IN SMC_ADDRESS  BaseAddress,
@@ -283,12 +212,6 @@ TimeoutWaitingForStatusFlagSetMmio (
 }
 
 // sub_5FB
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 sub_5FB (
   IN SMC_ADDRESS  BaseAddress,
@@ -335,12 +258,6 @@ Return:
 }
 
 // ClearArbitration
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 ClearArbitration (
   IN SMC_ADDRESS  BaseAddress
@@ -370,12 +287,6 @@ ClearArbitration (
 }
 
 // WaitForKeyDone
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 WaitForKeyDone (
   IN SMC_ADDRESS  BaseAddress
@@ -385,12 +296,6 @@ WaitForKeyDone (
 }
 
 // WaitLongForKeyDone
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 WaitLongForKeyDone (
   IN SMC_ADDRESS  BaseAddress
@@ -400,12 +305,6 @@ WaitLongForKeyDone (
 }
 
 // SmcReadValueMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 SmcReadValueMmio (
   IN     SMC_ADDRESS    BaseAddress,
@@ -466,12 +365,6 @@ SmcReadValueMmio (
 }
 
 // SmcWriteValueMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 SmcWriteValueMmio (
   IN SMC_ADDRESS  BaseAddress,
@@ -492,7 +385,8 @@ SmcWriteValueMmio (
   Status = EFI_INVALID_PARAMETER;
 
   if (((SMC_DATA_SIZE)Size > 0) && ((SMC_DATA_SIZE)Size <= SMC_MAX_DATA_SIZE) && (Value != NULL)) {
-    Status = ClearArbitration (BaseAddress);
+    ClearArbitration (BaseAddress);
+
     Index  = 0;
 
     do {
@@ -515,12 +409,6 @@ SmcWriteValueMmio (
 }
 
 // SmcGetKeyFromIndexMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 SmcGetKeyFromIndexMmio (
   IN SMC_ADDRESS  BaseAddress,
@@ -570,12 +458,6 @@ SmcGetKeyFromIndexMmio (
 }
 
 // SmcGetkeyInfoMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 SmcGetKeyInfoMmio (
   IN SMC_ADDRESS         BaseAddress,
@@ -631,12 +513,6 @@ SmcGetKeyInfoMmio (
 }
 
 // SmcFlashTypeMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 SmcFlashTypeMmio (
   IN SMC_ADDRESS     BaseAddress,
@@ -656,18 +532,12 @@ SmcFlashTypeMmio (
 
   WaitForKeyDone (BaseAddress);
 
-  Result = (SMC_RESULT)SmcReadResultMmio (BaseAddress);
+  Result = (SMC_RESULT)SmcReadResultMmio ((UINTN)BaseAddress);
 
   return ((Status == EFI_TIMEOUT) ? EFI_SMC_TIMEOUT_ERROR : EFI_STATUS_FROM_SMC_RESULT (Result));
 }
 
 // MmioWriteSwapped32
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 UINT32
 MmioWriteSwapped32 (
   IN UINTN   Address,
@@ -678,12 +548,6 @@ MmioWriteSwapped32 (
 }
 
 // SmcFlashWriteMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 SmcFlashWriteMmio (
   IN SMC_ADDRESS  BaseAddress,
@@ -757,7 +621,7 @@ SmcFlashWriteMmio (
           Status = WaitLongForKeyDone (BaseAddress);
 
           if (EFI_ERROR (Status)) {
-            break;
+            goto CheckTimeout;
           }
 
           Result = (SMC_RESULT)SmcReadResultMmio (BaseAddress);
@@ -771,6 +635,7 @@ SmcFlashWriteMmio (
         }
       } while (TRUE);
 
+    CheckTimeout:
       if (Status == EFI_TIMEOUT) {
         Status = EFI_SMC_TIMEOUT_ERROR;
       } else {
@@ -783,13 +648,7 @@ SmcFlashWriteMmio (
   return Status;
 }
 
-// SmcFlashAuthMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
+// SmcFlashAuthMmio 
 EFI_STATUS
 SmcFlashAuthMmio (
   IN SMC_ADDRESS  BaseAddress,
@@ -861,7 +720,7 @@ SmcFlashAuthMmio (
           Status = WaitLongForKeyDone (BaseAddress);
 
           if (EFI_ERROR (Status)) {
-            break;
+            goto CheckTimeout;
           }
 
           Result = (SMC_RESULT)SmcReadResultMmio (BaseAddress);
@@ -875,6 +734,7 @@ SmcFlashAuthMmio (
         }
       } while (TRUE);
 
+    CheckTimeout:
       if (Status == EFI_TIMEOUT) {
         Status = EFI_SMC_TIMEOUT_ERROR;
       } else {
@@ -888,12 +748,6 @@ SmcFlashAuthMmio (
 }
 
 // SmcMmioInterface
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 BOOLEAN
 SmcMmioInterface (
   IN SMC_ADDRESS  BaseAddress
@@ -944,4 +798,40 @@ SmcResetMmio (
   Mmio   = SmcMmioInterface (BaseAddress);
 
   return (Mmio ? EFI_STATUS_FROM_SMC_RESULT (Result) : EFI_SUCCESS);
+}
+
+// AcpiPmTimerFunc
+UINT32
+AcpiPmTimerFunc (
+  IN UINT64  a1
+  )
+{
+  UINT32 Timer;
+  UINT32 Timer2;
+  UINT64 ModdedA1;
+  UINT64 DivModA1;
+
+  Timer    = IoRead32 (0x1808);
+  ModdedA1 = (UINT64)MULT_U64_X32 (a1, 358); // 358 = Freq (rnd), a1 * 1000000 per second
+  Timer   &= 0x00FFFFFF;
+  ModdedA1 = ((DIV_U64_X64 (ModdedA1, 100) >> 32) + 1 + Timer);
+  DivModA1 = DIV_U64_X64 (ModdedA1, 0x01000000); // EDK2 function needed w. Remainder
+
+  if (DivModA1 == 0) {
+    Timer2 = Timer;
+  } else {
+    do {
+      Timer2    = (IoRead32 (0x1808) & 0x00FFFFFF);
+      DivModA1 -= ((Timer2 < Timer) ? 1 : 0);
+      Timer     = Timer2;
+    } while (DivModA1 > 0);
+  }
+
+  ModdedA1 &= 0x00FFFFFF;
+
+  while (Timer2 < ModdedA1) {
+    Timer2 = (IoRead32 (0x1808) & 0x00FFFFFF);
+  }
+
+  return Timer2;
 }

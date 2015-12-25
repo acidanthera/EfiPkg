@@ -1,28 +1,18 @@
-//
-// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-//
-// This program and the accompanying materials have not been licensed.
-// Neither is its usage, its redistribution, in source or binary form,
-// licensed, nor implicitely or explicitely permitted, except when
-// required by applicable law.
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
-// OR CONDITIONS OF ANY KIND, either express or implied.
-//
+/** @file
+  Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.<BR>
 
-///
-/// @file      Include/Guid/AppleNvram.h
-///
-///            
-///
-/// @author    Download-Fritz
-/// @date      
-/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-///
+  This program and the accompanying materials have not been licensed.
+  Neither is its usage, its redistribution, in source or binary form,
+  licensed, nor implicitely or explicitely permitted, except when
+  required by applicable law.
 
-#ifndef __APPLE_NVRAM_H__
-#define __APPLE_NVRAM_H__
+  Unless required by applicable law or agreed to in writing, software
+  distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+  OR CONDITIONS OF ANY KIND, either express or implied.
+**/
+
+#ifndef APPLE_NVRAM_H_
+#define APPLE_NVRAM_H_
 
 // APPLE_VENDOR_NVRAM_GUID
 /// The Apple firmware NVRAM-vendor GUID.
@@ -30,12 +20,10 @@
   { 0x4D1EDE05, 0x38C7, 0x4A6A, { 0x9C, 0xC6, 0x4B, 0xCC, 0xA8, 0xB3, 0x8C, 0x14 } }
 
 // APPLE_EFI_NVRAM_GUID
-/// 
 #define APPLE_EFI_NVRAM_GUID \
   0x7C436110, 0xAB2A, 0x4BBB
 
 // APPLE_EFI_NVRAM
-/// 
 #define APPLE_EFI_NVRAM(Data41, Data42, Data43, Data44, Data45, Data46, Data47, Data48) \
   { APPLE_EFI_NVRAM_GUID, { Data41, Data42, Data43, Data44, Data45, Data46, Data47, Data48 } }
 
@@ -74,7 +62,6 @@
 extern EFI_GUID gAppleVendorNvramGuid;
 
 // gAppleEfiNvramGuid
-/// 
 extern EFI_GUID gAppleEfiNvramGuid;
 
 // gAppleBootGuid
@@ -101,4 +88,4 @@ extern EFI_GUID gAppleEfiAppearanceNvramGuid;
 /// A global variable storing the GUID of the APPLE_EFI_NVRAM_TRB_SECURE EFI variable scope.
 extern EFI_GUID gAppleEfiNvramTrbSecureVariableGuid;
 
-#endif // ifndef __APPLE_NVRAM_H__
+#endif // APPLE_NVRAM_H_

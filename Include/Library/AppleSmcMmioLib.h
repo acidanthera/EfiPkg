@@ -1,40 +1,22 @@
-//
-// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-//
-// This program and the accompanying materials have not been licensed.
-// Neither is its usage, its redistribution, in source or binary form,
-// licensed, nor implicitely or explicitely permitted, except when
-// required by applicable law.
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
-// OR CONDITIONS OF ANY KIND, either express or implied.
-//
+/** @file
+  Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.<BR>
 
-///
-/// @file      Include/Library/AppleSmcMmioLib.h
-///
-///            
-///
-/// @author    Download-Fritz
-/// @date      22/10/2015: Initial version
-/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-///
+  This program and the accompanying materials have not been licensed.
+  Neither is its usage, its redistribution, in source or binary form,
+  licensed, nor implicitely or explicitely permitted, except when
+  required by applicable law.
 
-// 02/12/2015
+  Unless required by applicable law or agreed to in writing, software
+  distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+  OR CONDITIONS OF ANY KIND, either express or implied.
+**/
 
-#ifndef __APPLE_SMC_MMIO_LIB_H__
-#define __APPLE_SMC_MMIO_LIB_H__
+#ifndef APPLE_SMC_MMIO_LIB_H_
+#define APPLE_SMC_MMIO_LIB_H_
 
 #include <IndustryStandard/AppleSmc.h>
 
 // SmcReadValueMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 SmcReadValueMmio (
   IN     SMC_ADDRESS    BaseAddress,
@@ -44,12 +26,6 @@ SmcReadValueMmio (
   );
 
 // SmcWriteValueMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 SmcWriteValueMmio (
   IN SMC_ADDRESS  BaseAddress,
@@ -59,12 +35,6 @@ SmcWriteValueMmio (
   );
 
 // SmcGetKeyFromIndexMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 SmcGetKeyFromIndexMmio (
   IN SMC_ADDRESS  BaseAddress,
@@ -73,12 +43,6 @@ SmcGetKeyFromIndexMmio (
   );
 
 // SmcGetKeyInfoMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 SmcGetKeyInfoMmio (
   IN SMC_ADDRESS         BaseAddress,
@@ -89,12 +53,6 @@ SmcGetKeyInfoMmio (
   );
 
 // SmcFlashTypeMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 SmcFlashTypeMmio (
   IN SMC_ADDRESS     BaseAddress,
@@ -102,12 +60,6 @@ SmcFlashTypeMmio (
   );
 
 // SmcFlashWriteMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 SmcFlashWriteMmio (
   IN SMC_ADDRESS  BaseAddress,
@@ -117,12 +69,6 @@ SmcFlashWriteMmio (
   );
 
 // SmcFlashAuthMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 SmcFlashAuthMmio (
   IN SMC_ADDRESS  BaseAddress,
@@ -131,28 +77,16 @@ SmcFlashAuthMmio (
   );
 
 // SmcMmioInterface
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 BOOLEAN
 SmcMmioInterface (
   IN SMC_ADDRESS  BaseAddress
   );
 
 // SmcResetMmio
-/// 
-///
-/// @param 
-///
-/// @return 
-/// @retval 
 EFI_STATUS
 SmcResetMmio (
   IN SMC_ADDRESS  BaseAddress,
   IN UINT32       Mode
   );
 
-#endif // ifndef __APPLE_SMC_MMIO_LIB_H__
+#endif // APPLE_SMC_MMIO_LIB_H_

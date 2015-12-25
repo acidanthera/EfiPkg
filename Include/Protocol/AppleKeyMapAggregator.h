@@ -1,28 +1,20 @@
-//
-// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-//
-// This program and the accompanying materials have not been licensed.
-// Neither is its usage, its redistribution, in source or binary form,
-// licensed, nor implicitely or explicitely permitted, except when
-// required by applicable law.
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
-// OR CONDITIONS OF ANY KIND, either express or implied.
-//
+/** @file
+  The Apple protocol to output the pressed keys during the boot process.
 
-///
-/// @file      Include/Protocol/AppleKeyMapAggregator.h
-///
-///            The Apple protocol to output the pressed keys during the boot process.
-///
-/// @author    Download-Fritz
-/// @date      15/03/2015: Initial version
-/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-///
+  Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.<BR>
 
-#ifndef __APPLE_KEY_MAP_AGGREGATOR_H__
-#define __APPLE_KEY_MAP_AGGREGATOR_H__
+  This program and the accompanying materials have not been licensed.
+  Neither is its usage, its redistribution, in source or binary form,
+  licensed, nor implicitely or explicitely permitted, except when
+  required by applicable law.
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+  OR CONDITIONS OF ANY KIND, either express or implied.
+**/
+
+#ifndef APPLE_KEY_MAP_AGGREGATOR_H_
+#define APPLE_KEY_MAP_AGGREGATOR_H_
 
 // APPLE_KEY_MAP_AGGREGATOR_PROTOCOL_GUID
 /// The GUID of the APPLE_KEY_MAP_AGGREGATOR_PROTOCOL.
@@ -32,20 +24,21 @@
 FORWARD_DECLARATION (APPLE_KEY_MAP_AGGREGATOR_PROTOCOL);
 
 // KEY_MAP_GET_KEY_STROKES
-/// Returns all pressed keys and key modifiers into the appropiate buffers.
-///
-/// @param[in]  This       A pointer to the protocol instance.
-/// @param[out] Modifiers  The modifiers manipulating the given keys.
-/// @param[out] NoKeys     On input the number of keys allocated.
-///                        On output the number of keys returned into Keys.
-/// @param[out] Keys       A Pointer to a caller-allocated the pressed keys get returned in.
-///
-/// @return                       Returned is the status of the operation.
-/// @retval EFI_SUCCESS           The pressed keys have been returned into Keys.
-/// @retval EFI_BUFFER_TOO_SMALL  The memory required to return the value exceeds the size of the allocated buffer.
-///                               The required number of keys to allocate to complete the operation has been returned
-///                               into NoKeys.
-/// @retval other                 An error returned by a sub-operation.
+/** Returns all pressed keys and key modifiers into the appropiate buffers.
+
+  @param[in]  This       A pointer to the protocol instance.
+  @param[out] Modifiers  The modifiers manipulating the given keys.
+  @param[out] NoKeys     On input the number of keys allocated.
+                         On output the number of keys returned into Keys.
+  @param[out] Keys       A Pointer to a caller-allocated the pressed keys get returned in.
+
+  @return                       Returned is the status of the operation.
+  @retval EFI_SUCCESS           The pressed keys have been returned into Keys.
+  @retval EFI_BUFFER_TOO_SMALL  The memory required to return the value exceeds the size of the allocated Buffer.
+                                The required number of keys to allocate to complete the operation has been returned
+                                into NoKeys.
+  @retval other                 An error returned by a sub-operation.
+**/
 typedef
 EFI_STATUS
 (EFIAPI *KEY_MAP_GET_KEY_STROKES)(
@@ -56,18 +49,19 @@ EFI_STATUS
   );
 
 // KEY_MAP_CONTAINS_KEY_STROKES
-/// Returns whether or not a list of keys and their modifiers are part of the database of pressed keys.
-///
-/// @param[in]      This        A pointer to the protocol instance.
-/// @param[in]      Modifiers   The modifiers manipulating the given keys.
-/// @param[in]      NoKeys      The number of keys present in Keys.
-/// @param[in, out] Keys        The list of keys to check for. The children may be sorted in the process.
-/// @param[in]      ExactMatch  Specifies whether Modifiers and Keys should be exact matches or just contained.
-///
-/// @return                Returns whether or not a list of keys and their modifiers are part of the database of pressed
-///                        keys.
-/// @retval EFI_SUCCESS    The queried keys are part of the database.
-/// @retval EFI_NOT_FOUND  The queried keys could not be found.
+/** Returns whether or not a list of keys and their modifiers are part of the database of pressed keys.
+
+  @param[in]      This        A pointer to the protocol instance.
+  @param[in]      Modifiers   The modifiers manipulating the given keys.
+  @param[in]      NoKeys      The number of keys present in Keys.
+  @param[in, out] Keys        The list of keys to check for.  The children may be sorted in the process.
+  @param[in]      ExactMatch  Specifies whether Modifiers and Keys should be exact matches or just contained.
+
+  @return                Returns whether or not a list of keys and their modifiers are part of the database of pressed
+                         keys.
+  @retval EFI_SUCCESS    The queried keys are part of the database.
+  @retval EFI_NOT_FOUND  The queried keys could not be found.
+**/
 typedef
 EFI_STATUS
 (EFIAPI *KEY_MAP_CONTAINS_KEY_STROKES)(
@@ -78,9 +72,9 @@ EFI_STATUS
   IN     BOOLEAN                            ExactMatch
   );
 
-// _APPLE_KEY_MAP_AGGREGATOR_PROTOCOL
+// APPLE_KEY_MAP_AGGREGATOR_PROTOCOL
 /// The structure exposed by the APPLE_KEY_MAP_AGGREGATOR_PROTOCOL.
-struct _APPLE_KEY_MAP_AGGREGATOR_PROTOCOL {
+struct APPLE_KEY_MAP_AGGREGATOR_PROTOCOL {
   UINTN                        Revision;            ///< The revision of the installed protocol.
   KEY_MAP_GET_KEY_STROKES      GetKeyStrokes;       ///< A pointer to the GetKeyStrokes function.
   KEY_MAP_CONTAINS_KEY_STROKES ContainsKeyStrokes;  ///< A pointer to the ContainsKeyStrokes function.
@@ -90,4 +84,4 @@ struct _APPLE_KEY_MAP_AGGREGATOR_PROTOCOL {
 /// A global variable storing the GUID of the APPLE_KEY_MAP_AGGREGATOR_PROTOCOL.
 extern EFI_GUID gAppleKeyMapAggregatorProtocolGuid;
 
-#endif // ifndef __APPLE_KEY_MAP_AGGREGATOR_H__
+#endif // APPLE_KEY_MAP_AGGREGATOR_H_

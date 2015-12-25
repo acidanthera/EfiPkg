@@ -1,77 +1,58 @@
-//
-// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-//
-// This program and the accompanying materials have not been licensed.
-// Neither is its usage, its redistribution, in source or binary form,
-// licensed, nor implicitely or explicitely permitted, except when
-// required by applicable law.
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
-// OR CONDITIONS OF ANY KIND, either express or implied.
-//
+/** @file
+  Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.<BR>
 
-///
-/// @file      Include/AppleCommon.h
-///
-///            
-///
-/// @author    Download-Fritz
-/// @date      08/11/2015: Initial version
-/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-///
+  This program and the accompanying materials have not been licensed.
+  Neither is its usage, its redistribution, in source or binary form,
+  licensed, nor implicitely or explicitely permitted, except when
+  required by applicable law.
 
-#ifndef __APPLE_COMMON_H__
-#define __APPLE_COMMON_H__
+  Unless required by applicable law or agreed to in writing, software
+  distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+  OR CONDITIONS OF ANY KIND, either express or implied.
+**/
 
-//
+#ifndef APPLE_COMMON_H_
+#define APPLE_COMMON_H_
+
 // The Microsoft* C compiler can removed references to unreferenced data items
-// if the /OPT:REF linker option is used. We defined a macro as this is a
+// if the /OPT:REF linker option is used.  We defined a macro as this is a
 // a non standard extension
-//
 #if defined(_MSC_EXTENSIONS) && !defined (CPU_EBC)
-  ///
   /// Remove global variable from the linked image if there are no references to
   /// it after all compiler and linker optimizations have been performed.
-  ///
-  ///
   #define GLOBAL_REMOVE_IF_UNREFERENCED  __declspec(selectany)
 #else
-  ///
   /// Remove the global variable from the linked image if there are no references
   /// to it after all compiler and linker optimizations have been performed.
-  ///
-  ///
   #define GLOBAL_REMOVE_IF_UNREFERENCED
 #endif
 
-#ifdef EFI_FORWARD_DECLARATION
-  #define FORWARD_DECLARATION(x) EFI_FORWARD_DECLARATION (x)
-#else
-#if defined (EFI_NO_INTERFACE_DECL) || defined (NO_INTERFACE_DECL)
-  #define FORWARD_DECLARATION(x)
-#else
-  #define FORWARD_DECLARATION(x)     typedef struct _##x x
-#endif // ifdef (EFI_NO_INTERFACE_DECL || NO_INTERFACE_DECL)
-  #define EFI_FORWARD_DECLARATION(x) FORWARD_DECLARATION (x)
-#endif // ifdef EFI_FORWARD_DECLARATION
+// FORWARD_DECLARATION
+#define FORWARD_DECLARATION(x) typedef struct x x
 
 #ifdef __CC_ARM
-  //
-  // Older RVCT ARM compilers don't fully support #pragma pack and require __packed
-  // as a prefix for the structure.
-  //
+  /// Older RVCT ARM compilers don't fully support #pragma pack and require __packed
+  /// as a prefix for the structure.
   #define PACKED  __packed
 #else
   #define PACKED
 #endif
 
-// DIV_S64_X64
 #ifndef CPU_IA32
-  #define DIV_S64_X64(Dividend, Divisor) ((Dividend) / (Divisor))
+  #define MULT_U64_X32(Multiplicand, Multiplier) ((Multiplicand) * (Multiplier))
+  #define MULT_U64_X64(Multiplicand, Multiplier) ((Multiplicand) * (Multiplier))
+  #define MULT_S64_X64(Multiplicand, Multiplier) ((Multiplicand) * (Multiplier))
+  #define DIV_U64_X64(Dividend, Divisor)         ((Dividend) / (Divisor))
+  #define DIV_S64_X64(Dividend, Divisor)         ((Dividend) / (Divisor))
 #else
-#  define DIV_S64_X64(Dividend, Divisor) DivS64x64 ((Dividend), (Divisor))
-#endif // ifndef CPU_IA32
+  #define MULT_U64_X32(Multiplicand, Multiplier) MultU64x32 ((Multiplicand), (Multiplier))
+  #define MULT_U64_X64(Multiplicand, Multiplier) MultU64x64 ((Multiplicand), (Multiplier))
+  #define MULT_S64_X64(Multiplicand, Multiplier) MultS64x64 ((Multiplicand), (Multiplier))
+  #define DIV_U64_X64(Dividend, Divisor)         MathLibDivU64x64 ((Dividend), (Divisor))
+  #define DIV_S64_X64(Dividend, Divisor)         MathLibDivS64x64 ((Dividend), (Divisor))
+#endif // CPU_IA32
+
+#define HZ  1000 * 1000 * 10
 
 // ARRAY_LENGTH
 #define ARRAY_LENGTH(Array) (sizeof (Array) / sizeof (*(Array)))
@@ -109,4 +90,4 @@
 #define BITS_SET(Mask1, Mask2)    ((BOOLEAN)(SELECT_BITS ((Mask1), (Mask2)) == (Mask2)))
 /// @}
 
-#endif // ifndef __APPLE_COMMON_H__
+#endif // APPLE_COMMON_H_

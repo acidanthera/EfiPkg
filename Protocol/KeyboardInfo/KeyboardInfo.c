@@ -1,6 +1,4 @@
 /** @file
-  HID class request
-
   Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.<BR>
 
   This program and the accompanying materials have not been licensed.
@@ -15,6 +13,9 @@
 
 #include <AppleEfi.h>
 
-#include <Library/UsbDxeLib/hid.h>
+#include <Protocol/KeyboardInfo.h>
 
+// gEfiKeyboardInfoProtocolGuid
+GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gEfiKeyboardInfoProtocolGuid = EFI_KEYBOARD_INFO_PROTOCOL_GUID;
 
+EFI_GUID_STRING (&gEfiKeyboardInfoProtocolGuid, "Keyboard Information", "Keyboard Information Protocol");

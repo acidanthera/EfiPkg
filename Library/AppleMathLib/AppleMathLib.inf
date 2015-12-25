@@ -1,8 +1,5 @@
-## @file Library/AppleMathLib/AppleMathLib.inf
-#
-# 
-#
-# Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
+## @file
+# Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.
 #
 # This program and the accompanying materials have not been licensed.
 # Neither is its usage, its redistribution, in source or binary form,
@@ -27,12 +24,17 @@
   EdkBridgePkg/EdkBridgePkg.dec
 
 [Sources]
-  DivS64x64.c
+  AppleMathLibInternal.h
+  AppleMathLib.c
 
 [Sources.X64, Sources.IPF, Sources.EBC, Sources.ARM, Sources.AARCH64]
   Common/DivS64x64.c
 
 [Sources.Ia32]
+  Ia32/MultU64x64.c   | MSFT
+  Ia32/MultU64x64.asm | INTEL
+  Ia32/MultU64x64.S   | GCC 
+
   Ia32/DivS64x64.c
   Ia32/DivU64x64.asm | MSFT
   Ia32/DivU64x64.asm | INTEL

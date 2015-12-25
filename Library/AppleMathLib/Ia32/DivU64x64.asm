@@ -28,8 +28,8 @@
 ; UINT64
 ; EFIAPI
 ; InternalMathDivU64x32 (
-;   IN      UINT64                    Dividend,
-;   IN      UINT32                    Divisor
+;   IN UINT64  Dividend,
+;   IN UINT32  Divisor
 ;   );
 ;------------------------------------------------------------------------------
 InternalMathDivU64x32   PROC
@@ -48,8 +48,8 @@ InternalMathDivU64x32   ENDP
 ; UINT64
 ; EFIAPI
 ; InternalMathDivU64x64 (
-;   IN      UINT64                    Dividend,
-;   IN      UINT64                    Divisor
+;   IN UINT64  Dividend,
+;   IN UINT64  Divisor
 ;   );
 ;------------------------------------------------------------------------------
 InternalMathDivU64x64    PROC

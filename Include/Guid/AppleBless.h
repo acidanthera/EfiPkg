@@ -1,29 +1,20 @@
-//
-// Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-//
-// This program and the accompanying materials have not been licensed.
-// Neither is its usage, its redistribution, in source or binary form,
-// licensed, nor implicitely or explicitely permitted, except when
-// required by applicable law.
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
-// OR CONDITIONS OF ANY KIND, either express or implied.
-//
+/** @file
+  Apple protocol to get a volume's bootable file.
 
-///
-/// @file      Guid/AppleBless/AppleBless.h
-///
-///            Apple protocol to get a volume's bootable file.
-///
-/// @author    Download-Fritz
-/// @date      04/03/2014: Initial version
-/// @date      28/03/2015: Updated documentation
-/// @copyright Copyright (C) 2005 - 2015 Apple Inc. All rights reserved.
-///
+  Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.<BR>
 
-#ifndef __APPLE_BLESS_H__
-#define __APPLE_BLESS_H__
+  This program and the accompanying materials have not been licensed.
+  Neither is its usage, its redistribution, in source or binary form,
+  licensed, nor implicitely or explicitely permitted, except when
+  required by applicable law.
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+  OR CONDITIONS OF ANY KIND, either express or implied.
+**/
+
+#ifndef APPLE_BLESS_H_
+#define APPLE_BLESS_H_
 
 // APPLE_BLESSED_FILE_INFO_ID
 /// InformationType GUID exposed by HFSPlus.efi and AppleLegacyBootFS.efi
@@ -45,4 +36,4 @@ extern EFI_GUID gAppleBlessedFileInfoId;
 /// A global variable storing the GUID of the APPLE_BLESSED_FOLDER_INFO_ID.
 extern EFI_GUID gAppleBlessedFolderInfoId;
 
-#endif // ifndef __APPLE_BLESS_H__
+#endif // APPLE_BLESS_H_
