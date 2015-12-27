@@ -20,6 +20,17 @@
 #include <AppleEfi/AppleEfiSpec.h>
 #include <AppleCommon.h>
 
+#ifdef EFI_FIRMWARE_MAJOR_REVISION
+#undef EFI_FIRMWARE_MAJOR_REVISION
+#endif // EFI_FIRMWARE_MAJOR_REVISION
+
+#ifdef EFI_FIRMWARE_MINOR_REVISION
+#undef EFI_FIRMWARE_MINOR_REVISION
+#endif // EFI_FIRMWARE_MINOR_REVISION
+
+#define EFI_FIRMWARE_MAJOR_REVISION  APPLE_EFI_FIRMWARE_MAJOR_REVISION
+#define EFI_FIRMWARE_MINOR_REVISION  APPLE_EFI_FIRMWARE_MINOR_REVISION
+
 // The Microsoft* C compiler can removed references to unreferenced data items
 // if the /OPT:REF linker option is used.  We defined a macro as this is a
 // a non standard extension

@@ -20,6 +20,10 @@
 #include <AppleEfi/AppleEfiSpec.h>
 #include <AppleCommon.h>
 
+#define EFI_FIRMWARE_MAJOR_REVISION  APPLE_EFI_FIRMWARE_MAJOR_REVISION
+#define EFI_FIRMWARE_MINOR_REVISION  APPLE_EFI_FIRMWARE_MINOR_REVISION
+#define EFI_FIRMWARE_REVISION        ((EFI_FIRMWARE_MAJOR_REVISION << 16) | EFI_FIRMWARE_MINOR_REVISION)
+
 // Define macros for including Protocols and Guids.
 
 #define _STRINGIZE(a)              #a
