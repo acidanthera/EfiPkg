@@ -15,30 +15,30 @@
 
 #include APPLE_GUID_DEFINITION (AppleNvram)
 
-// gAppleVendorNvramGuid
-/// A global variable storing the GUID of the APPLE_VENDOR_NVRAM EFI variable scope.
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleVendorNvramGuid = APPLE_VENDOR_NVRAM_GUID;
+// gAppleVendorVariableGuid
+/// A global variable storing the GUID of the APPLE_VENDOR EFI variable scope.
+GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleVendorVariableGuid = APPLE_VENDOR_VARIABLE_GUID;
 
-// gAppleBootGuid
+// gAppleBootVariableGuid
 /// A global variable storing the GUID of the APPLE_BOOT EFI variable scope.
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleBootGuid = APPLE_BOOT_GUID;
+GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleBootVariableGuid = APPLE_BOOT_VARIABLE_GUID;
 
-// gAppleCoreStorageGuid
+// gAppleCoreStorageVariableGuid
 /// A global variable storing the GUID of the APPLE_CORE_STORAGE EFI variable scope.
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleCoreStorageGuid = APPLE_CORE_STORAGE_NVRAM_GUID;
+GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleCoreStorageVariableGuid = APPLE_CORE_STORAGE_VARIABLE_GUID;
 
-// gAppleEfiNvramTrbStagingCommandGuid
-/// A global variable storing the GUID of the APPLE_EFI_NVRAM_TRB_SECURE EFI variable scope.
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleEfiNvramTrbStagingCommandGuid = APPLE_EFI_NVRAM_TRB_STAGING_COMMAND_GUID;
+// gAppleTrbStagingCommandVariableGuid
+/// A global variable storing the GUID of the APPLE_TRB_STAGING_COMMAND EFI variable scope.
+GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleTrbStagingCommandVariableGuid = APPLE_TRB_STAGING_COMMAND_VARIABLE_GUID;
 
 // AppleWirelessNetworkNvramGuid
 /// A global variable storing the GUID of the APPLE_WIRELESS_NETWORK EFI variable scope.
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleWirelessNetworkNvramGuid = APPLE_WIRELESS_NETWORK_NVRAM_GUID;
+GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleWirelessNetworkVariableGuid = APPLE_WIRELESS_NETWORK_VARIABLE_GUID;
 
 // AppleEfiAppearanceNvramGuid
-/// A global variable storing the GUID of the APPLE_EFI_APPEARANCE EFI variable scope.
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleEfiAppearanceNvramGuid = APPLE_EFI_APPEARANCE_NVRAM_GUID;
+/// A global variable storing the GUID of the APPLE_PERSONALIZATION EFI variable scope.
+GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gApplePersonalizationVariableGuid = APPLE_PERSONALIZATION_VARIABLE_GUID;
 
 // gAppleEfiNvramResetGuid
-/// A global variable storing the GUID of the APPLE_EFI_NVRAM_TRB_SECURE EFI variable scope.
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleEfiNvramTrbSecureVariableGuid = APPLE_EFI_NVRAM_TRB_SECURE_VARIABLE_GUID;
+/// A global variable storing the GUID of the APPLE_TRB_SECURE EFI variable scope.
+GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleTrbSecureVariableGuid = APPLE_TRB_SECURE_VARIABLE_GUID;
