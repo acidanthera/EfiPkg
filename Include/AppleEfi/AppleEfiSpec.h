@@ -1,5 +1,5 @@
 /** @file
-  Copyright (C) 2005 - 2015 Apple Inc.  All rights reserved.<BR>
+  Copyright (C) 2005 - 2015, Apple Inc.  All rights reserved.<BR>
 
   This program and the accompanying materials have not been licensed.
   Neither is its usage, its redistribution, in source or binary form,
@@ -74,7 +74,7 @@
   #define APPLE_REMOVABLE_MEDIA_FILE_NAME  APPLE_REMOVABLE_MEDIA_FILE_NAME_AARCH64
 #else
   #error Unknown Processor Type
-#endif // defined (CPU_IA32)
+#endif // CPU_IA32
 
 #ifndef EFI_REMOVABLE_MEDIA_FILE_NAME
   #define EFI_REMOVABLE_MEDIA_FILE_NAME  _EFI_REMOVABLE_MEDIA_FILE_NAME
