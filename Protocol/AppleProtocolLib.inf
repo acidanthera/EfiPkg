@@ -18,30 +18,22 @@
   COMPONENT_TYPE = LIBRARY
 
 [Includes]
-  ../Include
+  $(WORKSPACE)/ApplePkg/Include
   $(WORKSPACE)/EfiMiscPkg/Include
-  $(EDK_SOURCE)/Foundation
-  $(EDK_SOURCE)/Foundation/Framework
-  $(EDK_SOURCE)/Foundation/Efi
-  $(EDK_SOURCE)/Foundation/Include
-  $(EDK_SOURCE)/Foundation/Efi/Include
-  $(EDK_SOURCE)/Foundation/Framework/Include
-  $(EDK_SOURCE)/Foundation/Library/Dxe/Include
+  $(WORKSPACE)/EdkCompatibilityPkg/Foundation
+  $(WORKSPACE)/EdkCompatibilityPkg/Foundation/Framework
+  $(WORKSPACE)/EdkCompatibilityPkg/Foundation/Efi
+  $(WORKSPACE)/EdkCompatibilityPkg/Foundation/Include
+  $(WORKSPACE)/EdkCompatibilityPkg/Foundation/Efi/Include
+  $(WORKSPACE)/EdkCompatibilityPkg/Foundation/Framework/Include
+  $(WORKSPACE)/EdkCompatibilityPkg/Foundation/Library/Dxe/Include
 
 [Sources]
-  ../Include/Protocol/AppleBootPolicy.h
   AppleBootPolicy/AppleBootPolicy.c
-  ../Include/Protocol/AppleKeyMapAggregator.h
   AppleKeyMapAggregator/AppleKeyMapAggregator.c
-  ../Include/Protocol/AppleKeyMapDatabase.h
   AppleKeyMapDatabase/AppleKeyMapDatabase.c
-  ../Include/Protocol/DevicePathPropertyDatabase.h
   DevicePathPropertyDatabase/DevicePathPropertyDatabase.c
-  ../Include/Protocol/AppleEvent.h
   AppleEvent/AppleEvent.c
-  ../Include/Protocol/ApplePlatformInfoDatabase.h
   ApplePlatformInfoDatabase/ApplePlatformInfoDatabase.c
-  ../Include/Protocol/KeyboardInfo.h
   KeyboardInfo/KeyboardInfo.c
-  ../Include/Protocol/OsIdentification.h
   OsIdentification/OsIdentification.c

@@ -18,23 +18,17 @@
   COMPONENT_TYPE = LIBRARY
 
 [Includes]
-  ../Include
-  $(EDK_SOURCE)/Foundation/Efi
-  $(EDK_SOURCE)/Foundation/Include
-  $(EDK_SOURCE)/Foundation/Efi/Include
-  $(EDK_SOURCE)/Foundation/Framework/
-  $(EDK_SOURCE)/Foundation/Framework/Include
+  $(WORKSPACE)/ApplePkg/Include
+  $(WORKSPACE)/EdkCompatibilityPkg/Foundation/Efi
+  $(WORKSPACE)/EdkCompatibilityPkg/Foundation/Include
+  $(WORKSPACE)/EdkCompatibilityPkg/Foundation/Efi/Include
+  $(WORKSPACE)/EdkCompatibilityPkg/Foundation/Framework/
+  $(WORKSPACE)/EdkCompatibilityPkg/Foundation/Framework/Include
 
 [Sources]
-  ../Include/Guid/AppleBless.h
   AppleBless/AppleBless.c
-  ../Include/Guid/AppleFile.h
   AppleFile/AppleFile.c
-  ../Include/Guid/AppleHob.h
   AppleHob/AppleHob.c
-  ../Include/Guid/AppleNvram.h
   AppleNvram/AppleNvram.c
-  ../Include/Guid/AppleSystemInfo.h
   AppleSystemInfo/AppleSystemInfo.c
-  ../Include/Guid/AppleOsLoaded.h
   AppleOsLoaded/AppleOsLoaded.c
