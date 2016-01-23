@@ -14,9 +14,8 @@
 #ifndef APPLE_COMMON_H_
 #define APPLE_COMMON_H_
 
-//
 // EFI Revision information
-//
+
 #define APPLE_EFI_FIRMWARE_MAJOR_REVISION  1
 #define APPLE_EFI_FIRMWARE_MINOR_REVISION  0x0A
 

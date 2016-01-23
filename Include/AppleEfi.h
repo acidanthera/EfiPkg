@@ -58,5 +58,19 @@
   #endif // __CC_ARM
 #endif // PACKED
 
+#ifndef EFI_TIMER_PERIOD_MILLISECONDS
+
+// EFI_TIMER_PERIOD_MILLISECONDS
+/** Macro that returns the number of 100 ns units for a specified number of milliseconds. This is useful for managing
+    EFI timer events.
+
+  @param[in] Milliseconds  The number of milliseconds.
+
+  @return The number of 100 ns units equivalent to the number of milliseconds specified by Milliseconds.
+**/
+#define EFI_TIMER_PERIOD_MILLISECONDS(Milliseconds) MultU64x32 ((UINT64)(Milliseconds), 10000)
+
+#endif !EFI_TIMER_PERIOD_MILLISECONDS
+
 #endif // APPLE_EFI_H_
 
