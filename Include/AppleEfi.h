@@ -70,7 +70,7 @@
 **/
 #define EFI_TIMER_PERIOD_MILLISECONDS(Milliseconds) MultU64x32 ((UINT64)(Milliseconds), 10000)
 
-#endif !EFI_TIMER_PERIOD_MILLISECONDS
+#endif // !EFI_TIMER_PERIOD_MILLISECONDS
 
 #endif // APPLE_EFI_H_
 
