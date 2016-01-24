@@ -19,6 +19,6 @@
   { 0xC5C5DA95, 0x7D5C, 0x45E6, { 0x83, 0x72, 0x89, 0xBD, 0x52, 0x6D, 0xE9, 0x56 } }
 
 // gAppleOsLoadedNamedEventGuid
-EFI_GUID gAppleOsLoadedNamedEventGuid;
+extern EFI_GUID gAppleOsLoadedNamedEventGuid;
 
 #endif // APPLE_OS_LOADED_H_
