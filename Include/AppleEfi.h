@@ -37,12 +37,13 @@
 
 #ifndef GLOBAL_REMOVE_IF_UNREFERENCED
   #if defined (_MSC_EXTENSIONS) && !defined (CPU_EBC)
-    /// Remove global variable from the linked image if there are no references to
-    /// it after all compiler and linker optimizations have been performed.
+    /// Remove global variable from the linked image if there are no references
+    /// to it after all compiler and linker optimizations have been performed.
     #define GLOBAL_REMOVE_IF_UNREFERENCED  __declspec (selectany)
   #else // _MSC_EXTENSIONS && !CPU_EBC
-    /// Remove the global variable from the linked image if there are no references
-    /// to it after all compiler and linker optimizations have been performed.
+    /// Remove the global variable from the linked image if there are no 
+    /// references to it after all compiler and linker optimizations have been
+    /// performed.
     #define GLOBAL_REMOVE_IF_UNREFERENCED
   #endif // _MSC_EXTENSIONS && !CPU_EBC
 #endif // GLOBAL_REMOVE_IF_UNREFERENCED
@@ -50,8 +51,8 @@
 #ifndef PACKED
   #ifdef __CC_ARM
     // PACKED
-    /// Older RVCT ARM compilers don't fully support #pragma pack and require __packed
-    /// as a prefix for the structure.
+    /// Older RVCT ARM compilers don't fully support #pragma pack and require
+    /// __packed as a prefix for the structure.
     #define PACKED  __packed
   #else // __CC_ARM
     #define PACKED
@@ -61,16 +62,17 @@
 #ifndef EFI_TIMER_PERIOD_MILLISECONDS
 
 // EFI_TIMER_PERIOD_MILLISECONDS
-/** Macro that returns the number of 100 ns units for a specified number of milliseconds. This is useful for managing
-    EFI timer events.
+/** Macro that returns the number of 100 ns units for a specified number of
+    milliseconds. This is useful for managing EFI timer events.
 
   @param[in] Milliseconds  The number of milliseconds.
 
-  @return The number of 100 ns units equivalent to the number of milliseconds specified by Milliseconds.
+  @return The number of 100 ns units equivalent to the number of milliseconds
+          specified by Milliseconds.
 **/
-#define EFI_TIMER_PERIOD_MILLISECONDS(Milliseconds) MultU64x32 ((UINT64)(Milliseconds), 10000)
+#define EFI_TIMER_PERIOD_MILLISECONDS(Milliseconds)  \
+          MultU64x32 ((UINT64)(Milliseconds), 10000)
 
 #endif // !EFI_TIMER_PERIOD_MILLISECONDS
 
 #endif // APPLE_EFI_H_
-

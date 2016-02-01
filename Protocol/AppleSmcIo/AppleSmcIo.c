@@ -16,6 +16,11 @@
 #include APPLE_PROTOCOL_DEFINITION (AppleSmcIo)
 
 // gAppleSmcIoProtocolGuid
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleSmcIoProtocolGuid = APPLE_SMC_IO_PROTOCOL_GUID;
+GLOBAL_REMOVE_IF_UNREFERENCED
+EFI_GUID gAppleSmcIoProtocolGuid = APPLE_SMC_IO_PROTOCOL_GUID;
 
-EFI_GUID_STRING (&gAppleSmcIoProtocolGuid, "SMC I/O", "Apple SMC I/O Protocol");
+EFI_GUID_STRING (
+  &gAppleSmcIoProtocolGuid,
+  "SMC I/O",
+  "Apple SMC I/O Protocol"
+  );

@@ -29,19 +29,34 @@
 // FAT_ARCH
 /// Defintion of the the Fat architecture-specific file header.
 typedef struct {
-  CPU_TYPE    CpuType;     ///< The found CPU architecture specifier.
-  CPU_SUBTYPE CpuSubtype;  ///< The found CPU sub-architecture specifier.
-  UINT32      Offset;      ///< The offset of the architecture-specific boot file.
-  UINT32      Size;        ///< The size of the architecture-specific boot file.
-  UINT32      Alignment;   ///< The alignment as a power of 2 (necessary for the x86_64 architecture).
+  /// The found CPU architecture specifier.
+  CPU_TYPE    CpuType;
+
+  /// The found CPU sub-architecture specifier.
+  CPU_SUBTYPE CpuSubtype;
+
+  /// The offset of the architecture-specific boot file.
+  UINT32      Offset;
+
+  /// The size of the architecture-specific boot file.
+  UINT32      Size;
+
+  /// The alignment as a power of 2 (necessary for the x86_64 architecture).
+  UINT32      Alignment;
+
 } FAT_ARCH;
 
 // FAT_HEADER
 /// Defintion of the Fat file header
 typedef struct {
-  UINT32   Signature;  ///< The assumed "Fat Binary Magic" number found in the file.
-  UINT32   NoFatArch;  ///< The hard-coded number of architectures within the file.
-  FAT_ARCH FatArch;    ///< The first FAT_ARCH child of the FAT binary.
+  /// The assumed "Fat Binary Magic" number found in the file.
+  UINT32   Signature;
+
+  /// The hard-coded number of architectures within the file.
+  UINT32   NoFatArch;
+
+  /// The first FAT_ARCH child of the FAT binary.
+  FAT_ARCH FatArch;
 } FAT_HEADER;
 
 #endif // APPLE_FAT_BINARY_IMAGE_H_

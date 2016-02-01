@@ -19,6 +19,11 @@
 #include APPLE_PROTOCOL_DEFINITION (AppleEvent)
 
 // gAppleEventProtocolGuid
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleEventProtocolGuid = APPLE_EVENT_PROTOCOL_GUID;
+GLOBAL_REMOVE_IF_UNREFERENCED
+EFI_GUID gAppleEventProtocolGuid = APPLE_EVENT_PROTOCOL_GUID;
 
-EFI_GUID_STRING (&gAppleEventProtocolGuid, "Apple Event", "Apple Event Protocol");
+EFI_GUID_STRING (
+  &gAppleEventProtocolGuid,
+  "Apple Event",
+  "Apple Event Protocol"
+  );

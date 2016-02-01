@@ -17,15 +17,13 @@
 #define APPLE_BLESS_H_
 
 // APPLE_BLESSED_FILE_INFO_ID
-/// InformationType GUID exposed by HFSPlus.efi and AppleLegacyBootFS.efi
-/// used to get the blessed file's path.
-#define APPLE_BLESSED_FILE_INFO_ID \
+/// InformationType GUID used to get the blessed file's path.
+#define APPLE_BLESSED_FILE_INFO_ID  \
   { 0xCA7E4814, 0x2ADC, 0x4ADD, { 0xAB, 0xFF, 0x73, 0x4E, 0x3C, 0xFE, 0x13, 0xF3 } }
 
 // APPLE_BLESSED_FOLDER_INFO_ID
-/// InformationType GUID exposed by HFSPlus.efi and AppleLegacyBootFS.efi
-/// used to get the blessed folder's path.
-#define APPLE_BLESSED_FOLDER_INFO_ID \
+/// InformationType GUID exposed used to get the blessed folder's path.
+#define APPLE_BLESSED_FOLDER_INFO_ID  \
   { 0x7BD1F02D, 0x9C2F, 0x4581, { 0xBF, 0x12, 0xD5, 0x4a, 0xBA, 0x0D, 0x98, 0xD6 } }
 
 // gAppleBlessedFileInfoId

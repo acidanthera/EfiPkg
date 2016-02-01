@@ -16,6 +16,11 @@
 #include APPLE_PROTOCOL_DEFINITION (KeyboardInfo)
 
 // gEfiKeyboardInfoProtocolGuid
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gEfiKeyboardInfoProtocolGuid = EFI_KEYBOARD_INFO_PROTOCOL_GUID;
+GLOBAL_REMOVE_IF_UNREFERENCED
+EFI_GUID gEfiKeyboardInfoProtocolGuid = EFI_KEYBOARD_INFO_PROTOCOL_GUID;
 
-EFI_GUID_STRING (&gEfiKeyboardInfoProtocolGuid, "Keyboard Information", "Keyboard Information Protocol");
+EFI_GUID_STRING (
+  &gEfiKeyboardInfoProtocolGuid,
+  "Keyboard Information",
+  "Keyboard Information Protocol"
+  );

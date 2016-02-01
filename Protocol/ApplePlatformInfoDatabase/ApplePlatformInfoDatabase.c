@@ -16,8 +16,9 @@
 #include APPLE_PROTOCOL_DEFINITION (ApplePlatformInfoDatabase)
 
 // gApplePlatformInfoDatabaseProtocolGuid
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gApplePlatformInfoDatabaseProtocolGuid =
-                                         APPLE_PLATFORM_INFO_DATABASE_PROTOCOL_GUID;
+GLOBAL_REMOVE_IF_UNREFERENCED
+EFI_GUID gApplePlatformInfoDatabaseProtocolGuid =
+           APPLE_PLATFORM_INFO_DATABASE_PROTOCOL_GUID;
 
 EFI_GUID_STRING (
   &gApplePlatformInfoDatabaseProtocolGuid,

@@ -17,7 +17,13 @@
 #include APPLE_PROTOCOL_DEFINITION (AppleKeyMapDatabase)
 
 // gAppleKeyMapDatabaseProtocolGuid
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleKeyMapDatabaseProtocolGuid = APPLE_KEY_MAP_DATABASE_PROTOCOL_GUID;
+GLOBAL_REMOVE_IF_UNREFERENCED
+EFI_GUID gAppleKeyMapDatabaseProtocolGuid =
+           APPLE_KEY_MAP_DATABASE_PROTOCOL_GUID;
 
-EFI_GUID_STRING (&gAppleKeyMapDatabaseProtocolGuid, "Key Map Database", "Apple Key Map Database Protocol");
+EFI_GUID_STRING (
+  &gAppleKeyMapDatabaseProtocolGuid,
+  "Key Map Database",
+  "Apple Key Map Database Protocol"
+  );
 

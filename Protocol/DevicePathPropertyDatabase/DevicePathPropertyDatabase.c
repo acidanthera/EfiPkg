@@ -16,8 +16,9 @@
 #include APPLE_PROTOCOL_DEFINITION (DevicePathPropertyDatabase)
 
 // gEfiDevicePathPropertyProtocolGuid
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gEfiDevicePathPropertyDatabaseProtocolGuid =
-                                         EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL_GUID;
+GLOBAL_REMOVE_IF_UNREFERENCED
+EFI_GUID gEfiDevicePathPropertyDatabaseProtocolGuid =
+           EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL_GUID;
 
 EFI_GUID_STRING (
   &gEfiDevicePathPropertyDatabaseProtocolGuid,

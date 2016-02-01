@@ -16,6 +16,11 @@
 #include APPLE_PROTOCOL_DEFINITION (AppleBootBeepGen)
 
 // gAppleBootBeepGenProtocolGuid
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleBootBeepGenProtocolGuid = APPLE_BOOT_BEEP_GEN_PROTOCOL_GUID;
+GLOBAL_REMOVE_IF_UNREFERENCED
+EFI_GUID gAppleBootBeepGenProtocolGuid = APPLE_BOOT_BEEP_GEN_PROTOCOL_GUID;
 
-EFI_GUID_STRING (&gAppleBootBeepGenProtocolGuid, "Boot Beep", "Apple Boot Beep Protocol");
+EFI_GUID_STRING (
+  &gAppleBootBeepGenProtocolGuid,
+  "Boot Beep",
+  "Apple Boot Beep Protocol"
+  );

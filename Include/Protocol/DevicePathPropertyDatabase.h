@@ -30,30 +30,46 @@ typedef struct {
 // DEVICE_PATH_PROPERTY_BUFFER_NODE
 /// The structure defining the header of a Device Property node.
 typedef struct {
+  /// The node header structure.
   struct {
-    UINT32                       Size;          ///< The size, in bytes, of the entire node.
-    UINT32                       NoProperties;  ///< The number of properties within the node.
-  }                              Hdr;         ///< The node header structure.
-  EFI_DEVICE_PATH_PROTOCOL       DevicePath;  ///< The device path for the current node.
-// EFI_DEVICE_PATH_PROPERTY_DATA Data;        ///< The begin of the Device Property data set.
+    /// The size, in bytes, of the entire node.
+    UINT32 Size;
+
+    /// The number of properties within the node.
+    UINT32 NoProperties;
+  }                             Hdr;
+
+  /// The device path for the current node.
+  EFI_DEVICE_PATH_PROTOCOL      DevicePath;
+
+// ///< The begin of the Device Property data set.
+//EFI_DEVICE_PATH_PROPERTY_DATA Data;
 } EFI_DEVICE_PATH_PROPERTY_BUFFER_NODE;
 
 // DEVICE_PATH_PROPERTY_BUFFER
 /// The structure defining the header of a Device Property Buffer.
 typedef struct {
+  /// The Buffer header structure.
   struct {
-    UINT32                             Size;     ///< The size, in bytes, of the entire Buffer.
-    UINT32                             MustBe1;  ///< Must be 1.
-    UINT32                             NoNodes;  ///< The number of nodes in the Buffer.
-  }                                    Hdr;   ///< The Buffer header structure.
-  EFI_DEVICE_PATH_PROPERTY_BUFFER_NODE Node;  ///< The first node in the Buffer.
+    /// The size, in bytes, of the entire Buffer.
+    UINT32 Size;    
+
+    /// Must be 1.
+    UINT32 MustBe1;
+
+    /// The number of nodes in the Buffer.
+    UINT32 NoNodes;
+  }                                    Hdr;
+
+  /// The first node in the Buffer.
+  EFI_DEVICE_PATH_PROPERTY_BUFFER_NODE Node;
 } EFI_DEVICE_PATH_PROPERTY_BUFFER;
 
 // Protocol declaration
 
 // EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL_GUID
 /// The GUID of the EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL.
-#define EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL_GUID \
+#define EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL_GUID  \
   { 0x91BD12FE, 0xF6C3, 0x44FB, { 0xA5, 0xB7, 0x51, 0x22, 0xAB, 0x30, 0x3A, 0xE0 } }
 
 APPLE_FORWARD_DECLARATION (EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL);
@@ -62,16 +78,21 @@ APPLE_FORWARD_DECLARATION (EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL);
 /** Locates a device property in the database and returns its value into Value.
 
   @param[in]      This        A pointer to the protocol instance.
-  @param[in]      DevicePath  The device path of the device to get the property of.
+  @param[in]      DevicePath  The device path of the device to get the property
+                              of.
   @param[in]      Name        The Name of the requested property.
-  @param[out]     Value       The Buffer allocated by the caller to return the value of the property into.
+  @param[out]     Value       The Buffer allocated by the caller to return the
+                              value of the property into.
   @param[in, out] Size        On input the size of the allocated Value Buffer.
                               On output the size required to fill the Buffer.
 
   @return                       The status of the operation is returned.
-  @retval EFI_BUFFER_TOO_SMALL  The memory required to return the value exceeds the size of the allocated Buffer.
-                                The required size to complete the operation has been returned into Size.
-  @retval EFI_NOT_FOUND         The given device path does not have a property with the specified Name.
+  @retval EFI_BUFFER_TOO_SMALL  The memory required to return the value exceeds
+                                the size of the allocated Buffer.
+                                The required size to complete the operation has
+                                been returned into Size.
+  @retval EFI_NOT_FOUND         The given device path does not have a property
+                                with the specified Name.
   @retval EFI_SUCCESS           The operation completed successfully.
 **/
 typedef
@@ -94,7 +115,8 @@ EFI_STATUS
   @param[out] Size        The size of the Value Buffer.
 
   @return                       The status of the operation is returned.
-  @retval EFI_OUT_OF_RESOURCES  The memory necessary to complete the operation could not be allocated.
+  @retval EFI_OUT_OF_RESOURCES  The memory necessary to complete the operation
+                                could not be allocated.
   @retval EFI_SUCCESS           The operation completed successfully.
   **/
 typedef
@@ -115,7 +137,8 @@ EFI_STATUS
   @param[in] Name        The Name of the desired property.
 
   @return                The status of the operation is returned.
-  @retval EFI_NOT_FOUND  The given device path does not have a property with the specified Name.
+  @retval EFI_NOT_FOUND  The given device path does not have a property with
+                         the specified Name.
   @retval EFI_SUCCESS    The operation completed successfully.
 **/
 typedef
@@ -130,13 +153,16 @@ EFI_STATUS
 /** Returns a Buffer of all device properties into Buffer.
 
   @param[in]      This    A pointer to the protocol instance.
-  @param[out]     Buffer  The Buffer allocated by the caller to return the property Buffer into.
+  @param[out]     Buffer  The Buffer allocated by the caller to return the
+                          property Buffer into.
   @param[in, out] Size    On input the size of the allocated Buffer.
                           On output the size required to fill the Buffer.
 
   @return                       The status of the operation is returned.
-  @retval EFI_BUFFER_TOO_SMALL  The memory required to return the value exceeds the size of the allocated Buffer.
-                                The required size to complete the operation has been returned into Size.
+  @retval EFI_BUFFER_TOO_SMALL  The memory required to return the value exceeds
+                                the size of the allocated Buffer.
+                                The required size to complete the operation has
+                                been returned into Size.
   @retval EFI_SUCCESS           The operation completed successfully.
 **/
 typedef

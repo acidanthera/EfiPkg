@@ -16,6 +16,11 @@
 #include APPLE_PROTOCOL_DEFINITION (OsIdentification)
 
 // gEfiOsIdentificationProtocolGuid
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gEfiOsIdentificationProtocolGuid = EFI_OS_IDENTIFICATION_PROTOCOL_GUID;
+GLOBAL_REMOVE_IF_UNREFERENCED
+EFI_GUID gEfiOsIdentificationProtocolGuid = EFI_OS_IDENTIFICATION_PROTOCOL_GUID;
 
-EFI_GUID_STRING (&gEfiOsIdentificationProtocolGuid, "OS Identification", "OS Identification Protocol");
+EFI_GUID_STRING (
+  &gEfiOsIdentificationProtocolGuid,
+  "OS Identification",
+  "OS Identification Protocol"
+  );

@@ -18,21 +18,24 @@
 
 // APPLE_KEY_MAP_DATABASE_PROTOCOL_GUID
 /// The GUID of the APPLE_KEY_MAP_DATABASE_PROTOCOL.
-#define APPLE_KEY_MAP_DATABASE_PROTOCOL_GUID \
+#define APPLE_KEY_MAP_DATABASE_PROTOCOL_GUID  \
   { 0x584B9EBE, 0x80C1, 0x4BD6, { 0x98, 0xB0, 0xA7, 0x78, 0x6E, 0xC2, 0xF2, 0xE2 } }
 
 APPLE_FORWARD_DECLARATION (APPLE_KEY_MAP_DATABASE_PROTOCOL);
 
 // KEY_MAP_CREATE_KEY_STROKES_BUFFER
-/** Creates a new key set with a given number of keys allocated.  The index within the database is returned.
+/** Creates a new key set with a given number of keys allocated.  The index
+    within the database is returned.
 
   @param[in]  This           A pointer to the protocol instance.
   @param[in]  KeyBufferSize  The amount of keys to allocate for the key set.
   @param[out] Index          The assigned index of the created key set.
 
   @return                       Returned is the status of the operation.
-  @retval EFI_SUCCESS           A key set with the given number of keys allocated has been created.
-  @retval EFI_OUT_OF_RESOURCES  The memory necessary to complete the operation could not be allocated.
+  @retval EFI_SUCCESS           A key set with the given number of keys
+                                allocated has been created.
+  @retval EFI_OUT_OF_RESOURCES  The memory necessary to complete the operation
+                                could not be allocated.
   @retval other                 An error returned by a sub-operation.
 **/
 typedef
@@ -71,8 +74,10 @@ EFI_STATUS
   @param[in] Keys       An array of keys to add to the specified key set.
 
   @return                       Returned is the status of the operation.
-  @retval EFI_SUCCESS           The given keys were set for the specified key set.
-  @retval EFI_OUT_OF_RESOURCES  The memory necessary to complete the operation could not be allocated.
+  @retval EFI_SUCCESS           The given keys were set for the specified key
+                                set.
+  @retval EFI_OUT_OF_RESOURCES  The memory necessary to complete the operation
+                                could not be allocated.
   @retval EFI_NOT_FOUND         No key set could be found for the given index.
   @retval other                 An error returned by a sub-operation.
 **/
@@ -89,10 +94,17 @@ EFI_STATUS
 // APPLE_KEY_MAP_DATABASE_PROTOCOL
 /// The structure exposed by the APPLE_KEY_MAP_DATABASE_PROTOCOL.
 struct APPLE_KEY_MAP_DATABASE_PROTOCOL {
-  UINTN                             Revision;                ///< The revision of the installed protocol.
-  KEY_MAP_CREATE_KEY_STROKES_BUFFER CreateKeyStrokesBuffer;  ///< A pointer to the CreateKeyStrokesBuffer function.
-  KEY_MAP_REMOVE_KEY_STROKES_BUFFER RemoveKeyStrokesBuffer;  ///< A pointer to the RemoveKeyStrokes function.
-  KEY_MAP_SET_KEY_STROKES_KEYS      SetKeyStrokeBufferKeys;  ///< A pointer to the SetKeyStrokeBufferKeys function.
+  /// The revision of the installed protocol.
+  UINTN                             Revision;
+
+  /// A pointer to the CreateKeyStrokesBuffer function.
+  KEY_MAP_CREATE_KEY_STROKES_BUFFER CreateKeyStrokesBuffer;
+
+  /// A pointer to the RemoveKeyStrokes function.
+  KEY_MAP_REMOVE_KEY_STROKES_BUFFER RemoveKeyStrokesBuffer;
+
+  /// A pointer to the SetKeyStrokeBufferKeys function.
+  KEY_MAP_SET_KEY_STROKES_KEYS      SetKeyStrokeBufferKeys;
 };
 
 // gAppleKeyMapDatabaseProtocolGuid

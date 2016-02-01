@@ -18,6 +18,12 @@
 #include APPLE_PROTOCOL_DEFINITION (AppleKeyMapAggregator)
 
 // gAppleKeyMapAggregatorProtocolGuid
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleKeyMapAggregatorProtocolGuid = APPLE_KEY_MAP_AGGREGATOR_PROTOCOL_GUID;
+GLOBAL_REMOVE_IF_UNREFERENCED
+EFI_GUID gAppleKeyMapAggregatorProtocolGuid =
+           APPLE_KEY_MAP_AGGREGATOR_PROTOCOL_GUID;
 
-EFI_GUID_STRING (&gAppleKeyMapAggregatorProtocolGuid, "Key Map Aggregator", "Apple Key Map Aggregator Protocol");
+EFI_GUID_STRING (
+  &gAppleKeyMapAggregatorProtocolGuid,
+  "Key Map Aggregator",
+  "Apple Key Map Aggregator Protocol"
+  );

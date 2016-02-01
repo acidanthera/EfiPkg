@@ -16,6 +16,11 @@
 #include APPLE_PROTOCOL_DEFINITION (AppleBootPolicy)
 
 // gAppleBootPolicyProtocolGuid
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleBootPolicyProtocolGuid = APPLE_BOOT_POLICY_PROTOCOL_GUID;
+GLOBAL_REMOVE_IF_UNREFERENCED
+EFI_GUID gAppleBootPolicyProtocolGuid = APPLE_BOOT_POLICY_PROTOCOL_GUID;
 
-EFI_GUID_STRING (&gAppleBootPolicyProtocolGuid, "Boot Policy", "Apple Boot Policy Protocol");
+EFI_GUID_STRING (
+  &gAppleBootPolicyProtocolGuid,
+  "Boot Policy",
+  "Apple Boot Policy Protocol"
+  );
