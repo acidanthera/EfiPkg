@@ -15,10 +15,17 @@
 
 #include APPLE_GUID_DEFINITION (AppleBless)
 
-// gAppleBlessedFileInfoId
-/// A global variable storing the GUID of the APPLE_BLESSED_FILE_INFO_ID.
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleBlessedFileInfoId = APPLE_BLESSED_FILE_INFO_ID;
+// gAppleBlessedSystemFileInfoGuid
+/// A global variable storing the GUID of the APPLE_BLESSED_SYSTEM_FILE_INFO_GUID.
+GLOBAL_REMOVE_IF_UNREFERENCED
+EFI_GUID gAppleBlessedSystemFileInfoGuid = APPLE_BLESSED_SYSTEM_FILE_INFO_GUID;
 
-// gAppleBlessedFolderInfoId
-/// A global variable storing the GUID of the APPLE_BLESSED_FOLDER_INFO_ID.
-GLOBAL_REMOVE_IF_UNREFERENCED EFI_GUID gAppleBlessedFolderInfoId = APPLE_BLESSED_FOLDER_INFO_ID;
+// gAppleBlessedSystemFolderInfoGuid
+/// A global variable storing the GUID of the APPLE_BLESSED_SYSTEM_FOLDER_INFO_GUID.
+GLOBAL_REMOVE_IF_UNREFERENCED
+EFI_GUID gAppleBlessedSystemFolderInfoGuid = APPLE_BLESSED_SYSTEM_FOLDER_INFO_GUID;
+
+// gAppleBlessedOsxFolderInfoGuid
+/// A global variable storing the GUID of the APPLE_BLESSED_OSX_FOLDER_INFO_GUID.
+GLOBAL_REMOVE_IF_UNREFERENCED
+EFI_GUID gAppleBlessedOsxFolderInfoGuid = APPLE_BLESSED_OSX_FOLDER_INFO_GUID;

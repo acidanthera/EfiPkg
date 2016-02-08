@@ -15,8 +15,9 @@
 #define EFI_KEYBOARD_INFORMATION_H_
 
 // EFI_KEYBOARD_INFO_PROTOCOL_GUID
-#define EFI_KEYBOARD_INFO_PROTOCOL_GUID  \
-  { 0xE82A0A1E, 0x0E4D, 0x45AC, { 0xA6, 0xDC, 0x2A, 0xE0, 0x58, 0x00, 0xD3, 0x11 } }
+#define EFI_KEYBOARD_INFO_PROTOCOL_GUID                   \
+  { 0xE82A0A1E, 0x0E4D, 0x45AC,                           \
+    { 0xA6, 0xDC, 0x2A, 0xE0, 0x58, 0x00, 0xD3, 0x11 } }
 
 // KEYBOARD_INFO_GET_INFO
 typedef

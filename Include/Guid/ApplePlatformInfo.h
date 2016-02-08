@@ -1,5 +1,5 @@
 /** @file
-  Copyright (C) 2005 - 2015, Apple Inc.  All rights reserved.<BR>
+  Copyright (C) 2016, Apple Inc.  All rights reserved.<BR>
 
   This program and the accompanying materials have not been licensed.
   Neither is its usage, its redistribution, in source or binary form,
@@ -11,15 +11,15 @@
   OR CONDITIONS OF ANY KIND, either express or implied.
 **/
 
-#ifndef APPLE_OS_LOADED_H_
-#define APPLE_OS_LOADED_H_
+#ifndef APPLE_PLATFORM_INFO_H_
+#define APPLE_PLATFORM_INFO_H_
 
-// APPLE_OS_LOADED_EVENT_NAME
-#define APPLE_OS_LOADED_EVENT_NAME_GUID                   \
-  { 0xC5C5DA95, 0x7D5C, 0x45E6,                           \
-    { 0x83, 0x72, 0x89, 0xBD, 0x52, 0x6D, 0xE9, 0x56 } }
+// APPLE_PLATFORM_INFO_KEYBOARD_GUID
+#define APPLE_PLATFORM_INFO_KEYBOARD_GUID                 \
+  { 0x51871CB9, 0xE25D, 0x44B4,                           \
+    { 0x96, 0x99, 0x0E, 0xE8, 0x64, 0x4C, 0xED, 0x69 } }
 
-// gAppleOsLoadedNamedEventGuid
-extern EFI_GUID gAppleOsLoadedNamedEventGuid;
+// gApplePlatformInfoKeyboardGuid
+extern EFI_GUID gApplePlatformInfoKeyboardGuid;
 
-#endif // APPLE_OS_LOADED_H_
+#endif // APPLE_PLATFORM_INFO_H_

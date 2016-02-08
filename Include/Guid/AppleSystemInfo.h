@@ -1,5 +1,5 @@
 /** @file
-  Copyright (C) 2005 - 2015, Apple Inc.  All rights reserved.<BR>
+  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.<BR>
 
   This program and the accompanying materials have not been licensed.
   Neither is its usage, its redistribution, in source or binary form,
@@ -17,8 +17,9 @@
 #include <Guid/DataHubRecords/DataHubSubClass.h>
 
 // APPLE_SYSTEM_INFO_PRODUCER_NAME_GUID
-#define APPLE_SYSTEM_INFO_PRODUCER_NAME_GUID \
-  { 0x64517CC8, 0x6561, 0x4051, { 0xB0, 0x3C, 0x59, 0x64, 0xB6, 0x0F, 0x4C, 0x7A } }
+#define APPLE_SYSTEM_INFO_PRODUCER_NAME_GUID              \
+  { 0x64517CC8, 0x6561, 0x4051,                           \
+    { 0xB0, 0x3C, 0x59, 0x64, 0xB6, 0x0F, 0x4C, 0x7A } }
 
 // APPLE_SYSTEM_INFO_DATA_RECORD
 typedef struct {

@@ -18,8 +18,9 @@
 
 // APPLE_BOOT_POLICY_PROTOCOL_GUID
 /// The GUID of the APPLE_BOOT_POLICY_PROTOCOL.
-#define APPLE_BOOT_POLICY_PROTOCOL_GUID  \
-  { 0x62257758, 0x350C, 0x4D0A, { 0xB0, 0xBD, 0xF6, 0xBE, 0x2E, 0x1E, 0x27, 0x2C } }
+#define APPLE_BOOT_POLICY_PROTOCOL_GUID                   \
+  { 0x62257758, 0x350C, 0x4D0A,                           \
+    { 0xB0, 0xBD, 0xF6, 0xBE, 0x2E, 0x1E, 0x27, 0x2C } }
 
 // BOOT_POLICY_GET_BOOT_FILE
 /** Locates the bootable file of the given volume.  Prefered are the values
