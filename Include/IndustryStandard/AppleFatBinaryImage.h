@@ -49,14 +49,16 @@ typedef struct {
 // FAT_HEADER
 /// Defintion of the Fat file header
 typedef struct {
-  /// The assumed "Fat Binary Magic" number found in the file.
-  UINT32   Signature;
+  struct {
+    /// The assumed "Fat Binary Magic" number found in the file.
+    UINT32 Signature;
 
-  /// The hard-coded number of architectures within the file.
-  UINT32   NoFatArch;
+    /// The hard-coded number of architectures within the file.
+    UINT32 NumberOfFatArch;
+  }        Hdr;
 
   /// The first FAT_ARCH child of the FAT binary.
-  FAT_ARCH FatArch;
+  FAT_ARCH FatArch[1];
 } FAT_HEADER;
 
 #endif // APPLE_FAT_BINARY_IMAGE_H_

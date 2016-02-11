@@ -36,13 +36,13 @@ typedef struct {
     UINT32 Size;
 
     /// The number of properties within the node.
-    UINT32 NoProperties;
+    UINT32 NumberOfProperties;
   }                             Hdr;
 
   /// The device path for the current node.
   EFI_DEVICE_PATH_PROTOCOL      DevicePath;
 
-// ///< The begin of the Device Property data set.
+// /// The begin of the Device Property data set.
 //EFI_DEVICE_PATH_PROPERTY_DATA Data;
 } EFI_DEVICE_PATH_PROPERTY_BUFFER_NODE;
 
@@ -58,7 +58,7 @@ typedef struct {
     UINT32 MustBe1;
 
     /// The number of nodes in the Buffer.
-    UINT32 NoNodes;
+    UINT32 NumberOfNodes;
   }                                    Hdr;
 
   /// The first node in the Buffer.

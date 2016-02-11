@@ -53,12 +53,12 @@ typedef UINTN APPLE_POINTER_EVENT_TYPE;
 
 // APPLE_KEY_EVENT_DATA
 typedef PACKED struct {
-  UINT16          NoKeyPairs;  ///<
+  UINT16          NumberOfKeyPairs;  ///<
   struct {
-    EFI_INPUT_KEY InputKey;  ///<
-    APPLE_KEY     AppleKey;  ///<
-  }               KeyPair;     ///<
-  UINT16          Unknown;     ///< ?
+    EFI_INPUT_KEY InputKey;          ///<
+    APPLE_KEY     AppleKey;          ///<
+  }               KeyPair;           ///<
+  UINT16          Unknown;           ///<
 } APPLE_KEY_EVENT_DATA;
 
 #pragma pack ()
