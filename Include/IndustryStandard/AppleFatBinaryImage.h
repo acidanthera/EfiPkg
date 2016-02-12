@@ -26,9 +26,11 @@
 /// The common "Fat Binary Magic" number used to identify a Fat binary.
 #define MACHO_FAT_BINARY_INVERT_SIGNATURE  0xBEBAFECA
 
+#pragma pack (1)
+
 // FAT_ARCH
 /// Defintion of the the Fat architecture-specific file header.
-typedef struct {
+typedef PACKED struct {
   /// The found CPU architecture specifier.
   CPU_TYPE    CpuType;
 
@@ -48,7 +50,7 @@ typedef struct {
 
 // FAT_HEADER
 /// Defintion of the Fat file header
-typedef struct {
+typedef PACKED struct {
   struct {
     /// The assumed "Fat Binary Magic" number found in the file.
     UINT32 Signature;
@@ -60,5 +62,7 @@ typedef struct {
   /// The first FAT_ARCH child of the FAT binary.
   FAT_ARCH FatArch[1];
 } FAT_HEADER;
+
+#pragma pop ()
 
 #endif // APPLE_FAT_BINARY_IMAGE_H_
