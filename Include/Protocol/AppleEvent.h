@@ -159,10 +159,19 @@ EFI_STATUS
   );
 
 // EVENT_IS_CAPS_LOCK_ON
+/** Retrieves the state of the CapsLock key.
+
+  @param[in, out] CLockOn  This parameter indicates the state of the CapsLock
+                           key.
+
+  @retval EFI_SUCCESS            The CapsLock state was successfully returned
+                                 in CLockOn.
+  @retval EFI_INVALID_PARAMETER  CLockOn is NULL.
+**/
 typedef
 EFI_STATUS
 (EFIAPI *EVENT_IS_CAPS_LOCK_ON)(
-  IN OUT BOOLEAN  *CapsLockActive
+  IN OUT BOOLEAN  *CLockOn
   );
 
 // APPLE_EVENT_PROTOCOL

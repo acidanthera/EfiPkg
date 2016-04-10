@@ -45,7 +45,6 @@ typedef PACKED struct {
 
   /// The alignment as a power of 2 (necessary for the x86_64 architecture).
   UINT32      Alignment;
-
 } FAT_ARCH;
 
 // FAT_HEADER
