@@ -15,5 +15,7 @@
 #define APPLE_CPU_TYPE_H_
 
 #define CPU_IA32
+#define CURRENT_CPU_TYPE     CpuTypeX8664
+#define CURRENT_CPU_SUBTYPE  CpuSubtypeX8664All
 
 #endif // APPLE_CPU_TYPE_H_

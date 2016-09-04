@@ -36,7 +36,7 @@
 // intelligent build tools can be created to check dependencies at build
 // time.
 
-#define EFI_PROTOCOL_PRODUCER(a)   EFI_PROTOCOL_DsEFINITION (a)
+#define EFI_PROTOCOL_PRODUCER(a)   EFI_PROTOCOL_DEFINITION (a)
 #define EFI_PROTOCOL_CONSUMER(a)   EFI_PROTOCOL_DEFINITION (a)
 #define EFI_PROTOCOL_DEPENDENCY(a) EFI_PROTOCOL_DEFINITION (a)
 

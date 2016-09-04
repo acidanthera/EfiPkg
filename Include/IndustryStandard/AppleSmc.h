@@ -186,37 +186,36 @@ enum {
   SmcInvalidSize           = 206
 };
 
-#define SMCERR(a) (((UINTN)(a)) > 0)
+#define SMC_ERROR(a) (((UINTN)(a)) > 0)
 
 #define EFI_STATUS_FROM_SMC_RESULT(x)  \
-  ((((UINTN)(x)) == SMC_SUCCESS) ? EFI_SUCCESS : EFIERR ((UINTN)(x)))
+  ((((UINTN)(x)) == SmcSuccess) ? EFI_SUCCESS : EFIERR ((UINTN)(x)))
 
-enum {
-  EfiSmcSuccess               = SmcSuccess,
-  EfiSmcError                 = EFIERR (SmcError),
+#define EFI_SMC_SUCCESS                   SmcSuccess
+#define EFI_SMC_ERROR                     EFIERR (SmcError)
 
-  EfiSmcCommCollision         = EFIERR (SmcCommCollision),
-  EfiSmcSpuriousData          = EFIERR (SmcSpuriousData),
-  EfiSmcBadCommand            = EFIERR (SmcBadCommand),
-  EfiSmcBadParameter          = EFIERR (SmcBadParameter),
-  EfiSmcNotFound              = EFIERR (SmcNotFound),
-  EfiSmcNotReadable           = EFIERR (SmcNotReadable),
-  EfiSmcNotWritable           = EFIERR (SmcNotWritable),
-  EfiSmcKeySizeMismatch       = EFIERR (SmcKeySizeMismatch),
-  EfiSmcFramingError          = EFIERR (SmcFramingError),
-  EfiSmcBadArgumentError      = EFIERR (SmcBadArgumentError),
+#define EFI_SMC_COMM_COLLISION            EFIERR (SmcCommCollision)
+#define EFI_SMC_SPURIOUS_DATA             EFIERR (SmcSpuriousData)
+#define EFI_SMC_BAD_COMMAND               EFIERR (SmcBadCommand)
+#define EFI_SMC_BAD_PARAMETER             EFIERR (SmcBadParameter)
+#define EFI_SMC_NOT_FOUND                 EFIERR (SmcNotFound)
+#define EFI_SMC_NOT_READABLE              EFIERR (SmcNotReadable)
+#define EFI_SMC_NOT_WRITABLE              EFIERR (SmcNotWritable)
+#define EFI_SMC_KEY_MISMATCH              EFIERR (SmcKeySizeMismatch)
+#define EFI_SMC_FRAMING_ERROR             EFIERR (SmcFramingError)
+#define EFI_SMC_BAD_ARGUMENT_ERROR        EFIERR (SmcBadArgumentError)
 
-  EfiSmcTimeoutError          = EFIERR (SmcTimeoutError),
-  EfiSmcKeyIndexRangeError    = EFIERR (SmcKeyIndexRangeError),
+#define EFI_SMC_TIMEOUT_ERROR             EFIERR (SmcTimeoutError)
+#define EFI_SMC_KEY_INDEX_RANGE_ERROR     EFIERR (SmcKeyIndexRangeError)
 
-  EfiSmcBadFunctionParameter  = EFIERR (SmcBadFunctionParameter),
-  EfiSmcEventBufferWrongOrder = EFIERR (SmcEventBufferWrongOrder),
-  EfiSmcEventBufferReadError  = EFIERR (SmcEventBufferReadError),
-  EfiSmcDeviceAccessError     = EFIERR (SmcDeviceAccessError),
-  EfiSmcUnsupportedFeature    = EFIERR (SmcUnsupportedFeature),
-  EfiSmcSmbAccessError        = EFIERR (SmcSmbAccessError),
+#define EFI_SMC_BAD_FUNCTION_PARAMETER    EFIERR (SmcBadFunctionParameter)
+#define EFI_SMC_EVENT_BUFFER_WRONG_ORDER  EFIERR (SmcEventBufferWrongOrder)
+#define EFI_SMC_EVENT_BUFFER_READ_ERROR   EFIERR (SmcEventBufferReadError)
+#define EFI_SMC_DEVICE_ACCESS_ERROR       EFIERR (SmcDeviceAccessError)
+#define EFI_SMC_UNSUPPORTED_FEATURE       EFIERR (SmcUnsupportedFeature)
+#define EFI_SMB_ACCESS_ERROR              EFIERR (SmcSmbAccessError)
 
-  EfiSmcInvalidSize           = EFIERR (SmcInvalidSize)
+#define EFI_SMC_INVALID_SIZE              EFIERR (SmcInvalidSize)
 
 // SMC_RESULT
 typedef UINT8 SMC_RESULT;

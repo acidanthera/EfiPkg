@@ -17,7 +17,7 @@
 // Related definitions
 
 // Apple Event Type
-/// @{
+
 #define APPLE_EVENT_TYPE_NONE                0
 #define APPLE_EVENT_TYPE_MOUSE_MOVED         BIT (0)
 #define APPLE_EVENT_TYPE_MOUSE_DOWN          BIT (1)
@@ -31,7 +31,6 @@
 #define APPLE_EVENT_TYPE_KEY_UP              BIT (9)
 #define APPLE_EVENT_TYPE_MODIFIER_DOWN       BIT (10)
 #define APPLE_EVENT_TYPE_MODIFIER_UP         BIT (11)
-/// @}
 
 #define APPLE_CLICK_MOUSE_EVENTS   \
   (APPLE_EVENT_TYPE_MOUSE_DOWN     \
@@ -54,7 +53,7 @@ typedef UINTN APPLE_POINTER_EVENT_TYPE;
 // APPLE_KEY_EVENT_DATA
 typedef PACKED struct {
   UINT16          NumberOfKeyPairs;  ///<
-  struct {
+  PACKED struct {
     EFI_INPUT_KEY InputKey;          ///<
     APPLE_KEY     AppleKey;          ///<
   }               KeyPair;           ///<
@@ -100,12 +99,10 @@ VOID
   IN VOID                           *NotifyContext
   );
 
-/// @{
 #define APPLE_EVENT_HANDLE_SIGNATURE  EFI_SIGNATURE_32 ('A', 'L', 's', 't')
 
 #define APPLE_EVENT_HANDLE_FROM_LIST_ENTRY(Event)  \
   CR (Event, APPLE_EVENT_HANDLE, This, APPLE_EVENT_HANDLE_SIGNATURE)
-/// @}
 
 // APPLE_EVENT_HANDLE
 typedef struct {

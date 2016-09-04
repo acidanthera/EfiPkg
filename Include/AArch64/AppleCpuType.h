@@ -1,5 +1,5 @@
 /** @file
-  Copyright (C) 2005 - 2015, Apple Inc.  All rights reserved.<BR>
+  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.<BR>
 
   This program and the accompanying materials have not been licensed.
   Neither is its usage, its redistribution, in source or binary form,
@@ -15,5 +15,7 @@
 #define APPLE_CPU_TYPE_H_
 
 #define CPU_AARCH64
+#define CURRENT_CPU_TYPE     CpuTypeArm64
+#define CURRENT_CPU_SUBTYPE  CpuSubtypeArm64All
 
 #endif // APPLE_CPU_TYPE_H_

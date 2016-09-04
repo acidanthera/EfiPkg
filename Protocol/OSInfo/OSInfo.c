@@ -13,14 +13,14 @@
 
 #include <AppleEfi.h>
 
-#include APPLE_PROTOCOL_DEFINITION (OsIdentification)
+#include APPLE_PROTOCOL_DEFINITION (OSInfo)
 
-// gEfiOsIdentificationProtocolGuid
+// gEfiOSInfoProtocolGuid
 GLOBAL_REMOVE_IF_UNREFERENCED
-EFI_GUID gEfiOsIdentificationProtocolGuid = EFI_OS_IDENTIFICATION_PROTOCOL_GUID;
+EFI_GUID gEfiOSInfoProtocolGuid = EFI_OS_INFO_PROTOCOL_GUID;
 
 EFI_GUID_STRING (
-  &gEfiOsIdentificationProtocolGuid,
-  "OS Identification",
-  "OS Identification Protocol"
+  &gEfiOSInfoProtocolGuid,
+  "OS Info",
+  "OS Info Protocol"
   );

@@ -53,27 +53,27 @@ typedef UINT8 APPLE_HID_PAGE_ID;
 
 // APPLE_SCAN_CODE
 enum {
-  AppleScanCodeKeypadSlash    = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeySlash),
-  AppleScanCodeKeypadAsterisk = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyAsterisk),
-  AppleScanCodeKeypadMinus    = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyMinus),
-  AppleScanCodeKeypadPlus     = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyPlus),
-  AppleScanCodeKeypadEnter    = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyEnter),
-  AppleScanCodeKeypadOne      = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyOne),
-  AppleScanCodeKeypadTwo      = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyTwo),
-  AppleScanCodeKeypadThree    = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyThree),
-  AppleScanCodeKeypadFour     = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyFour),
-  AppleScanCodeKeypadFive     = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyFive),
-  AppleScanCodeKeypadSix      = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeySix),
-  AppleScanCodeKeypadSeven    = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeySeven),
-  AppleScanCodeKeypadEight    = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyEight),
-  AppleScanCodeKeypadNine     = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyNine),
-  AppleScanCodeKeypadIns      = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyIns),
-  AppleScanCodeKeypadDel      = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyDel),
-  AppleScanCodeKeypadEquals   = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyEquals)
+  AppleScanKeypadSlash    = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeySlash),
+  AppleScanKeypadAsterisk = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyAsterisk),
+  AppleScanKeypadMinus    = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyMinus),
+  AppleScanKeypadPlus     = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyPlus),
+  AppleScanKeypadEnter    = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyEnter),
+  AppleScanKeypadOne      = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyOne),
+  AppleScanKeypadTwo      = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyTwo),
+  AppleScanKeypadThree    = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyThree),
+  AppleScanKeypadFour     = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyFour),
+  AppleScanKeypadFive     = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyFive),
+  AppleScanKeypadSix      = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeySix),
+  AppleScanKeypadSeven    = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeySeven),
+  AppleScanKeypadEight    = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyEight),
+  AppleScanKeypadNine     = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyNine),
+  AppleScanKeypadIns      = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyIns),
+  AppleScanKeypadDel      = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyDel),
+  AppleScanKeypadEquals   = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyEquals)
 };
 
 // Apple modifers
-/// @{
+
 #define APPLE_MODIFIER_LEFT_CONTROL   USB_HID_KB_KP_MODIFIERS_CONTROL
 #define APPLE_MODIFIER_LEFT_SHIFT     USB_HID_KB_KP_MODIFIER_LEFT_SHIFT
 #define APPLE_MODIFIER_LEFT_OPTION    USB_HID_KB_KP_MODIFIER_LEFT_ALT
@@ -82,10 +82,9 @@ enum {
 #define APPLE_MODIFIER_RIGHT_SHIFT    USB_HID_KB_KP_MODIFIER_RIGHT_SHIFT
 #define APPLE_MODIFIER_RIGHT_OPTION   USB_HID_KB_KP_MODIFIER_RIGHT_ALT
 #define APPLE_MODIFIER_RIGHT_COMMAND  USB_HID_KB_KP_MODIFIER_RIGHT_GUI
-/// @}
 
 // Shortcuts for multiple Apple modifers
-/// @{
+
 #define APPLE_MODIFIERS_CONTROL  \
   (APPLE_MODIFIER_LEFT_CONTROL | APPLE_MODIFIER_RIGHT_CONTROL)
 
@@ -97,7 +96,6 @@ enum {
 
 #define APPLE_MODIFIERS_GUI  \
   (APPLE_MODIFIER_LEFT_CONTROL | APPLE_MODIFIER_RIGHT_CONTROL)
-/// @}
 
 // APPLE_MODIFIER_MAP
 typedef UINT16 APPLE_MODIFIER_MAP;

@@ -36,4 +36,4 @@
   AppleEvent/AppleEvent.c
   ApplePlatformInfoDatabase/ApplePlatformInfoDatabase.c
   KeyboardInfo/KeyboardInfo.c
-  OsIdentification/OsIdentification.c
+  OSInfo/OSInfo.c
