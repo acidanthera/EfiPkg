@@ -15,7 +15,7 @@
 #define EFI_OS_INFO_H_
 
 // EFI_OS_INFO_PROTOCOL_GUID
-#define EFI_OS_INFO_PROTOCOL_GUID               \
+#define EFI_OS_INFO_PROTOCOL_GUID                         \
   { 0xC5C5DA95, 0x7D5C, 0x45E6,                           \
     { 0xB2, 0xF1, 0x3F, 0xD5, 0x2B, 0xB1, 0x00, 0x77 } }
 
