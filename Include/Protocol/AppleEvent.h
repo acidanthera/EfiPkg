@@ -48,8 +48,6 @@ typedef UINT32 APPLE_EVENT_TYPE;
 // APPLE_POINTER_EVENT_TYPE
 typedef UINTN APPLE_POINTER_EVENT_TYPE;
 
-#pragma pack (1)
-
 // APPLE_KEY_EVENT_DATA
 typedef PACKED struct {
   UINT16          NumberOfKeyPairs;  ///<
@@ -60,12 +58,10 @@ typedef PACKED struct {
   UINT16          Unknown;           ///<
 } APPLE_KEY_EVENT_DATA;
 
-#pragma pack ()
-
 typedef union {
-  APPLE_KEY_EVENT_DATA     *AppleKeyEventData;  ///< 
-  APPLE_POINTER_EVENT_TYPE PointerEventType;    ///< 
-  UINTN                    Raw;                 ///< 
+  APPLE_KEY_EVENT_DATA     *KeyData;          ///< 
+  APPLE_POINTER_EVENT_TYPE PointerEventType;  ///< 
+  UINTN                    Raw;               ///< 
 } APPLE_EVENT_DATA;
 
 // DIMENSION
@@ -99,22 +95,7 @@ VOID
   IN VOID                           *NotifyContext
   );
 
-#define APPLE_EVENT_HANDLE_SIGNATURE  EFI_SIGNATURE_32 ('A', 'L', 's', 't')
-
-#define APPLE_EVENT_HANDLE_FROM_LIST_ENTRY(Event)  \
-  CR (Event, APPLE_EVENT_HANDLE, This, APPLE_EVENT_HANDLE_SIGNATURE)
-
-// APPLE_EVENT_HANDLE
-typedef struct {
-  UINT32                      Signature;       ///< 
-  EFI_LIST_ENTRY              This;            ///< 
-  BOOLEAN                     Ready;           ///< 
-  BOOLEAN                     Registered;      ///< 
-  UINT32                      EventType;       ///< 
-  APPLE_EVENT_NOTIFY_FUNCTION NotifyFunction;  ///< 
-  VOID                        *NotifyContext;  ///< 
-  CHAR8                       *Name;           ///< 
-} APPLE_EVENT_HANDLE;
+typedef VOID *APPLE_EVENT_HANDLE;
 
 // Protocol declaration
 
@@ -127,9 +108,9 @@ typedef struct {
 typedef
 EFI_STATUS
 (EFIAPI *EVENT_REGISTER_HANDLER)(
-  IN  APPLE_EVENT_TYPE             EventType,
+  IN  APPLE_EVENT_TYPE             Type,
   IN  APPLE_EVENT_NOTIFY_FUNCTION  NotifyFunction,
-  OUT APPLE_EVENT_HANDLE           **EventHandle,
+  OUT APPLE_EVENT_HANDLE           *Handle,
   IN  VOID                         *NotifyContext
   );
 
@@ -137,7 +118,7 @@ EFI_STATUS
 typedef
 EFI_STATUS
 (EFIAPI *EVENT_UNREGISTER_HANDLER)(
-  IN APPLE_EVENT_HANDLE  *EventHandle
+  IN APPLE_EVENT_HANDLE  EventHandle
   );
 
 // EVENT_SET_CURSOR_POSITION
@@ -151,8 +132,8 @@ EFI_STATUS
 typedef
 EFI_STATUS
 (EFIAPI *EVENT_SET_EVENT_NAME)(
-  IN OUT APPLE_EVENT_HANDLE  *EventHandle,
-  IN     CHAR8               *EventName
+  IN OUT APPLE_EVENT_HANDLE  Handle,
+  IN     CHAR8               *Name
   );
 
 // EVENT_IS_CAPS_LOCK_ON
