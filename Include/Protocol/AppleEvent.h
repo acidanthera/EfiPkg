@@ -1,14 +1,18 @@
 /** @file
-  Copyright (C) 2005 - 2015, Apple Inc.  All rights reserved.<BR>
+  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
+  Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
 
-  This program and the accompanying materials have not been licensed.
-  Neither is its usage, its redistribution, in source or binary form,
-  licensed, nor implicitely or explicitely permitted, except when
-  required by applicable law.
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
 
   Unless required by applicable law or agreed to in writing, software
-  distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
-  OR CONDITIONS OF ANY KIND, either express or implied.
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
 **/
 
 #ifndef APPLE_EVENT_H_
@@ -19,18 +23,18 @@
 // Apple Event Type
 
 #define APPLE_EVENT_TYPE_NONE                0
-#define APPLE_EVENT_TYPE_MOUSE_MOVED         BIT (0)
-#define APPLE_EVENT_TYPE_MOUSE_DOWN          BIT (1)
-#define APPLE_EVENT_TYPE_MOUSE_UP            BIT (2)
-#define APPLE_EVENT_TYPE_MOUSE_CLICK         BIT (3)
-#define APPLE_EVENT_TYPE_MOUSE_DOUBLE_CLICK  BIT (4)
-#define APPLE_EVENT_TYPE_LEFT_BUTTON         BIT (5)
-#define APPLE_EVENT_TYPE_RIGHT_BUTTON        BIT (6)
-#define APPLE_EVENT_TYPE_RESERVED_BUTTON     BIT (7)
-#define APPLE_EVENT_TYPE_KEY_DOWN            BIT (8)
-#define APPLE_EVENT_TYPE_KEY_UP              BIT (9)
-#define APPLE_EVENT_TYPE_MODIFIER_DOWN       BIT (10)
-#define APPLE_EVENT_TYPE_MODIFIER_UP         BIT (11)
+#define APPLE_EVENT_TYPE_MOUSE_MOVED         BIT0
+#define APPLE_EVENT_TYPE_MOUSE_DOWN          BIT1
+#define APPLE_EVENT_TYPE_MOUSE_UP            BIT2
+#define APPLE_EVENT_TYPE_MOUSE_CLICK         BIT3
+#define APPLE_EVENT_TYPE_MOUSE_DOUBLE_CLICK  BIT4
+#define APPLE_EVENT_TYPE_LEFT_BUTTON         BIT5
+#define APPLE_EVENT_TYPE_RIGHT_BUTTON        BIT6
+#define APPLE_EVENT_TYPE_RESERVED_BUTTON     BIT7
+#define APPLE_EVENT_TYPE_KEY_DOWN            BIT8
+#define APPLE_EVENT_TYPE_KEY_UP              BIT9
+#define APPLE_EVENT_TYPE_MODIFIER_DOWN       BIT10
+#define APPLE_EVENT_TYPE_MODIFIER_UP         BIT11
 
 #define APPLE_CLICK_MOUSE_EVENTS   \
   (APPLE_EVENT_TYPE_MOUSE_DOWN     \

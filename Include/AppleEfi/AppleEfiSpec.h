@@ -1,14 +1,18 @@
 /** @file
-  Copyright (C) 2005 - 2015, Apple Inc.  All rights reserved.<BR>
+  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
+  Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
 
-  This program and the accompanying materials have not been licensed.
-  Neither is its usage, its redistribution, in source or binary form,
-  licensed, nor implicitely or explicitely permitted, except when
-  required by applicable law.
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
 
   Unless required by applicable law or agreed to in writing, software
-  distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
-  OR CONDITIONS OF ANY KIND, either express or implied.
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
 **/
 
 #ifndef APPLE_EFI_SPEC_H_
@@ -22,33 +26,8 @@
 /// Path to the Apple bootloader in the root folder
 #define APPLE_BOOTER_FILE_NAME  L"\\boot.efi"
 
-/// @Name File names
-/// EFI File location to boot from on removable media devices
-/// @{
-#ifndef EFI_REMOVABLE_MEDIA_FILE_NAME_IA32
-  #define EFI_REMOVABLE_MEDIA_FILE_NAME_IA32     L"\\EFI\\BOOT\\BOOTIA32.EFI"
-#endif // EFI_REMOVABLE_MEDIA_FILE_NAME_IA32
+// Apple EFI File location to boot from on removable media devices
 
-#ifndef EFI_REMOVABLE_MEDIA_FILE_NAME_IA64
-  #define EFI_REMOVABLE_MEDIA_FILE_NAME_IA64     L"\\EFI\\BOOT\\BOOTIA64.EFI"
-#endif // EFI_REMOVABLE_MEDIA_FILE_NAME_IA64
-
-#ifndef EFI_REMOVABLE_MEDIA_FILE_NAME_X64
-  #define EFI_REMOVABLE_MEDIA_FILE_NAME_X64      L"\\EFI\\BOOT\\BOOTX64.EFI"
-#endif // EFI_REMOVABLE_MEDIA_FILE_NAME_X64
-
-#ifndef EFI_REMOVABLE_MEDIA_FILE_NAME_ARM
-  #define EFI_REMOVABLE_MEDIA_FILE_NAME_ARM      L"\\EFI\\BOOT\\BOOTARM.EFI"
-#endif // EFI_REMOVABLE_MEDIA_FILE_NAME_ARM
-
-#ifndef EFI_REMOVABLE_MEDIA_FILE_NAME_AARCH64
-  #define EFI_REMOVABLE_MEDIA_FILE_NAME_AARCH64  L"\\EFI\\BOOT\\BOOTAA64.EFI"
-#endif // EFI_REMOVABLE_MEDIA_FILE_NAME_AARCH64
-/// @}
-
-/// @Name
-/// Apple EFI File location to boot from on removable media devices
-/// @{
 #define APPLE_REMOVABLE_MEDIA_FILE_NAME_IA32  \
   L"\\EFI\\APPLE\\IA32\\BOOT.EFI"
 
@@ -63,30 +42,6 @@
 
 #define APPLE_REMOVABLE_MEDIA_FILE_NAME_AARCH64  \
   L"\\EFI\\APPLE\\AARCH64\\BOOT.EFI"
-
-#if defined (CPU_IA32)
-  #define _EFI_REMOVABLE_MEDIA_FILE_NAME   EFI_REMOVABLE_MEDIA_FILE_NAME_IA32
-  #define APPLE_REMOVABLE_MEDIA_FILE_NAME  APPLE_REMOVABLE_MEDIA_FILE_NAME_IA32
-#elif defined (CPU_IPF)
-  #define _EFI_REMOVABLE_MEDIA_FILE_NAME   EFI_REMOVABLE_MEDIA_FILE_NAME_IA64
-  #define APPLE_REMOVABLE_MEDIA_FILE_NAME  APPLE_REMOVABLE_MEDIA_FILE_NAME_IA64
-#elif defined (CPU_X64)
-  #define _EFI_REMOVABLE_MEDIA_FILE_NAME   EFI_REMOVABLE_MEDIA_FILE_NAME_X64
-  #define APPLE_REMOVABLE_MEDIA_FILE_NAME  APPLE_REMOVABLE_MEDIA_FILE_NAME_X64
-#elif defined (CPU_ARM)
-  #define _EFI_REMOVABLE_MEDIA_FILE_NAME   EFI_REMOVABLE_MEDIA_FILE_NAME_ARM
-  #define APPLE_REMOVABLE_MEDIA_FILE_NAME  APPLE_REMOVABLE_MEDIA_FILE_NAME_ARM
-#elif defined (CPU_AARCH64)
-  #define _EFI_REMOVABLE_MEDIA_FILE_NAME   EFI_REMOVABLE_MEDIA_FILE_NAME_AARCH64
-  #define APPLE_REMOVABLE_MEDIA_FILE_NAME  APPLE_REMOVABLE_MEDIA_FILE_NAME_AARCH64
-#else
-  #error Unknown Processor Type
-#endif // CPU_IA32
-
-#ifndef EFI_REMOVABLE_MEDIA_FILE_NAME
-  #define EFI_REMOVABLE_MEDIA_FILE_NAME  _EFI_REMOVABLE_MEDIA_FILE_NAME
-#endif // EFI_REMOVABLE_MEDIA_FILE_NAME
-/// @}
 
 // APPLE_SYSTEM_VERSION_FILE_NAME
 /// The default location of the property list identifying the OS version

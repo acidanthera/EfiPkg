@@ -1,16 +1,19 @@
 /** @file
-  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.<BR>
+  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
+  Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
 
-  This program and the accompanying materials have not been licensed.
-  Neither is its usage, its redistribution, in source or binary form,
-  licensed, nor implicitely or explicitely permitted, except when
-  required by applicable law.
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
 
   Unless required by applicable law or agreed to in writing, software
-  distributed is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
-  OR CONDITIONS OF ANY KIND, either express or implied.
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
 **/
-
 #ifndef APPLE_SMC_H_
 #define APPLE_SMC_H_
 
@@ -146,14 +149,14 @@ typedef UINT8 SMC_COMMAND;
 
 // Reports
 
-#define SMC_STATUS_AWAITING_DATA  BIT (0)  ///< Ready to read data.
-#define SMC_STATUS_IB_CLOSED      BIT (1)  /// A write is pending.
-#define SMC_STATUS_BUSY           BIT (2)  ///< Busy processing a command.
-#define SMC_STATUS_GOT_COMMAND    BIT (3)  ///< The last input was a command.
-#define SMC_STATUS_UKN_0x16       BIT (4)
-#define SMC_STATUS_KEY_DONE       BIT (5)
-#define SMC_STATUS_UKN_0x40       BIT (6)  // error
-#define SMC_STATUS_UKN_0x80       BIT (7)  // error
+#define SMC_STATUS_AWAITING_DATA  BIT0  ///< Ready to read data.
+#define SMC_STATUS_IB_CLOSED      BIT1  /// A write is pending.
+#define SMC_STATUS_BUSY           BIT2  ///< Busy processing a command.
+#define SMC_STATUS_GOT_COMMAND    BIT3  ///< The last input was a command.
+#define SMC_STATUS_UKN_0x16       BIT4
+#define SMC_STATUS_KEY_DONE       BIT5
+#define SMC_STATUS_UKN_0x40       BIT6  // error
+#define SMC_STATUS_UKN_0x80       BIT7  // error
 
 // SMC_STATUS
 typedef UINT8 SMC_STATUS;
@@ -264,14 +267,14 @@ typedef UINT32 SMC_KEY_TYPE;
 
 // Key Attributes
 
-#define	SMC_KEY_ATTRIBUTE_PRIVATE   BIT (0)
-#define	SMC_KEY_ATTRIBUTE_UKN_0x02  BIT (1)
-#define	SMC_KEY_ATTRIBUTE_UKN_0x04  BIT (2)
-#define	SMC_KEY_ATTRIBUTE_CONST     BIT (3)
-#define	SMC_KEY_ATTRIBUTE_FUNCTION  BIT (4)
-#define	SMC_KEY_ATTRIBUTE_UKN_0x20  BIT (5)
-#define	SMC_KEY_ATTRIBUTE_WRITE     BIT (6)
-#define	SMC_KEY_ATTRIBUTE_READ      BIT (7)
+#define	SMC_KEY_ATTRIBUTE_PRIVATE   BIT0
+#define	SMC_KEY_ATTRIBUTE_UKN_0x02  BIT1
+#define	SMC_KEY_ATTRIBUTE_UKN_0x04  BIT2
+#define	SMC_KEY_ATTRIBUTE_CONST     BIT3
+#define	SMC_KEY_ATTRIBUTE_FUNCTION  BIT4
+#define	SMC_KEY_ATTRIBUTE_UKN_0x20  BIT5
+#define	SMC_KEY_ATTRIBUTE_WRITE     BIT6
+#define	SMC_KEY_ATTRIBUTE_READ      BIT7
 
 // SMC_KEY_ATTRIBUTES
 typedef UINT8 SMC_KEY_ATTRIBUTES;
