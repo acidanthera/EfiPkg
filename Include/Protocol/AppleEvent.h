@@ -158,7 +158,7 @@ EFI_STATUS
 
 // APPLE_EVENT_PROTOCOL
 typedef struct {
-  UINT64                    Revision;           ///< 
+  UINT32                    Revision;           ///< 
   EVENT_REGISTER_HANDLER    RegisterHandler;    ///< 
   EVENT_UNREGISTER_HANDLER  UnregisterHandler;  ///< 
   EVENT_SET_CURSOR_POSITION SetCursorPosition;  ///< 
