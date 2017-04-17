@@ -18,8 +18,6 @@
 #ifndef APPLE_CPU_TYPE_H_
 #define APPLE_CPU_TYPE_H_
 
-#error Unsupported Platform
-
 #define CPU_IPF
 
 #define EFI_REMOVABLE_MEDIA_FILE_NAME_   EFI_REMOVABLE_MEDIA_FILE_NAME_IA64

@@ -66,6 +66,6 @@ typedef PACKED struct {
   FAT_ARCH FatArch[1];
 } FAT_HEADER;
 
-#pragma pop ()
+#pragma pack ()
 
 #endif // APPLE_FAT_BINARY_IMAGE_H_
