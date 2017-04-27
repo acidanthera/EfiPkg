@@ -18,13 +18,14 @@
 #ifndef APPLE_EFI_SPEC_H_
 #define APPLE_EFI_SPEC_H_
 
+// APPLE_BOOTER_FILE_NAME
+#define APPLE_BOOTER_FILE_NAME  L"boot.efi"
+
 // APPLE_BOOTLOADER_FILE_PATH
-/// The default, preferred location of the Apple bootloader
-#define APPLE_BOOTER_FILE_PATH  L"\\System\\Library\\CoreServices\\boot.efi"
+#define APPLE_BOOTER_DEFAULT_FILE_PATH  L"\\System\\Library\\CoreServices\\boot.efi"
 
 // BOOT_EFI_FILE_NAME
-/// Path to the Apple bootloader in the root folder
-#define APPLE_BOOTER_FILE_NAME  L"\\boot.efi"
+#define APPLE_BOOTER_ROOT_FILE_PATH  L"\\boot.efi"
 
 // Apple EFI File location to boot from on removable media devices
 
@@ -44,7 +45,6 @@
   L"\\EFI\\APPLE\\AARCH64\\BOOT.EFI"
 
 // APPLE_SYSTEM_VERSION_FILE_NAME
-/// The default location of the property list identifying the OS version
 #define APPLE_SYSTEM_VERSION_FILE_NAME  \
   L"\\System\\Library\\CoreServices\\SystemVersion.plist"
 
