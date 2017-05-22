@@ -31,6 +31,7 @@
 [Sources]
   AppleBless/AppleBless.c
   AppleFile/AppleFile.c
+  AppleFirmwareVolume/AppleFirmwareVolume.c
   AppleHob/AppleHob.c
   AppleNvram/AppleNvram.c
   AppleSystemInfo/AppleSystemInfo.c
