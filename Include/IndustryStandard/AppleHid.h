@@ -23,7 +23,6 @@
 // APPLE_USAGE
 #define APPLE_HID_GENERIC_USAGE(UsageId, PageId) (((PageId) << 12) | (UsageId))
 
-/// @{
 #define APPLE_HID_USB_KB_KP_USAGE(UsbHidUsageIdKbKp) \
   APPLE_HID_GENERIC_USAGE ((UsbHidUsageIdKbKp), AppleHidKeyboardKeypadPage)
 
@@ -32,7 +31,6 @@
 
 #define APPLE_HID_REMOTE_USAGE(AppleRemoteUsageId)  \
   APPLE_HID_GENERIC_USAGE ((AppleRemoteUsageId), AppleHidRemotePage)
-/// @}
 
 // IS_APPLE_KEY_LETTER
 #define IS_APPLE_KEY_LETTER(Usage)                           \
