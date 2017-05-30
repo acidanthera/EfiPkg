@@ -25,7 +25,7 @@
   { 0x17407E5A, 0xAF6C, 0x4EE8,                           \
     { 0x98, 0xA8, 0x00, 0x21, 0x04, 0x53, 0xCD, 0xD9 } }
 
-APPLE_FORWARD_DECLARATION (APPLE_SMC_IO_PROTOCOL);
+typedef struct APPLE_SMC_IO_PROTOCOL APPLE_SMC_IO_PROTOCOL;
 
 // SMC_IO_SMC_READ_VALUE
 typedef

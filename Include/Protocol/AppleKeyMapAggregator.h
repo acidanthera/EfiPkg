@@ -24,7 +24,9 @@
   { 0x5B213447, 0x6E73, 0x4901,                           \
     { 0xA4, 0xF1, 0xB8, 0x64, 0xF3, 0xB7, 0xA1, 0x72 } }
 
-APPLE_FORWARD_DECLARATION (APPLE_KEY_MAP_AGGREGATOR_PROTOCOL);
+typedef
+struct APPLE_KEY_MAP_AGGREGATOR_PROTOCOL
+APPLE_KEY_MAP_AGGREGATOR_PROTOCOL;
 
 // KEY_MAP_GET_KEY_STROKES
 /** Returns all pressed keys and key modifiers into the appropiate buffers.

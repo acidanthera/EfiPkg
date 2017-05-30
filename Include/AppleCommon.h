@@ -23,9 +23,6 @@
 #define APPLE_EFI_FIRMWARE_MAJOR_REVISION  1
 #define APPLE_EFI_FIRMWARE_MINOR_REVISION  0x0A
 
-// APPLE_FORWARD_DECLARATION
-#define APPLE_FORWARD_DECLARATION(x) typedef struct x x
-
 // Define macros for including Protocols and Guids.
 
 #define _STRINGIZE(a)                #a
