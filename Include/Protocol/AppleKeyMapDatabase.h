@@ -68,13 +68,15 @@ EFI_STATUS
   );
 
 // KEY_MAP_SET_KEY_STROKES_KEYS
-/** Sets the keys of a key set specified by its index to the given Keys Buffer.
+/** Sets the keys of a key set specified by its index to the given KeyCodes
+    Buffer.
 
-  @param[in] This          A pointer to the protocol instance.
-  @param[in] Index         The index of the key set to edit.
-  @param[in] Modifiers     The key modifiers manipulating the given keys.
-  @param[in] NumberOfKeys  The number of keys contained in Keys.
-  @param[in] Keys          An array of keys to add to the specified key set.
+  @param[in] This              A pointer to the protocol instance.
+  @param[in] Index             The index of the key set to edit.
+  @param[in] Modifiers         The key modifiers manipulating the given keys.
+  @param[in] NumberOfKeyCodes  The number of keys contained in KeyCodes.
+  @param[in] KeyCodes          An array of keys to add to the specified key
+                               set.
 
   @return                       Returned is the status of the operation.
   @retval EFI_SUCCESS           The given keys were set for the specified key
@@ -90,8 +92,8 @@ EFI_STATUS
   IN APPLE_KEY_MAP_DATABASE_PROTOCOL  *This,
   IN UINTN                            Index,
   IN APPLE_MODIFIER_MAP               Modifiers,
-  IN UINTN                            NumberOfKeys,
-  IN APPLE_KEY                        *Keys
+  IN UINTN                            NumberOfKeyCodes,
+  IN APPLE_KEY_CODE                   *KeyCodes
   );
 
 // APPLE_KEY_MAP_DATABASE_PROTOCOL

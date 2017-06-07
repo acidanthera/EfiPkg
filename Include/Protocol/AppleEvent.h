@@ -54,12 +54,12 @@ typedef UINTN APPLE_POINTER_EVENT_TYPE;
 
 // APPLE_KEY_EVENT_DATA
 typedef PACKED struct {
-  UINT16          NumberOfKeyPairs;  ///<
+  UINT16 NumberOfKeyPairs;        ///<
   PACKED struct {
-    EFI_INPUT_KEY InputKey;          ///<
-    APPLE_KEY     AppleKey;          ///<
-  }               KeyPair;           ///<
-  UINT16          Unknown;           ///<
+    EFI_INPUT_KEY  InputKey;      ///<
+    APPLE_KEY_CODE AppleKeyCode;  ///<
+  }      KeyPair;                 ///<
+  UINT16 Unknown;                 ///<
 } APPLE_KEY_EVENT_DATA;
 
 typedef union {

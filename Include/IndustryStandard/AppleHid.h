@@ -314,7 +314,7 @@ enum {
   AppleHidUsbKbUsageKeyPadHexadecimal       = APPLE_HID_USB_KB_KP_USAGE (UsbHidUsageIdKbKpPadKeyHexadecimal)
 };
 
-// APPLE_KEY
-typedef APPLE_HID_USAGE APPLE_KEY;
+// APPLE_KEY_CODE
+typedef APPLE_HID_USAGE APPLE_KEY_CODE;
 
 #endif // APPLE_HID_H_
