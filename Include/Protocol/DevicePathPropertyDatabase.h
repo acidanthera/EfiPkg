@@ -1,6 +1,6 @@
 /** @file
-  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
-  Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
+  Copyright (C) 2005 - 2017, Apple Inc.  All rights reserved.
+  Portions Copyright (C) 2014 - 2017, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -21,12 +21,12 @@
 // Related definitions
 
 // DEVICE_PATH_PROPERTY_DATA
-/// The structure defining the header of a Device Property data set.
+/// The structure defining the header of a Device Path Property.
 typedef struct {
   struct {
     UINT32 Size;  ///< The size, in bytes, of the current data set.
-  }     Hdr;  ///< 
-  UINT8 Data; ///< The begin of the data.
+  }     Hdr;
+  UINT8 Data;
 } EFI_DEVICE_PATH_PROPERTY_DATA;
 
 // DEVICE_PATH_PROPERTY_BUFFER_NODE
@@ -34,17 +34,14 @@ typedef struct {
 typedef struct {
   /// The node header structure.
   struct {
-    /// The size, in bytes, of the entire node.
-    UINT32 Size;
-
-    /// The number of properties within the node.
-    UINT32 NumberOfProperties;
+    UINT32 Size;                /// The size, in bytes, of the entire node.
+    UINT32 NumberOfProperties;  /// The number of properties within this node.
   }                             Hdr;
 
   /// The device path for the current node.
   EFI_DEVICE_PATH_PROTOCOL      DevicePath;
 
-// /// The begin of the Device Property data set.
+///// The begin of the Device Property data set.
 //EFI_DEVICE_PATH_PROPERTY_DATA Data;
 } EFI_DEVICE_PATH_PROPERTY_BUFFER_NODE;
 
@@ -53,18 +50,12 @@ typedef struct {
 typedef struct {
   /// The Buffer header structure.
   struct {
-    /// The size, in bytes, of the entire Buffer.
-    UINT32 Size;    
-
-    /// Must be 1.
-    UINT32 MustBe1;
-
-    /// The number of nodes in the Buffer.
-    UINT32 NumberOfNodes;
+    UINT32 Size;           /// The size, in bytes, of the entire Buffer.
+    UINT32 MustBe1;        /// Must be 1.
+    UINT32 NumberOfNodes;  /// The number of nodes in the Buffer.
   }                                    Hdr;
 
-  /// The first node in the Buffer.
-  EFI_DEVICE_PATH_PROPERTY_BUFFER_NODE Node;
+  EFI_DEVICE_PATH_PROPERTY_BUFFER_NODE Nodes[1];
 } EFI_DEVICE_PATH_PROPERTY_BUFFER;
 
 // Protocol declaration
@@ -198,7 +189,6 @@ struct EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL {
 };
 
 // gEfiDevicePathPropertyDatabaseProtocolGuid
-/// A global variable storing the GUID of the EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL.
 extern EFI_GUID gEfiDevicePathPropertyDatabaseProtocolGuid;
 
 #endif // DEVICE_PATH_PROPERTY_DATABASE_H_

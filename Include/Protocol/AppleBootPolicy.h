@@ -1,6 +1,6 @@
 /** @file
-  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
-  Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
+  Copyright (C) 2005 - 2017, Apple Inc.  All rights reserved.
+  Portions Copyright (C) 2014 - 2017, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -32,9 +32,9 @@
   EFI_FILE_PROTOCOL.GetInfo().  The related identifier definitions are to be
   found in AppleBless.h.
 
-  @param[in]  Device        The Device's Handle to perform the search on.
-  @param[out] BootFilePath  A pointer to the device path pointer to set to the
-                            file path of the boot file.
+  @param[in]  Device    The Device's Handle to perform the search on.
+  @param[out] FilePath  A pointer to the device path pointer to set to the file
+                        path of the boot file.
 
   @return                       The status of the operation is returned.
   @retval EFI_NOT_FOUND         A bootable file could not be found on the given
@@ -49,8 +49,8 @@
 typedef
 EFI_STATUS
 (EFIAPI *BOOT_POLICY_GET_BOOT_FILE)(
-  IN  EFI_HANDLE            Device,
-  OUT FILEPATH_DEVICE_PATH  **BootFilePath
+  IN     EFI_HANDLE            Device,
+  IN OUT FILEPATH_DEVICE_PATH  **FilePath
   );
 
 // APPLE_BOOT_POLICY_PROTOCOL

@@ -1,6 +1,6 @@
 /** @file
-  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
-  Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
+  Copyright (C) 2005 - 2017, Apple Inc.  All rights reserved.
+  Portions Copyright (C) 2014 - 2017, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -37,11 +37,27 @@ VOID
   IN CHAR8  *OSName
   );
 
+// OS_INFO_SET_VTD_ENABLED
+typedef
+VOID
+(EFIAPI *OS_INFO_SET_VTD_ENABLED)(
+  IN UINTN  *BootVTdEnabled
+  );
+
+// OS_INFO_GET_VTD_ENABLED
+typedef
+VOID
+(EFIAPI *OS_INFO_GET_VTD_ENABLED)(
+  OUT UINTN  *BootVTdEnabled
+  );
+
 // EFI_OS_INFO_PROTOCOL
 typedef struct {
-  UINTN             Revision;  ///< 
-  OS_INFO_OS_VENDOR OSVendor;  ///< 
-  OS_INFO_OS_NAME   OSName;    ///< 
+  UINTN                   Revision;           ///< Revision.
+  OS_INFO_OS_VENDOR       OSVendor;           ///< Present as of Revision 1.
+  OS_INFO_OS_NAME         OSName;             ///< Present as of Revision 2.
+  OS_INFO_SET_VTD_ENABLED SetBootVTdEnabled;  ///< Present as of Revision 3.
+  OS_INFO_GET_VTD_ENABLED GetBootVTdEnabled;  ///< Present as of Revision 3.
 } EFI_OS_INFO_PROTOCOL;
 
 // gEfiOSInfoProtocolGuid

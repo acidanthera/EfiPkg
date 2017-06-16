@@ -1,6 +1,6 @@
 /** @file
-  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
-  Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
+  Copyright (C) 2005 - 2017, Apple Inc.  All rights reserved.
+  Portions Copyright (C) 2014 - 2017, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ EFI_STATUS
   IN     APPLE_PLATFORM_INFO_DATABASE_PROTOCOL  *This,
   IN     EFI_GUID                               *NameGuid,
   IN OUT VOID                                   *Data, OPTIONAL
-  IN OUT UINTN                                  *Size
+  IN OUT UINT32                                 *Size
   );
 
 // PLATFORM_INFO_GET_FIRST_DATA_SIZE 
@@ -43,7 +43,7 @@ EFI_STATUS
 (EFIAPI *PLATFORM_INFO_GET_FIRST_DATA_SIZE)(
   IN     APPLE_PLATFORM_INFO_DATABASE_PROTOCOL  *This,
   IN     EFI_GUID                               *NameGuid,
-  IN OUT UINTN                                  *Size
+  IN OUT UINT32                                 *Size
   );
 
 // PLATFORM_INFO_GET_DATA
@@ -54,7 +54,7 @@ EFI_STATUS
   IN     EFI_GUID                               *NameGuid,
   IN     UINTN                                  Index, OPTIONAL
   IN OUT VOID                                   *Data, OPTIONAL
-  IN OUT UINTN                                  *Size
+  IN OUT UINT32                                 *Size
   );
 
 // PLATFORM_INFO_GET_DATA_SIZE
@@ -64,7 +64,7 @@ EFI_STATUS
   IN     APPLE_PLATFORM_INFO_DATABASE_PROTOCOL  *This,
   IN     EFI_GUID                               *NameGuid, OPTIONAL
   IN     UINTN                                  Index, OPTIONAL
-  IN OUT UINTN                                  *Size
+  IN OUT UINT32                                 *Size
   );
 
 // APPLE_PLATFORM_INFO_DATABASE_PROTOCOL

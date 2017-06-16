@@ -1,6 +1,6 @@
 /** @file
-  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
-  Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
+  Copyright (C) 2005 - 2017, Apple Inc.  All rights reserved.
+  Portions Copyright (C) 2014 - 2017, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -43,7 +43,7 @@ EFI_STATUS
 (EFIAPI *SMC_IO_SMC_WRITE_VALUE)(
   IN  APPLE_SMC_IO_PROTOCOL  *This,
   IN  SMC_KEY                Key,
-  IN  UINT32                 Size,
+  IN  SMC_DATA_SIZE          Size,
   OUT SMC_DATA               *Value
   );
 
@@ -96,7 +96,7 @@ typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_FLASH_TYPE)(
   IN APPLE_SMC_IO_PROTOCOL  *This,
-  IN UINT32                 Type
+  IN SMC_FLASH_TYPE         Type
   );
 
 // SMC_IO_SMC_FLASH_WRITE
@@ -105,7 +105,7 @@ EFI_STATUS
 (EFIAPI *SMC_IO_SMC_FLASH_WRITE)(
   IN APPLE_SMC_IO_PROTOCOL  *This,
   IN UINT32                 Unknown,
-  IN UINT32                 Size,
+  IN SMC_FLASH_SIZE         Size,
   IN SMC_DATA               *Data
   );
 
@@ -114,7 +114,7 @@ typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_FLASH_AUTH)(
   IN APPLE_SMC_IO_PROTOCOL  *This,
-  IN UINT32                 Size,
+  IN SMC_FLASH_SIZE         Size,
   IN SMC_DATA               *Data
   );
 

@@ -1,6 +1,6 @@
 /** @file
-  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
-  Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
+  Copyright (C) 2005 - 2017, Apple Inc.  All rights reserved.
+  Portions Copyright (C) 2014 - 2017, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ typedef struct {
   INT32 Vertical;    ///< 
 } DIMENSION;
 
-// APPLE_EVENT_QUERY_INFORMATION
+// APPLE_EVENT_INFORMATION
 typedef struct {
   struct {
     UINT16 Year;    ///< 
@@ -89,14 +89,14 @@ typedef struct {
   APPLE_EVENT_DATA   EventData;        ///< 
   APPLE_MODIFIER_MAP Modifiers;        ///< 
   DIMENSION          PointerPosition;  ///< 
-} APPLE_EVENT_QUERY_INFORMATION;
+} APPLE_EVENT_INFORMATION;
 
 // APPLE_EVENT_NOTIFY_FUNCTION
 typedef
 VOID
 (EFIAPI *APPLE_EVENT_NOTIFY_FUNCTION)(
-  IN APPLE_EVENT_QUERY_INFORMATION  *Information,
-  IN VOID                           *NotifyContext
+  IN APPLE_EVENT_INFORMATION  *Information,
+  IN VOID                     *NotifyContext
   );
 
 typedef VOID *APPLE_EVENT_HANDLE;
