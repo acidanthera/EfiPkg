@@ -1,6 +1,6 @@
 /** @file
-  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
-  Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
+  Copyright (C) 2005 - 2017, Apple Inc.  All rights reserved.
+  Portions Copyright (C) 2014 - 2017, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -18,12 +18,9 @@
 #ifndef APPLE_CPU_TYPE_H_
 #define APPLE_CPU_TYPE_H_
 
-#define CPU_AARCH64
-
 #define CURRENT_CPU_TYPE     CpuTypeArm64
 #define CURRENT_CPU_SUBTYPE  CpuSubtypeArm64All
 
-#define EFI_REMOVABLE_MEDIA_FILE_NAME_   EFI_REMOVABLE_MEDIA_FILE_NAME_AARCH64
 #define APPLE_REMOVABLE_MEDIA_FILE_NAME  APPLE_REMOVABLE_MEDIA_FILE_NAME_AARCH64
 
 #endif // APPLE_CPU_TYPE_H_

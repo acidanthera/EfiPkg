@@ -1,5 +1,5 @@
 /** @file
-  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
+  Copyright (C) 2005 - 2017, Apple Inc.  All rights reserved.
   Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,12 +18,9 @@
 #ifndef APPLE_CPU_TYPE_H_
 #define APPLE_CPU_TYPE_H_
 
-#define CPU_ARM
-
 #define CURRENT_CPU_TYPE     CpuTypeArm
 #define CURRENT_CPU_SUBTYPE  CpuSubtypeArmAll
 
-#define EFI_REMOVABLE_MEDIA_FILE_NAME_   EFI_REMOVABLE_MEDIA_FILE_NAME_ARM
 #define APPLE_REMOVABLE_MEDIA_FILE_NAME  APPLE_REMOVABLE_MEDIA_FILE_NAME_ARM
 
 #endif // APPLE_CPU_TYPE_H_
