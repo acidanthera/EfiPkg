@@ -1,6 +1,6 @@
 /** @file
-  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
-  Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
+  Copyright (C) 2005 - 2017, Apple Inc.  All rights reserved.
+  Portions Copyright (C) 2014 - 2017, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -18,22 +18,24 @@
 #ifndef APPLE_EFI_SPEC_H_
 #define APPLE_EFI_SPEC_H_
 
+// EFI Revision information
+
+#define APPLE_EFI_FIRMWARE_REVISION  0x010000
+#define APPLE_EFI_FIRMWARE_VENDOR    L"Apple"
+
 // APPLE_BOOTER_FILE_NAME
 #define APPLE_BOOTER_FILE_NAME  L"boot.efi"
 
 // APPLE_BOOTLOADER_FILE_PATH
-#define APPLE_BOOTER_DEFAULT_FILE_PATH  L"\\System\\Library\\CoreServices\\boot.efi"
+#define APPLE_BOOTER_DEFAULT_FILE_NAME  L"\\System\\Library\\CoreServices\\boot.efi"
 
 // BOOT_EFI_FILE_NAME
-#define APPLE_BOOTER_ROOT_FILE_PATH  L"\\boot.efi"
+#define APPLE_BOOTER_ROOT_FILE_NAME  L"\\boot.efi"
 
 // Apple EFI File location to boot from on removable media devices
 
 #define APPLE_REMOVABLE_MEDIA_FILE_NAME_IA32  \
   L"\\EFI\\APPLE\\IA32\\BOOT.EFI"
-
-#define APPLE_REMOVABLE_MEDIA_FILE_NAME_IA64  \
-  L"\\EFI\\APPLE\\IA64\\BOOT.EFI"
 
 #define APPLE_REMOVABLE_MEDIA_FILE_NAME_X64  \
   L"\\EFI\\APPLE\\X64\\BOOT.EFI"
