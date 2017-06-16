@@ -18,7 +18,7 @@
 #define APPLE_SMC_H_
 
 #define SMC_MAKE_IDENTIFIER(A, B, C, D)  \
-  (((A) << 24) | ((B) << 16) | ((C) << 8) | (D))
+  (((D) << 24) | ((C) << 16) | ((B) << 8) | (A))
 
 // PMIO
 
@@ -301,7 +301,7 @@ typedef UINT8 SMC_DATA_SIZE;
 #define SMC_KEY_LDKN     SMC_MAKE_KEY ('L', 'D', 'K', 'N')
 
 typedef UINT32 SMC_KEY;
-typedef UINT32 SMC_INDEX;
+typedef UINT8  SMC_INDEX;
 
 // Flash data
 
