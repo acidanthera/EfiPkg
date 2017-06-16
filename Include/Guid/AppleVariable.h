@@ -1,6 +1,6 @@
 /** @file
-  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
-  Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
+  Copyright (C) 2005 - 2017, Apple Inc.  All rights reserved.
+  Portions Copyright (C) 2014 - 2017, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -15,8 +15,8 @@
   limitations under the License.
 **/
 
-#ifndef APPLE_NVRAM_H_
-#define APPLE_NVRAM_H_
+#ifndef APPLE_VARIABLE_H_
+#define APPLE_VARIABLE_H_
 
 // APPLE_VENDOR_VARIABLE_GUID
 /// The Apple Vendor Variable-vendor GUID.
@@ -104,4 +104,4 @@ extern EFI_GUID gAppleTrbSecureVariableGuid;
 /// scope.
 extern EFI_GUID gAppleNetbootVariableGuid;
 
-#endif // APPLE_NVRAM_H_
+#endif // APPLE_VARIABLE_H_
