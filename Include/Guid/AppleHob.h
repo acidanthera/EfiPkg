@@ -1,6 +1,6 @@
 /** @file
-  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
-  Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
+  Copyright (C) 2005 - 2017, Apple Inc.  All rights reserved.
+  Portions Copyright (C) 2014 - 2017, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -33,11 +33,6 @@
   { 0xB8E65062, 0xFB30, 0x4078,                           \
     { 0xAB, 0xD3, 0xA9, 0x4E, 0x09, 0xCA, 0x9D, 0xE6 } }
 
-// APPLE_DRIVER_INIT_HOB_GUID
-#define APPLE_DRIVER_INIT_HOB_GUID                        \
-  { 0xEF4AE2DD, 0xB736, 0x40E3,                           \
-    { 0x80, 0x61, 0xA7, 0x46, 0x33, 0x34, 0x7F, 0x23 } }
-
 // gAppleHob1Guid
 extern EFI_GUID gAppleHob1Guid;
 
@@ -46,8 +41,5 @@ extern EFI_GUID gAppleHob2Guid;
 
 // gAppleHob1Guid
 extern EFI_GUID gAppleHob3Guid;
-
-// gAppleDriverInitHobGuid
-extern EFI_GUID gAppleDriverInitHobGuid;
 
 #endif //ifndef APPLE_HOB_H_
