@@ -1,5 +1,5 @@
 ## @file
-# Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
+# Copyright (C) 2014 - 2017, CupertinoNet.  All rights reserved.<BR>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -98,6 +98,8 @@
   # Include/Guid/ApplePlatformInfo.h
   gApplePlatformInfoKeyboardGuid      = { 0x51871CB9, 0xE25D, 0x44B4, { 0x96, 0x99, 0x0E, 0xE8, 0x64, 0x4C, 0xED, 0x69 }}
   
+  # Include/Guid/AppleTscFrequency.h
+  gAppleTscFrequencyGuid              = { 0x674ABEA3, 0x0FE5, 0x11E5, { 0x98, 0x8E, 0xB8, 0xE8, 0x56, 0x2C, 0xBA, 0xFA }}
 
 [Protocols]
   # Include/Protocol/AppleBootBeepGenProtocol.h
@@ -147,3 +149,9 @@
 
   # Include/Protocol/OSInfo.h
   gEfiOSInfoProtocolGuid                     = { 0xC5C5DA95, 0x7D5C, 0x45E6, { 0xB2, 0xF1, 0x3F, 0xD5, 0x2B, 0xB1, 0x00, 0x77 }}
+
+  # Include/Protocol/UserInterfaceTheme.h
+  gEfiUserInterfaceThemeProtocolGuid         = { 0xD5B0AC65, 0x9A2D, 0x4D2A, { 0xBB, 0xD6, 0xE8, 0x71, 0xA9, 0x5E, 0x04, 0x35 }}
+
+  # Include/Protocol/ApplePartitionInfo.h
+  gApplePartitionInfoProtocolGuid            = { 0x68425EE5, 0x1C43, 0x4BAA, { 0x84, 0xF7, 0x9A, 0xA8, 0xA4, 0xD8, 0xE1, 0x1E }}
