@@ -50,7 +50,6 @@ enum {
   AppleHidRemotePage               = 0x08
 };
 
-// APPLE_HID_PAGE_ID
 typedef UINT8 APPLE_HID_PAGE_ID;
 
 // APPLE_SCAN_CODE
@@ -73,6 +72,8 @@ enum {
   AppleScanKeypadDel      = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyDel),
   AppleScanKeypadEquals   = APPLE_HID_KP_SCAN_USAGE (UsbHidUsageIdKbKpPadKeyEquals)
 };
+
+typedef UINT16 APPLE_SCAN_CODE;
 
 // Apple modifers
 
