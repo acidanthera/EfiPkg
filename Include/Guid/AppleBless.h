@@ -1,5 +1,5 @@
 /** @file
-  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
+  Copyright (c) 2005 - 2016, Apple Inc.  All rights reserved.
   Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,20 +20,20 @@
 
 // APPLE_BLESSED_SYSTEM_FILE_INFO_GUID
 /// InformationType GUID used to get the blessed file's path.
-#define APPLE_BLESSED_SYSTEM_FILE_INFO_GUID               \
-  { 0xCA7E4814, 0x2ADC, 0x4ADD,                           \
+#define APPLE_BLESSED_SYSTEM_FILE_INFO_GUID  \
+  { 0xCA7E4814, 0x2ADC, 0x4ADD,              \
     { 0xAB, 0xFF, 0x73, 0x4E, 0x3C, 0xFE, 0x13, 0xF3 } }
 
 // APPLE_BLESSED_SYSTEM_FOLDER_INFO_GUID
 /// InformationType GUID exposed used to get the blessed folder's path.
-#define APPLE_BLESSED_SYSTEM_FOLDER_INFO_GUID             \
-  { 0x7BD1F02D, 0x9C2F, 0x4581,                           \
+#define APPLE_BLESSED_SYSTEM_FOLDER_INFO_GUID  \
+  { 0x7BD1F02D, 0x9C2F, 0x4581,                \
     { 0xBF, 0x12, 0xD5, 0x4a, 0xBA, 0x0D, 0x98, 0xD6 } }
 
 // APPLE_BLESSED_SYSTEM_FOLDER_INFO_GUID
 /// InformationType GUID exposed used to get the blessed folder's path.
-#define APPLE_BLESSED_OSX_FOLDER_INFO_GUID                \
-  { 0x893CA450, 0x5F5E, 0x48BA,                           \
+#define APPLE_BLESSED_OSX_FOLDER_INFO_GUID  \
+  { 0x893CA450, 0x5F5E, 0x48BA,             \
     { 0x85, 0x8F, 0x08, 0xC4, 0x5D, 0x80, 0x23, 0x18 } }
 
 // gAppleBlessedSystemFileInfoGuid

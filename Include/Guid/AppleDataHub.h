@@ -1,6 +1,6 @@
 /** @file
-  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
-  Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
+  Copyright (c) 2005 - 2017, Apple Inc.  All rights reserved.
+  Portions Copyright (C) 2014 - 2017, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -15,24 +15,24 @@
   limitations under the License.
 **/
 
-#ifndef APPLE_SYSTEM_INFO_H_
-#define APPLE_SYSTEM_INFO_H_
+#ifndef APPLE_DATA_HUB_H_
+#define APPLE_DATA_HUB_H_
 
 #include <Guid/DataHubRecords/DataHubSubClass.h>
 
-// APPLE_SYSTEM_INFO_PRODUCER_NAME_GUID
-#define APPLE_SYSTEM_INFO_PRODUCER_NAME_GUID              \
-  { 0x64517CC8, 0x6561, 0x4051,                           \
+// APPLE_PLATFORM_PRODUCER_NAME_GUID
+#define APPLE_PLATFORM_PRODUCER_NAME_GUID  \
+  { 0x64517CC8, 0x6561, 0x4051,            \
     { 0xB0, 0x3C, 0x59, 0x64, 0xB6, 0x0F, 0x4C, 0x7A } }
 
-// APPLE_SYSTEM_INFO_DATA_RECORD
+// APPLE_PLATFORM_DATA_RECORD
 typedef struct {
-  EFI_SUBCLASS_TYPE1_HEADER Header;     ///< 
-  UINT32                    NameSize;   ///< 
-  UINT32                    ValueSize;  ///< 
-} APPLE_SYSTEM_INFO_DATA_RECORD;
+  EFI_SUBCLASS_TYPE1_HEADER Header; 
+  UINT32                    NameSize; 
+  UINT32                    ValueSize; 
+} APPLE_PLATFORM_DATA_RECORD;
 
-// gAppleSystemInfoProducerNameGuid
-extern EFI_GUID gAppleSystemInfoProducerNameGuid;
+// gApplePlatformProducerNameGuid
+extern EFI_GUID gApplePlatformProducerNameGuid;
 
-#endif // APPLE_SYSTEM_INFO_H_
+#endif // APPLE_DATA_HUB_H_

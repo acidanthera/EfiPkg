@@ -1,6 +1,6 @@
 /** @file
-  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
-  Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
+  Copyright (c) 2005 - 2017, Apple Inc.  All rights reserved.
+  Portions Copyright (C) 2014 - 2017, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -19,8 +19,8 @@
 #define APPLE_OS_LOADED_H_
 
 // APPLE_OS_LOADED_EVENT_NAME
-#define APPLE_OS_LOADED_NAMED_EVENT_GUID                   \
-  { 0xC5C5DA95, 0x7D5C, 0x45E6,                           \
+#define APPLE_OS_LOADED_NAMED_EVENT_GUID  \
+  { 0xC5C5DA95, 0x7D5C, 0x45E6,           \
     { 0x83, 0x72, 0x89, 0xBD, 0x52, 0x6D, 0xE9, 0x56 } }
 
 // gAppleOSLoadedNamedEventGuid

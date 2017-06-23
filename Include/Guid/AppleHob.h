@@ -1,5 +1,5 @@
 /** @file
-  Copyright (C) 2005 - 2017, Apple Inc.  All rights reserved.
+  Copyright (c) 2005 - 2017, Apple Inc.  All rights reserved.
   Portions Copyright (C) 2014 - 2017, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,18 +19,18 @@
 #define APPLE_HOB_H_
 
 // APPLE_HOB_1_GUID
-#define APPLE_HOB_1_GUID                                  \
-  { 0x908B63A8, 0xC7C8, 0x493A,                           \
+#define APPLE_HOB_1_GUID         \
+  { 0x908B63A8, 0xC7C8, 0x493A,  \
     { 0x80, 0x72, 0x9D, 0x58, 0xDB, 0xCF, 0x72, 0x4D } }
 
 // APPLE_HOB_2_GUID
-#define APPLE_HOB_2_GUID                                  \
-  { 0xC78F061E, 0x0290, 0x4E4F,                           \
+#define APPLE_HOB_2_GUID         \
+  { 0xC78F061E, 0x0290, 0x4E4F,  \
     { 0x8D, 0xDC, 0x5B, 0xDA, 0xAC, 0x83, 0x7D, 0xE5 } }
 
 // APPLE_HOB_3_GUID
-#define APPLE_HOB_3_GUID                                  \
-  { 0xB8E65062, 0xFB30, 0x4078,                           \
+#define APPLE_HOB_3_GUID         \
+  { 0xB8E65062, 0xFB30, 0x4078,  \
     { 0xAB, 0xD3, 0xA9, 0x4E, 0x09, 0xCA, 0x9D, 0xE6 } }
 
 // gAppleHob1Guid

@@ -1,6 +1,6 @@
 /** @file
-  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
-  Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
+  Copyright (c) 2005 - 2017, Apple Inc.  All rights reserved.
+  Portions Copyright (C) 2014 - 2017, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -19,8 +19,8 @@
 #define APPLE_FILE_H_
 
 // APPLE_FILE_1_GUID
-#define APPLE_FILE_1_GUID                                 \
-  { 0x95C8C131, 0x4467, 0x4447,                           \
+#define APPLE_FILE_1_GUID        \
+  { 0x95C8C131, 0x4467, 0x4447,  \
     { 0x8A, 0x71, 0xF0, 0x87, 0xAF, 0xCA, 0x07, 0xA5 } }
 
 // gAppleFile1Guid

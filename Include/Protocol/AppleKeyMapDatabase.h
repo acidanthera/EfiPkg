@@ -1,5 +1,5 @@
 /** @file
-  Copyright (C) 2005 - 2016, Apple Inc.  All rights reserved.
+  Copyright (c) 2005 - 2016, Apple Inc.  All rights reserved.
   Portions Copyright (C) 2014 - 2016, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");

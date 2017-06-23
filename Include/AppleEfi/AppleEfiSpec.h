@@ -1,5 +1,5 @@
 /** @file
-  Copyright (C) 2005 - 2017, Apple Inc.  All rights reserved.
+  Copyright (c) 2005 - 2017, Apple Inc.  All rights reserved.
   Portions Copyright (C) 2014 - 2017, CupertinoNet.  All rights reserved.<BR>
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -34,15 +34,19 @@
 
 // Apple EFI File location to boot from on removable media devices
 
+// APPLE_REMOVABLE_MEDIA_FILE_NAME_IA32
 #define APPLE_REMOVABLE_MEDIA_FILE_NAME_IA32  \
   L"\\EFI\\APPLE\\IA32\\BOOT.EFI"
 
+// APPLE_REMOVABLE_MEDIA_FILE_NAME_X64
 #define APPLE_REMOVABLE_MEDIA_FILE_NAME_X64  \
   L"\\EFI\\APPLE\\X64\\BOOT.EFI"
 
+// APPLE_REMOVABLE_MEDIA_FILE_NAME_ARM
 #define APPLE_REMOVABLE_MEDIA_FILE_NAME_ARM  \
   L"\\EFI\\APPLE\\ARM\\BOOT.EFI"
 
+// APPLE_REMOVABLE_MEDIA_FILE_NAME_AARCH64
 #define APPLE_REMOVABLE_MEDIA_FILE_NAME_AARCH64  \
   L"\\EFI\\APPLE\\AARCH64\\BOOT.EFI"
 
