@@ -23,15 +23,20 @@
 #pragma pack (1)
 
 #define APPLE_SMBIOS_TYPE_FIRMWARE_INFORMATION  128
+#define APPLE_SMBIOS_TYPE_PROCESSOR_CLASS       131
+#define APPLE_SMBIOS_TYPE_SMC_INFORMATION       134
 
 #define APPLE_NUMBER_OF_FIRMWARE_VOLUMES  8
 
+// APPLE_FV_TYPE
 enum {
   AppleFvTypeConventional = 0,
   AppleFvTypeRecovery     = 1,
   AppleFvTypeMain         = 2,
   AppleFvTypeNvStorage    = 3
 };
+
+typedef UINT8 APPLE_FV_TYPE;
 
 // APPLE_FIRMWARE_VOLUME_MAP
 typedef PACKED struct {
@@ -41,16 +46,42 @@ typedef PACKED struct {
 
 // APPLE_SMBIOS_TABLE_TYPE128
 typedef PACKED struct {
-  EFI_SMBIOS_TABLE_HEADER   Header;
+  SMBIOS_STRUCTURE          Hdr;
   UINT8                     NumberOfFirmwareVolumes;
   UINT8                     Reserved[3];
   UINT32                    FirmwareFeatures;
   UINT32                    FirmwareFeaturesMask;
-  UINT8                     FrimwareVolumeTypeMap[APPLE_NUMBER_OF_FIRMWARE_VOLUMES];
+  APPLE_FV_TYPE             FrimwareVolumeTypeMap[APPLE_NUMBER_OF_FIRMWARE_VOLUMES];
   APPLE_FIRMWARE_VOLUME_MAP FirmwareVolumes[APPLE_NUMBER_OF_FIRMWARE_VOLUMES];
   UINT32                    ExtendedFirmwareFeatures;
   UINT32                    ExtendedFirmwareFeaturesMask;
 } APPLE_SMBIOS_TABLE_TYPE128;
+
+// APPLE_PROCESSOR_CLASS
+enum {
+  AppleProcessorClassI5 = 6,
+  AppleProcessorClassI7 = 7,
+  AppleProcessorClassI3 = 9,
+  AppleProcessorClassM3 = 12,
+  AppleProcessorClassM5 = 13,
+  AppleProcessorClassM7 = 14
+};
+
+typedef UINT8 APPLE_PROCESSOR_CLASS;
+
+// APPLE_SMBIOS_TABLE_TYPE131
+typedef PACKED struct {
+  SMBIOS_STRUCTURE      Hdr;
+  UINT8                 Reserved1;
+  APPLE_PROCESSOR_CLASS ProcessorClass;
+  UINT8                 Reserved2[2];
+} APPLE_SMBIOS_TABLE_TYPE131;
+
+// APPLE_SMBIOS_TABLE_TYPE134
+typedef PACKED struct {
+  SMBIOS_STRUCTURE Hdr;
+  UINT8            SmcVersion[16];
+} APPLE_SMBIOS_TABLE_TYPE134;
 
 // APPLE_SMBIOS_STRUCTURE_POINTER
 typedef PACKED union {
@@ -102,6 +133,8 @@ typedef PACKED union {
   SMBIOS_TABLE_TYPE126       *Type126;
   SMBIOS_TABLE_TYPE127       *Type127;
   APPLE_SMBIOS_TABLE_TYPE128 *Type128;
+  APPLE_SMBIOS_TABLE_TYPE131 *Type131;
+  APPLE_SMBIOS_TABLE_TYPE134 *Type134;
   UINT8                      *Raw;
 } APPLE_SMBIOS_STRUCTURE_POINTER;
 
