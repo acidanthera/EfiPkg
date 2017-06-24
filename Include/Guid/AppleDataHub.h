@@ -65,6 +65,21 @@
   { 0xD1A04D55, 0x75B9, 0x41A3,               \
     { 0x90, 0x36, 0x8F, 0x4A, 0x26, 0x1C, 0xBB, 0xA2 } }
 
+// APPLE_BOARD_ID_DATA_RECORD_GUID
+#define APPLE_BOARD_ID_DATA_RECORD_GUID  \
+  { 0xB459BF16, 0x14ED, 0x5131,          \
+    { 0x92, 0xB4, 0x5E, 0x19, 0xF0, 0x5B, 0xC0, 0xAD } }
+
+// APPLE_BOARD_REVIDION_DATA_RECORD_GUID
+#define APPLE_BOARD_REVIDION_DATA_RECORD_GUID  \
+  { 0x5F6B002A, 0xD39E, 0x57D0,                \
+    { 0x82, 0xC1, 0x7C, 0x72, 0x18, 0x95, 0xBD, 0x62 } }
+
+// APPLE_INITIAL_TSC_FREQUENCY_DATA_RECORD_GUID
+#define APPLE_INITIAL_TSC_FREQUENCY_DATA_RECORD_GUID  \
+  { 0x581BC734, 0xF9B5, 0x4A4A,                       \
+    { 0x8C, 0xED, 0x25, 0x85, 0xDA, 0x1D, 0xE5, 0x08 } }
+
 // APPLE_COPROCESSOR_VERSION_DATA_RECORD_GUID
 #define APPLE_COPROCESSOR_VERSION_DATA_RECORD_GUID  \
   { 0xE1AF3A96, 0x2783, 0x4C5B,                     \
@@ -118,6 +133,15 @@ extern EFI_GUID gAppleMachinePersonalityDataRecordGuid;
 
 // gAppleFsbFrequencyDataRecordGuid
 extern EFI_GUID gAppleFsbFrequencyDataRecordGuid;
+
+// gAppleBoardIdDataRecordGuid
+extern EFI_GUID gAppleBoardIdDataRecordGuid;
+
+// gAppleBoardRevisionDataRecordGuid
+extern EFI_GUID gAppleBoardRevisionDataRecordGuid;
+
+// gAppleInitialTscDataRecordGuid
+extern EFI_GUID gAppleInitialTscDataRecordGuid;
 
 // gAppleCoprocessorVersionDataRecordGuid
 extern EFI_GUID gAppleCoprocessorVersionDataRecordGuid;
