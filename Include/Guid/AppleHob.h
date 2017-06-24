@@ -18,6 +18,21 @@
 #ifndef APPLE_HOB_H_
 #define APPLE_HOB_H_
 
+// APPLE_FSB_FREQUENCY_HOB_GUID
+#define APPLE_FSB_FREQUENCY_HOB_GUID  \
+  { 0xEF56B861, 0x03CD, 0x4991,       \
+    { 0x99, 0xF2, 0x2A, 0xD3, 0x1B, 0xE8, 0x6B, 0x22 } }
+
+// APPLE_SMC_MMIO_ADDRESS_HOB_GUID
+#define APPLE_SMC_MMIO_ADDRESS_HOB_GUID  \
+  { 0x2D450255, 0xBDE9, 0x4341,          \
+    { 0x8C, 0x72, 0xF0, 0x77, 0x09, 0x59, 0x76, 0x04 } }
+
+// APPLE_TSC_FREQUENCY_HOB_GUID
+#define APPLE_TSC_FREQUENCY_HOB_GUID  \
+  { 0x674ABEA3, 0x0FE5, 0x11E5,       \
+    { 0x98h, 0x8E, 0xB8, 0xE8, 0x56, 0x2C, 0xBA, 0xFA } }
+
 // APPLE_HOB_1_GUID
 #define APPLE_HOB_1_GUID         \
   { 0x908B63A8, 0xC7C8, 0x493A,  \
@@ -32,6 +47,15 @@
 #define APPLE_HOB_3_GUID         \
   { 0xB8E65062, 0xFB30, 0x4078,  \
     { 0xAB, 0xD3, 0xA9, 0x4E, 0x09, 0xCA, 0x9D, 0xE6 } }
+
+// gAppleFsbFrequencyHobGuid
+extern EFI_GUID gAppleFsbFrequencyHobGuid;
+
+// gAppleSmcMmioAddressHobGuid
+extern EFI_GUID gAppleSmcMmioAddressHobGuid;
+
+// gAppleTscFrequencyHobGuid
+extern EFI_GUID gAppleTscFrequencyHobGuid;
 
 // gAppleHob1Guid
 extern EFI_GUID gAppleHob1Guid;
