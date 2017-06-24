@@ -26,38 +26,51 @@
 #define APPLE_SMBIOS_TYPE_PROCESSOR_CLASS       131
 #define APPLE_SMBIOS_TYPE_SMC_INFORMATION       134
 
-#define APPLE_NUMBER_OF_FIRMWARE_VOLUMES  8
+#define APPLE_NUMBER_OF_FLASHMAP_ENTRIES  8
 
-// APPLE_FV_TYPE
+// APPLE_REGION_TYPE
 enum {
-  AppleFvTypeConventional = 0,
-  AppleFvTypeRecovery     = 1,
-  AppleFvTypeMain         = 2,
-  AppleFvTypeNvStorage    = 3
+  AppleRegionTypeReserved  = 0,
+  AppleRegionTypeRecovery  = 1,
+  AppleRegionTypeMain      = 2,
+  AppleRegionTypeNvram     = 3,
+  AppleRegionTypeConfig    = 4,
+  AppleRegionTypeDiagvault = 5
 };
 
-typedef UINT8 APPLE_FV_TYPE;
+typedef UINT8 APPLE_REGION_TYPE;
 
-// APPLE_FIRMWARE_VOLUME_MAP
+// APPLE_FIRMWARE_REGION_INFO
 typedef PACKED struct {
-  UINT32 BaseAddress;
-  UINT32 TopAddress;
-} APPLE_FIRMWARE_VOLUME_MAP;
+  UINT32 StartAddress;
+  UINT32 EndAddress;
+} APPLE_FIRMWARE_REGION_INFO;
 
 // APPLE_SMBIOS_TABLE_TYPE128
 typedef PACKED struct {
-  SMBIOS_STRUCTURE          Hdr;
-  UINT8                     NumberOfFirmwareVolumes;
-  UINT8                     Reserved[3];
-  UINT32                    FirmwareFeatures;
-  UINT32                    FirmwareFeaturesMask;
-  APPLE_FV_TYPE             FrimwareVolumeTypeMap[APPLE_NUMBER_OF_FIRMWARE_VOLUMES];
-  APPLE_FIRMWARE_VOLUME_MAP FirmwareVolumes[APPLE_NUMBER_OF_FIRMWARE_VOLUMES];
-  UINT32                    ExtendedFirmwareFeatures;
-  UINT32                    ExtendedFirmwareFeaturesMask;
+  SMBIOS_STRUCTURE           Hdr;
+  UINT8                      NumberOfRegions;
+  UINT8                      Reserved[3];
+  UINT32                     FirmwareFeatures;
+  UINT32                     FirmwareFeaturesMask;
+  APPLE_REGION_TYPE          RegionTypeMap[APPLE_NUMBER_OF_FLASHMAP_ENTRIES];
+  APPLE_FIRMWARE_REGION_INFO FlashMap[APPLE_NUMBER_OF_FLASHMAP_ENTRIES];
+  UINT32                     ExtendedFirmwareFeatures;
+  UINT32                     ExtendedFirmwareFeaturesMask;
 } APPLE_SMBIOS_TABLE_TYPE128;
 
-// APPLE_PROCESSOR_CLASS
+// APPLE_SMBIOS_TABLE_TYPE130
+typedef struct {
+  struct {
+    SMBIOS_STRUCTURE Hdr;
+    SMBIOS_HANDLE    MemoryDeviceHandle;
+    UINT16           Offset;
+    UINT16           Size;
+  }                Hdr;
+  UINT16           Data[1];
+} APPLE_SMBIOS_TABLE_TYPE130;
+
+// APPLE_PROCESSOR_TYPE
 enum {
   AppleProcessorClassI5 = 6,
   AppleProcessorClassI7 = 7,
@@ -67,15 +80,20 @@ enum {
   AppleProcessorClassM7 = 14
 };
 
-typedef UINT8 APPLE_PROCESSOR_CLASS;
+typedef UINT8 APPLE_PROCESSOR_TYPE[2];
 
 // APPLE_SMBIOS_TABLE_TYPE131
 typedef PACKED struct {
-  SMBIOS_STRUCTURE      Hdr;
-  UINT8                 Reserved1;
-  APPLE_PROCESSOR_CLASS ProcessorClass;
-  UINT8                 Reserved2[2];
+  SMBIOS_STRUCTURE     Hdr;
+  APPLE_PROCESSOR_TYPE ProcessorType;
+  UINT8                Reserved[2];
 } APPLE_SMBIOS_TABLE_TYPE131;
+
+// APPLE_SMBIOS_TABLE_TYPE132
+typedef struct {
+  SMBIOS_STRUCTURE Hdr;
+  UINT16           ProcessorBusSpeed;
+} APPLE_SMBIOS_TABLE_TYPE132;
 
 // APPLE_SMBIOS_TABLE_TYPE134
 typedef PACKED struct {
@@ -84,7 +102,7 @@ typedef PACKED struct {
 } APPLE_SMBIOS_TABLE_TYPE134;
 
 // APPLE_SMBIOS_STRUCTURE_POINTER
-typedef PACKED union {
+typedef union {
   SMBIOS_STRUCTURE           *Hdr;
   SMBIOS_TABLE_TYPE0         *Type0;
   SMBIOS_TABLE_TYPE1         *Type1;
@@ -133,7 +151,9 @@ typedef PACKED union {
   SMBIOS_TABLE_TYPE126       *Type126;
   SMBIOS_TABLE_TYPE127       *Type127;
   APPLE_SMBIOS_TABLE_TYPE128 *Type128;
+  APPLE_SMBIOS_TABLE_TYPE130 *Type130;
   APPLE_SMBIOS_TABLE_TYPE131 *Type131;
+  APPLE_SMBIOS_TABLE_TYPE132 *Type132;
   APPLE_SMBIOS_TABLE_TYPE134 *Type134;
   UINT8                      *Raw;
 } APPLE_SMBIOS_STRUCTURE_POINTER;
