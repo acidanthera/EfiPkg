@@ -18,9 +18,9 @@
 #ifndef APPLE_HOB_H_
 #define APPLE_HOB_H_
 
-// APPLE_FSB_FREQUENCY_HOB_GUID
-#define APPLE_FSB_FREQUENCY_HOB_GUID  \
-  { 0xEF56B861, 0x03CD, 0x4991,       \
+// APPLE_FSB_FREQUENCY_PLATFORM_INFO_INDEX_HOB_GUID
+#define APPLE_FSB_FREQUENCY_PLATFORM_INFO_INDEX_HOB_GUID  \
+  { 0xEF56B861, 0x03CD, 0x4991,                           \
     { 0x99, 0xF2, 0x2A, 0xD3, 0x1B, 0xE8, 0x6B, 0x22 } }
 
 // APPLE_SMC_MMIO_ADDRESS_HOB_GUID
@@ -48,8 +48,8 @@
   { 0xB8E65062, 0xFB30, 0x4078,  \
     { 0xAB, 0xD3, 0xA9, 0x4E, 0x09, 0xCA, 0x9D, 0xE6 } }
 
-// gAppleFsbFrequencyHobGuid
-extern EFI_GUID gAppleFsbFrequencyHobGuid;
+// gAppleFsbFrequencyPlatformInfoIndexHobGuid
+extern EFI_GUID gAppleFsbFrequencyPlatformInfoIndexHobGuid;
 
 // gAppleSmcMmioAddressHobGuid
 extern EFI_GUID gAppleSmcMmioAddressHobGuid;
