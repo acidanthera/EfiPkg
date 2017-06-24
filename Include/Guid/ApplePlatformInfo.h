@@ -43,8 +43,8 @@ extern EFI_GUID gAppleKeyboardPlatformInfoGuid;
 
 // APPLE_PRODUCT_INFO
 typedef struct {
-  UINT8  Unknwon[86];
-  CHAR8  Model[64];
+  UINT8  Unknown[86];
+  CHAR16 Model[64];
   CHAR16 Family[64];
 } APPLE_PRODUCT_INFO;
 
