@@ -80,6 +80,11 @@
   { 0x581BC734, 0xF9B5, 0x4A4A,                       \
     { 0x8C, 0xED, 0x25, 0x85, 0xDA, 0x1D, 0xE5, 0x08 } }
 
+// APPLE_STARTUP_POWER_EVENTS_DATA_RECORD_GUID
+#define APPLE_STARTUP_POWER_EVENTS_DATA_RECORD_GUID  \
+  { 0x972057CF, 0x7145, 0x4C8A,                      \
+    { 0x83, 0x0E, 0x3E, 0xCE, 0x8A, 0xC9, 0xB1, 0xF4 } }
+
 // APPLE_COPROCESSOR_VERSION_DATA_RECORD_GUID
 #define APPLE_COPROCESSOR_VERSION_DATA_RECORD_GUID  \
   { 0xE1AF3A96, 0x2783, 0x4C5B,                     \
@@ -142,6 +147,9 @@ extern EFI_GUID gAppleBoardRevisionDataRecordGuid;
 
 // gAppleInitialTscDataRecordGuid
 extern EFI_GUID gAppleInitialTscDataRecordGuid;
+
+// gAppleStartupPowerEventsDataRecordGuid
+extern EFI_GUID gAppleStartupPowerEventsDataRecordGuid;
 
 // gAppleCoprocessorVersionDataRecordGuid
 extern EFI_GUID gAppleCoprocessorVersionDataRecordGuid;
