@@ -15,12 +15,12 @@
   limitations under the License.
 **/
 
-#ifndef APPLE_UEFI_H_
-#define APPLE_UEFI_H_
+#ifndef APPLE_MAC_EFI_H_
+#define APPLE_MAC_EFI_H_
 
 #include <AppleCpuType.h>
 
 #include <Uefi.h>
-#include <AppleEfi/AppleEfiSpec.h>
+#include <AppleMacEfi/AppleMacEfiSpec.h>
 
-#endif // APPLE_UEFI_H_
+#endif // APPLE_MAC_EFI_H_

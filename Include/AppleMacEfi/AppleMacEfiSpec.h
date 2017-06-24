@@ -15,8 +15,8 @@
   limitations under the License.
 **/
 
-#ifndef APPLE_EFI_SPEC_H_
-#define APPLE_EFI_SPEC_H_
+#ifndef APPLE_MAC_EFI_SPEC_H_
+#define APPLE_MAC_EFI_SPEC_H_
 
 // EFI Revision information
 
@@ -54,4 +54,4 @@
 #define APPLE_SYSTEM_VERSION_FILE_NAME  \
   L"\\System\\Library\\CoreServices\\SystemVersion.plist"
 
-#endif // APPLE_EFI_SPEC_H_
+#endif // APPLE_MAC_EFI_SPEC_H_
