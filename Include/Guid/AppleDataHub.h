@@ -33,17 +33,42 @@
 // APPLE_ROM_DATA_RECORD_GUID
 #define APPLE_ROM_DATA_RECORD_GUID  \
   { 0x8CBDD607, 0xCAB4, 0x43A4,     \
-    { 0x97h, 0x8Bh, 0xABh, 0x8Dh, 0xEFh, 0x11h, 0x06, 0x1C } }
+    { 0x97, 0x8B, 0xAB, 0x8D, 0xEF, 0x11, 0x06, 0x1C } }
 
 // APPLE_SYSTEM_SERIAL_NUMBER_DATA_RECORD_GUID
 #define APPLE_SYSTEM_SERIAL_NUMBER_DATA_RECORD_GUID  \
-  { 0x4BAA44C3, 0x9D4D, 0x46A6                       \
-    { 0x99, 0x13, 0xAE, 0xF9, 0x0D, 0x3C, 0xC, 0xB1 } }
+  { 0x4BAA44C3, 0x9D4D, 0x46A6,                      \
+    { 0x99, 0x13, 0xAE, 0xF9, 0x0D, 0x3C, 0x0C, 0xB1 } }
 
 // APPLE_SYSTEM_ID_DATA_RECORD_GUID
 #define APPLE_SYSTEM_ID_DATA_RECORD_GUID  \
   { 0x1485AFA4, 0xF000, 0x4E3E,           \
     { 0x81, 0xB4, 0xA7, 0xEE, 0x10, 0x4D, 0x5E, 0x30 } }
+
+// APPLE_MODEL_DATA_RECORD_GUID
+#define APPLE_MODEL_DATA_RECORD_GUID  \
+  { 0xFA6AE23D, 0x09BE, 0x40A0,       \
+    { 0xAF, 0xDE, 0x06, 0x37, 0x85, 0x94, 0x26, 0xC8 } }
+
+  // APPLE_DEVICE_PATHS_SUPPORTED_DATA_RECORD_GUID
+#define APPLE_DEVICE_PATHS_SUPPORTED_DATA_RECORD_GUID  \
+  { 0x5BB91CF7, 0xD816, 0x404B,                        \
+    { 0x86, 0x72, 0x68, 0xF2, 0x7F, 0x78, 0x31, 0xDC } }
+
+  // APPLE_MACHINE_PERSONALITY_DATA_RECORD_GUID
+#define APPLE_MACHINE_PERSONALITY_DATA_RECORD_GUID  \
+  { 0x2B6C7ADE, 0xC5DA, 0x474B,                     \
+    { 0xBA, 0x42, 0x06, 0xBD, 0xDD, 0x4E, 0x34, 0x97 } }
+
+  // APPLE_FSB_FREQUENCY_DATA_RECORD_GUID
+#define APPLE_FSB_FREQUENCY_DATA_RECORD_GUID  \
+  { 0xD1A04D55, 0x75B9, 0x41A3,               \
+    { 0x90, 0x36, 0x8F, 0x4A, 0x26, 0x1C, 0xBB, 0xA2 } }
+
+// APPLE_COPROCESSOR_VERSION_DATA_RECORD_GUID
+#define APPLE_COPROCESSOR_VERSION_DATA_RECORD_GUID  \
+  { 0xE1AF3A96, 0x2783, 0x4C5B,                     \
+    { 0xA1, 0x06, 0x36, 0x01, 0xF5, 0x85, 0x51, 0x05 } }
 
 #define APPLE_SUBCLASS_VERSION   0x0100
 #define APPLE_SUBCLASS_INSTANCE  EFI_SUBCLASS_INSTANCE_NON_APPLICABLE
@@ -81,5 +106,20 @@ extern EFI_GUID gAppleSystemSerialNumbrDataRecordGuid;
 
 // gAppleSystemIdDataRecordGuid
 extern EFI_GUID gAppleSystemIdDataRecordGuid;
+
+// gAppleModelDataRecordGuid
+extern EFI_GUID gAppleModelDataRecordGuid;
+
+// gAppleDevicePathsSupportedDataRecordGuid
+extern EFI_GUID gAppleDevicePathsSupportedDataRecordGuid;
+
+// gAppleMachinePersonalityDataRecordGuid
+extern EFI_GUID gAppleMachinePersonalityDataRecordGuid;
+
+// gAppleFsbFrequencyDataRecordGuid
+extern EFI_GUID gAppleFsbFrequencyDataRecordGuid;
+
+// gAppleCoprocessorVersionDataRecordGuid
+extern EFI_GUID gAppleCoprocessorVersionDataRecordGuid;
 
 #endif // APPLE_DATA_HUB_H_
