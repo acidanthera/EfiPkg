@@ -17,7 +17,7 @@
 ##
 
 [Defines]
-  PACKAGE_NAME      = ApplePkg
+  PACKAGE_NAME      = EfiPkg
   PACKAGE_GUID      = 1606DD51-F834-4F7F-9ED5-751E193C981F
   PACKAGE_VERSION   = 2017.001
   DEC_SPECIFICATION = 0x00010005
@@ -161,6 +161,9 @@
   gAppleRomInfoGuid                          = { 0xB535ABF6, 0x967D, 0x43F2, { 0xB4, 0x94, 0xA1, 0xEB, 0x8E, 0x21, 0xA2, 0x8E }}
 
 [Protocols]
+  gEfiConsoleControlProtocolGuid = { 0xF42F7782, 0x012E, 0x4C12, { 0x99, 0x56, 0x49, 0xF9, 0x43, 0x04, 0xF7, 0x21 }}
+  gEfiHotPlugDeviceGuid          = { 0x220AC432, 0x1D43, 0x49E5, { 0xA7, 0x4F, 0x4C, 0x9D, 0xA6, 0x7A, 0xD2, 0x3B }}
+
   # Include/Protocol/AppleBootBeepGenProtocol.h
   gAppleBootBeepGenProtocolGuid              = { 0xC32332DF, 0xFC56, 0x4FE1, { 0x93, 0x58, 0xBA, 0x0D, 0x52, 0x9B, 0x24, 0xCD }}
 
@@ -217,3 +220,22 @@
 
   # Include/Protocol/AppleDiagAccess.h
   gAppleDiagAccessProtocolGuid               = { 0xC5CFF4F1, 0x379A, 0x54E1, { 0x9E, 0xDD, 0x93, 0x21, 0x9C, 0x6A, 0xA4, 0xFE }}
+
+[LibraryClasses]
+  ##  @libraryclass
+  AppleDataHubLib|EfiPkg/Include/Library/AppleDataHubLib.h
+
+  ##  @libraryclass
+  AppleEntryPoint|EfiPkg/Include/Library/AppleEntryPoint.h
+
+  ##  @libraryclass
+  AppleEventLib|EfiPkg/Include/Library/AppleEventLib.h
+
+  ##  @libraryclass
+  AppleSmbiosLib|EfiPkg/Include/Library/AppleSmbiosLib.h
+
+  ##  @libraryclass
+  AppleSmcMmioLib|EfiPkg/Include/Library/AppleSmcMmioLib.h
+
+  ##  @libraryclass
+  BiodIdLib|EfiPkg/Include/Library/BiodIdLib.h
