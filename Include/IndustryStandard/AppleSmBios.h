@@ -65,7 +65,7 @@ typedef PACKED struct {
 typedef struct {
   struct {
     SMBIOS_STRUCTURE Hdr;
-    SMBIOS_HANDLE    MemoryDeviceHandle;
+    UINT16           MemoryDeviceHandle;
     UINT16           Offset;
     UINT16           Size;
   }                Hdr;
@@ -105,53 +105,7 @@ typedef PACKED struct {
 
 // APPLE_SMBIOS_STRUCTURE_POINTER
 typedef union {
-  SMBIOS_STRUCTURE           *Hdr;
-  SMBIOS_TABLE_TYPE0         *Type0;
-  SMBIOS_TABLE_TYPE1         *Type1;
-  SMBIOS_TABLE_TYPE2         *Type2;
-  SMBIOS_TABLE_TYPE3         *Type3;
-  SMBIOS_TABLE_TYPE4         *Type4;
-  SMBIOS_TABLE_TYPE5         *Type5;
-  SMBIOS_TABLE_TYPE6         *Type6;
-  SMBIOS_TABLE_TYPE7         *Type7;
-  SMBIOS_TABLE_TYPE8         *Type8;
-  SMBIOS_TABLE_TYPE9         *Type9;
-  SMBIOS_TABLE_TYPE10        *Type10;
-  SMBIOS_TABLE_TYPE11        *Type11;
-  SMBIOS_TABLE_TYPE12        *Type12;
-  SMBIOS_TABLE_TYPE13        *Type13;
-  SMBIOS_TABLE_TYPE14        *Type14;
-  SMBIOS_TABLE_TYPE15        *Type15;
-  SMBIOS_TABLE_TYPE16        *Type16;
-  SMBIOS_TABLE_TYPE17        *Type17;
-  SMBIOS_TABLE_TYPE18        *Type18;
-  SMBIOS_TABLE_TYPE19        *Type19;
-  SMBIOS_TABLE_TYPE20        *Type20;
-  SMBIOS_TABLE_TYPE21        *Type21;
-  SMBIOS_TABLE_TYPE22        *Type22;
-  SMBIOS_TABLE_TYPE23        *Type23;
-  SMBIOS_TABLE_TYPE24        *Type24;
-  SMBIOS_TABLE_TYPE25        *Type25;
-  SMBIOS_TABLE_TYPE26        *Type26;
-  SMBIOS_TABLE_TYPE27        *Type27;
-  SMBIOS_TABLE_TYPE28        *Type28;
-  SMBIOS_TABLE_TYPE29        *Type29;
-  SMBIOS_TABLE_TYPE30        *Type30;
-  SMBIOS_TABLE_TYPE31        *Type31;
-  SMBIOS_TABLE_TYPE32        *Type32;
-  SMBIOS_TABLE_TYPE33        *Type33;
-  SMBIOS_TABLE_TYPE34        *Type34;
-  SMBIOS_TABLE_TYPE35        *Type35;
-  SMBIOS_TABLE_TYPE36        *Type36;
-  SMBIOS_TABLE_TYPE37        *Type37;
-  SMBIOS_TABLE_TYPE38        *Type38;
-  SMBIOS_TABLE_TYPE39        *Type39;
-  SMBIOS_TABLE_TYPE40        *Type40;
-  SMBIOS_TABLE_TYPE41        *Type41;
-  SMBIOS_TABLE_TYPE42        *Type42;
-  SMBIOS_TABLE_TYPE43        *Type43;
-  SMBIOS_TABLE_TYPE126       *Type126;
-  SMBIOS_TABLE_TYPE127       *Type127;
+  SMBIOS_STRUCTURE_POINTER   Standard;
   APPLE_SMBIOS_TABLE_TYPE128 *Type128;
   APPLE_SMBIOS_TABLE_TYPE130 *Type130;
   APPLE_SMBIOS_TABLE_TYPE131 *Type131;
