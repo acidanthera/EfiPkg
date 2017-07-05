@@ -57,6 +57,9 @@
   gAppleFile1Guid                            = { 0x95C8C131, 0x4467, 0x4447, { 0x8A, 0x71, 0xF0, 0x87, 0xAF, 0xCA, 0x07, 0xA5 }}
 
   # Include/Guid/AppleHob.h
+  gAppleDebugMaskHobGuid                     = { 0x59D1C24F, 0x50F1, 0x401A, { 0xB1, 0x01, 0xF3, 0x3E, 0x0D, 0xAE, 0xD4, 0x43 }}
+
+  # Include/Guid/AppleHob.h
   gAppleFsbFrequencyPlatformInfoIndexHobGuid = { 0xEF56B861, 0x03CD, 0x4991, { 0x99, 0xF2, 0x2A, 0xD3, 0x1B, 0xE8, 0x6B, 0x22 }}
 
   # Include/Guid/AppleHob.h
@@ -149,6 +152,7 @@
   # Include/Guid/AppleDataHub.h
   gAppleInitialTscDataRecordGuid             = { 0xE1AF3A96, 0x2783, 0x4C5B, { 0xA1, 0x06, 0x36, 0x01, 0xF5, 0x85, 0x51, 0x05 }}
   
+  # Include/Guid/AppleDataHub.h
   gAppleStartupPowerEventsDataRecordGuid     = { 0x972057CF, 0x7145, 0x4C8A, { 0x83, 0x0E, 0x3E, 0xCE, 0x8A, 0xC9, 0xB1, 0xF4 }}
 
   # Include/Guid/AppleDataHub.h
@@ -160,9 +164,15 @@
   # Include/Guid/BiosId.h
   gAppleRomInfoGuid                          = { 0xB535ABF6, 0x967D, 0x43F2, { 0xB4, 0x94, 0xA1, 0xEB, 0x8E, 0x21, 0xA2, 0x8E }}
 
+  # Include/Guid/AppleTDMApprovedGuid.h
+  gTDMApprovedGuid                           = { 0x5C38EA59, 0x554B, 0x431C, { 0xB3, 0xF5, 0xCD, 0x6E, 0xE3, 0xD4, 0x8A, 0x3E }}
+
 [Protocols]
-  gEfiConsoleControlProtocolGuid = { 0xF42F7782, 0x012E, 0x4C12, { 0x99, 0x56, 0x49, 0xF9, 0x43, 0x04, 0xF7, 0x21 }}
-  gEfiHotPlugDeviceGuid          = { 0x220AC432, 0x1D43, 0x49E5, { 0xA7, 0x4F, 0x4C, 0x9D, 0xA6, 0x7A, 0xD2, 0x3B }}
+  # Include/Protocol/ConsoleControl.h
+  gEfiConsoleControlProtocolGuid             = { 0xF42F7782, 0x012E, 0x4C12, { 0x99, 0x56, 0x49, 0xF9, 0x43, 0x04, 0xF7, 0x21 }}
+
+  # Include/Protocol/HotPlugDevice.h
+  gEfiHotPlugDeviceGuid                      = { 0x220AC432, 0x1D43, 0x49E5, { 0xA7, 0x4F, 0x4C, 0x9D, 0xA6, 0x7A, 0xD2, 0x3B }}
 
   # Include/Protocol/AppleBootBeepGenProtocol.h
   gAppleBootBeepGenProtocolGuid              = { 0xC32332DF, 0xFC56, 0x4FE1, { 0x93, 0x58, 0xBA, 0x0D, 0x52, 0x9B, 0x24, 0xCD }}
@@ -221,21 +231,24 @@
   # Include/Protocol/AppleDiagAccess.h
   gAppleDiagAccessProtocolGuid               = { 0xC5CFF4F1, 0x379A, 0x54E1, { 0x9E, 0xDD, 0x93, 0x21, 0x9C, 0x6A, 0xA4, 0xFE }}
 
+  # Include/Protocol/AppleRemovableMedia.h
+  gAppleRemovableMediaProtocolGuid           = { 0x2EA9743A, 0x23D9, 0x425E, { 0x87, 0x2C, 0xF6, 0x15, 0xAA, 0x19, 0x57, 0x88 }}
+
 [LibraryClasses]
   ##  @libraryclass
-  AppleDataHubLib|EfiPkg/Include/Library/AppleDataHubLib.h
+  AppleCpuExtensionsLib|EfiPkg/Include/Library/AppleCpuExtensionsLib.h
 
   ##  @libraryclass
-  AppleEntryPoint|EfiPkg/Include/Library/AppleEntryPoint.h
+  AppleDataHubLib|EfiPkg/Include/Library/AppleDataHubLib.h
 
   ##  @libraryclass
   AppleEventLib|EfiPkg/Include/Library/AppleEventLib.h
 
   ##  @libraryclass
-  AppleSmbiosLib|EfiPkg/Include/Library/AppleSmbiosLib.h
+  AppleInterruptLib|EfiPkg/Include/Library/AppleInterruptLib.h
 
   ##  @libraryclass
-  AppleSmcMmioLib|EfiPkg/Include/Library/AppleSmcMmioLib.h
+  AppleSmbiosLib|EfiPkg/Include/Library/AppleSmbiosLib.h
 
   ##  @libraryclass
   BiodIdLib|EfiPkg/Include/Library/BiodIdLib.h

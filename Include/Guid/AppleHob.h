@@ -18,6 +18,11 @@
 #ifndef APPLE_HOB_H_
 #define APPLE_HOB_H_
 
+// APPLE_DEBUG_MASK_HOB_GUID
+#define APPLE_DEBUG_MASK_HOB_GUID  \
+  { 0x59D1C24F, 0x50F1, 0x401A,    \
+    { 0xB1, 0x01, 0xF3, 0x3E, 0x0D, 0xAE, 0xD4, 0x43 } }
+
 // APPLE_FSB_FREQUENCY_PLATFORM_INFO_INDEX_HOB_GUID
 #define APPLE_FSB_FREQUENCY_PLATFORM_INFO_INDEX_HOB_GUID  \
   { 0xEF56B861, 0x03CD, 0x4991,                           \
@@ -47,6 +52,9 @@
 #define APPLE_HOB_3_GUID         \
   { 0xB8E65062, 0xFB30, 0x4078,  \
     { 0xAB, 0xD3, 0xA9, 0x4E, 0x09, 0xCA, 0x9D, 0xE6 } }
+
+// gAppleDebugMaskHobGuid
+extern EFI_GUID gAppleDebugMaskHobGuid;
 
 // gAppleFsbFrequencyPlatformInfoIndexHobGuid
 extern EFI_GUID gAppleFsbFrequencyPlatformInfoIndexHobGuid;

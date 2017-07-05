@@ -15,23 +15,17 @@
   limitations under the License.
 **/
 
-#ifndef APPLE_ENTRY_POINT_H_
-#define APPLE_ENTRY_POINT_H_
+#ifndef APPLE_INTERRUPT_H_
+#define APPLE_INTERRUPT_H_
 
-// AppleEntryPoint
-VOID
-AppleEntryPoint (
-  IN EFI_HANDLE        ImageHandle,
-  IN EFI_SYSTEM_TABLE  *SystemTable
+#define APPLE_INTERRUPT_ASSERT  1
+
+// AppleInterrupt
+RETURN_STATUS
+EFIAPI
+AppleInterrupt (
+  IN UINT32  FunctiondId,
+  ...
   );
 
-// AppleEnableSseAvx
-VOID
-AppleEnableSseAvx (
-  VOID
-  );
-
-// gStackVerificationValue
-extern UINT64 gStackVerificationValue;
-
-#endif // APPLE_ENTRY_POINT_H_
+#endif // APPLE_INTERRUPT_H_

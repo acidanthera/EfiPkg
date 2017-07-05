@@ -15,40 +15,13 @@
   limitations under the License.
 **/
 
-#ifndef APPLE_SMBIOS_LIB_H_
-#define APPLE_SMBIOS_LIB_H_
+#ifndef APPLE_CPU_EXTENSIONS_LIB_H_
+#define APPLE_CPU_EXTENSIONS_LIB_H_
 
-// SmbiosInstallTables
-EFI_STATUS
-SmbiosInstallTables (
+// AppleEnableCpuExtensions
+VOID
+AppleEnableCpuExtensions (
   VOID
   );
 
-// SmbiosGetRecord
-SMBIOS_STRUCTURE *
-SmbiosGetRecord (
-  IN EFI_SMBIOS_HANDLE  Handle
-  );
-
-// SmbiosAdd
-VOID
-SmbiosAdd (
-  IN SMBIOS_STRUCTURE  *Record
-  );
-
-// SmbiosUpdateString
-VOID
-SmbiosUpdateString (
-  IN EFI_SMBIOS_HANDLE  *Handle,
-  IN UINTN              StringNumber,
-  IN CHAR8              *String
-  );
-
-// SmbiosGetFirstHandle
-SMBIOS_STRUCTURE *
-SmbiosGetFirstHandle (
-  IN     EFI_SMBIOS_TYPE    Type,
-  IN OUT EFI_SMBIOS_HANDLE  *Handle
-  );
-
-#endif // APPLE_SMBIOS_LIB_H_
+#endif // APPLE_CPU_EXTENSIONS_LIB_H_
