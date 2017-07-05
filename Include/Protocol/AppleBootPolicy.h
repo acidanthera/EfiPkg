@@ -18,6 +18,9 @@
 #ifndef APPLE_BOOT_POLICY_H_
 #define APPLE_BOOT_POLICY_H_
 
+// APPLE_BOOT_POLICY_PROTOCOL_REVISION
+#define APPLE_BOOT_POLICY_PROTOCOL_REVISION  0x00000001
+
 // APPLE_BOOT_POLICY_PROTOCOL_GUID
 /// The GUID of the APPLE_BOOT_POLICY_PROTOCOL.
 #define APPLE_BOOT_POLICY_PROTOCOL_GUID                   \
@@ -37,7 +40,6 @@
   @param[out] FilePath  A pointer to the device path pointer to set to the file
                         path of the boot file.
 
-  @return                       The status of the operation is returned.
   @retval EFI_NOT_FOUND         A bootable file could not be found on the given
                                 volume.
   @retval EFI_OUT_OF_RESOURCES  The memory necessary to complete the operation

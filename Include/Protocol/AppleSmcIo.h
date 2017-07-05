@@ -20,6 +20,9 @@
 
 #include <IndustryStandard/AppleSmc.h>
 
+// APPLE_SMC_IO_PROTOCOL_REVISION
+#define APPLE_SMC_IO_PROTOCOL_REVISION  0x0000000033
+
 // APPLE_SMC_IO_PROTOCOL_GUID
 #define APPLE_SMC_IO_PROTOCOL_GUID                        \
   { 0x17407E5A, 0xAF6C, 0x4EE8,                           \
@@ -168,26 +171,26 @@ EFI_STATUS
 
 // APPLE_SMC_IO_PROTOCOL
 struct APPLE_SMC_IO_PROTOCOL {
-  UINT64                        Revision;            ///< 
-  SMC_IO_SMC_READ_VALUE         SmcReadValue;        ///< 
-  SMC_IO_SMC_WRITE_VALUE        SmcWriteValue;       ///< 
-  SMC_IO_SMC_GET_KEY_COUNT      SmcGetKeyCount;      ///< 
-  SMC_IO_SMC_MAKE_KEY           SmcMakeKey;          ///< 
-  SMC_IO_SMC_GET_KEY_FROM_INDEX SmcGetKeyFromIndex;  ///< 
-  SMC_IO_SMC_GET_KEY_INFO       SmcGetKeyInfo;       ///< 
-  SMC_IO_SMC_RESET              SmcReset;            ///< 
-  SMC_IO_SMC_FLASH_TYPE         SmcFlashType;        ///< 
-  SMC_IO_SMC_UNSUPPORTED        SmcUnsupported;      ///< 
-  SMC_IO_SMC_FLASH_WRITE        SmcFlashWrite;       ///< 
-  SMC_IO_SMC_FLASH_AUTH         SmcFlashAuth;        ///< 
-  SMC_INDEX                     Index;               ///< 
-  SMC_ADDRESS                   Address;             ///< 
-  BOOLEAN                       Mmio;                ///< 
-  SMC_IO_SMC_UNKNOWN_1          SmcUnknown1;         ///< 
-  SMC_IO_SMC_UNKNOWN_2          SmcUnknown2;         ///< 
-  SMC_IO_SMC_UNKNOWN_3          SmcUnknown3;         ///< 
-  SMC_IO_SMC_UNKNOWN_4          SmcUnknown4;         ///< 
-  SMC_IO_SMC_UNKNOWN_5          SmcUnknown5;         ///< 
+  UINT64                        Revision;
+  SMC_IO_SMC_READ_VALUE         SmcReadValue;
+  SMC_IO_SMC_WRITE_VALUE        SmcWriteValue;
+  SMC_IO_SMC_GET_KEY_COUNT      SmcGetKeyCount;
+  SMC_IO_SMC_MAKE_KEY           SmcMakeKey;
+  SMC_IO_SMC_GET_KEY_FROM_INDEX SmcGetKeyFromIndex;
+  SMC_IO_SMC_GET_KEY_INFO       SmcGetKeyInfo;
+  SMC_IO_SMC_RESET              SmcReset;
+  SMC_IO_SMC_FLASH_TYPE         SmcFlashType;
+  SMC_IO_SMC_UNSUPPORTED        SmcUnsupported;
+  SMC_IO_SMC_FLASH_WRITE        SmcFlashWrite;
+  SMC_IO_SMC_FLASH_AUTH         SmcFlashAuth;
+  SMC_INDEX                     Index;
+  SMC_ADDRESS                   Address;
+  BOOLEAN                       Mmio;
+  SMC_IO_SMC_UNKNOWN_1          SmcUnknown1;
+  SMC_IO_SMC_UNKNOWN_2          SmcUnknown2;
+  SMC_IO_SMC_UNKNOWN_3          SmcUnknown3;
+  SMC_IO_SMC_UNKNOWN_4          SmcUnknown4;
+  SMC_IO_SMC_UNKNOWN_5          SmcUnknown5;
 };
 
 // gAppleSmcIoProtocolGuid

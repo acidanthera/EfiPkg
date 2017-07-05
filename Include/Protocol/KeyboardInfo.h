@@ -34,7 +34,7 @@ EFI_STATUS
 
 // EFI_KEYBOARD_INFO_PROTOCOL
 typedef struct {
-  KEYBOARD_INFO_GET_INFO GetInfo;  ///< 
+  KEYBOARD_INFO_GET_INFO GetInfo;
 } EFI_KEYBOARD_INFO_PROTOCOL;
 
 // gEfiKeyboardInfoProtocolGuid

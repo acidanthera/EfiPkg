@@ -18,6 +18,9 @@
 #ifndef APPLE_PLATFORM_INFO_DATABASE_H_
 #define APPLE_PLATFORM_INFO_DATABASE_H_
 
+// APPLE_PLATFORM_INFO_DATABASE_PROTOCOL_REVISION
+#define APPLE_PLATFORM_INFO_DATABASE_PROTOCOL_REVISION  0x00000001
+
 // APPLE_PLATFORM_INFO_DATABASE_PROTOCOL_GUID
 #define APPLE_PLATFORM_INFO_DATABASE_PROTOCOL_GUID        \
   { 0xAC5E4829, 0xA8FD, 0x440B,                           \
@@ -69,11 +72,11 @@ EFI_STATUS
 
 // APPLE_PLATFORM_INFO_DATABASE_PROTOCOL
 struct APPLE_PLATFORM_INFO_DATABASE_PROTOCOL {
-  UINTN                             Revision;          ///<
-  PLATFORM_INFO_GET_FIRST_DATA      GetFirstData;      ///<
-  PLATFORM_INFO_GET_FIRST_DATA_SIZE GetFirstDataSize;  ///<
-  PLATFORM_INFO_GET_DATA            GetData;           ///<
-  PLATFORM_INFO_GET_DATA_SIZE       GetDataSize;       ///<
+  UINTN                             Revision;
+  PLATFORM_INFO_GET_FIRST_DATA      GetFirstData;
+  PLATFORM_INFO_GET_FIRST_DATA_SIZE GetFirstDataSize;
+  PLATFORM_INFO_GET_DATA            GetData;
+  PLATFORM_INFO_GET_DATA_SIZE       GetDataSize;
 };
 
 // gApplePlatformInfoDatabaseProtocolGuid
