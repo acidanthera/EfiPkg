@@ -324,7 +324,9 @@ typedef UINT8 SMC_DATA_SIZE;
 #define SMC_KEY_LDKN     SMC_MAKE_KEY ('L', 'D', 'K', 'N')
 
 typedef UINT32 SMC_KEY;
-typedef UINT8  SMC_INDEX;
+typedef UINT32 SMC_KEY_INDEX;
+
+typedef UINT8 SMC_DEVICE_INDEX;
 
 // Flash data
 
