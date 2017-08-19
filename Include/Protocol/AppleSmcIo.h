@@ -71,7 +71,7 @@ typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_GET_KEY_FROM_INDEX)(
   IN  APPLE_SMC_IO_PROTOCOL  *This,
-  IN  SMC_INDEX              Index,
+  IN  SMC_KEY_INDEX          Index,
   OUT SMC_KEY                *Key
   );
 
@@ -183,7 +183,7 @@ struct APPLE_SMC_IO_PROTOCOL {
   SMC_IO_SMC_UNSUPPORTED        SmcUnsupported;
   SMC_IO_SMC_FLASH_WRITE        SmcFlashWrite;
   SMC_IO_SMC_FLASH_AUTH         SmcFlashAuth;
-  SMC_INDEX                     Index;
+  SMC_DEVICE_INDEX              Index;
   SMC_ADDRESS                   Address;
   BOOLEAN                       Mmio;
   SMC_IO_SMC_UNKNOWN_1          SmcUnknown1;
