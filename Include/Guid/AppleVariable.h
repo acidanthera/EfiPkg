@@ -66,6 +66,12 @@
   { 0x37BCBEC7, 0xA645, 0x4215,      \
     { 0x97, 0x9E, 0xF5, 0xAE, 0x4D, 0x11, 0x5F, 0x13 } }
 
+// APPLE_NVRAM_RESET_GUID
+/// The Apple Secure Boot Variable-vendor GUID.
+#define APPLE_SECURE_BOOT_VARIABLE_GUID  \
+  { 0x94B73556, 0x2197, 0x4702,          \
+    { 0x82, 0xA8, 0x3E, 0x13, 0x37, 0xDA, 0xFB, 0xFB } }
+
 // gAppleVendorVariableGuid
 /// A global variable storing the GUID of the APPLE_VENDOR EFI variable scope.
 extern EFI_GUID gAppleVendorVariableGuid;
@@ -103,5 +109,10 @@ extern EFI_GUID gAppleTrbSecureVariableGuid;
 /// A global variable storing the GUID of the APPLE_NETBOOT EFI variable
 /// scope.
 extern EFI_GUID gAppleNetbootVariableGuid;
+
+// gAppleEfiNvramResetGuid
+/// A global variable storing the GUID of the APPLE_SECURE_BOOT_VARIABLE_GUID
+/// EFI variable  scope.
+extern EFI_GUID gAppleSecureBootVariableGuid;
 
 #endif // APPLE_VARIABLE_H_
