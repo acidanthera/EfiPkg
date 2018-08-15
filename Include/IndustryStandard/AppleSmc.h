@@ -29,12 +29,12 @@
 #define SMC_PORT_OFFSET_COMMAND  0x04
 #define SMC_PORT_OFFSET_STATUS   SMC_PORT_OFFSET_COMMAND
 #define SMC_PORT_OFFSET_RESULT   0x1E
-#define	SMC_PORT_OFFSET_DEBUG    0x1F
+#define SMC_PORT_OFFSET_EVENT    0x1F
 
 // MMIO
 
-#define	SMC_MMIO_BASE_ADDRESS  0xFEF00000
-#define	SMC_MMIO_LENGTH        0x00010000
+#define SMC_MMIO_BASE_ADDRESS  0xFEF00000
+#define SMC_MMIO_LENGTH        0x00010000
 
 #define SMC_MMIO_DATA_VARIABLE  0x00
 #define SMC_MMIO_DATA_FIXED     0x78
@@ -48,6 +48,7 @@
 #define SMC_MMIO_OFFSET_KEY_ATTRIBUTES  0x06
 #define SMC_MMIO_OFFSET_COMMAND         0x07
 #define SMC_MMIO_OFFSET_RESULT          SMC_MMIO_OFFSET_COMMAND
+#define SMC_MMIO_OFFSET_LOG             0x08
 
 // Read addresses
 
@@ -63,11 +64,15 @@
 #define SMC_MMIO_READ_KEY_ATTRIBUTES  \
   (SMC_MMIO_DATA_VARIABLE + SMC_MMIO_OFFSET_KEY_ATTRIBUTES)
 
+#define SMC_MMIO_READ_LOG  \
+  (SMC_MMIO_DATA_FIXED + SMC_MMIO_OFFSET_LOG)
+
 #define SMC_MMIO_READ_RESULT  \
   (SMC_MMIO_DATA_FIXED + SMC_MMIO_OFFSET_RESULT)
 
-#define SMC_MMIO_READ_UNKNOWN1    0x4004
-#define SMC_MMIO_READ_KEY_STATUS  0x4005
+#define SMC_MMIO_READ_EVENT_STATUS 0x4000
+#define SMC_MMIO_READ_UNKNOWN1     0x4004
+#define SMC_MMIO_READ_KEY_STATUS   0x4005
 
 // Write addresses
 
@@ -135,8 +140,10 @@ enum {
   SmcCmdGetKeyFromIndex      = 0x12,
   SmcCmdGetKeyInfo           = 0x13,
   SmcCmdReset                = 0x14,
-  SmcCmdAttributedWriteValue = 0x15,
-  SmcCmdAttributedReadValue  = 0x16,
+  SmcCmdWriteValueAtIndex    = 0x15,
+  SmcCmdReadValueAtIndex     = 0x16,
+  SmcCmdGetSramAddress       = 0x17,
+  SmcCmdReadPKey             = 0x20, // response based on payload submitted
   SmcCmdUnknown1             = 0x77,
   SmcCmdFlashWrite           = 0xF1,
   SmcCmdFlashAuth            = 0xF2,
@@ -155,7 +162,7 @@ typedef UINT8 SMC_COMMAND;
 #define SMC_STATUS_GOT_COMMAND    BIT3  ///< The last input was a command.
 #define SMC_STATUS_UKN_0x16       BIT4
 #define SMC_STATUS_KEY_DONE       BIT5
-#define SMC_STATUS_UKN_0x40       BIT6  // error
+#define SMC_STATUS_READY          BIT6  // Ready to work
 #define SMC_STATUS_UKN_0x80       BIT7  // error
 
 // SMC_STATUS
@@ -180,11 +187,11 @@ enum {
   SmcKeyIndexRangeError    = 184,
 
   SmcBadFunctionParameter  = 192,
-  SmcEventBufferWrongOrder = 193,
-  SmcEventBufferReadError  = 194,
-  SmcDeviceAccessError     = 195,
-  SmcUnsupportedFeature    = 196,
-  SmcSmbAccessError        = 197,
+  SmcEventBufferWrongOrder = 196,
+  SmcEventBufferReadError  = 197,
+  SmcDeviceAccessError     = 199,
+  SmcUnsupportedFeature    = 203,
+  SmcSmbAccessError        = 204,
 
   SmcInvalidSize           = 206
 };
@@ -233,17 +240,24 @@ enum {
   SmcKeyTypeFloat  = SMC_MAKE_KEY_TYPE ('f', 'l', 't', ' '),
   SmcKeyTypeFlag   = SMC_MAKE_KEY_TYPE ('f', 'l', 'a', 'g'),
   SmcKeyTypeFp1f   = SMC_MAKE_KEY_TYPE ('f', 'p', '1', 'f'),
+  SmcKeyTypeFp2e   = SMC_MAKE_KEY_TYPE ('f', 'p', '2', 'e'),
+  SmcKeyTypeFp3d   = SMC_MAKE_KEY_TYPE ('f', 'p', '3', 'd'),
   SmcKeyTypeFp4c   = SMC_MAKE_KEY_TYPE ('f', 'p', '4', 'c'),
   SmcKeyTypeFp5b   = SMC_MAKE_KEY_TYPE ('f', 'p', '5', 'b'),
-  SmcKeyTypeFp6a5b = SMC_MAKE_KEY_TYPE ('f', 'p', '6', 'a'),
+  SmcKeyTypeFp6a   = SMC_MAKE_KEY_TYPE ('f', 'p', '6', 'a'),
   SmcKeyTypeFp79   = SMC_MAKE_KEY_TYPE ('f', 'p', '7', '9'),
   SmcKeyTypeFp88   = SMC_MAKE_KEY_TYPE ('f', 'p', '8', '8'),
+  SmcKeyTypeFp97   = SMC_MAKE_KEY_TYPE ('f', 'p', '9', '7'),
   SmcKeyTypeFpa6   = SMC_MAKE_KEY_TYPE ('f', 'p', 'a', '6'),
+  SmcKeyTypeFpb5   = SMC_MAKE_KEY_TYPE ('f', 'p', 'b', '5'),
   SmcKeyTypeFpc4   = SMC_MAKE_KEY_TYPE ('f', 'p', 'c', '4'),
+  SmcKeyTypeFpd3   = SMC_MAKE_KEY_TYPE ('f', 'p', 'd', '3'),
   SmcKeyTypeFpe2   = SMC_MAKE_KEY_TYPE ('f', 'p', 'e', '2'),
+  SmcKeyTypeFpf1   = SMC_MAKE_KEY_TYPE ('f', 'p', 'f', '1'),
   SmcKeyTypeHex    = SMC_MAKE_KEY_TYPE ('h', 'e', 'x', '_'),
   SmcKeyTypeSint8  = SMC_MAKE_KEY_TYPE ('s', 'i', '8', ' '),
   SmcKeyTypeSint16 = SMC_MAKE_KEY_TYPE ('s', 'i', '1', '6'),
+  SmcKeyTypeSint32 = SMC_MAKE_KEY_TYPE ('s', 'i', '3', '2'),
   SmcKeyTypeSp1e   = SMC_MAKE_KEY_TYPE ('s', 'p', '1', 'e'),
   SmcKeyTypeSp2d   = SMC_MAKE_KEY_TYPE ('s', 'p', '2', 'd'),
   SmcKeyTypeSp3c   = SMC_MAKE_KEY_TYPE ('s', 'p', '3', 'c'),
@@ -255,6 +269,9 @@ enum {
   SmcKeyTypeSp96   = SMC_MAKE_KEY_TYPE ('s', 'p', '9', '6'),
   SmcKeyTypeSpa5   = SMC_MAKE_KEY_TYPE ('s', 'p', 'a', '5'),
   SmcKeyTypeSpb4   = SMC_MAKE_KEY_TYPE ('s', 'p', 'b', '4'),
+  SmcKeyTypeSpc3   = SMC_MAKE_KEY_TYPE ('s', 'p', 'c', '3'),
+  SmcKeyTypeSpd2   = SMC_MAKE_KEY_TYPE ('s', 'p', 'd', '2'),
+  SmcKeyTypeSpe1   = SMC_MAKE_KEY_TYPE ('s', 'p', 'e', '1'),
   SmcKeyTypeSpf0   = SMC_MAKE_KEY_TYPE ('s', 'p', 'f', '0'),
   SmcKeyTypeUint8z = SMC_MAKE_KEY_TYPE ('u', 'i', '8', '\0'),
   SmcKeyTypeUint8  = SMC_MAKE_KEY_TYPE ('u', 'i', '8', ' '),
@@ -290,14 +307,14 @@ typedef UINT32 SMC_KEY_TYPE;
 
 // Key Attributes
 
-#define	SMC_KEY_ATTRIBUTE_PRIVATE   BIT0
-#define	SMC_KEY_ATTRIBUTE_UKN_0x02  BIT1
-#define	SMC_KEY_ATTRIBUTE_UKN_0x04  BIT2
-#define	SMC_KEY_ATTRIBUTE_CONST     BIT3
-#define	SMC_KEY_ATTRIBUTE_FUNCTION  BIT4
-#define	SMC_KEY_ATTRIBUTE_UKN_0x20  BIT5
-#define	SMC_KEY_ATTRIBUTE_WRITE     BIT6
-#define	SMC_KEY_ATTRIBUTE_READ      BIT7
+#define SMC_KEY_ATTRIBUTE_PRIVATE_WRITE   BIT0
+#define SMC_KEY_ATTRIBUTE_PRIVATE_READ    BIT1
+#define SMC_KEY_ATTRIBUTE_ATOMIC          BIT2
+#define SMC_KEY_ATTRIBUTE_CONST           BIT3
+#define SMC_KEY_ATTRIBUTE_FUNCTION        BIT4
+#define SMC_KEY_ATTRIBUTE_UKN_0x20        BIT5
+#define SMC_KEY_ATTRIBUTE_WRITE           BIT6
+#define SMC_KEY_ATTRIBUTE_READ            BIT7
 
 // SMC_KEY_ATTRIBUTES
 typedef UINT8 SMC_KEY_ATTRIBUTES;
@@ -322,6 +339,7 @@ typedef UINT8 SMC_DATA_SIZE;
 #define SMC_KEY_ADR      SMC_MAKE_KEY ('$', 'A', 'd', 'r')
 #define SMC_KEY_NO_KEYS  SMC_MAKE_KEY ('#', 'K', 'e', 'y')
 #define SMC_KEY_LDKN     SMC_MAKE_KEY ('L', 'D', 'K', 'N')
+#define SMC_KEY_HBKP     SMC_MAKE_KEY ('H', 'B', 'K', 'P')
 
 typedef UINT32 SMC_KEY;
 typedef UINT32 SMC_KEY_INDEX;
@@ -335,5 +353,61 @@ typedef UINT8 SMC_DEVICE_INDEX;
 
 // SMC_FLASH_SIZE
 typedef UINT16 SMC_FLASH_SIZE;
+
+// Events
+
+enum {
+  SmcEventALSChange             = 0x2A,
+  SmcEventShutdownImminent      = 0x40,
+  SmcEventBridgeOSPanic         = 0x41,
+  SmcEventLogMessage            = 0x4C,
+  SmcEventKeyDone               = 0x4B,
+  SmcEventPThermalLevelChanged  = 0x54,
+  SmcEventCallPlatformFunction  = 0x55,
+  SmcEventSMSDrop               = 0x60,
+  SmcEventUnknown6A             = 0x6A, // Bug??
+  SmcEventSMSOrientation        = 0x69,
+  SmcEventSMSShock              = 0x6F,
+  SmcEventSystemStateNotify     = 0x70,
+  SmcEventPowerStateNotify      = 0x71,
+  SmcEventHidEventNotify        = 0x72,
+  SmcEventPLimitChange          = 0x80,
+  SmcEventPCIeReady             = 0x83, // Not certain
+};
+
+// SmcEventSystemStateNotify subtypes, not always certain
+enum {
+  SmcSystemStateNotifyMacOsPanicCause            = 4,  // Name unclear
+  SmcSystemStateNotifyPrepareForS0               = 6,
+  SmcSystemStateNotifyMacOsPanicDone             = 10,
+  SmcSystemStateNotifyRestart                    = 15,
+  SmcSystemStateNotifyQuiesceDevices             = 17,
+  SmcSystemStateNotifyResumeDevices              = 18,
+};
+
+// SmcSystemStateNotifyMacOsPanicCause values, received after PanicDone
+enum {
+  SmcSystemStateNotifyPanicUnknown               = 0,
+  SmcSystemStateNotifyPanicMacOSPanic            = 1,
+  SmcSystemStateNotifyPanicMacOSWatchdog         = 2,
+  SmcSystemStateNotifyPanicX86StraightS5Shutdown = 3,
+  SmcSystemStateNotifyPanicX86GlobalReset        = 4,
+  SmcSystemStateNotifyPanicX86CpuCATERR          = 5,
+  SmcSystemStateNotifyPanicACPIPanic             = 6,
+};
+
+// SMC_EVENT_CODE
+typedef UINT8 SMC_EVENT_CODE;
+
+// Log
+
+#define SMC_MAX_LOG_SIZE  0x80
+
+typedef UINT8 SMC_LOG;
+typedef UINT8 SMC_LOG_SIZE;
+
+// Hard drive encryption
+
+#define SMC_HBKP_SIZE  0x20
 
 #endif // APPLE_SMC_H_
