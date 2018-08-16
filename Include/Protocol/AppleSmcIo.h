@@ -166,7 +166,7 @@ typedef
 EFI_STATUS
 (EFIAPI *SMC_IO_SMC_UNKNOWN_5)(
   IN APPLE_SMC_IO_PROTOCOL  *This,
-  IN UINTN                  Ukn1
+  IN UINT8                  *Data
   );
 
 // APPLE_SMC_IO_PROTOCOL
