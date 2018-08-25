@@ -4,7 +4,6 @@
   This library provides functions to get BIOS ID, ROM Info, VERSION and DATE
 
 Copyright (c) 2004  - 2014, Intel Corporation. All rights reserved.<BR>
-Portions Copyright (c) 2005 - 2017, Apple Inc.  All rights reserved.<BR>
 Portions Copyright (C) 2017, CupertinoNet.  All rights reserved.<BR>
 This program and the accompanying materials
 are licensed and made available under the terms and conditions of the BSD License
