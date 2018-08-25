@@ -37,9 +37,6 @@
 [Includes.Ia32]
   Include/Ia32
 
-[Includes.Ipf]
-  Include/Ipf
-
 [Includes.X64]
   Include/X64
 
