@@ -58,9 +58,9 @@ EFI_STATUS
 typedef
 EFI_STATUS
 (EFIAPI *BOOT_POLICY_GET_BOOT_FILE_EX)(
-  IN  EFI_HANDLE                Device,
-  IN  UINT32                    Unused, OPTIONAL
-  OUT EFI_DEVICE_PATH_PROTOCOL  **FilePath
+  IN  EFI_HANDLE                      Device,
+  IN  UINT32                          Unused, OPTIONAL
+  OUT CONST EFI_DEVICE_PATH_PROTOCOL  **FilePath
   );
 
 typedef
