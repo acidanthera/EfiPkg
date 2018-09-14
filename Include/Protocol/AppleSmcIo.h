@@ -46,7 +46,7 @@ EFI_STATUS
   IN  APPLE_SMC_IO_PROTOCOL  *This,
   IN  SMC_KEY                Key,
   IN  SMC_DATA_SIZE          Size,
-  OUT SMC_DATA               *Value
+  IN  SMC_DATA               *Value
   );
 
 // SMC_IO_SMC_GET_KEY_COUNT

@@ -257,6 +257,7 @@ enum {
   SmcKeyTypeSint8  = SMC_MAKE_KEY_TYPE ('s', 'i', '8', ' '),
   SmcKeyTypeSint16 = SMC_MAKE_KEY_TYPE ('s', 'i', '1', '6'),
   SmcKeyTypeSint32 = SMC_MAKE_KEY_TYPE ('s', 'i', '3', '2'),
+  SmcKeyTypeSint64 = SMC_MAKE_KEY_TYPE ('s', 'i', '6', '4'),
   SmcKeyTypeSp1e   = SMC_MAKE_KEY_TYPE ('s', 'p', '1', 'e'),
   SmcKeyTypeSp2d   = SMC_MAKE_KEY_TYPE ('s', 'p', '2', 'd'),
   SmcKeyTypeSp3c   = SMC_MAKE_KEY_TYPE ('s', 'p', '3', 'c'),
@@ -277,6 +278,7 @@ enum {
   SmcKeyTypeUint8s = SMC_MAKE_KEY_TYPE ('u', 'i', '8', '*'),
   SmcKeyTypeUint16 = SMC_MAKE_KEY_TYPE ('u', 'i', '1', '6'),
   SmcKeyTypeUint32 = SMC_MAKE_KEY_TYPE ('u', 'i', '3', '2'),
+  SmcKeyTypeUint64 = SMC_MAKE_KEY_TYPE ('u', 'i', '6', '4'),
   SmcKeyTypeAla    = SMC_MAKE_KEY_TYPE ('{', 'a', 'l', 'a'),
   SmcKeyTypeAlc    = SMC_MAKE_KEY_TYPE ('{', 'a', 'l', 'c'),
   SmcKeyTypeAli    = SMC_MAKE_KEY_TYPE ('{', 'a', 'l', 'i'),
@@ -292,6 +294,8 @@ enum {
   SmcKeyTypeLia    = SMC_MAKE_KEY_TYPE ('{', 'l', 'i', 'a'),
   SmcKeyTypeLic    = SMC_MAKE_KEY_TYPE ('{', 'l', 'i', 'c'),
   SmcKeyTypeLim    = SMC_MAKE_KEY_TYPE ('{', 'l', 'i', 'm'),
+  SmcKeyTypeLkb    = SMC_MAKE_KEY_TYPE ('{', 'l', 'k', 'b'),
+  SmcKeyTypeLks    = SMC_MAKE_KEY_TYPE ('{', 'l', 'k', 's'),
   SmcKeyTypeLsc    = SMC_MAKE_KEY_TYPE ('{', 'l', 's', 'c'),
   SmcKeyTypeLsd    = SMC_MAKE_KEY_TYPE ('{', 'l', 's', 'd'),
   SmcKeyTypeLsf    = SMC_MAKE_KEY_TYPE ('{', 'l', 's', 'f'),
@@ -375,13 +379,17 @@ enum {
 };
 
 // SmcEventSystemStateNotify subtypes, not always certain
+// Mostly from bridgeOS kernelcache and ramrod.
+// Check SMCRegisterForSubTypeNotification in libSMC.dylib.
 enum {
   SmcSystemStateNotifyMacOsPanicCause            = 4,  // Name unclear
   SmcSystemStateNotifyPrepareForS0               = 6,
   SmcSystemStateNotifyMacOsPanicDone             = 10,
   SmcSystemStateNotifyRestart                    = 15,
+  SmcSystemStateNotifyMacEfiFirmwareUpdated      = 16,
   SmcSystemStateNotifyQuiesceDevices             = 17,
   SmcSystemStateNotifyResumeDevices              = 18,
+  SmcSystemStateNotifyGPUPanelPowerOn            = 19,
 };
 
 // SmcSystemStateNotifyMacOsPanicCause values, received after PanicDone
