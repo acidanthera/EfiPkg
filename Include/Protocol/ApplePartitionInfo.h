@@ -28,12 +28,12 @@ typedef struct {
   UINT32   PartitionNumber;
   UINT64   PartitionStart;
   UINT64   PartitionSize;
-  EFI_GUID Signature;
+  UINT8    Signature[16];
   UINT8    MBRType;
   UINT8    SignatureType;
   UINT64   Attributes;
   CHAR16   PartitionName[36];
-  EFI_GUID PartitionType;
+  UINT8    PartitionType[16];
 } APPLE_PARTITION_INFO_PROTOCOL;
 
 // gApplePartitionInfoProtocolGuid
