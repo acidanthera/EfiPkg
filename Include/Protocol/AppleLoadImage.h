@@ -1,4 +1,6 @@
 /** @file
+  Apple LoadImage protocol.
+
   Copyright (C) 2018, savvas.  All rights reserved.<BR>
   Copyright (C) 2018, CupertinoNet.  All rights reserved.<BR>
 
