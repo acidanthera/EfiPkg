@@ -28,7 +28,7 @@
     { 0x95, 0x5E, 0x41, 0x03, 0xE8, 0xAC, 0xA0, 0xFA } }
 
 //
-// Should return TRUE to bypass image signature verification (Vit: not fully positive).
+// Should return TRUE to perform image signature verification.
 //
 typedef
 BOOLEAN
