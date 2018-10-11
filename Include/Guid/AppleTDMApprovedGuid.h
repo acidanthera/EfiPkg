@@ -2,7 +2,7 @@
   GUID to let TDM know that a particular BlockIO device is suitable for TDM
 
   Copyright (c) 2005 Apple Computer, Inc.  All rights reserved.
-  Portions Copyright (C) 2017, CupertinoNet.  All rights reserved.<BR>
+  Portions Copyright (C) 2017, Download-Fritz.  All rights reserved.<BR>
 
   Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
   Computer, Inc. ("Apple") in consideration of your agreement to the
