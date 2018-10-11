@@ -57,7 +57,7 @@ typedef struct {
     UINT32 NumberOfNodes;  /// The number of nodes in the Buffer.
   }                                    Hdr;
 
-  EFI_DEVICE_PATH_PROPERTY_BUFFER_NODE Nodes[1];
+  EFI_DEVICE_PATH_PROPERTY_BUFFER_NODE Nodes;
 } EFI_DEVICE_PATH_PROPERTY_BUFFER;
 
 // Protocol declaration

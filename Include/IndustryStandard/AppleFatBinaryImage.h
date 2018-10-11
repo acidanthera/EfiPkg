@@ -62,7 +62,7 @@ typedef PACKED struct {
   }        Hdr;
 
   /// The first FAT_ARCH child of the FAT binary.
-  FAT_ARCH FatArch[1];
+  FAT_ARCH FatArch;
 } FAT_HEADER;
 
 #pragma pack ()

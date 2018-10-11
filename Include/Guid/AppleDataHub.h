@@ -99,7 +99,7 @@ typedef struct {
     UINT32                    KeySize;
     UINT32                    ValueSize;
   }      Hdr;
-  CHAR16 Key[1];
+  CHAR16 Key;
 //UINTN  Value[];
 } APPLE_PLATFORM_DATA_RECORD;
 
