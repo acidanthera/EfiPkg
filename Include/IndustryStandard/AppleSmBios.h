@@ -65,7 +65,7 @@ typedef struct {
     UINT16           Offset;
     UINT16           Size;
   }                Hdr;
-  UINT16           Data;
+  UINT16           Data[];
 } APPLE_SMBIOS_TABLE_TYPE130;
 
 // APPLE_PROCESSOR_TYPE
