@@ -21,10 +21,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 // DEVICE_PATH_PROPERTY_DATA
 /// The structure defining the header of a Device Path Property.
 typedef struct {
-  struct {
-    UINT32 Size;  ///< The size, in bytes, of the current data set.
-  }     Hdr;
-  UINT8 Data;
+  UINT32 Size;  ///< The size, in bytes, of the current data set.
+  UINT8  Data[];
 } EFI_DEVICE_PATH_PROPERTY_DATA;
 
 // DEVICE_PATH_PROPERTY_BUFFER_NODE
@@ -46,13 +44,15 @@ typedef struct {
 // DEVICE_PATH_PROPERTY_BUFFER
 /// The structure defining the header of a Device Property Buffer.
 typedef struct {
-  /// The Buffer header structure.
-  struct {
-    UINT32 Size;           /// The size, in bytes, of the entire Buffer.
-    UINT32 MustBe1;        /// Must be 1.
-    UINT32 NumberOfNodes;  /// The number of nodes in the Buffer.
-  }                                    Hdr;
-
+  ///
+  /// The size, in bytes, of the entire Buffer.
+  ///
+  UINT32                               Size;
+  UINT32                               MustBe1;
+  ///
+  /// The number of nodes in the Buffer.
+  ///
+  UINT32                               NumberOfNodes;
   EFI_DEVICE_PATH_PROPERTY_BUFFER_NODE Nodes[];
 } EFI_DEVICE_PATH_PROPERTY_BUFFER;
 

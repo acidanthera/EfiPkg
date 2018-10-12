@@ -49,14 +49,11 @@ typedef PACKED struct {
 // FAT_HEADER
 /// Defintion of the Fat file header
 typedef PACKED struct {
-  struct {
-    /// The assumed "Fat Binary Magic" number found in the file.
-    UINT32 Signature;
+  /// The assumed "Fat Binary Magic" number found in the file.
+  UINT32   Signature;
 
-    /// The hard-coded number of architectures within the file.
-    UINT32 NumberOfFatArch;
-  }        Hdr;
-
+  /// The hard-coded number of architectures within the file.
+  UINT32   NumberOfFatArch;
   /// The first FAT_ARCH child of the FAT binary.
   FAT_ARCH FatArch[];
 } FAT_HEADER;

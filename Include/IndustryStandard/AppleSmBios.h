@@ -59,12 +59,10 @@ typedef PACKED struct {
 
 // APPLE_SMBIOS_TABLE_TYPE130
 typedef struct {
-  struct {
-    SMBIOS_STRUCTURE Hdr;
-    UINT16           MemoryDeviceHandle;
-    UINT16           Offset;
-    UINT16           Size;
-  }                Hdr;
+  SMBIOS_STRUCTURE Hdr;
+  UINT16           MemoryDeviceHandle;
+  UINT16           Offset;
+  UINT16           Size;
   UINT16           Data[];
 } APPLE_SMBIOS_TABLE_TYPE130;
 

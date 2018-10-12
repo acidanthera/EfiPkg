@@ -90,13 +90,11 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 // APPLE_PLATFORM_DATA_RECORD
 typedef struct {
-  struct {
-    EFI_SUBCLASS_TYPE1_HEADER Header;
-    UINT32                    KeySize;
-    UINT32                    ValueSize;
-  }      Hdr;
-  CHAR16 Key[];
-//UINTN  Value[];
+  EFI_SUBCLASS_TYPE1_HEADER Header;
+  UINT32                    KeySize;
+  UINT32                    ValueSize;
+  CHAR16                    Key[];
+//UINTN                     Value[];
 } APPLE_PLATFORM_DATA_RECORD;
 
 // APPLE_ROM_RECORD
