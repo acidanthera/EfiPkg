@@ -13,7 +13,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 #ifndef APPLE_MACHO_IMAGE_H_
 #define APPLE_MACHO_IMAGE_H_
 
-#define MACH_CPU_ARCH_ABI64  BIT24
+#define MACH_CPU_ARCH_ABI64     BIT24
+#define MACH_CPU_ARCH_ABI64_32  BIT25
 
 //
 // Capability bits used in the definition of MACH_CPU_SUBTYPE.
@@ -38,6 +39,19 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 #define MACH_CPU_TYPE_64(CpuType) ((CpuType) | MACH_CPU_ARCH_ABI64)
 
+#define MACH_CPU_TYPE_64_32(CpuType) ((CpuType) | MACH_CPU_ARCH_ABI64_32)
+
+///
+/// There is no standard way to detect endianness in EDK2 (yet).
+/// Provide MACH_LITTLE_ENDIAN on IA32 and X64 platforms by default,
+/// as they are strictly little endian.
+///
+#if !defined(MACH_LITTLE_ENDIAN) && !defined(MACH_BIG_ENDIAN)
+#if defined (MDE_CPU_IA32) || defined(MDE_CPU_X64)
+#define MACH_LITTLE_ENDIAN
+#endif //< defined (MDE_CPU_IA32) || defined(MDE_CPU_X64)
+#endif //< !defined(MACH_LITTLE_ENDIAN) && !defined(MACH_BIG_ENDIAN)
+
 ///
 /// CPU Type definitions
 ///
@@ -52,6 +66,8 @@ enum {
   MachCpuTypeHppa      = 11,
   MachCpuTypeArm       = 12,
   MachCpuTypeArm64     = MACH_CPU_TYPE_64 (MachCpuTypeArm),
+  MachCpuTypeArm6432   = MACH_CPU_TYPE_64_32 (MachCpuTypeArm),
+
   MachCpuTypeMc88000   = 13,
   MachCpuTypeSparc     = 14,
   MachCpuTypeI860      = 15,
@@ -128,6 +144,17 @@ enum {
   MachCpuSubtypeXeon          = MACH_CPU_SUBTYPE_INTEL (12, 0),
   MachCpuSubtypeXeonMp        = MACH_CPU_SUBTYPE_INTEL (12, 1),
   //
+  // Mips subtypes
+  //
+  MachCpuSubtypeMipsAll    = 0,
+  MachCpuSubtypeMipsR2300  = 1,
+  MachCpuSubtypeMipsR2600  = 2,
+  MachCpuSubtypeMipsR2800  = 3,
+  MachCpuSubtypeMipsR2000a = 4,
+  MachCpuSubtypeMipsR2000  = 5,
+  MachCpuSubtypeMipsR3000a = 6,
+  MachCpuSubtypeMipsR3000  = 7,
+  //
   // MC98000 Subtypes
   //
   MachCpuSubtypeMc98000All = 0,
@@ -159,6 +186,11 @@ enum {
   //
   MachCpuSubtypeArm64All = 0,
   MachCpuSubtypeArm64V8  = 1,
+  //
+  // ARM64_32 Subtypes
+  //
+  MachCpuSubtypeArm6432All = 0,
+  MachCpuSubtypeArm6432V8  = 1,
   //
   // MC88000 Subytpes
   //
@@ -227,9 +259,11 @@ enum {
   MachCpuFamilyIntelHaswell     = 0x10B282DC,
   MachCpuFamilyIntelBroadwell   = 0x582ED09C,
   MachCpuFamilyIntelSkylake     = 0x37FC219F,
-    //
-    // The following synonyms are deprecated:
-    //
+  MachCpuFamilyIntelKabyLake    = 0x0F817246,
+  MachCpuFamilyIntelCoffeeLake  = MachCpuFamilyIntelKabyLake,
+  //
+  // The following synonyms are deprecated:
+  //
   MachCpuFamilyIntel614         = MachCpuFamilyIntelYonah,
   MachCpuFamilyIntel615         = MachCpuFamilyIntelMerom,
   MachCpuFamilyIntel623         = MachCpuFamilyIntelPenryn,
@@ -239,16 +273,19 @@ enum {
   //
   // ARM Family
   //
-  MachCpuFamilyArm9       = 0xE73283AE,
-  MachCpuFamilyArm11      = 0x8FF620D8,
-  MachCpuFamilyArmXscale  = 0x53B005F5,
-  MachCpuFamilyArm12      = 0xBD1B0AE9,
-  MachCpuFamilyArm13      = 0x0CC90E64,
-  MachCpuFamilyArm14      = 0x96077EF1,
-  MachCpuFamilyArm15      = 0xA8511BCA,
-  MachCpuFamilyArmSwift   = 0x1E2D6381,
-  MachCpuFamilyArmCyclone = 0x37A09642,
-  MachCpuFamilyArmTyphoon = 0x2c91a47e
+  MachCpuFamilyArm9              = 0xE73283AE,
+  MachCpuFamilyArm11             = 0x8FF620D8,
+  MachCpuFamilyArmXscale         = 0x53B005F5,
+  MachCpuFamilyArm12             = 0xBD1B0AE9,
+  MachCpuFamilyArm13             = 0x0CC90E64,
+  MachCpuFamilyArm14             = 0x96077EF1,
+  MachCpuFamilyArm15             = 0xA8511BCA,
+  MachCpuFamilyArmSwift          = 0x1E2D6381,
+  MachCpuFamilyArmCyclone        = 0x37A09642,
+  MachCpuFamilyArmTyphoon        = 0x2C91A47E,
+  MachCpuFamilyArmTwister        = 0x92FB37C8,
+  MachCpuFamilyArmHurricane      = 0x67CEEE93,
+  MachCpuFamilyArmMonsoonMistral = 0xE81E7EF6,
 };
 
 typedef UINT32 MACH_CPU_FAMILY;
@@ -264,8 +301,8 @@ typedef INT32  MACH_VM_PROTECTION;
 /// must be zero.
 ///
 typedef union {
-  UINT32 Offset;   ///< offset to the string
-  CHAR8  *String;  ///< pointer to the string
+  UINT32 Offset;       ///< offset to the string
+  UINT32 Address32;    ///< pointer to the string
 } MACH_LOAD_COMMAND_STRING;
 
 ///
@@ -319,191 +356,215 @@ typedef struct {
 /// MACH_LC_REQUIRE_DYLD bit will be or 'ed into the load
 /// command constant.  If the dynamic linker sees such a load command it it
 /// does not understand will issue a "unknown load command required for
-/// execution" error and refuse to use the image.Other load commands without
+/// execution" error and refuse to use the image. Other load commands without
 /// this bit that are not understood will simply be ignored.
 ///
 #define MACH_LC_REQUIRE_DYLD  BIT31
 ///
 /// segment of this file to be mapped
 ///
-#define MACH_LOAD_COMMAND_SEGMENT                 1U
+#define MACH_LOAD_COMMAND_SEGMENT                  1U
 ///
 /// link-edit stab symbol table info
 ///
-#define MACH_LOAD_COMMAND_SYMTAB                  2U
+#define MACH_LOAD_COMMAND_SYMTAB                   2U
 ///
 /// link-edit gdb symbol table info (obsolete)
 ///
-#define MACH_LOAD_COMMAND_SYMSEG                  3U
+#define MACH_LOAD_COMMAND_SYMSEG                   3U
 ///
 /// thread
 ///
-#define MACH_LOAD_COMMAND_THREAD                  4U
+#define MACH_LOAD_COMMAND_THREAD                   4U
 ///
 /// unix thread (includes a stack)
 ///
-#define MACH_LOAD_COMMAND_UNIX_THREAD             5U
+#define MACH_LOAD_COMMAND_UNIX_THREAD              5U
 ///
 /// load a specified fixed VM shared library
 ///
-#define MACH_LOAD_COMMAND_LOAD_FIXED_VM_LIB       6U
+#define MACH_LOAD_COMMAND_LOAD_FIXED_VM_LIB        6U
 ///
 /// fixed VM shared library identification
 ///
-#define MACH_LOAD_COMMAND_IDENTIFICATION_VM_LIB   7U
+#define MACH_LOAD_COMMAND_IDENTIFICATION_VM_LIB    7U
 ///
 /// object identification info (obsolete)
 ///
-#define MACH_LOAD_COMMAND_IDENTIFICATION          8U
+#define MACH_LOAD_COMMAND_IDENTIFICATION           8U
 ///
 /// fixed VM file inclusion (internal use)
 ///
-#define MACH_LOAD_COMMAND_FIXED_VM_FILE           9U
+#define MACH_LOAD_COMMAND_FIXED_VM_FILE            9U
 ///
 /// prepage command (internal use)
 ///
-#define MACH_LOAD_COMMAND_PRE_PAGE                10U
+#define MACH_LOAD_COMMAND_PRE_PAGE                 10U
 ///
 /// dynamic link-edit symbol table info
 ///
-#define MACH_LOAD_COMMAND_DYSYMTAB                11U
+#define MACH_LOAD_COMMAND_DYSYMTAB                 11U
 ///
 /// load a dynamically linked shared library
 ///
-#define MACH_LOAD_COMMAND_LOAD_DYLIB              12U
+#define MACH_LOAD_COMMAND_LOAD_DYLIB               12U
 ///
 /// dynamically linked shared lib ident
 ///
-#define MACH_LOAD_COMMAND_IDENTITY_DYLIB          13U
+#define MACH_LOAD_COMMAND_IDENTITY_DYLIB           13U
 ///
 /// load a dynamic linker
 ///
-#define MACH_LOAD_COMMAND_LOAD_DYLD               14U
+#define MACH_LOAD_COMMAND_LOAD_DYLD                14U
 ///
 /// dynamic linker identification
 ///
-#define MACH_LOAD_COMMAND_IDENTIFICATION_DYLD     15U
+#define MACH_LOAD_COMMAND_IDENTIFICATION_DYLD      15U
 ///
 /// modules prebound for a dynamically
 ///
-#define MACH_LOAD_COMMAND_PREBOUNT_SYLIB          16U
+#define MACH_LOAD_COMMAND_PREBOUNT_SYLIB           16U
 ///
 /// image routines
 ///
-#define MACH_LOAD_COMMAND_ROUTINES                17U
+#define MACH_LOAD_COMMAND_ROUTINES                 17U
 ///
 /// sub framework
 ///
-#define MACH_LOAD_COMMAND_SUB_FRAMEWORK           18U
+#define MACH_LOAD_COMMAND_SUB_FRAMEWORK            18U
 ///
 /// sub umbrella
 ///
-#define MACH_LOAD_COMMAND_SUB_UMBRELLA            19U
+#define MACH_LOAD_COMMAND_SUB_UMBRELLA             19U
 ///
 /// sub clien
 ///
-#define MACH_LOAD_COMMAND_SUB_CLIENT              20U
+#define MACH_LOAD_COMMAND_SUB_CLIENT               20U
 ///
 /// sub library
 ///
-#define MACH_LOAD_COMMAND_SUB_LIBRARY             21U
+#define MACH_LOAD_COMMAND_SUB_LIBRARY              21U
 ///
 /// two-level namespace lookup hints
 ///
-#define MACH_LOAD_COMMAND_TWO_LEVEL_HINTS         22U
+#define MACH_LOAD_COMMAND_TWO_LEVEL_HINTS          22U
 ///
 /// prebind checksum
 ///
-#define MACH_LOAD_COMMAND_PREBIND_CHECKSUM        23U
+#define MACH_LOAD_COMMAND_PREBIND_CHECKSUM         23U
 ///
 /// load a dynamically linked shared library that is allowed to be missing
 /// (all symbols are weak imported).
 ///
-#define MACH_LOAD_COMMAND_LLOAD_WEAK_DYLIB        (24U | MACH_LC_REQUIRE_DYLD)
+#define MACH_LOAD_COMMAND_LLOAD_WEAK_DYLIB         (24U | MACH_LC_REQUIRE_DYLD)
 ///
 /// 64-bit segment of this file to be mapped
 ///
-#define MACH_LOAD_COMMAND_SEGMENT_64              25U
+#define MACH_LOAD_COMMAND_SEGMENT_64               25U
 ///
 /// 64-bit image routines
 ///
-#define MACH_LOAD_COMMAND_ROUTINES_64             26U
+#define MACH_LOAD_COMMAND_ROUTINES_64              26U
 ///
 /// the uuid
 ///
-#define MACH_LOAD_COMMAND_UUID                    27U
+#define MACH_LOAD_COMMAND_UUID                     27U
 ///
 /// runpath additions
 ///
-#define MACH_LOAD_COMMAND_RUN_PATH                (28U | MACH_LC_REQUIRE_DYLD)
+#define MACH_LOAD_COMMAND_RUN_PATH                 (28U | MACH_LC_REQUIRE_DYLD)
 ///
 /// local of code signature
 ///
-#define MACH_LOAD_COMMAND_CODE_SIGNATURE          29U
+#define MACH_LOAD_COMMAND_CODE_SIGNATURE           29U
 ///
 /// local of info to split segments
 ///
-#define MACH_LOAD_COMMAND_SEGMENT_SPLIT_INFO      30U
+#define MACH_LOAD_COMMAND_SEGMENT_SPLIT_INFO       30U
 ///
 /// load and re-export dylib
 ///
-#define MACH_LOAD_COMMAND_REEXPORT_DYLIB          (31U | MACH_LC_REQUIRE_DYLD)
+#define MACH_LOAD_COMMAND_REEXPORT_DYLIB           (31U | MACH_LC_REQUIRE_DYLD)
 ///
 /// delay load of dylib until first use
 ///
-#define MACH_LOAD_COMMAND_LAZY_LOAD_DYLIB         32U
+#define MACH_LOAD_COMMAND_LAZY_LOAD_DYLIB          32U
 ///
 /// encrypted segment information
 ///
-#define MACH_LOAD_COMMAND_ENCRYPTION_INFO         33U
+#define MACH_LOAD_COMMAND_ENCRYPTION_INFO          33U
 ///
 /// compressed dyld information
 ///
-#define MACH_LOAD_COMMAND_DYLD_INFO               34U
+#define MACH_LOAD_COMMAND_DYLD_INFO                34U
 ///
 /// compressed dyld information only
 ///
-#define MACH_LOAD_COMMAND_DYLD_INFO_ONLY          (34U | MACH_LC_REQUIRE_DYLD)
+#define MACH_LOAD_COMMAND_DYLD_INFO_ONLY           (34U | MACH_LC_REQUIRE_DYLD)
 ///
 /// load upward dylib
 ///
-#define MACH_LOAD_COMMAND_LOAD_UPWARD_DYLIB       (35U | MACH_LC_REQUIRE_DYLD)
+#define MACH_LOAD_COMMAND_LOAD_UPWARD_DYLIB        (35U | MACH_LC_REQUIRE_DYLD)
 ///
 /// build for MacOSX min OS version
 ///
-#define MACH_LOAD_COMMAND_VERSION_MIN_MAC_OS_X    36U
+#define MACH_LOAD_COMMAND_VERSION_MIN_MAC_OS_X     36U
 ///
 /// build for iPhoneOS min OS version
 ///
-#define MACH_LOAD_COMMAND_VERSION_MIN_IPHONE_OS   37U
+#define MACH_LOAD_COMMAND_VERSION_MIN_IPHONE_OS    37U
 ///
 /// compressed table of function start addresses
 ///
-#define MACH_LOAD_COMMAND_FUNCTION_STARTS         38U
+#define MACH_LOAD_COMMAND_FUNCTION_STARTS          38U
 ///
 /// string for dyld to treat like environment variable
 ///
-#define MACH_LOAD_COMMAND_DYLD_ENVIRONMENT        39U
+#define MACH_LOAD_COMMAND_DYLD_ENVIRONMENT         39U
 ///
 /// replacement for MachLoadCommandUnixThread
 ///
-#define MACH_LOAD_COMMAND_MAIN                    (40U | MACH_LC_REQUIRE_DYLD)
+#define MACH_LOAD_COMMAND_MAIN                     (40U | MACH_LC_REQUIRE_DYLD)
 ///
 /// table of non-in structions in __text
 ///
-#define MACH_LOAD_COMMAND_DATA_IN_CODE            41U
+#define MACH_LOAD_COMMAND_DATA_IN_CODE             41U
 ///
 /// source version used to build binary
 ///
-#define MACH_LOAD_COMMAND_SOURCE_VERSION          42U
+#define MACH_LOAD_COMMAND_SOURCE_VERSION           42U
 ///
 /// Code signing DRs copied from linked dylibs
 ///
-#define MACH_LOAD_COMMAND_DYLIB_CODE_SIGN_DRS     43U
+#define MACH_LOAD_COMMAND_DYLIB_CODE_SIGN_DRS      43U
 ///
 /// 64-bit encrypted segment information
 ///
-#define MACH_LOAD_COMMAND_ENCRYPTION_INFO_64      44U
+#define MACH_LOAD_COMMAND_ENCRYPTION_INFO_64       44U
+///
+/// linker options in MH_OBJECT files
+///
+#define MACH_LOAD_COMMAND_LINKER_OPTION            45U
+///
+/// optimization hints in MH_OBJECT files
+///
+#define MACH_LOAD_COMMAND_LINKER_OPTIMIZATION_HINT 46U
+///
+/// build for AppleTV min OS version
+///
+#define MACH_LOAD_COMMAND_VERSION_MIN_TV_OS        47U
+///
+/// build for Watch min OS version
+///
+#define MACH_LOAD_COMMAND_VERSION_MIN_WATCH_OS     48U
+///
+/// arbitrary data included within a Mach-O file
+///
+#define MACH_LOAD_COMMAND_NOTE                     49U
+///
+/// build for platform min OS version
+///
+#define MACH_LOAD_COMMAND_BUILD_VERSION            50U
 
 typedef UINT32 MACH_LOAD_COMMAND_TYPE;
 
@@ -556,27 +617,27 @@ enum {
   ///
   /// regular section
   ///
-  MachSectionTypeRegular                               = 0,  
+  MachSectionTypeRegular                               = 0,
   ///
   /// zero fill on demand section
   ///
-  MachSectionTypeZeroFill                              = 1,  
+  MachSectionTypeZeroFill                              = 1,
   ///
   /// section with only literal C strings
   ///
-  MachSectionTypeCStringLiterals                       = 2,  
+  MachSectionTypeCStringLiterals                       = 2,
   ///
   /// section with only 4 byte literals
   ///
-  MachSectionType4ByteLiterals                         = 3,  
+  MachSectionType4ByteLiterals                         = 3,
   ///
   /// section with only 8 byte literals
   ///
-  MachSectionType8ByteLiterals                         = 4,  
+  MachSectionType8ByteLiterals                         = 4,
   ///
   /// section with only pointers to literals
   ///
-  MachSectionTypeLiteralPointers                       = 5,  
+  MachSectionTypeLiteralPointers                       = 5,
 
   //
   // For the two types of symbol pointers sections and the symbol stubs section
@@ -660,7 +721,11 @@ enum {
   ///
   /// functions to call to initialize TLV values
   ///
-  MachSectionTypeThreadLocalInitializeFunctionPointers = 21
+  MachSectionTypeThreadLocalInitializeFunctionPointers = 21,
+  ///
+  /// 32-bit offsets to initializers
+  ///
+  MachSectionTypeThreadLocalInitializeFunctionOffsets  = 22
 };
 
 //
@@ -677,7 +742,7 @@ enum {
 ///
 #define MACH_SECTION_ATTRIBUTES_USER               0xFF000000U
 ///
-/// section has localrelocation entries
+/// section has local relocation entries
 ///
 #define MACH_SECTION_ATTRIBUTE_LOCAL_RELOCATION     BIT8
 ///
@@ -777,7 +842,8 @@ typedef struct {
   UINT32 RelocationEntriesOffset;    ///< file offset of relocation entries
   UINT32 NumberOfRelocationEntries;  ///< number of relocation entries
   UINT32 Flags;                      ///< flags (section type and attributes)
-  UINT32 Reserved[2];                ///< reserved (for offset or index)
+  UINT32 Reserved1;                  ///< reserved (for offset or index)
+  UINT32 Reserved2;                  ///< reserved (for count or sizeof)
 } MACH_SECTION;
 
 ///
@@ -816,7 +882,7 @@ typedef struct {
 /// for 32 - bit architectures
 ///
 typedef struct {
-  MACH_LOAD_COMMAND  Command;
+  MACH_LOAD_COMMAND  Hdr;
   CHAR8              SegmentName[16];    ///< segment Name
   UINT32             VirtualAddress;     ///< memory address of this segment
   UINT32             Size;               ///< memory size of this segment
@@ -830,7 +896,7 @@ typedef struct {
 } MACH_SEGMENT_COMMAND;
 
 #define NEXT_MACH_SEGMENT_64(Segment) \
-  (MACH_SEGMENT_COMMAND_64 *)((UINTN)(Segment) + (Segment)->Command.Size)
+  (MACH_SEGMENT_COMMAND_64 *)((UINTN)(Segment) + (Segment)->Hdr.Size)
 
 ///
 /// The 64-bit segment load command indicates that a part of this file is to be
@@ -841,7 +907,7 @@ typedef struct {
 /// for 64-bit architectures
 ///
 typedef struct {
-  MACH_LOAD_COMMAND  Command;
+  MACH_LOAD_COMMAND  Hdr;
   CHAR8              SegmentName[16];    ///< segment Name
   UINT64             VirtualAddress;     ///< memory address of this segment
   UINT64             Size;               ///< memory size of this segment
@@ -912,7 +978,7 @@ typedef struct {
 /// A dynamically linked shared library may be a sub_umbrella of an umbrella
 /// framework.  If so it will be linked with "-sub_umbrella umbrella_name"
 /// where "umbrella_name" is the name of the sub_umbrella framework.  When
-/// staticly linking when -twolevel_namespace is in effect a twolevel namespace 
+/// staticly linking when -twolevel_namespace is in effect a twolevel namespace
 /// umbrella framework will only cause its subframeworks and those frameworks
 /// listed as sub_umbrella frameworks to be implicited linked in.  Any other
 /// dependent dynamic libraries will not be linked it when -twolevel_namespace
@@ -930,7 +996,7 @@ typedef struct {
 /// A dynamically linked shared library may be a sub_library of another shared
 /// library.  If so it will be linked with "-sub_library library_name" where
 /// Where "library_name" is the name of the sub_library shared library.  When
-/// staticly linking when -twolevel_namespace is in effect a twolevel namespace 
+/// staticly linking when -twolevel_namespace is in effect a twolevel namespace
 /// shared library will only cause its subframeworks and those frameworks
 /// listed as sub_umbrella frameworks and libraries listed as sub_libraries to
 /// be implicited linked in.  Any other dependent dynamic libraries will not be
@@ -990,14 +1056,21 @@ enum {
   MachX86DebugState64     = 11,
   MachX86DebugState       = 12,
   MachThreadStateNone     = 13,
-    //
-    // 14 and 15 are used for the internal x86SavedState flavours.
-    //
+  //
+  // 14 and 15 are used for the internal x86SavedState flavours.
+  //
   MachX86AvxState32       = 16,
   MachX86AvxState64       = 17,
   MachX86AvxState         = 18,
-  MachX86ThreadStateMax   = 224
+  MachX86Avx512State32    = 19,
+  MachX86Avx512State64    = 20,
+  MachX86Avx512State      = 21,
 };
+
+///
+/// Size of maximum exported thread state in words
+///
+#define MACH_X86_THREAD_STATE_MAX 614
 
 typedef struct {
   UINT32 eax;
@@ -1070,6 +1143,9 @@ typedef union {
   || ((Flavor) == MachX86AvxState32)            \
   || ((Flavor) == MachX86AvxState64)            \
   || ((Flavor) == MachX86AvxState)              \
+  || ((Flavor) == MachX86Avx512State32)         \
+  || ((Flavor) == MachX86Avx512State64)         \
+  || ((Flavor) == MachX86Avx512State)           \
   || ((Flavor) == MachThreadStateNone))
 
 ///
@@ -1097,12 +1173,12 @@ typedef union {
 typedef struct {
   MACH_LOAD_COMMAND Hdr;
   UINT32            Flavor;                ///< flavor of thread state
-  UINT32            NumberOfThreadStates;  ///< count of longs in thread state
+  UINT32            NumberOfThreadStates;  ///< count of UINT32s in thread state
   UINT32            ThreadState[];
 } MACH_THREAD_COMMAND;
 
 ///
-/// The routines command contains the address of the dynamic shared library 
+/// The routines command contains the address of the dynamic shared library
 /// initialization routine and an index into the module table for the module
 /// that defines the routine.  Before any modules are used from the library the
 /// dynamic linker fully binds the module that defines the initialization routine
@@ -1120,7 +1196,12 @@ typedef struct {
   /// index into the module table that the init routine is defined in
   ///
   UINT32            InitModuleIndex;
-  UINT32            Reserved[6];
+  UINT32            Reserved1;
+  UINT32            Reserved2;
+  UINT32            Reserved3;
+  UINT32            Reserved4;
+  UINT32            Reserved5;
+  UINT32            Reserved6;
 } MACH_ROUTINES_COMMAND;
 
 ///
@@ -1136,7 +1217,12 @@ typedef struct {
   /// index into the module table that the init routine is defined in
   ///
   UINT64            InitModuleIndex;
-  UINT64            Reserved[6];
+  UINT64            Reserved1;
+  UINT64            Reserved2;
+  UINT64            Reserved3;
+  UINT64            Reserved4;
+  UINT64            Reserved5;
+  UINT64            Reserved6;
 } MACH_ROUTINES_COMMAND_64;
 
 ///
@@ -1457,7 +1543,7 @@ typedef struct {
 } MACH_ENCRYPTION_INFO_COMMAND_64;
 
 ///
-/// The version_min_command contains the min OS version on which this 
+/// The version_min_command contains the min OS version on which this
 /// binary was built to run.
 ///
 typedef struct {
@@ -1467,12 +1553,54 @@ typedef struct {
 } MACH_VERSION_MIN_COMMAND;
 
 ///
-/// The dyld_info_command contains the file offsets and sizes of 
-/// the new compressed form of the information dyld needs to 
+/// Encoded tools
+///
+typedef struct {
+  UINT32  Tool;     ///< enum for the tool
+  UINT32  Version;  ///< version number of the tool
+} MACH_BUILD_VERSION_TOOL;
+
+///
+/// The build_version_command contains the min OS version on which this
+/// binary was built to run for its platform.  The list of known platforms and
+/// tool values following it.
+///
+typedef struct {
+  MACH_LOAD_COMMAND Hdr;
+  UINT32  Platform;                 ///< platform
+  UINT32  MinOs;                    ///< X.Y.Z is encoded in nibbles xxxx.yy.zz
+  UINT32  SdkVersion;               ///< X.Y.Z is encoded in nibbles xxxx.yy.zz
+  UINT32  NumberOfTools;            ///< number of tool entries following this
+  MACH_BUILD_VERSION_TOOL  Tools[];
+} MACH_BUILD_VERSION_COMMAND;
+
+///
+/// Known values for the platform field above.
+///
+#define MACH_PLATFORM_MACOS              1U
+#define MACH_PLATFORM_IOS                2U
+#define MACH_PLATFORM_TVOS               3U
+#define MACH_PLATFORM_WATCHOS            4U
+#define MACH_PLATFORM_BRIDGEOS           5U
+#define MACH_PLATFORM_IOSMAC             6U
+#define MACH_PLATFORM_IOSSIMULATOR       7U
+#define MACH_PLATFORM_TVOSSIMULATOR      8U
+#define MACH_PLATFORM_WATCHOSSIMULATOR   9U
+
+///
+/// Known values for the tool field above.
+///
+#define MACH_TOOL_CLANG                  1U
+#define MACH_TOOL_SWIFT                  2U
+#define MACH_TOOL_LD                     3U
+
+///
+/// The dyld_info_command contains the file offsets and sizes of
+/// the new compressed form of the information dyld needs to
 /// load the image.  This information is used by dyld on Mac OS X
 /// 10.6 and later.  All information pointed to by this command
 /// is encoded using byte streams, so no endian swapping is needed
-/// to interpret it. 
+/// to interpret it.
 ///
 typedef struct {
   MACH_LOAD_COMMAND Hdr;
@@ -1487,29 +1615,29 @@ typedef struct {
   // like "every n'th offset for m times" can be encoded in a few
   // bytes.
   //
-  UINT32 RebaseOffset;  ///< file offset to rebase info  
+  UINT32 RebaseOffset;  ///< file offset to rebase info
   UINT32 RebaseSize;    ///< size of rebase info
   //
   // Dyld binds an image during the loading process, if the image
-  // requires any pointers to be initialized to symbols in other images.  
-  // The bind information is a stream of byte sized 
+  // requires any pointers to be initialized to symbols in other images.
+  // The bind information is a stream of byte sized
   // opcodes whose symbolic names start with BIND_OPCODE_.
   // Conceptually the bind information is a table of tuples:
   //    <seg-index, seg-offset, type, symbol-library-ordinal, symbol-name,
   //     addend>
   // The opcodes are a compressed way to encode the table by only
   // encoding when a column changes.  In addition simple patterns
-  // like for runs of pointers initialzed to the same value can be 
+  // like for runs of pointers initialzed to the same value can be
   // encoded in a few bytes.
   //
-  UINT32 BindingInfoOffset;  ///< file offset to binding info   
+  UINT32 BindingInfoOffset;  ///< file offset to binding info
   UINT32 BindingInfoSize;    ///< size of binding info
   //
   // Some C++ programs require dyld to unique symbols so that all
   // images in the process use the same copy of some code/data.
   // This step is done after binding. The content of the weak_bind
   // info is an opcode stream like the bind_info.  But it is sorted
-  // alphabetically by symbol name.  This enable dyld to walk 
+  // alphabetically by symbol name.  This enable dyld to walk
   // all images with weak binding information in order and look
   // for collisions.  If there are no collisions, dyld does
   // no updating.  That means that some fixups are also encoded
@@ -1519,33 +1647,33 @@ typedef struct {
   // that is detected when the weak_bind information is processed
   // and the call to operator new is then rebound.
   //
-  UINT32 WeakBindingInfoOffset;  ///< file offset to weak binding info   
-  UINT32 WeakBindingInfoSize;    ///< size of weak binding info  
+  UINT32 WeakBindingInfoOffset;  ///< file offset to weak binding info
+  UINT32 WeakBindingInfoSize;    ///< size of weak binding info
   //
   // Some uses of external symbols do not need to be bound immediately.
   // Instead they can be lazily bound on first use.  The lazy_bind
   // are contains a stream of BIND opcodes to bind all lazy symbols.
   // Normal use is that dyld ignores the lazy_bind section when
   // loading an image.  Instead the static linker arranged for the
-  // lazy pointer to initially point to a helper function which 
+  // lazy pointer to initially point to a helper function which
   // pushes the offset into the lazy_bind area for the symbol
   // needing to be bound, then jumps to dyld which simply adds
-  // the offset to lazy_bind_off to get the information on what 
-  // to bind.  
+  // the offset to lazy_bind_off to get the information on what
+  // to bind.
   //
-  UINT32 LazyBindingInfoOffset;  ///< file offset to lazy binding info 
-  UINT32 LazyBindingInfoSize;    ///< size of lazy binding infs 
+  UINT32 LazyBindingInfoOffset;  ///< file offset to lazy binding info
+  UINT32 LazyBindingInfoSize;    ///< size of lazy binding infs
   //
   // The symbols exported by a dylib are encoded in a trie.  This
   // is a compact representation that factors out common prefixes.
-  // It also reduces LINKEDIT pages in RAM because it encodes all  
+  // It also reduces LINKEDIT pages in RAM because it encodes all
   // information (name, address, flags) in one small, contiguous range.
   // The export area is a stream of nodes.  The first node sequentially
-  // is the start node for the trie.  
+  // is the start node for the trie.
   //
   // Nodes for a symbol start with a uleb128 that is the length of
   // the exported symbol information for the string so far.
-  // If there is no exported symbol, the node starts with a zero byte. 
+  // If there is no exported symbol, the node starts with a zero byte.
   // If there is exported info, it follows the length.
   //
   // First is a uleb128 containing flags. Normally, it is followed by
@@ -1561,7 +1689,7 @@ typedef struct {
   // by lazy pointers and must be called to get the actual address to use.
   //
   // After the optional exported symbol information is a byte of
-  // how many edges (0-255) that this node has leaving it, 
+  // how many edges (0-255) that this node has leaving it,
   // followed by each edge.
   // Each edge is a zero terminated UTF8 of the addition chars
   // in the symbol, followed by a uleb128 offset for the node that
@@ -1680,6 +1808,7 @@ typedef union {
   CONST MACH_ENCRYPTION_INFO_COMMAND    *EncryptionInfo;
   CONST MACH_ENCRYPTION_INFO_COMMAND_64 *EncryptionInfo64;
   CONST MACH_VERSION_MIN_COMMAND        *VersionMin;
+  CONST MACH_BUILD_VERSION_COMMAND      *BuildVersion;
   CONST MACH_DYLD_INFO_COMMAND          *DyldInfo;
   CONST MACH_LINKER_OPTION_COMMAND      *LinkerOption;
   CONST MACH_SYMBOL_SEGMENT_COMMAND     *SymbolSegment;
@@ -1756,13 +1885,17 @@ typedef UINT32 MACH_HEADER_FILE_TYPE;
 #define MACH_HEADER_FLAG_DEAD_STRIPPABLE_DYLIB            BIT22
 #define MACH_HEADER_FLAG_HAS_TLV_DESCRIPTORS              BIT23
 #define MACH_HEADER_FLAG_NO_HEAP_EXECUTION                BIT24
+#define MACH_HEADER_FLAG_APP_EXTENSION_SAFE               BIT25
+#define MACH_HEADER_FLAG_NLIST_OUTOFSYNC_WITH_DYLDINFO    BIT26
+#define MACH_HEADER_FLAG_SIM_SUPPORT                      BIT27
 
 typedef UINT32 MACH_HEADER_FLAGS;
 
 //
 // Constant for the magic field of the MACH_HEADER (32-bit architectures)
 //
-#define MACH_HEADER_SIGNATURE  0xFEEDFACE  ///< the mach magic number
+#define MACH_HEADER_SIGNATURE  0xFEEDFACE        ///< the mach magic number
+#define MACH_HEADER_INVERT_SIGNATURE  0xCEFAEDFE ///< the mach magic number (byte swapped)
 
 ///
 /// The 32-bit mach header appears at the very beginning of the object file for
@@ -1770,8 +1903,8 @@ typedef UINT32 MACH_HEADER_FLAGS;
 ///
 typedef struct {
   UINT32                Signature;         ///< mach magic number identifier
-  MACH_CPU_TYPE         MachCpuType;           ///< cpu Sectionecifier
-  MACH_CPU_SUBTYPE      MachCpuSubtype;        ///< machine Sectionecifier
+  MACH_CPU_TYPE         MachCpuType;       ///< cpu Sectionecifier
+  MACH_CPU_SUBTYPE      MachCpuSubtype;    ///< machine Sectionecifier
   MACH_HEADER_FILE_TYPE FileType;          ///< type of file
   UINT32                NumberOfCommands;  ///< number of load commands
   UINT32                CommandsSize;      ///< the size of all load commands
@@ -1782,7 +1915,8 @@ typedef struct {
 //
 // Constant for the magic field of the MACH_HEADER_64 (64-bit architectures)
 //
-#define MACH_HEADER_64_SIGNATURE  0xFEEDFACF  ///< the 64-bit mach magic number
+#define MACH_HEADER_64_SIGNATURE  0xFEEDFACF        ///< the 64-bit mach magic number
+#define MACH_HEADER_64_INVERT_SIGNATURE  0xCFFAEDFE ///< the 64-bit mach magic number (byte swapped)
 
 ///
 /// The 64-bit mach header appears at the very beginning of object files for
@@ -1790,8 +1924,8 @@ typedef struct {
 ///
 typedef struct {
   UINT32                Signature;         ///< mach magic number identifier
-  MACH_CPU_TYPE              MachCpuType;           ///< cpu Sectionecifier
-  MACH_CPU_SUBTYPE           MachCpuSubtype;        ///< machine Sectionecifier
+  MACH_CPU_TYPE         MachCpuType;       ///< cpu Sectionecifier
+  MACH_CPU_SUBTYPE      MachCpuSubtype;    ///< machine Sectionecifier
   MACH_HEADER_FILE_TYPE FileType;          ///< type of file
   UINT32                NumberOfCommands;  ///< number of load commands
   UINT32                CommandsSize;      ///< the size of all load commands
@@ -1800,11 +1934,15 @@ typedef struct {
   MACH_LOAD_COMMAND     Commands[];
 } MACH_HEADER_64;
 
+///
+/// Allow selecting a correct header based on magic
+///
 typedef union {
-  UINT32         *Signature;
-  MACH_HEADER    *Header32;
-  MACH_HEADER_64 *Header64;
-} MACH_HEADER_PTR;
+  UINT32         Signature;
+  MACH_HEADER    Header32;
+  MACH_HEADER_64 Header64;
+} MACH_HEADER_ANY;
+
 
 //
 // Symbols
@@ -1819,7 +1957,10 @@ typedef union {
 /// in a BSD file.
 ///
 typedef struct {
-  UINT32 StringIndex;  ///< index into the string table
+  union {
+    UINT32 Address32;      ///< for use when in-core
+    UINT32 StringIndex;    ///< index into the string table
+  } UnifiedName;
   UINT8  Type;         ///< type flag, see below
   UINT8  Section;      ///< section number or NO_SECT
   INT16  Descriptor;   ///< see <mach-o/stab.h>
@@ -1830,7 +1971,9 @@ typedef struct {
 /// This is the symbol table entry structure for 64-bit architectures.
 ///
 typedef struct {
-  UINT32 StringIndex;  ///< index into the string table
+  union {
+    UINT32 StringIndex;  ///< index into the string table
+  } UnifiedName;
   UINT8  Type;         ///< type flag, see below
   UINT8  Section;      ///< section number or NO_SECT
   UINT16 Descriptor;   ///< see <mach-o/stab.h>
@@ -1852,10 +1995,10 @@ typedef struct {
 //          N_EXT:1;
 // which are used via the following masks.
 //
-#define MACH_N_TYPE_STAB  0xe0U  ///< if any of these bits set, a symbolic
+#define MACH_N_TYPE_STAB  0xE0U  ///< if any of these bits set, a symbolic
                                  ///< debugging entry
 #define MACH_N_TYPE_PEXT  0x10U  ///< private external symbol bit
-#define MACH_N_TYPE_TYPE  0x0eU  ///< mask for the type bit
+#define MACH_N_TYPE_TYPE  0x0EU  ///< mask for the type bit
 #define MACH_N_TYPE_EXT   0x01U  ///< external symbol bit, set for external
                                  ///< symbols
 
@@ -1871,9 +2014,9 @@ typedef struct {
 //
 #define MACH_N_TYPE_UNDF  0x0U    ///< undefined, n_sect == NO_SECT
 #define MACH_N_TYPE_ABS   0x2U    ///< absolute, n_sect == NO_SECT
-#define MACH_N_TYPE_SECT  0xeU    ///< defined in section number n_sect
-#define MACH_N_TYPE_PBUD  0xcU    ///< prebound undefined (defined in a dylib)
-#define MACH_N_TYPE_INDR  0xaU    ///< indirect
+#define MACH_N_TYPE_SECT  0xEU    ///< defined in section number n_sect
+#define MACH_N_TYPE_PBUD  0xCU    ///< prebound undefined (defined in a dylib)
+#define MACH_N_TYPE_INDR  0xAU    ///< indirect
 
 //
 // If the type is N_INDR then the symbol is defined to be the same as another
@@ -1884,14 +2027,14 @@ typedef struct {
 
 //
 // If the type is N_SECT then the n_sect field contains an ordinal of the
-// section the symbol is defined in.  The sections are numbered from 1 and 
+// section the symbol is defined in.  The sections are numbered from 1 and
 // refer to sections in order they appear in the load commands for the file
 // they are in.  This means the same ordinal may very well refer to different
 // sections in different files.
 //
 // The n_value field for all symbol table entries (including N_STAB's) gets
 // updated by the link editor based on the value of it's n_sect field and where
-// the section n_sect references gets relocated.  If the value of the n_sect 
+// the section n_sect references gets relocated.  If the value of the n_sect
 // field is NO_SECT then it's n_value field is not changed by the link editor.
 //
 #define NO_SECT     0  ///< symbol is not in any section
@@ -1903,7 +2046,7 @@ typedef struct {
 
 //
 // Symbolic debugger symbols.  The comments give the conventional use for
-// 
+//
 //   .stabs "n_name", n_type, n_sect, n_desc, n_value
 //
 // where n_type is the defined constant and not listed in the comment.  Other
@@ -1915,12 +2058,12 @@ typedef struct {
 #define MACH_N_FUN     0x24U  ///< procedure: name,,n_sect,linenumber,address
 #define MACH_N_STSYM   0x26U  ///< static symbol: name,,n_sect,type,address
 #define MACH_N_LCSYM   0x28U  ///< .lcomm symbol: name,,n_sect,type,address
-#define MACH_N_BNSYM   0x2eU  ///< begin nsect sym: 0,,n_sect,0,address
+#define MACH_N_BNSYM   0x2EU  ///< begin nsect sym: 0,,n_sect,0,address
 #define MACH_N_AST     0x32U  ///< AST file path: name,,NO_SECT,0,0
-#define MACH_N_OPT     0x3cU  ///< emitted with gcc2_compiled and in gcc source
+#define MACH_N_OPT     0x3CU  ///< emitted with gcc2_compiled and in gcc source
 #define MACH_N_RSYM    0x40U  ///< register sym: name,,NO_SECT,type,register
 #define MACH_N_SLINE   0x44U  ///< src line: 0,,n_sect,linenumber,address
-#define MACH_N_ENSYM   0x4eU  ///< end nsect sym: 0,,n_sect,0,address
+#define MACH_N_ENSYM   0x4EU  ///< end nsect sym: 0,,n_sect,0,address
 #define MACH_N_SSYM    0x60U  ///< structure elt: name,,NO_SECT,type,struct_offset
 #define MACH_N_SO      0x64U  ///< source file name: name,,n_sect,0,address
 #define MACH_N_OSO     0x66U  ///< object file name: name,,0,0,st_mtime
@@ -1930,16 +2073,16 @@ typedef struct {
 #define MACH_N_PARAMS  0x86U  ///< compiler parameters: name,,NO_SECT,0,0
 #define MACH_N_VERSION 0x88U  ///< compiler version: name,,NO_SECT,0,0
 #define MACH_N_OLEVEL  0x8AU  ///< compiler -O level: name,,NO_SECT,0,0
-#define MACH_N_PSYM    0xa0U  ///< parameter: name,,NO_SECT,type,offset
-#define MACH_N_EINCL   0xa2U  ///< include file end: name,,NO_SECT,0,0
-#define MACH_N_ENTRY   0xa4U  ///< alternate entry: name,,n_sect,linenumber,address
-#define MACH_N_LBRAC   0xc0U  ///< left bracket: 0,,NO_SECT,nesting level,address
-#define MACH_N_EXCL    0xc2U  ///< deleted include file: name,,NO_SECT,0,sum
-#define MACH_N_RBRAC   0xe0U  ///< right bracket: 0,,NO_SECT,nesting level,address
-#define MACH_N_BCOMM   0xe2U  ///< begin common: name,,NO_SECT,0,0
-#define MACH_N_ECOMM   0xe4U  ///< end common: name,,n_sect,0,0
-#define MACH_N_ECOML   0xe8U  ///< end common (local name): 0,,n_sect,0,address
-#define MACH_N_LENG    0xfeU  ///< second stab entry with length information 
+#define MACH_N_PSYM    0xA0U  ///< parameter: name,,NO_SECT,type,offset
+#define MACH_N_EINCL   0xA2U  ///< include file end: name,,NO_SECT,0,0
+#define MACH_N_ENTRY   0xA4U  ///< alternate entry: name,,n_sect,linenumber,address
+#define MACH_N_LBRAC   0xC0U  ///< left bracket: 0,,NO_SECT,nesting level,address
+#define MACH_N_EXCL    0xC2U  ///< deleted include file: name,,NO_SECT,0,sum
+#define MACH_N_RBRAC   0xE0U  ///< right bracket: 0,,NO_SECT,nesting level,address
+#define MACH_N_BCOMM   0xE2U  ///< begin common: name,,NO_SECT,0,0
+#define MACH_N_ECOMM   0xE4U  ///< end common: name,,n_sect,0,0
+#define MACH_N_ECOML   0xE8U  ///< end common (local name): 0,,n_sect,0,address
+#define MACH_N_LENG    0xFEU  ///< second stab entry with length information
 
 //
 // The bit 0x0020 of the n_desc field is used for two non-overlapping purposes
@@ -1947,7 +2090,7 @@ typedef struct {
 //
 
 ///
-/// The N_NO_DEAD_STRIP bit of the n_desc field only ever appears in a 
+/// The N_NO_DEAD_STRIP bit of the n_desc field only ever appears in a
 /// relocatable .o file (MH_OBJECT filetype). And is used to indicate to the
 /// static link editor it is never to dead strip the symbol.
 ///
@@ -2018,7 +2161,7 @@ typedef struct {
    UINT32 SymbolNumber : 24;  ///< symbol index if r_extern == 1 or section
                               ///< ordinal if r_extern == 0
    UINT32 PcRelative   : 1;   ///< was relocated pc relative already
-   UINT32 Size         : 2;   ///< 0=byte, 1=word, 2=long, 3=quad 
+   UINT32 Size         : 2;   ///< 0=byte, 1=word, 2=long, 3=quad
    UINT32 Extern       : 1;   ///< does not include value of sym referenced
    UINT32 Type         : 4;   ///< if not 0, machine specific relocation type
 } MACH_RELOCATION_INFO;
@@ -2032,7 +2175,7 @@ typedef struct {
 // object files it is also an offset but from the start of the "section" for
 // which the relocation entry is for.  See comments in <mach-o/loader.h> about
 // the r_address field in images for used with the dynamic linker.
-// 
+//
 // In 4.3BSD a.out objects if r_extern is zero then r_symbolnum is an ordinal
 // for the segment the symbol being relocated is in.  These ordinals are the
 // symbol types N_TEXT, N_DATA, N_BSS or N_ABS.  In Mach-O object files these
@@ -2093,6 +2236,7 @@ typedef struct {
 #define MACH_RELOC_SCATTERED  0x80000000U
 
 typedef struct {
+#if defined(MACH_LITTLE_ENDIAN)
   UINT32 Address    : 24;  ///< offset in the section to what is being
                            ///< relocated
   UINT32 Type       : 4;   ///< if not 0, machine specific relocation type
@@ -2101,6 +2245,25 @@ typedef struct {
   UINT32 Scattered  : 1;   ///< 1=scattered, 0=non-scattered (see above)
   INT32  Value;            ///< the value the item to be relocated is refering
                            ///< to (without any offset added)
+#elif defined(MACH_BIG_ENDIAN)
+  UINT32 Scattered  : 1;  ///< 1=scattered, 0=non-scattered (see above)
+  UINT32 PcRelative : 1;   ///< was relocated pc relative already
+  UINT32 Size       : 2;   ///< 0=byte, 1=word, 2=long, 3=quad
+  UINT32 Type       : 4;   ///< if not 0, machine specific relocation type
+  UINT32 Address    : 24;  ///< offset in the section to what is being
+                           ///< relocated
+  INT32  Value;            ///< the value the item to be relocated is refering
+                           ///< to (without any offset added)
+#else
+///
+/// The reason for the ifdef's of __BIG_ENDIAN__ and __LITTLE_ENDIAN__ are that
+/// when stattered relocation entries were added the mistake of using a mask
+/// against a structure that is made up of bit fields was used.  To make this
+/// design work this structure must be laid out in memory the same way so the
+/// mask can be applied can check the same bit each time (r_scattered).
+///
+#error "No endianness information was provided!"
+#endif
 } MACH_SCATTERED_RELOCATION_INFO;
 
 ///
@@ -2139,91 +2302,91 @@ enum {
 /// produced by the compiler are external relocations.  An external relocation
 /// has the r_extern bit set to 1 and the r_symbolnum field contains the symbol
 /// table index of the target label.
-/// 
+///
 /// When the assembler is generating relocations, if the target label is a
 /// local label (begins with 'L'), then the previous non-local label in the
 /// same section is used as the target of the external relocation.  An addend
 /// is used with the distance from that non-local label to the target label.
 /// Only when there is no previous non-local label in the section is an
 /// internal relocation used.
-/// 
+///
 /// The addend (i.e. the 4 in _foo+4) is encoded in the instruction (Mach-O
 /// does not have RELA relocations).  For PC-relative relocations, the addend
 /// is stored directly in the instruction.  This is different from other Mach-O
 /// architectures, which encode the addend minus the current section offset.
-/// 
+///
 /// The relocation types are:
-/// 
+///
 ///   X86_64_RELOC_UNSIGNED  // for absolute addresses
 ///   X86_64_RELOC_SIGNED    // for signed 32-bit displacement
 ///   X86_64_RELOC_BRANCH    // a CALL/JMP instruction with 32-bit displacement
 ///   X86_64_RELOC_GOT_LOAD  // a MOVQ load of a GOT entry
 ///   X86_64_RELOC_GOT    // other GOT references
 ///   X86_64_RELOC_SUBTRACTOR  // must be followed by a X86_64_RELOC_UNSIGNED
-/// 
+///
 /// The following are sample assembly instructions, followed by the relocation
 /// and section content they generate in an object file:
-/// 
+///
 ///   call _foo
 ///     r_type=X86_64_RELOC_BRANCH, r_length=2, r_extern=1, r_pcrel=1, r_symbolnum=_foo
 ///     E8 00 00 00 00
-/// 
+///
 ///   call _foo+4
 ///     r_type=X86_64_RELOC_BRANCH, r_length=2, r_extern=1, r_pcrel=1, r_symbolnum=_foo
-///     E8 04 00 00 00 
-/// 
+///     E8 04 00 00 00
+///
 ///   movq _foo@GOTPCREL(%rip), %rax
 ///     r_type=X86_64_RELOC_GOT_LOAD, r_length=2, r_extern=1, r_pcrel=1, r_symbolnum=_foo
 ///     48 8B 05 00 00 00 00
-///   
+///
 ///   pushq _foo@GOTPCREL(%rip)
 ///     r_type=X86_64_RELOC_GOT, r_length=2, r_extern=1, r_pcrel=1, r_symbolnum=_foo
 ///     FF 35 00 00 00 00
-///   
+///
 ///   movl _foo(%rip), %eax
 ///     r_type=X86_64_RELOC_SIGNED, r_length=2, r_extern=1, r_pcrel=1, r_symbolnum=_foo
 ///     8B 05 00 00 00 00
-/// 
+///
 ///   movl _foo+4(%rip), %eax
 ///     r_type=X86_64_RELOC_SIGNED, r_length=2, r_extern=1, r_pcrel=1, r_symbolnum=_foo
 ///     8B 05 04 00 00 00
-/// 
+///
 ///   movb  $0x12, _foo(%rip)
 ///     r_type=X86_64_RELOC_SIGNED, r_length=2, r_extern=1, r_pcrel=1, r_symbolnum=_foo
 ///     C6 05 FF FF FF FF 12
-/// 
+///
 ///   movl  $0x12345678, _foo(%rip)
 ///     r_type=X86_64_RELOC_SIGNED, r_length=2, r_extern=1, r_pcrel=1, r_symbolnum=_foo
 ///     C7 05 FC FF FF FF 78 56 34 12
-/// 
+///
 ///   .quad _foo
 ///     r_type=X86_64_RELOC_UNSIGNED, r_length=3, r_extern=1, r_pcrel=0, r_symbolnum=_foo
 ///     00 00 00 00 00 00 00 00
-/// 
+///
 ///   .quad _foo+4
 ///     r_type=X86_64_RELOC_UNSIGNED, r_length=3, r_extern=1, r_pcrel=0, r_symbolnum=_foo
 ///     04 00 00 00 00 00 00 00
-/// 
+///
 ///   .quad _foo - _bar
 ///     r_type=X86_64_RELOC_SUBTRACTOR, r_length=3, r_extern=1, r_pcrel=0, r_symbolnum=_bar
 ///     r_type=X86_64_RELOC_UNSIGNED, r_length=3, r_extern=1, r_pcrel=0, r_symbolnum=_foo
 ///     00 00 00 00 00 00 00 00
-/// 
+///
 ///   .quad _foo - _bar + 4
 ///     r_type=X86_64_RELOC_SUBTRACTOR, r_length=3, r_extern=1, r_pcrel=0, r_symbolnum=_bar
 ///     r_type=X86_64_RELOC_UNSIGNED, r_length=3, r_extern=1, r_pcrel=0, r_symbolnum=_foo
 ///     04 00 00 00 00 00 00 00
-///   
+///
 ///   .long _foo - _bar
 ///     r_type=X86_64_RELOC_SUBTRACTOR, r_length=2, r_extern=1, r_pcrel=0, r_symbolnum=_bar
 ///     r_type=X86_64_RELOC_UNSIGNED, r_length=2, r_extern=1, r_pcrel=0, r_symbolnum=_foo
 ///     00 00 00 00
-/// 
+///
 ///   lea L1(%rip), %rax
 ///     r_type=X86_64_RELOC_SIGNED, r_length=2, r_extern=1, r_pcrel=1, r_symbolnum=_prev
 ///     48 8d 05 12 00 00 00
 ///     // assumes _prev is the first non-local label 0x12 bytes before L1
-/// 
+///
 ///   lea L0(%rip), %rax
 ///     r_type=X86_64_RELOC_SIGNED, r_length=2, r_extern=0, r_pcrel=1, r_symbolnum=3
 ///     48 8d 05 56 00 00 00
@@ -2244,26 +2407,26 @@ enum {
 ///     r_type=X86_64_RELOC_UNSIGNED, r_length=3, r_extern=1, r_pcrel=0, r_symbolnum=_prev
 ///     12 00 00 00 00 00 00 00
 ///     // assumes _prev is the first non-local label 0x12 bytes before L1
-/// 
+///
 ///   .quad L0
 ///     r_type=X86_64_RELOC_UNSIGNED, r_length=3, r_extern=0, r_pcrel=0, r_symbolnum=3
 ///     56 00 00 00 00 00 00 00
 ///     // assumes L0 is in third section, has an address of 0x00000056 in .o
 ///     // file, and there is no previous non-local label
-/// 
+///
 ///   .quad _foo - .
 ///     r_type=X86_64_RELOC_SUBTRACTOR, r_length=3, r_extern=1, r_pcrel=0, r_symbolnum=_prev
 ///     r_type=X86_64_RELOC_UNSIGNED, r_length=3, r_extern=1, r_pcrel=0, r_symbolnum=_foo
 ///     EE FF FF FF FF FF FF FF
 ///     // assumes _prev is the first non-local label 0x12 bytes before this
 ///     // .quad
-/// 
+///
 ///   .quad _foo - L1
 ///     r_type=X86_64_RELOC_SUBTRACTOR, r_length=3, r_extern=1, r_pcrel=0, r_symbolnum=_prev
 ///     r_type=X86_64_RELOC_UNSIGNED, r_length=3, r_extern=1, r_pcrel=0, r_symbolnum=_foo
 ///     EE FF FF FF FF FF FF FF
 ///     // assumes _prev is the first non-local label 0x12 bytes before L1
-/// 
+///
 ///   .quad L1 - _prev
 ///     // No relocations.  This is an assembly time constant.
 ///     12 00 00 00 00 00 00 00
@@ -2275,7 +2438,7 @@ enum {
 ///
 ///     r_type=X86_64_RELOC_UNSIGNED, r_length=3, r_pcrel=0, r_extern=1, r_symbolnum=sym_index
 ///  This tells dyld to add the address of a symbol to a pointer sized (8-byte)
-///  piece of data (i.e on disk the 8-byte piece of data contains the addend). The 
+///  piece of data (i.e on disk the 8-byte piece of data contains the addend). The
 ///  r_symbolnum contains the index into the symbol table of the target symbol.
 ///
 ///     r_type=X86_64_RELOC_UNSIGNED, r_length=3, r_pcrel=0, r_extern=0, r_symbolnum=0

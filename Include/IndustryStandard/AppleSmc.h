@@ -299,7 +299,7 @@ enum {
   SmcKeyTypeLso    = SMC_MAKE_KEY_TYPE ('{', 'l', 's', 'o'),
   SmcKeyTypeMss    = SMC_MAKE_KEY_TYPE ('{', 'm', 's', 's'),
   SmcKeyTypePwm    = SMC_MAKE_KEY_TYPE ('{', 'p', 'w', 'm'),
-  SmcKeyTypeRev    = SMC_MAKE_KEY_TYPE ('{', 'r', 'e', 'v')  
+  SmcKeyTypeRev    = SMC_MAKE_KEY_TYPE ('{', 'r', 'e', 'v')
 };
 
 // SMC_KEY_TYPE
