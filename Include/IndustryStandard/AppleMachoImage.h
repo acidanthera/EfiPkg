@@ -13,247 +13,247 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 #ifndef APPLE_MACHO_IMAGE_H_
 #define APPLE_MACHO_IMAGE_H_
 
-#define CPU_ARCH_ABI64  BIT24
+#define MACH_CPU_ARCH_ABI64  BIT24
 
 //
-// Capability bits used in the definition of CPU_SUBTYPE.
+// Capability bits used in the definition of MACH_CPU_SUBTYPE.
 //
-#define CPU_SUBTYPE_MASK   0xFF000000U  ///< mask for feature flags
-#define CPU_SUBTYPE_LIB64  BIT17        ///< 64 bit libraries
+#define MACH_CPU_SUBTYPE_MASK   0xFF000000U  ///< mask for feature flags
+#define MACH_CPU_SUBTYPE_LIB64  BIT17        ///< 64 bit libraries
 
-#define CPU_SUBTYPE_INTEL_MODEL_SHIFT  4U
-#define CPU_SUBTYPE_INTEL_FAMILY_MAX   0x0FU
-#define CPU_SUBTYPE_INTEL_MODEL_ALL    0U
+#define MACH_CPU_SUBTYPE_INTEL_MODEL_SHIFT  4U
+#define MACH_CPU_SUBTYPE_INTEL_FAMILY_MAX   0x0FU
+#define MACH_CPU_SUBTYPE_INTEL_MODEL_ALL    0U
 
-#define CPU_SUBTYPE_INTEL(f, Model)  \
-  ((f) + ((Model) << CPU_SUBTYPE_INTEL_MODEL_SHIFT))
+#define MACH_CPU_SUBTYPE_INTEL(f, Model)  \
+  ((f) + ((Model) << MACH_CPU_SUBTYPE_INTEL_MODEL_SHIFT))
 
-#define CPU_SUBTYPE_INTEL_FAMILY(Identifier)  \
-  ((Identifier) & CPU_SUBTYPE_INTEL_FAMILY_MAX)
+#define MACH_CPU_SUBTYPE_INTEL_FAMILY(Identifier)  \
+  ((Identifier) & MACH_CPU_SUBTYPE_INTEL_FAMILY_MAX)
 
-#define CPU_SUBTYPE_INTEL_MODEL(Identifier)  \
-  ((Identifier) >> CPU_SUBTYPE_INTEL_MODEL_SHIFT)
+#define MACH_CPU_SUBTYPE_INTEL_MODEL(Identifier)  \
+  ((Identifier) >> MACH_CPU_SUBTYPE_INTEL_MODEL_SHIFT)
 
 #define FORMALIZE_CPU_SUBTYPE(CpuSubtype) ((CpuSubtype) & ~CPU_SUBTYPE_MASK)
 
-#define CPU_TYPE_64(CpuType) ((CpuType) | CPU_ARCH_ABI64)
+#define MACH_CPU_TYPE_64(CpuType) ((CpuType) | MACH_CPU_ARCH_ABI64)
 
 ///
 /// CPU Type definitions
 ///
 enum {
-  CpuTypeAny       = -1,
-  CpuTypeVax       = 1,
-  CpuTypeMc680x0   = 6,
-  CpuTypeX86       = 7,
-  CpuTypeI386      = CpuTypeX86,
-  CpuTypeX8664     = CPU_TYPE_64 (CpuTypeX86),
-  CpuTypeMc98000   = 10,
-  CpuTypeHppa      = 11,
-  CpuTypeArm       = 12,
-  CpuTypeArm64     = CPU_TYPE_64 (CpuTypeArm),
-  CpuTypeMc88000   = 13,
-  CpuTypeSparc     = 14,
-  CpuTypeI860      = 15,
-  CpuTypePowerPc   = 18,
-  CpuTypePowerPc64 = CPU_TYPE_64 (CpuTypePowerPc),
-  CpuTypeVeo       = 255
+  MachCpuTypeAny       = -1,
+  MachCpuTypeVax       = 1,
+  MachCpuTypeMc680x0   = 6,
+  MachCpuTypeX86       = 7,
+  MachCpuTypeI386      = MachCpuTypeX86,
+  MachCpuTypeX8664     = MACH_CPU_TYPE_64 (MachCpuTypeX86),
+  MachCpuTypeMc98000   = 10,
+  MachCpuTypeHppa      = 11,
+  MachCpuTypeArm       = 12,
+  MachCpuTypeArm64     = MACH_CPU_TYPE_64 (MachCpuTypeArm),
+  MachCpuTypeMc88000   = 13,
+  MachCpuTypeSparc     = 14,
+  MachCpuTypeI860      = 15,
+  MachCpuTypePowerPc   = 18,
+  MachCpuTypePowerPc64 = MACH_CPU_TYPE_64 (MachCpuTypePowerPc),
+  MachCpuTypeVeo       = 255
 };
 
-typedef INT32 CPU_TYPE;
+typedef INT32 MACH_CPU_TYPE;
 
 enum {
-  CpuSubtypeInvalid = -1,
+  MachCpuSubtypeInvalid = -1,
   //
   // Any
   //
-  CpuSubtypeMultiple     = -1,
-  CpuSubtypeLittleEndian = 0,
-  CpuSubtypeBigEndian    = 1,
+  MachCpuSubtypeMultiple     = -1,
+  MachCpuSubtypeLittleEndian = 0,
+  MachCpuSubtypeBigEndian    = 1,
   //
   // VAX Subtypes
   //
-  CpuSubtypeVaxAll  = 0,
-  CpuSubtypeVax780  = 1,
-  CpuSubtypeVax785  = 2,
-  CpuSubtypeVax750  = 3,
-  CpuSubtypeVax730  = 4,
-  CpuSubtypeUVax1   = 5,
-  CpuSubtypeUVax2   = 6,
-  CpuSubtypeVax8200 = 7,
-  CpuSubtypeVax8500 = 8,
-  CpuSubtypeVax8600 = 9,
-  CpuSubtypeVax8650 = 10,
-  CpuSubtypeVax8800 = 11,
-  CpuSubtypeUVax3   = 12,
+  MachCpuSubtypeVaxAll  = 0,
+  MachCpuSubtypeVax780  = 1,
+  MachCpuSubtypeVax785  = 2,
+  MachCpuSubtypeVax750  = 3,
+  MachCpuSubtypeVax730  = 4,
+  MachCpuSubtypeUVax1   = 5,
+  MachCpuSubtypeUVax2   = 6,
+  MachCpuSubtypeVax8200 = 7,
+  MachCpuSubtypeVax8500 = 8,
+  MachCpuSubtypeVax8600 = 9,
+  MachCpuSubtypeVax8650 = 10,
+  MachCpuSubtypeVax8800 = 11,
+  MachCpuSubtypeUVax3   = 12,
   //
   // MC680 Subtypes
   //
-  CpuSubtypeMc680All    = 1,
-  CpuSubtypeMc68030     = CpuSubtypeMc680All,
-  CpuSubtypeMc68040     = 2,
-  CpuSubtypeMc68030Only = 3,
+  MachCpuSubtypeMc680All    = 1,
+  MachCpuSubtypeMc68030     = MachCpuSubtypeMc680All,
+  MachCpuSubtypeMc68040     = 2,
+  MachCpuSubtypeMc68030Only = 3,
   //
   // x86 Subtypes
   //
-  CpuSubtypeX86All   = CPU_SUBTYPE_INTEL (3, 0),
-  CpuSubtypeX86Arch1 = CPU_SUBTYPE_INTEL (4, 0),
+  MachCpuSubtypeX86All   = MACH_CPU_SUBTYPE_INTEL (3, 0),
+  MachCpuSubtypeX86Arch1 = MACH_CPU_SUBTYPE_INTEL (4, 0),
   //
   // x86_64 Subtypes
   //
-  CpuSubtypeX8664All = CpuSubtypeX86All,
-  CpuSubtypeX8664H   = CPU_SUBTYPE_INTEL (8, 0),
+  MachCpuSubtypeX8664All = MachCpuSubtypeX86All,
+  MachCpuSubtypeX8664H   = MACH_CPU_SUBTYPE_INTEL (8, 0),
   //
   // i386 Subytpes
   //
-  CpuSubtypeI386All       = CpuSubtypeX86All,
-  CpuSubtype386           = CpuSubtypeI386All,
-  CpuSubtype486           = CpuSubtypeX86Arch1,
-  CpuSubtype486Sx         = CPU_SUBTYPE_INTEL (4, 8),
-  CpuSubtype586           = CPU_SUBTYPE_INTEL (5, 0),
-  CpuSubtypePentium       = CpuSubtype586,
-  CpuSubtypePentiumPro    = CPU_SUBTYPE_INTEL (6, 1),
-  CpuSubtypePentium3M3    = CPU_SUBTYPE_INTEL (6, 3),
-  CpuSubtypePentium3M5    = CPU_SUBTYPE_INTEL (6, 5),
-  CpuSubtypeCeleron       = CPU_SUBTYPE_INTEL (7, 6),
-  CpuSubtypeCeleronMobile = CPU_SUBTYPE_INTEL (7, 7),
-  CpuSubtypePentium3      = CPU_SUBTYPE_INTEL (8, 0),
-  CpuSubtypePentium3M     = CPU_SUBTYPE_INTEL (8, 1),
-  CpuSubtypePentium3Xeon  = CPU_SUBTYPE_INTEL (8, 2),
-  CpuSubtypePentiumM      = CPU_SUBTYPE_INTEL (9, 0),
-  CpuSubtypePentium4      = CPU_SUBTYPE_INTEL (10, 0),
-  CpuSubtypePentium4M     = CPU_SUBTYPE_INTEL (10, 1),
-  CpuSubtypeItanium       = CPU_SUBTYPE_INTEL (11, 0),
-  CpuSubtypeItanium2      = CPU_SUBTYPE_INTEL (11, 1),
-  CpuSubtypeXeon          = CPU_SUBTYPE_INTEL (12, 0),
-  CpuSubtypeXeonMp        = CPU_SUBTYPE_INTEL (12, 1),
+  MachCpuSubtypeI386All       = MachCpuSubtypeX86All,
+  MachCpuSubtype386           = MachCpuSubtypeI386All,
+  MachCpuSubtype486           = MachCpuSubtypeX86Arch1,
+  MachCpuSubtype486Sx         = MACH_CPU_SUBTYPE_INTEL (4, 8),
+  MachCpuSubtype586           = MACH_CPU_SUBTYPE_INTEL (5, 0),
+  MachCpuSubtypePentium       = MachCpuSubtype586,
+  MachCpuSubtypePentiumPro    = MACH_CPU_SUBTYPE_INTEL (6, 1),
+  MachCpuSubtypePentium3M3    = MACH_CPU_SUBTYPE_INTEL (6, 3),
+  MachCpuSubtypePentium3M5    = MACH_CPU_SUBTYPE_INTEL (6, 5),
+  MachCpuSubtypeCeleron       = MACH_CPU_SUBTYPE_INTEL (7, 6),
+  MachCpuSubtypeCeleronMobile = MACH_CPU_SUBTYPE_INTEL (7, 7),
+  MachCpuSubtypePentium3      = MACH_CPU_SUBTYPE_INTEL (8, 0),
+  MachCpuSubtypePentium3M     = MACH_CPU_SUBTYPE_INTEL (8, 1),
+  MachCpuSubtypePentium3Xeon  = MACH_CPU_SUBTYPE_INTEL (8, 2),
+  MachCpuSubtypePentiumM      = MACH_CPU_SUBTYPE_INTEL (9, 0),
+  MachCpuSubtypePentium4      = MACH_CPU_SUBTYPE_INTEL (10, 0),
+  MachCpuSubtypePentium4M     = MACH_CPU_SUBTYPE_INTEL (10, 1),
+  MachCpuSubtypeItanium       = MACH_CPU_SUBTYPE_INTEL (11, 0),
+  MachCpuSubtypeItanium2      = MACH_CPU_SUBTYPE_INTEL (11, 1),
+  MachCpuSubtypeXeon          = MACH_CPU_SUBTYPE_INTEL (12, 0),
+  MachCpuSubtypeXeonMp        = MACH_CPU_SUBTYPE_INTEL (12, 1),
   //
   // MC98000 Subtypes
   //
-  CpuSubtypeMc98000All = 0,
-  CpuSubtypeMc98601    = 1,
+  MachCpuSubtypeMc98000All = 0,
+  MachCpuSubtypeMc98601    = 1,
   //
   // HPPA Subtypes
   //
-  CpuSubtypeHppaAll    = 0,
-  CpuSubtypeHppa7100   = CpuSubtypeHppaAll,
-  CpuSubtypeHppa7100Lc = 1,
+  MachCpuSubtypeHppaAll    = 0,
+  MachCpuSubtypeHppa7100   = MachCpuSubtypeHppaAll,
+  MachCpuSubtypeHppa7100Lc = 1,
   //
   // ARM Subtypes
   //
-  CpuSubtypeArmAll    = 0,
-  CpuSubtypeArmV4T    = 5,
-  CpuSubtypeArmV6     = 6,
-  CpuSubtypeArmV5Tej  = 7,
-  CpuSubtypeArmXscale = 8,
-  CpuSubtypeArmV7     = 9,
-  CpuSubtypeArmV7F    = 10,
-  CpuSubtypeArmV7S    = 11,
-  CpuSubtypeArmV7K    = 12,
-  CpuSubtypeArmV8     = 13,
-  CpuSubtypeArmV6M    = 14,
-  CpuSubtypeArmV7M    = 15,
-  CpuSubtypeArmV7Em   = 16,
+  MachCpuSubtypeArmAll    = 0,
+  MachCpuSubtypeArmV4T    = 5,
+  MachCpuSubtypeArmV6     = 6,
+  MachCpuSubtypeArmV5Tej  = 7,
+  MachCpuSubtypeArmXscale = 8,
+  MachCpuSubtypeArmV7     = 9,
+  MachCpuSubtypeArmV7F    = 10,
+  MachCpuSubtypeArmV7S    = 11,
+  MachCpuSubtypeArmV7K    = 12,
+  MachCpuSubtypeArmV8     = 13,
+  MachCpuSubtypeArmV6M    = 14,
+  MachCpuSubtypeArmV7M    = 15,
+  MachCpuSubtypeArmV7Em   = 16,
   //
   // ARM64 Subytypes
   //
-  CpuSubtypeArm64All = 0,
-  CpuSubtypeArm64V8  = 1,
+  MachCpuSubtypeArm64All = 0,
+  MachCpuSubtypeArm64V8  = 1,
   //
   // MC88000 Subytpes
   //
-  CpuSubtypeMc88000All = 0,
-  CpuSubtypeMc88100    = 1,
-  CpuSubtypeMc88110    = 2,
+  MachCpuSubtypeMc88000All = 0,
+  MachCpuSubtypeMc88100    = 1,
+  MachCpuSubtypeMc88110    = 2,
   //
   // SPARC Subtypes
   //
-  CpuSubtypeSparcAll = 0,
+  MachCpuSubtypeSparcAll = 0,
   //
   // i860 Subtypes
   //
-  CpuSubtypeI860All = 0,
-  CpuSubtypeI860860 = 1,
+  MachCpuSubtypeI860All = 0,
+  MachCpuSubtypeI860860 = 1,
   //
   // PowerPC Subtypes
   //
-  CpuSubtypePowerPcAll   = 0,
-  CpuSubtypePowerPc601   = 1,
-  CpuSubtypePowerPc602   = 2,
-  CpuSubtypePowerPc603   = 3,
-  CpuSubtypePowerPc603e  = 4,
-  CpuSubtypePowerPc603ev = 5,
-  CpuSubtypePowerPc604   = 6,
-  CpuSubtypePowerPc604e  = 7,
-  CpuSubtypePowerPc620   = 8,
-  CpuSubtypePowerPc750   = 9,
-  CpuSubtypePowerPc7400  = 10,
-  CpuSubtypePowerPc7450  = 11,
-  CpuSubtypePowerPc970   = 100,
+  MachCpuSubtypePowerPcAll   = 0,
+  MachCpuSubtypePowerPc601   = 1,
+  MachCpuSubtypePowerPc602   = 2,
+  MachCpuSubtypePowerPc603   = 3,
+  MachCpuSubtypePowerPc603e  = 4,
+  MachCpuSubtypePowerPc603ev = 5,
+  MachCpuSubtypePowerPc604   = 6,
+  MachCpuSubtypePowerPc604e  = 7,
+  MachCpuSubtypePowerPc620   = 8,
+  MachCpuSubtypePowerPc750   = 9,
+  MachCpuSubtypePowerPc7400  = 10,
+  MachCpuSubtypePowerPc7450  = 11,
+  MachCpuSubtypePowerPc970   = 100,
   //
   // VEO Subtypes
   //
-  CpuSubtypeVeo1   = 1,
-  CpuSubtypeVeo2   = 2,
-  CpuSubtypeVeo3   = 3,
-  CpuSubtypeVeo4   = 4,
-  CpuSubtypeVeoAll = CpuSubtypeVeo2
+  MachCpuSubtypeVeo1   = 1,
+  MachCpuSubtypeVeo2   = 2,
+  MachCpuSubtypeVeo3   = 3,
+  MachCpuSubtypeVeo4   = 4,
+  MachCpuSubtypeVeoAll = MachCpuSubtypeVeo2
 };
 
-typedef INT32 CPU_SUBTYPE;
+typedef INT32 MACH_CPU_SUBTYPE;
 
 ///
 /// CPU Family definitions
 ///
 enum {
-  CpuFamilyUnknown = 0,
+  MachCpuFamilyUnknown = 0,
   //
   // PowerPC Family
   //
-  CpuFamilyPowerPcG3 = 0xCEE41549,
-  CpuFamilyPowerPcG4 = 0x77C184AE,
-  CpuFamilyPowerPcG5 = 0xED76D8AA,
+  MachCpuFamilyPowerPcG3 = 0xCEE41549,
+  MachCpuFamilyPowerPcG4 = 0x77C184AE,
+  MachCpuFamilyPowerPcG5 = 0xED76D8AA,
   //
   // Intel Family
   //
-  CpuFamilyIntel613         = 0xAA33392B,
-  CpuFamilyIntelYonah       = 0x73D67300,
-  CpuFamilyIntelMerom       = 0x426F69EF,
-  CpuFamilyIntelPenryn      = 0x78EA4FBC,
-  CpuFamilyIntelNehalem     = 0x6B5A4CD2,
-  CpuFamilyIntelWestmere    = 0x573B5EEC,
-  CpuFamilyIntelSandyBridge = 0x5490B78C,
-  CpuFamilyIntelIvyBridge   = 0x1F65E835,
-  CpuFamilyIntelHaswell     = 0x10B282DC,
-  CpuFamilyIntelBroadwell   = 0x582ED09C,
-  CpuFamilyIntelSkylake     = 0x37FC219F,
+  MachCpuFamilyIntel613         = 0xAA33392B,
+  MachCpuFamilyIntelYonah       = 0x73D67300,
+  MachCpuFamilyIntelMerom       = 0x426F69EF,
+  MachCpuFamilyIntelPenryn      = 0x78EA4FBC,
+  MachCpuFamilyIntelNehalem     = 0x6B5A4CD2,
+  MachCpuFamilyIntelWestmere    = 0x573B5EEC,
+  MachCpuFamilyIntelSandyBridge = 0x5490B78C,
+  MachCpuFamilyIntelIvyBridge   = 0x1F65E835,
+  MachCpuFamilyIntelHaswell     = 0x10B282DC,
+  MachCpuFamilyIntelBroadwell   = 0x582ED09C,
+  MachCpuFamilyIntelSkylake     = 0x37FC219F,
     //
     // The following synonyms are deprecated:
     //
-  CpuFamilyIntel614         = CpuFamilyIntelYonah,
-  CpuFamilyIntel615         = CpuFamilyIntelMerom,
-  CpuFamilyIntel623         = CpuFamilyIntelPenryn,
-  CpuFamilyIntel626         = CpuFamilyIntelNehalem,
-  CpuFamilyIntelCore        = CpuFamilyIntelYonah,
-  CpuFamilyIntelCore2       = CpuFamilyIntelMerom,
+  MachCpuFamilyIntel614         = MachCpuFamilyIntelYonah,
+  MachCpuFamilyIntel615         = MachCpuFamilyIntelMerom,
+  MachCpuFamilyIntel623         = MachCpuFamilyIntelPenryn,
+  MachCpuFamilyIntel626         = MachCpuFamilyIntelNehalem,
+  MachCpuFamilyIntelCore        = MachCpuFamilyIntelYonah,
+  MachCpuFamilyIntelCore2       = MachCpuFamilyIntelMerom,
   //
   // ARM Family
   //
-  CpuFamilyArm9       = 0xE73283AE,
-  CpuFamilyArm11      = 0x8FF620D8,
-  CpuFamilyArmXscale  = 0x53B005F5,
-  CpuFamilyArm12      = 0xBD1B0AE9,
-  CpuFamilyArm13      = 0x0CC90E64,
-  CpuFamilyArm14      = 0x96077EF1,
-  CpuFamilyArm15      = 0xA8511BCA,
-  CpuFamilyArmSwift   = 0x1E2D6381,
-  CpuFamilyArmCyclone = 0x37A09642,
-  CpuFamilyArmTyphoon = 0x2c91a47e
+  MachCpuFamilyArm9       = 0xE73283AE,
+  MachCpuFamilyArm11      = 0x8FF620D8,
+  MachCpuFamilyArmXscale  = 0x53B005F5,
+  MachCpuFamilyArm12      = 0xBD1B0AE9,
+  MachCpuFamilyArm13      = 0x0CC90E64,
+  MachCpuFamilyArm14      = 0x96077EF1,
+  MachCpuFamilyArm15      = 0xA8511BCA,
+  MachCpuFamilyArmSwift   = 0x1E2D6381,
+  MachCpuFamilyArmCyclone = 0x37A09642,
+  MachCpuFamilyArmTyphoon = 0x2c91a47e
 };
 
-typedef UINT32 CPU_FAMILY;
-typedef INT32  CPU_THREADTYPE;
-typedef INT32  VM_PROTECTION;
+typedef UINT32 MACH_CPU_FAMILY;
+typedef INT32  MACH_CPU_THREADTYPE;
+typedef INT32  MACH_VM_PROTECTION;
 
 ///
 /// A variable length string in a load command is represented by an lc_str
@@ -825,8 +825,8 @@ typedef struct {
   UINT32             Size;               ///< memory size of this segment
   UINT32             FileOffset;         ///< file offset of this segment
   UINT32             FileSize;           ///< amount to map from the file
-  VM_PROTECTION      MaximumProtection;  ///< maximum VM protection
-  VM_PROTECTION      InitialProtection;  ///< initial VM protection
+  MACH_VM_PROTECTION MaximumProtection;  ///< maximum VM protection
+  MACH_VM_PROTECTION InitialProtection;  ///< initial VM protection
   UINT32             NumberOfSections;   ///< number of sections in segment
   MACH_SEGMENT_FLAGS Flags;              ///< flags
   MACH_SECTION       Sections[];
@@ -850,8 +850,8 @@ typedef struct {
   UINT64             Size;               ///< memory size of this segment
   UINT64             FileOffset;         ///< file offset of this segment
   UINT64             FileSize;           ///< amount to map from the file
-  VM_PROTECTION      MaximumProtection;  ///< maximum VM protection
-  VM_PROTECTION      InitialProtection;  ///< initial VM protection
+  MACH_VM_PROTECTION MaximumProtection;  ///< maximum VM protection
+  MACH_VM_PROTECTION InitialProtection;  ///< initial VM protection
   UINT32             NumberOfSections;   ///< number of sections in segment
   MACH_SEGMENT_FLAGS Flags;              ///< flags
   MACH_SECTION_64    Sections[];
@@ -1773,8 +1773,8 @@ typedef UINT32 MACH_HEADER_FLAGS;
 ///
 typedef struct {
   UINT32                Signature;         ///< mach magic number identifier
-  CPU_TYPE              CpuType;           ///< cpu Sectionecifier
-  CPU_SUBTYPE           CpuSubtype;        ///< machine Sectionecifier
+  MACH_CPU_TYPE         MachCpuType;           ///< cpu Sectionecifier
+  MACH_CPU_SUBTYPE      MachCpuSubtype;        ///< machine Sectionecifier
   MACH_HEADER_FILE_TYPE FileType;          ///< type of file
   UINT32                NumberOfCommands;  ///< number of load commands
   UINT32                CommandsSize;      ///< the size of all load commands
@@ -1793,8 +1793,8 @@ typedef struct {
 ///
 typedef struct {
   UINT32                Signature;         ///< mach magic number identifier
-  CPU_TYPE              CpuType;           ///< cpu Sectionecifier
-  CPU_SUBTYPE           CpuSubtype;        ///< machine Sectionecifier
+  MACH_CPU_TYPE              MachCpuType;           ///< cpu Sectionecifier
+  MACH_CPU_SUBTYPE           MachCpuSubtype;        ///< machine Sectionecifier
   MACH_HEADER_FILE_TYPE FileType;          ///< type of file
   UINT32                NumberOfCommands;  ///< number of load commands
   UINT32                CommandsSize;      ///< the size of all load commands
@@ -2026,7 +2026,7 @@ typedef struct {
    UINT32 Type         : 4;   ///< if not 0, machine specific relocation type
 } MACH_RELOCATION_INFO;
 
-#define R_ABS  0U    ///< absolute relocation type for Mach-O files
+#define MACH_RELOC_ABSOLUTE  0U    ///< absolute relocation type for Mach-O files
 
 //
 // The r_address is not really the address as it's name indicates but an
@@ -2044,7 +2044,7 @@ typedef struct {
 // section has the ordinal 1, the second 2, and so on.  This means that the
 // same ordinal in two different object files could refer to two different
 // sections.  And further could have still different ordinals when combined
-// by the link-editor.  The value R_ABS is used for relocation entries for
+// by the link-editor.  The value MACH_RELOC_ABSOLUTE is used for relocation entries for
 // absolute symbols which need no further relocation.
 //
 
@@ -2093,7 +2093,7 @@ typedef struct {
 /// this but the compilers don't so scattered loading can be done on those that
 /// do guarantee this.
 ///
-#define R_SCATTERED  0x80000000U
+#define MACH_RELOC_SCATTERED  0x80000000U
 
 typedef struct {
   UINT32 Address    : 24;  ///< offset in the section to what is being

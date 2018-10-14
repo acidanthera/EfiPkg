@@ -37,23 +37,23 @@ typedef PACKED struct {
   ///
   /// The found CPU architecture specifier.
   ///
-  CPU_TYPE    CpuType;
+  MACH_CPU_TYPE    CpuType;
   ///
   /// The found CPU sub-architecture specifier.
   ///
-  CPU_SUBTYPE CpuSubtype;
+  MACH_CPU_SUBTYPE CpuSubtype;
   ///
   /// The offset of the architecture-specific boot file.
   ///
-  UINT32      Offset;
+  UINT32           Offset;
   ///
   /// The size of the architecture-specific boot file.
   ///
-  UINT32      Size;
+  UINT32           Size;
   ///
   /// The alignment as a power of 2 (necessary for the x86_64 architecture).
   ///
-  UINT32      Alignment;
+  UINT32           Alignment;
 } APPLE_FAT_ARCH;
 
 ///
