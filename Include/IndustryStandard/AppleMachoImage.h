@@ -313,9 +313,6 @@ typedef struct {
 // Mach Load Commands
 //
 
-#define IS_MACH_LOAD_COMMAND_VALID(Type)  \
-  (((Type) > MachLoadCommandMin) && ((Type) < MachLoadCommandMax))
-
 ///
 /// After MacOS X 10.1 when a new load command is added that is required to be
 /// understood by the dynamic linker for the image to execute properly the
@@ -511,7 +508,7 @@ typedef struct {
 typedef UINT32 MACH_LOAD_COMMAND_TYPE;
 
 #define NEXT_MACH_LOAD_COMMAND(Command)  \
-  (MACH_LOAD_COMMAND *)((UINTN)(Command) + (Command)->Size)
+  ((MACH_LOAD_COMMAND *)((UINTN)(Command) + (Command)->Size))
 
 typedef struct {
   ///
@@ -802,7 +799,7 @@ typedef struct {
 } MACH_SECTION_64;
 
 #define NEXT_MACH_SEGMENT(Segment) \
-  (MACH_SEGMENT_COMMAND *)((UINTN)(Segment) + (Segment)->Hdr.Command.Size)
+  (MACH_SEGMENT_COMMAND *)((UINTN)(Segment) + (Segment)->Command.Size)
 
 ///
 /// The segment load command indicates that a part of this file is to be
@@ -833,7 +830,7 @@ typedef struct {
 } MACH_SEGMENT_COMMAND;
 
 #define NEXT_MACH_SEGMENT_64(Segment) \
-  (MACH_SEGMENT_COMMAND_64 *)((UINTN)(Segment) + (Segment)->Hdr.Command.Size)
+  (MACH_SEGMENT_COMMAND_64 *)((UINTN)(Segment) + (Segment)->Command.Size)
 
 ///
 /// The 64-bit segment load command indicates that a part of this file is to be
