@@ -1903,8 +1903,8 @@ typedef UINT32 MACH_HEADER_FLAGS;
 ///
 typedef struct {
   UINT32                Signature;         ///< mach magic number identifier
-  MACH_CPU_TYPE         MachCpuType;       ///< cpu Sectionecifier
-  MACH_CPU_SUBTYPE      MachCpuSubtype;    ///< machine Sectionecifier
+  MACH_CPU_TYPE         CpuType;           ///< cpu Sectionecifier
+  MACH_CPU_SUBTYPE      CpuSubtype;        ///< machine Sectionecifier
   MACH_HEADER_FILE_TYPE FileType;          ///< type of file
   UINT32                NumberOfCommands;  ///< number of load commands
   UINT32                CommandsSize;      ///< the size of all load commands
@@ -1924,8 +1924,8 @@ typedef struct {
 ///
 typedef struct {
   UINT32                Signature;         ///< mach magic number identifier
-  MACH_CPU_TYPE         MachCpuType;       ///< cpu Sectionecifier
-  MACH_CPU_SUBTYPE      MachCpuSubtype;    ///< machine Sectionecifier
+  MACH_CPU_TYPE         CpuType;           ///< cpu Sectionecifier
+  MACH_CPU_SUBTYPE      CpuSubtype;        ///< machine Sectionecifier
   MACH_HEADER_FILE_TYPE FileType;          ///< type of file
   UINT32                NumberOfCommands;  ///< number of load commands
   UINT32                CommandsSize;      ///< the size of all load commands
