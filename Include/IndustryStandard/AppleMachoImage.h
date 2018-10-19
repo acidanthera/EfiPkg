@@ -831,35 +831,35 @@ enum {
 /// for 32-bit architectures
 ///
 typedef struct {
-  CHAR8  SectionName[16];            ///< Name of this section
-  CHAR8  SegmentName[16];            ///< segment this section goes in
-  UINT32 Address;                    ///< memory address of this section
-  UINT32 Size;                       ///< size in bytes of this section
-  UINT32 Offset;                     ///< file offset of this section
-  UINT32 Alignment;                  ///< section alignment (power of 2)
-  UINT32 RelocationEntriesOffset;    ///< file offset of relocation entries
-  UINT32 NumberOfRelocationEntries;  ///< number of relocation entries
-  UINT32 Flags;                      ///< flags (section type and attributes)
-  UINT32 Reserved1;                  ///< reserved (for offset or index)
-  UINT32 Reserved2;                  ///< reserved (for count or sizeof)
+  CHAR8  SectionName[16];          ///< Name of this section
+  CHAR8  SegmentName[16];          ///< segment this section goes in
+  UINT32 Address;                  ///< memory address of this section
+  UINT32 Size;                     ///< size in bytes of this section
+  UINT32 Offset;                   ///< file offset of this section
+  UINT32 Alignment;                ///< section alignment (power of 2)
+  UINT32 RelocationEntriesOffset;  ///< file offset of relocation entries
+  UINT32 NumRelocationEntries;     ///< number of relocation entries
+  UINT32 Flags;                    ///< flags (section type and attributes)
+  UINT32 Reserved1;                ///< reserved (for offset or index)
+  UINT32 Reserved2;                ///< reserved (for count or sizeof)
 } MACH_SECTION;
 
 ///
 /// for 64-bit architectures
 ///
 typedef struct {
-  CHAR8  SectionName[16];            ///< Name of this section
-  CHAR8  SegmentName[16];            ///< segment this section goes in
-  UINT64 Address;                    ///< memory address of this section
-  UINT64 Size;                       ///< size in bytes of this section
-  UINT32 Offset;                     ///< file offset of this section
-  UINT32 Alignment;                  ///< section alignment (power of 2)
-  UINT32 RelocationEntriesOffset;    ///< file offset of relocation entries
-  UINT32 NumberOfRelocationEntries;  ///< number of relocation entries
-  UINT32 Flags;                      ///< flags (section type and attributes)
-  UINT32 Reserved1;                  ///< reserved (for offset or index)
-  UINT32 Reserved2;                  ///< reserved (for count or sizeof)
-  UINT32 Reserved3;                  ///< reserved
+  CHAR8  SectionName[16];    ///< Name of this section
+  CHAR8  SegmentName[16];    ///< segment this section goes in
+  UINT64 Address;            ///< memory address of this section
+  UINT64 Size;               ///< size in bytes of this section
+  UINT32 Offset;             ///< file offset of this section
+  UINT32 Alignment;          ///< section alignment (power of 2)
+  UINT32 RelocationsOffset;  ///< file offset of relocation entries
+  UINT32 NumRelocations;     ///< number of relocation entries
+  UINT32 Flags;              ///< flags (section type and attributes)
+  UINT32 Reserved1;          ///< reserved (for offset or index)
+  UINT32 Reserved2;          ///< reserved (for count or sizeof)
+  UINT32 Reserved3;          ///< reserved
 } MACH_SECTION_64;
 
 #define NEXT_MACH_SEGMENT(Segment) \
@@ -888,7 +888,7 @@ typedef struct {
   UINT32             FileSize;           ///< amount to map from the file
   MACH_VM_PROTECTION MaximumProtection;  ///< maximum VM protection
   MACH_VM_PROTECTION InitialProtection;  ///< initial VM protection
-  UINT32             NumberOfSections;   ///< number of sections in segment
+  UINT32             NumSections;        ///< number of sections in segment
   MACH_SEGMENT_FLAGS Flags;              ///< flags
   MACH_SECTION       Sections[];
 } MACH_SEGMENT_COMMAND;
@@ -913,7 +913,7 @@ typedef struct {
   UINT64             FileSize;           ///< amount to map from the file
   MACH_VM_PROTECTION MaximumProtection;  ///< maximum VM protection
   MACH_VM_PROTECTION InitialProtection;  ///< initial VM protection
-  UINT32             NumberOfSections;   ///< number of sections in segment
+  UINT32             NumSections;   ///< number of sections in segment
   MACH_SEGMENT_FLAGS Flags;              ///< flags
   MACH_SECTION_64    Sections[];
 } MACH_SEGMENT_COMMAND_64;
@@ -1023,7 +1023,7 @@ typedef struct {
 typedef struct {
   MACH_LOAD_COMMAND_HDR_
   MACH_LOAD_COMMAND_STRING Name;             ///< library's path name
-  UINT32                   NumberOfModules;  ///< number of modules in library
+  UINT32                   NumModules;       ///< number of modules in library
   MACH_LOAD_COMMAND_STRING LinkedModules[];  ///< bit vector of linked modules
 } MACH_PREBOUND_DYLIB_COMMAND;
 
@@ -1170,8 +1170,8 @@ typedef union {
 ///
 typedef struct {
   MACH_LOAD_COMMAND_HDR_
-  UINT32            Flavor;                ///< flavor of thread state
-  UINT32            NumberOfThreadStates;  ///< count of UINT32s in thread state
+  UINT32            Flavor;           ///< flavor of thread state
+  UINT32            NumThreadStates;  ///< count of UINT32s in thread state
   UINT32            ThreadState[];
 } MACH_THREAD_COMMAND;
 
@@ -1230,10 +1230,10 @@ typedef struct {
 ///
 typedef struct {
   MACH_LOAD_COMMAND_HDR_
-  UINT32            SymbolsOffset;    ///< symbol table offset
-  UINT32            NumberOfSymbols;  ///< number of symbol table entries
-  UINT32            StringsOffset;    ///< string table offset
-  UINT32            StringsSize;      ///< string table size in bytes
+  UINT32            SymbolsOffset;  ///< symbol table offset
+  UINT32            NumSymbols;     ///< number of symbol table entries
+  UINT32            StringsOffset;  ///< string table offset
+  UINT32            StringsSize;    ///< string table size in bytes
 } MACH_SYMTAB_COMMAND;
 
 ///
@@ -1295,14 +1295,14 @@ typedef struct {
   // table when this is a dynamically linked shared library file).
   //
 
-  UINT32 LocalSymbolsIndex;     ///< index to local symbols
-  UINT32 NumberOfLocalSymbols;  ///< number of local symbols
+  UINT32 LocalSymbolsIndex;  ///< index to local symbols
+  UINT32 NumLocalSymbols;    ///< number of local symbols
 
-  UINT32 ExternalSymbolsIndex;     ///< index to externally defined symbols
-  UINT32 NumberOfExternalSymbols;  ///< number of externally defined symbols
+  UINT32 ExternalSymbolsIndex;  ///< index to externally defined symbols
+  UINT32 NumExternalSymbols;    ///< number of externally defined symbols
 
-  UINT32 UndefinedSymbolsIndex;     ///< index to undefined symbols
-  UINT32 NumberOfUndefinedSymbols;  ///< number of undefined symbols
+  UINT32 UndefinedSymbolsIndex;  ///< index to undefined symbols
+  UINT32 NumUndefinedSymbols;    ///< number of undefined symbols
 
   //
   // For the for the dynamic binding process to find which module a symbol
@@ -1320,7 +1320,7 @@ typedef struct {
   ///
   /// number of entries in table of contents
   ///
-  UINT32 TableOfContentsNumberOfEntries;
+  UINT32 TableOfContentsNumEntries;
 
   //
   // To support dynamic binding of "modules" (whole object files) the symbol
@@ -1332,8 +1332,8 @@ typedef struct {
   // contains one module so everything in the file belongs to the module.
   //
 
-  UINT32 ModuleTableFileOffset;       ///< file offset to module table
-  UINT32 ModuleTableNumberOfEntries;  ///< number of module table entries
+  UINT32 ModuleTableFileOffset;  ///< file offset to module table
+  UINT32 ModuleTableNumEntries;  ///< number of module table entries
 
   //
   // To support dynamic module binding the module structure for each module
@@ -1352,7 +1352,7 @@ typedef struct {
   ///
   /// number of referenced symbol table entries
   ///
-  UINT32 ReferencedSymbolTableNumberOfEntries;
+  UINT32 ReferencedSymbolTableNumEntries;
 
   //
   // The sections that contain "symbol pointers" and "routine stubs" have
@@ -1372,7 +1372,7 @@ typedef struct {
   ///
   /// number of indirect symbol table entries
   ///
-  UINT32 NumberOfIndirectSymbols;
+  UINT32 NumIndirectSymbols;
 
   //
   // To support relocating an individual module in a library file quickly the
@@ -1409,7 +1409,7 @@ typedef struct {
   ///
   /// number of external relocation entries
   ///
-  UINT32 NumberOfExternalRelocations;
+  UINT32 NumExternalRelocations;
 
   //
   // All the local relocation entries are grouped together (they are not
@@ -1418,7 +1418,7 @@ typedef struct {
   //
 
   UINT32 LocalRelocationsOffset;    ///< offset to local relocation entries
-  UINT32 NumberOfLocalRelocations;  ///< number of local relocation entries
+  UINT32 NumOfLocalRelocations;  ///< number of local relocation entries
 } MACH_DYSYMTAB_COMMAND;
 
 ///
@@ -1449,7 +1449,7 @@ typedef struct {
 typedef struct {
   MACH_LOAD_COMMAND_HDR_
   UINT32            Offset;         ///< offset to the hint table
-  UINT32            NumberOfHints;  ///< number of hints in the hint table
+  UINT32            NumHints;  ///< number of hints in the hint table
   TWOLEVEL_HINT     Hints[];
 } MACH_TWO_LEVEL_HINTS_COMMAND;
 
@@ -1565,11 +1565,11 @@ typedef struct {
 ///
 typedef struct {
   MACH_LOAD_COMMAND_HDR_
-  UINT32  Platform;                 ///< platform
-  UINT32  MinOs;                    ///< X.Y.Z is encoded in nibbles xxxx.yy.zz
-  UINT32  SdkVersion;               ///< X.Y.Z is encoded in nibbles xxxx.yy.zz
-  UINT32  NumberOfTools;            ///< number of tool entries following this
-  MACH_BUILD_VERSION_TOOL  Tools[];
+  UINT32                  Platform;    ///< platform
+  UINT32                  MinOs;       ///< X.Y.Z is encoded in nibbles xxxx.yy.zz
+  UINT32                  SdkVersion;  ///< X.Y.Z is encoded in nibbles xxxx.yy.zz
+  UINT32                  NumTools;    ///< number of tool entries following this
+  MACH_BUILD_VERSION_TOOL Tools[];
 } MACH_BUILD_VERSION_COMMAND;
 
 ///
@@ -1702,7 +1702,7 @@ typedef struct {
 ///
 typedef struct {
   MACH_LOAD_COMMAND_HDR_
-  UINT32            NumberOfStrings;  ///< number of strings
+  UINT32            NumStrings;  ///< number of strings
   ///
   /// concatenation of zero terminated UTF8 strings.  Zero filled at end to
   /// align.
@@ -1902,13 +1902,13 @@ typedef UINT32 MACH_HEADER_FLAGS;
 /// 32-bit architectures.
 ///
 typedef struct {
-  UINT32                Signature;         ///< mach magic number identifier
-  MACH_CPU_TYPE         CpuType;           ///< cpu Sectionecifier
-  MACH_CPU_SUBTYPE      CpuSubtype;        ///< machine Sectionecifier
-  MACH_HEADER_FILE_TYPE FileType;          ///< type of file
-  UINT32                NumberOfCommands;  ///< number of load commands
-  UINT32                CommandsSize;      ///< the size of all load commands
-  MACH_HEADER_FLAGS     Flags;             ///< flags
+  UINT32                Signature;     ///< mach magic number identifier
+  MACH_CPU_TYPE         CpuType;       ///< cpu Sectionecifier
+  MACH_CPU_SUBTYPE      CpuSubtype;    ///< machine Sectionecifier
+  MACH_HEADER_FILE_TYPE FileType;      ///< type of file
+  UINT32                NumCommands;   ///< number of load commands
+  UINT32                CommandsSize;  ///< the size of all load commands
+  MACH_HEADER_FLAGS     Flags;         ///< flags
   MACH_LOAD_COMMAND     Commands[];
 } MACH_HEADER;
 
@@ -1923,14 +1923,14 @@ typedef struct {
 /// 64-bit architectures.
 ///
 typedef struct {
-  UINT32                Signature;         ///< mach magic number identifier
-  MACH_CPU_TYPE         CpuType;           ///< cpu Sectionecifier
-  MACH_CPU_SUBTYPE      CpuSubtype;        ///< machine Sectionecifier
-  MACH_HEADER_FILE_TYPE FileType;          ///< type of file
-  UINT32                NumberOfCommands;  ///< number of load commands
-  UINT32                CommandsSize;      ///< the size of all load commands
-  MACH_HEADER_FLAGS     Flags;             ///< flags
-  UINT32                Reserved;          ///< reserved
+  UINT32                Signature;     ///< mach magic number identifier
+  MACH_CPU_TYPE         CpuType;       ///< cpu Sectionecifier
+  MACH_CPU_SUBTYPE      CpuSubtype;    ///< machine Sectionecifier
+  MACH_HEADER_FILE_TYPE FileType;      ///< type of file
+  UINT32                NumCommands;   ///< number of load commands
+  UINT32                CommandsSize;  ///< the size of all load commands
+  MACH_HEADER_FLAGS     Flags;         ///< flags
+  UINT32                Reserved;      ///< reserved
   MACH_LOAD_COMMAND     Commands[];
 } MACH_HEADER_64;
 
