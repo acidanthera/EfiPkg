@@ -568,18 +568,16 @@ typedef struct {
 
 typedef UINT32 MACH_LOAD_COMMAND_TYPE;
 
+#define MACH_LOAD_COMMAND_HDR_                                    \
+  MACH_LOAD_COMMAND_TYPE CommandType; /* type of load command */  \
+  UINT32                 CommandSize; /* total size of command in bytes
+                                         (includes sizeof section structs) */
+
 #define NEXT_MACH_LOAD_COMMAND(Command)  \
-  ((MACH_LOAD_COMMAND *)((UINTN)(Command) + (Command)->Size))
+  ((MACH_LOAD_COMMAND *)((UINTN)(Command) + (Command)->CommandSize))
 
 typedef struct {
-  ///
-  /// type of load command
-  ///
-  MACH_LOAD_COMMAND_TYPE Type;
-  ///
-  /// total size of command in bytes (includes sizeof section structs)
-  ///
-  UINT32                 Size;
+  MACH_LOAD_COMMAND_HDR_
 } MACH_LOAD_COMMAND;
 
 //
@@ -882,7 +880,7 @@ typedef struct {
 /// for 32 - bit architectures
 ///
 typedef struct {
-  MACH_LOAD_COMMAND  Hdr;
+  MACH_LOAD_COMMAND_HDR_
   CHAR8              SegmentName[16];    ///< segment Name
   UINT32             VirtualAddress;     ///< memory address of this segment
   UINT32             Size;               ///< memory size of this segment
@@ -907,7 +905,7 @@ typedef struct {
 /// for 64-bit architectures
 ///
 typedef struct {
-  MACH_LOAD_COMMAND  Hdr;
+  MACH_LOAD_COMMAND_HDR_
   CHAR8              SegmentName[16];    ///< segment Name
   UINT64             VirtualAddress;     ///< memory address of this segment
   UINT64             Size;               ///< memory size of this segment
@@ -928,7 +926,7 @@ typedef struct {
 /// (THIS IS OBSOLETE and no longer supported).
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   MACH_FIXED_VM_LIB FixedVmLib;  ///< the library identification
 } MACH_FIXED_VM_LIB_COMMAND;
 
@@ -940,7 +938,7 @@ typedef struct {
 /// LC_REEXPORT_DYLIB) for each library it uses.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   MACH_DYLIB        Dylib;  ///< the library identification
 } MACH_DYLIB_COMMAND;
 
@@ -955,7 +953,7 @@ typedef struct {
 /// following structure.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND        Hdr;
+  MACH_LOAD_COMMAND_HDR_
   MACH_LOAD_COMMAND_STRING Umbrella;  ///< the umbrella framework name
 } MACH_SUB_FRAMEWORK_COMMAND;
 
@@ -970,7 +968,7 @@ typedef struct {
 /// "-client_name client_name".
 ///
 typedef struct {
-  MACH_LOAD_COMMAND        Hdr;
+  MACH_LOAD_COMMAND_HDR_
   MACH_LOAD_COMMAND_STRING Client;  ///< the client name
 } MACH_SUB_CLIENT_COMMAND;
 
@@ -988,7 +986,7 @@ typedef struct {
 /// The name of a sub_umbrella framework is recorded in the following structure.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND        Hdr;
+  MACH_LOAD_COMMAND_HDR_
   MACH_LOAD_COMMAND_STRING SubUmbrella;  ///< the sub_umbrella framework name
 } MACH_SUB_UMBRELLA_COMMAND;
 
@@ -1009,7 +1007,7 @@ typedef struct {
 /// recorded as "libobjc".
 ///
 typedef struct {
-  MACH_LOAD_COMMAND        Hdr;
+  MACH_LOAD_COMMAND_HDR_
   MACH_LOAD_COMMAND_STRING SubLibrary;  ///< the sub_library name
 } MACH_SUB_LIBRARY_COMMAND;
 
@@ -1023,7 +1021,7 @@ typedef struct {
 /// (linked_modules[N/8] >> N%8) & 1
 ///
 typedef struct {
-  MACH_LOAD_COMMAND        Hdr;
+  MACH_LOAD_COMMAND_HDR_
   MACH_LOAD_COMMAND_STRING Name;             ///< library's path name
   UINT32                   NumberOfModules;  ///< number of modules in library
   MACH_LOAD_COMMAND_STRING LinkedModules[];  ///< bit vector of linked modules
@@ -1038,7 +1036,7 @@ typedef struct {
 /// contains string for dyld to treat like environment variable.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND        Hdr;
+  MACH_LOAD_COMMAND_HDR_
   MACH_LOAD_COMMAND_STRING Name;  ///< dynamic linker's path name
 } MACH_DYLINKER_COMMAND;
 
@@ -1171,7 +1169,7 @@ typedef union {
 /// and environment variables are copied onto that stack.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   UINT32            Flavor;                ///< flavor of thread state
   UINT32            NumberOfThreadStates;  ///< count of UINT32s in thread state
   UINT32            ThreadState[];
@@ -1187,7 +1185,7 @@ typedef struct {
 /// For 32-bit architectures.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   ///
   /// address of initialization routine
   ///
@@ -1208,7 +1206,7 @@ typedef struct {
 /// The 64-bit routines command.  Same use as above.  For 64-bit architectures.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   ///
   /// address of initialization routine
   ///
@@ -1231,7 +1229,7 @@ typedef struct {
 /// <nlist.h> and <stab.h>.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   UINT32            SymbolsOffset;    ///< symbol table offset
   UINT32            NumberOfSymbols;  ///< number of symbol table entries
   UINT32            StringsOffset;    ///< string table offset
@@ -1279,7 +1277,7 @@ typedef struct {
 /// off the section structures.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
 
   //
   // The symbols indicated by symoff and nsyms of the LC_SYMTAB load command
@@ -1449,7 +1447,7 @@ typedef struct {
 /// two-level namespace lookup hints table.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   UINT32            Offset;         ///< offset to the hint table
   UINT32            NumberOfHints;  ///< number of hints in the hint table
   TWOLEVEL_HINT     Hints[];
@@ -1466,7 +1464,7 @@ typedef struct {
 /// from the input file.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   UINT32            Checksum;  ///< the check sum or zero
 } MACH_PREBIND_CHECKSUM_COMMAND;
 
@@ -1475,7 +1473,7 @@ typedef struct {
 /// identifies an object produced by the static link editor.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   GUID              Uuid;  ///< the 128-bit uuid
 } MACH_UUID_COMMAND;
 
@@ -1484,7 +1482,7 @@ typedef struct {
 /// the current run path used to find @rpath prefixed dylibs.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND        Hdr;
+  MACH_LOAD_COMMAND_HDR_
   MACH_LOAD_COMMAND_STRING Path;  ///< path to add to run path
 } MACH_RUN_PATH_COMMAND;
 
@@ -1493,7 +1491,7 @@ typedef struct {
 /// of data in the __LINKEDIT segment.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   UINT32            DataOffset;  ///< file offset of data in __LINKEDIT segment
   UINT32            DataSize;    ///< file size of data in __LINKEDIT segment
 } MACH_LINKEDIT_DATA_COMMAND;
@@ -1503,7 +1501,7 @@ typedef struct {
 /// of an encrypted segment.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   ///
   /// file offset of encrypted range
   ///
@@ -1523,7 +1521,7 @@ typedef struct {
 /// of an encrypted segment (for use in x86_64 targets).
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   ///
   /// file offset of encrypted range
   ///
@@ -1547,7 +1545,7 @@ typedef struct {
 /// binary was built to run.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   UINT32            Version;     ///< X.Y.Z is encoded in nibbles xxxx.yy.zz
   UINT32            SdkVersion;  ///< X.Y.Z is encoded in nibbles xxxx.yy.zz
 } MACH_VERSION_MIN_COMMAND;
@@ -1566,7 +1564,7 @@ typedef struct {
 /// tool values following it.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   UINT32  Platform;                 ///< platform
   UINT32  MinOs;                    ///< X.Y.Z is encoded in nibbles xxxx.yy.zz
   UINT32  SdkVersion;               ///< X.Y.Z is encoded in nibbles xxxx.yy.zz
@@ -1603,7 +1601,7 @@ typedef struct {
 /// to interpret it.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   //
   // Dyld rebases an image whenever dyld loads it at an address different
   // from its preferred address.  The rebase information is a stream
@@ -1703,7 +1701,7 @@ typedef struct {
 /// The linker_option_command contains linker options embedded in object files.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   UINT32            NumberOfStrings;  ///< number of strings
   ///
   /// concatenation of zero terminated UTF8 strings.  Zero filled at end to
@@ -1722,7 +1720,7 @@ typedef struct {
 /// zeroed. (THIS IS OBSOLETE and no longer supported).
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   UINT32            Offset;  ///< symbol segment offset
   UINT32            Size;    ///< symbol segment size in bytes
 } MACH_SYMBOL_SEGMENT_COMMAND;
@@ -1734,7 +1732,7 @@ typedef struct {
 /// (THIS IS OBSOLETE and no longer supported).
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   CHAR8             Strings[];
 } MACH_IDENTIFICATION_COMMAND;
 
@@ -1745,7 +1743,7 @@ typedef struct {
 /// memory).
 ///
 typedef struct {
-  MACH_LOAD_COMMAND        Hdr;
+  MACH_LOAD_COMMAND_HDR_
   MACH_LOAD_COMMAND_STRING Name;           ///< files pathname
   UINT32                   HeaderAddress;  ///< files virtual address
 } MACH_FIXED_VM_FILE_COMMAND;
@@ -1757,7 +1755,7 @@ typedef struct {
 /// field will contain the stack size need for the main thread.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   UINT64            EntryOffset;  ///< file (__TEXT) offset of main()
   UINT64            StackSize;    ///< if not zero, initial stack size
 } MACH_ENTRY_POINT_COMMAND;
@@ -1779,7 +1777,7 @@ typedef struct {
 /// the version of the sources used to build the binary.
 ///
 typedef struct {
-  MACH_LOAD_COMMAND Hdr;
+  MACH_LOAD_COMMAND_HDR_
   UINT64            Version;  ///< A.B.C.D.E as a24.b10.c10.d10.e10
 } MACH_SOURCE_VERSION_COMMAND;
 
@@ -1817,6 +1815,8 @@ typedef union {
   CONST VOID                            *Pointer;
   UINTN                                 Address;
 } MACH_LOAD_COMMAND_PTR;
+
+#undef MACH_LOAD_COMMAND_HDR_
 
 ///
 /// The layout of the file depends on the filetype.  For all but the MH_OBJECT
