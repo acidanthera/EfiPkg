@@ -1474,7 +1474,7 @@ typedef struct {
 ///
 typedef struct {
   MACH_LOAD_COMMAND_HDR_
-  GUID              Uuid;  ///< the 128-bit uuid
+  UINT8 Uuid[16];  ///< the 128-bit uuid
 } MACH_UUID_COMMAND;
 
 ///
