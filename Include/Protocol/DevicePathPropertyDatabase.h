@@ -48,7 +48,7 @@ typedef struct {
   /// The size, in bytes, of the entire Buffer.
   ///
   UINT32                               Size;
-  UINT32                               MustBe1;
+  UINT32                               Version;
   ///
   /// The number of nodes in the Buffer.
   ///
@@ -93,8 +93,8 @@ EFI_STATUS
 (EFIAPI *DPP_DATABASE_GET_PROPERTY_VALUE)(
   IN     EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL  *This,
   IN     EFI_DEVICE_PATH_PROTOCOL                    *DevicePath,
-  IN     CHAR16                                      *Name,
-  OUT    VOID                                        *Value, OPTIONAL
+  IN     CONST CHAR16                                *Name,
+  OUT    VOID                                        *Value OPTIONAL,
   IN OUT UINTN                                       *Size
   );
 
@@ -116,7 +116,7 @@ EFI_STATUS
 (EFIAPI *DPP_DATABASE_SET_PROPERTY)(
   IN EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL  *This,
   IN EFI_DEVICE_PATH_PROTOCOL                    *DevicePath,
-  IN CHAR16                                      *Name,
+  IN CONST CHAR16                                *Name,
   IN VOID                                        *Value,
   IN UINTN                                       Size
   );
@@ -137,7 +137,7 @@ EFI_STATUS
 (EFIAPI *DPP_DATABASE_REMOVE_PROPERTY)(
   IN EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL  *This,
   IN EFI_DEVICE_PATH_PROTOCOL                    *DevicePath,
-  IN CHAR16                                      *Name
+  IN CONST CHAR16                                *Name
   );
 
 // DPP_DATABASE_GET_PROPERTY_BUFFER
@@ -159,7 +159,7 @@ typedef
 EFI_STATUS
 (EFIAPI *DPP_DATABASE_GET_PROPERTY_BUFFER)(
   IN     EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL  *This,
-  OUT    EFI_DEVICE_PATH_PROPERTY_BUFFER             *Buffer, OPTIONAL
+  OUT    EFI_DEVICE_PATH_PROPERTY_BUFFER             *Buffer OPTIONAL,
   IN OUT UINTN                                       *Size
   );
 
