@@ -68,7 +68,7 @@ typedef
 struct EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL
 EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL;
 
-// DPP_DATABASE_GET_PROPERTY_VALUE
+// DPP_DATABASE_GET_PROPERTY
 /** Locates a device property in the database and returns its value into Value.
 
   @param[in]      This        Protocol instance pointer.
@@ -90,7 +90,7 @@ EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL;
 **/
 typedef
 EFI_STATUS
-(EFIAPI *DPP_DATABASE_GET_PROPERTY_VALUE)(
+(EFIAPI *DPP_DATABASE_GET_PROPERTY)(
   IN     EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL  *This,
   IN     EFI_DEVICE_PATH_PROTOCOL                    *DevicePath,
   IN     CONST CHAR16                                *Name,
@@ -170,7 +170,7 @@ struct EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL {
   UINT64                           Revision;
 
   /// Locates a device property in the database and returns its value into Value.
-  DPP_DATABASE_GET_PROPERTY_VALUE  GetPropertyValue;
+  DPP_DATABASE_GET_PROPERTY        GetProperty;
 
   /// Sets the sepcified property of the given device path to the provided Value.
   DPP_DATABASE_SET_PROPERTY        SetProperty;
