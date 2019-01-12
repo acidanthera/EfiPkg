@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_APFS_INFO_H_
-#define APPLE_APFS_INFO_H_
+#ifndef APPLE_APFS_INFO_H
+#define APPLE_APFS_INFO_H
 
 #define APPLE_APFS_PARTITION_TYPE_GUID  \
   { 0x7C3457EF, 0x0000, 0x11AA,         \
@@ -48,4 +48,4 @@ typedef struct {
 
 extern EFI_GUID gAppleApfsVolumeInfoGuid;
 
-#endif // APPLE_APFS_H_
+#endif // APPLE_APFS_H

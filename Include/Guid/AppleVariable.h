@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_VARIABLE_H_
-#define APPLE_VARIABLE_H_
+#ifndef APPLE_VARIABLE_H
+#define APPLE_VARIABLE_H
 
 // APPLE_VENDOR_VARIABLE_GUID
 /// The Apple Vendor Variable-vendor GUID.
@@ -110,4 +110,4 @@ extern EFI_GUID gAppleNetbootVariableGuid;
 /// EFI variable  scope.
 extern EFI_GUID gAppleSecureBootVariableGuid;
 
-#endif // APPLE_VARIABLE_H_
+#endif // APPLE_VARIABLE_H

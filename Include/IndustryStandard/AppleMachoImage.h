@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_MACHO_IMAGE_H_
-#define APPLE_MACHO_IMAGE_H_
+#ifndef APPLE_MACHO_IMAGE_H
+#define APPLE_MACHO_IMAGE_H
 
 #define MACH_CPU_ARCH_ABI64     BIT24
 #define MACH_CPU_ARCH_ABI64_32  BIT25
@@ -2463,4 +2463,4 @@ enum {
   MachX8664RelocThreadLocalVariable  ///< for thread local variables
 };
 
-#endif // APPLE_MACHO_IMAGE_H_
+#endif // APPLE_MACHO_IMAGE_H

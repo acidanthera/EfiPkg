@@ -13,8 +13,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_IMAGE_CODEC_H_
-#define APPLE_IMAGE_CODEC_H_
+#ifndef APPLE_IMAGE_CODEC_H
+#define APPLE_IMAGE_CODEC_H
 
 #define APPLE_IMAGE_CODEC_PROTOCOL_GUID               \
   { 0x0DFCE9F6, 0xC4E3, 0x45EE,                       \
@@ -94,4 +94,4 @@ typedef struct APPLE_IMAGE_CODEC_PROTOCOL_
 
 extern EFI_GUID gAppleImageCodecProtocolGuid;
 
-#endif //APPLE_IMAGE_CODEC_H_
+#endif //APPLE_IMAGE_CODEC_H

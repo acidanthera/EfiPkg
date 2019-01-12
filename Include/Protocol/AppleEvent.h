@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_EVENT_H_
-#define APPLE_EVENT_H_
+#ifndef APPLE_EVENT_H
+#define APPLE_EVENT_H
 
 // Related definitions
 
@@ -165,4 +165,4 @@ typedef struct {
 // gAppleEventProtocolGuid
 extern EFI_GUID gAppleEventProtocolGuid;
 
-#endif // APPLE_EVENT_H_
+#endif // APPLE_EVENT_H

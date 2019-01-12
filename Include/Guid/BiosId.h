@@ -13,8 +13,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef BIOS_ID_H_
-#define BIOS_ID_H_
+#ifndef BIOS_ID_H
+#define BIOS_ID_H
 
 // EFI_BIOS_ID_GUID
 #define EFI_BIOS_ID_GUID         \
@@ -79,4 +79,4 @@ extern EFI_GUID gEfiBiosIdGuid;
 // gAppleRomInfoGuid
 extern EFI_GUID gAppleRomInfoGuid;
 
-#endif // BIOS_ID_H_
+#endif // BIOS_ID_H

@@ -9,8 +9,8 @@
   WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.             
 **/
 
-#ifndef HOT_PLUG_DEVICE_H_
-#define HOT_PLUG_DEVICE_H_
+#ifndef HOT_PLUG_DEVICE_H
+#define HOT_PLUG_DEVICE_H
 
 #define HOT_PLUG_DEVICE_GUID     \
   { 0x220AC432, 0x1D43, 0x49E5,  \
@@ -18,4 +18,4 @@
 
 extern EFI_GUID gEfiHotPlugDeviceGuid;
 
-#endif // HOT_PLUG_DEVICE_H_
+#endif // HOT_PLUG_DEVICE_H

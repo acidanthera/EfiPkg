@@ -15,8 +15,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef BIOS_ID_LIB_H_
-#define BIOS_ID_LIB_H_
+#ifndef BIOS_ID_LIB_H
+#define BIOS_ID_LIB_H
 
 // GetBiosVersionDateTime
 /** This function returns the Version & Release Date by getting and converting
@@ -41,4 +41,4 @@ GetRomInfo (
   OUT APPLE_ROM_INFO_STRING  *RomInfo
   );
 
-#endif // BIOS_ID_LIB_H_
+#endif // BIOS_ID_LIB_H

@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_SMBIOS_H_
-#define APPLE_SMBIOS_H_
+#ifndef APPLE_SMBIOS_H
+#define APPLE_SMBIOS_H
 
 #include <IndustryStandard/SmBios.h>
 
@@ -117,4 +117,4 @@ typedef union {
 
 #pragma pack ()
 
-#endif // APPLE_SMBIOS_H_
+#endif // APPLE_SMBIOS_H

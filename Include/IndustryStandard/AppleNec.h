@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_NEC_H_
-#define APPLE_NEC_H_
+#ifndef APPLE_NEC_H
+#define APPLE_NEC_H
 
 // https://en.wikipedia.org/wiki/Apple_Remote#Technical_details
 
@@ -79,4 +79,4 @@ typedef PACKED struct {
 
 #pragma pack ()
 
-#endif // APPLE_NEC_H_
+#endif // APPLE_NEC_H

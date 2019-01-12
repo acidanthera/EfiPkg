@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef EFI_OS_INFO_H_
-#define EFI_OS_INFO_H_
+#ifndef EFI_OS_INFO_H
+#define EFI_OS_INFO_H
 
 // EFI_OS_INFO_PROTOCOL_REVISION
 #define EFI_OS_INFO_PROTOCOL_REVISION  0x00000003
@@ -61,4 +61,4 @@ typedef struct {
 // gEfiOSInfoProtocolGuid
 extern EFI_GUID gEfiOSInfoProtocolGuid;
 
-#endif // EFI_OS_INFO_H_
+#endif // EFI_OS_INFO_H

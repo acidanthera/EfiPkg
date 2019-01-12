@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_DATA_HUB_H_
-#define APPLE_DATA_HUB_H_
+#ifndef APPLE_DATA_HUB_H
+#define APPLE_DATA_HUB_H
 
 #include <Guid/DataHubRecords.h>
 
@@ -147,4 +147,4 @@ extern EFI_GUID gAppleStartupPowerEventsDataRecordGuid;
 // gAppleCoprocessorVersionDataRecordGuid
 extern EFI_GUID gAppleCoprocessorVersionDataRecordGuid;
 
-#endif // APPLE_DATA_HUB_H_
+#endif // APPLE_DATA_HUB_H

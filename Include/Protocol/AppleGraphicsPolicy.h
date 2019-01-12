@@ -15,8 +15,8 @@
  
  --*/
 
-#ifndef APPLE_GRAPHICS_POLICY_H_
-#define APPLE_GRAPHICS_POLICY_H_
+#ifndef APPLE_GRAPHICS_POLICY_H
+#define APPLE_GRAPHICS_POLICY_H
 
 #define APPLE_GRAPHICS_POLICY_PROTCOL_GUID                \
   { 0xA4BB4654, 0x9F72, 0x4BC8,                           \
@@ -94,4 +94,4 @@ struct APPLE_GRAPHICS_POLICY_PROTOCOL {
 
 extern EFI_GUID gAppleGraphicsPolicyProtocolGuid;
 
-#endif // APPLE_GRAPHICS_POLICY_H_
+#endif // APPLE_GRAPHICS_POLICY_H

@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_DATA_HUB_LIB_H_
-#define APPLE_DATA_HUB_LIB_H_
+#ifndef APPLE_DATA_HUB_LIB_H
+#define APPLE_DATA_HUB_LIB_H
 
 // DataHubLogData
 VOID
@@ -31,4 +31,4 @@ DataHubLogApplePlatformData (
   IN UINTN     ValueSize
   );
 
-#endif // APPLE_DATA_HUB_LIB_H_
+#endif // APPLE_DATA_HUB_LIB_H

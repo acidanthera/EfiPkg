@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_HOB_H_
-#define APPLE_HOB_H_
+#ifndef APPLE_HOB_H
+#define APPLE_HOB_H
 
 // APPLE_DEBUG_MASK_HOB_GUID
 #define APPLE_DEBUG_MASK_HOB_GUID  \
@@ -69,4 +69,4 @@ extern EFI_GUID gAppleHob2Guid;
 // gAppleHob1Guid
 extern EFI_GUID gAppleHob3Guid;
 
-#endif //ifndef APPLE_HOB_H_
+#endif //ifndef APPLE_HOB_H

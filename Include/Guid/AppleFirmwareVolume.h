@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_FIRMWARE_VOLUME_H_
-#define APPLE_FIRMWARE_VOLUME_H_
+#ifndef APPLE_FIRMWARE_VOLUME_H
+#define APPLE_FIRMWARE_VOLUME_H
 
 // APPLE_IMAGE_LIST_GUID
 /// The Apple Image List GUID.
@@ -336,4 +336,4 @@ extern EFI_GUID gAppleGlobeBorderImageGuid;
 // gAppleGlobeMaskImageGuid
 extern EFI_GUID gAppleGlobeMaskImageGuid;
 
-#endif // APPLE_FIRMWARE_VOLUME_H_
+#endif // APPLE_FIRMWARE_VOLUME_H

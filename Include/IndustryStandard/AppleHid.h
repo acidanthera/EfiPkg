@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_HID_H_
-#define APPLE_HID_H_
+#ifndef APPLE_HID_H
+#define APPLE_HID_H
 
 #include <IndustryStandard/UsbHid.h>
 
@@ -313,4 +313,4 @@ enum {
 // APPLE_KEY_CODE
 typedef APPLE_HID_USAGE APPLE_KEY_CODE;
 
-#endif // APPLE_HID_H_
+#endif // APPLE_HID_H

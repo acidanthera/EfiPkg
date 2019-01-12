@@ -13,8 +13,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef USB_HID_H_
-#define USB_HID_H_
+#ifndef USB_HID_H
+#define USB_HID_H
 
 // USB HID Generic
 
@@ -562,4 +562,4 @@ enum {
   UsbHidUsageKbKpModifierKeyRightCommand = USB_HID_KB_KP_USAGE (UsbHidUsageIdKbKpModifierKeyRightGui)
 };
 
-#endif // USB_HID_H_
+#endif // USB_HID_H

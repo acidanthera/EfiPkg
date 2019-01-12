@@ -44,8 +44,8 @@
   POSSIBILITY OF SUCH DAMAGE.
 **/
 
-#ifndef APPLE_REMOVABLE_MEDIA_H_
-#define APPLE_REMOVABLE_MEDIA_H_
+#ifndef APPLE_REMOVABLE_MEDIA_H
+#define APPLE_REMOVABLE_MEDIA_H
 
 // APPLE_REMOVABLE_MEDIA_PROTOCOL_GUID
 /// Global Id for Removable_Media Interface
@@ -143,4 +143,4 @@ typedef struct APPLE_REMOVABLE_MEDIA_PROTOCOL {
 
 extern EFI_GUID gAppleRemovableMediaProtocolGuid;
 
-#endif // APPLE_REMOVABLE_MEDIA_H_
+#endif // APPLE_REMOVABLE_MEDIA_H

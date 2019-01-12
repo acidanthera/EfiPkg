@@ -43,8 +43,8 @@
   POSSIBILITY OF SUCH DAMAGE.
 **/
 
-#ifndef TDM_APPROVED_GUID_H_
-#define TDM_APPROVED_GUID_H_
+#ifndef TDM_APPROVED_GUID_H
+#define TDM_APPROVED_GUID_H
 
 #define TDM_APPROVED_GUID        \
 	{ 0x5C38EA59, 0x554B, 0x431C,  \
@@ -52,4 +52,4 @@
 
 extern EFI_GUID gTDMApprovedGuid;
 
-#endif // TDM_APPROVED_GUID_H_
+#endif // TDM_APPROVED_GUID_H

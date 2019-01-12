@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_BOOT_BEEP_GEN_H_
-#define APPLE_BOOT_BEEP_GEN_H_
+#ifndef APPLE_BOOT_BEEP_GEN_H
+#define APPLE_BOOT_BEEP_GEN_H
 
 // APPLE_BOOT_BEEP_GEN_PROTOCOL_GUID
 #define APPLE_BOOT_BEEP_GEN_PROTOCOL_GUID                 \
@@ -36,4 +36,4 @@ typedef struct {
 // gAppleBootBeepGenProtocolGuid
 extern EFI_GUID gAppleBootBeepGenProtocolGuid;
 
-#endif // APPLE_BOOT_BEEP_GEN_H_
+#endif // APPLE_BOOT_BEEP_GEN_H

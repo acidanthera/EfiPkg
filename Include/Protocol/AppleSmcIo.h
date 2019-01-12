@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_SMC_IO_H_
-#define APPLE_SMC_IO_H_
+#ifndef APPLE_SMC_IO_H
+#define APPLE_SMC_IO_H
 
 #include <IndustryStandard/AppleSmc.h>
 
@@ -191,4 +191,4 @@ struct APPLE_SMC_IO_PROTOCOL {
 // gAppleSmcIoProtocolGuid
 extern EFI_GUID gAppleSmcIoProtocolGuid;
 
-#endif // APPLE_SMC_IO_H_
+#endif // APPLE_SMC_IO_H

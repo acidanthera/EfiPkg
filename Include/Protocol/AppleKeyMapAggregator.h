@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_KEY_MAP_AGGREGATOR_H_
-#define APPLE_KEY_MAP_AGGREGATOR_H_
+#ifndef APPLE_KEY_MAP_AGGREGATOR_H
+#define APPLE_KEY_MAP_AGGREGATOR_H
 
 #include <IndustryStandard/AppleHid.h>
 
@@ -91,4 +91,4 @@ struct APPLE_KEY_MAP_AGGREGATOR_PROTOCOL {
 // gAppleKeyMapAggregatorProtocolGuid
 extern EFI_GUID gAppleKeyMapAggregatorProtocolGuid;
 
-#endif // APPLE_KEY_MAP_AGGREGATOR_H_
+#endif // APPLE_KEY_MAP_AGGREGATOR_H

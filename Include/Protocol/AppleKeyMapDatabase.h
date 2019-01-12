@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_KEY_MAP_DATABASE_H_
-#define APPLE_KEY_MAP_DATABASE_H_
+#ifndef APPLE_KEY_MAP_DATABASE_H
+#define APPLE_KEY_MAP_DATABASE_H
 
 #include <IndustryStandard/AppleHid.h>
 
@@ -103,4 +103,4 @@ struct APPLE_KEY_MAP_DATABASE_PROTOCOL {
 // gAppleKeyMapDatabaseProtocolGuid
 extern EFI_GUID gAppleKeyMapDatabaseProtocolGuid;
 
-#endif // APPLE_KEY_MAP_DATABASE_H_
+#endif // APPLE_KEY_MAP_DATABASE_H

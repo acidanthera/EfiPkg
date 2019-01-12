@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_FILE_H_
-#define APPLE_FILE_H_
+#ifndef APPLE_FILE_H
+#define APPLE_FILE_H
 
 // APPLE_FILE_1_GUID
 #define APPLE_FILE_1_GUID        \
@@ -45,4 +45,4 @@ extern EFI_GUID gApplePasswordUIFileGuid;
 
 extern EFI_GUID gAppleUTDMUIAppFileGuid;
 
-#endif // APPLE_FILE_H_
+#endif // APPLE_FILE_H

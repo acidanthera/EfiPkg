@@ -15,8 +15,8 @@
  
  --*/
 
-#ifndef APPLE_GRAPHICS_DRIVER_H_
-#define APPLE_GRAPHICS_DRIVER_H_
+#ifndef APPLE_GRAPHICS_DRIVER_H
+#define APPLE_GRAPHICS_DRIVER_H
 
 #define APPLE_GRAPHICS_DRIVER_PROTOCOL_GUID               \
   { 0xDD8E06AC, 0x00E2, 0x49A9,                           \
@@ -70,4 +70,4 @@ struct APPLE_GRAPHICS_DRIVER_PROTOCOL {
 
 extern EFI_GUID gAppleGraphicsDriverProtocolGuid;
 
-#endif // APPLE_GRAPHICS_DRIVER_H_
+#endif // APPLE_GRAPHICS_DRIVER_H

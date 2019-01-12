@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_EVENT_LIB_H_
-#define APPLE_EVENT_LIB_H_
+#ifndef APPLE_EVENT_LIB_H
+#define APPLE_EVENT_LIB_H
 
 // EventLibCreateTimerEvent
 EFI_EVENT
@@ -38,4 +38,4 @@ EventLibCancelEvent (
   IN EFI_EVENT  Event
   );
 
-#endif // APPLE_EVENT_LIB_H_
+#endif // APPLE_EVENT_LIB_H
