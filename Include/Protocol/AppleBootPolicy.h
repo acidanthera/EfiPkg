@@ -53,11 +53,17 @@ EFI_STATUS
   IN OUT EFI_DEVICE_PATH_PROTOCOL  **FilePath
   );
 
+//
+// Neither is used at this moment.
+//
+#define BOOT_POLICY_GET_BOOT_FILE_MODE_UNKNOWN_1 1
+#define BOOT_POLICY_GET_BOOT_FILE_MODE_UNKNOWN_3 3
+
 typedef
 EFI_STATUS
 (EFIAPI *BOOT_POLICY_GET_BOOT_FILE_EX)(
   IN  EFI_HANDLE                Device,
-  IN  UINT32                    Unused OPTIONAL,
+  IN  UINT32                    Mode,
   OUT EFI_DEVICE_PATH_PROTOCOL  **FilePath
   );
 
@@ -77,7 +83,7 @@ EFI_STATUS
   IN  CONST CHAR16              *PathName,
   OUT CHAR16                    **FullPathName,
   OUT UINTN                     *Unknown,
-  IN  EFI_FILE_PROTOCOL         **Root,
+  OUT EFI_FILE_PROTOCOL         **Root,
   OUT EFI_HANDLE                *DeviceHandle
   );
 
