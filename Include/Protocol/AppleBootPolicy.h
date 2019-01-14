@@ -48,7 +48,7 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 **/
 typedef
 EFI_STATUS
-(EFIAPI *BOOT_POLICY_GET_BOOT_FILE)(
+(EFIAPI *BOOT_POLICY_GET_BOOT_FILE) (
   IN     EFI_HANDLE                Device,
   IN OUT EFI_DEVICE_PATH_PROTOCOL  **FilePath
   );
@@ -61,7 +61,7 @@ EFI_STATUS
 
 typedef
 EFI_STATUS
-(EFIAPI *BOOT_POLICY_GET_BOOT_FILE_EX)(
+(EFIAPI *BOOT_POLICY_GET_BOOT_FILE_EX) (
   IN  EFI_HANDLE                Device,
   IN  UINT32                    Mode,
   OUT EFI_DEVICE_PATH_PROTOCOL  **FilePath
@@ -69,7 +69,7 @@ EFI_STATUS
 
 typedef
 EFI_STATUS
-(EFIAPI *BOOT_POLICY_GET_BOOT_INFO)(
+(EFIAPI *BOOT_POLICY_GET_BOOT_INFO) (
   IN  EFI_DEVICE_PATH_PROTOCOL  *DevicePath,
   OUT CHAR16                    **BootPathName,
   OUT EFI_HANDLE                *Device,
@@ -78,18 +78,18 @@ EFI_STATUS
 
 typedef
 EFI_STATUS
-(EFIAPI *BOOT_POLICY_GET_PATH_NAME_ON_APFS_RECOVERY)(
+(EFIAPI *BOOT_POLICY_GET_PATH_NAME_ON_APFS_RECOVERY) (
   IN  EFI_DEVICE_PATH_PROTOCOL  *DevicePath,
   IN  CONST CHAR16              *PathName,
   OUT CHAR16                    **FullPathName,
-  OUT UINTN                     *Unknown,
+  OUT VOID                      **Reserved,
   OUT EFI_FILE_PROTOCOL         **Root,
   OUT EFI_HANDLE                *DeviceHandle
   );
 
 typedef
 EFI_STATUS
-(EFIAPI *BOOT_POLICY_GET_APFS_RECOVERY_VOLUMES)(
+(EFIAPI *BOOT_POLICY_GET_APFS_RECOVERY_VOLUMES) (
   IN  EFI_HANDLE  Handle,
   OUT VOID        **Volumes,
   OUT UINTN       *NumberOfEntries
