@@ -56,8 +56,8 @@ EFI_STATUS
 //
 // Neither is used at this moment.
 //
-#define BOOT_POLICY_GET_BOOT_FILE_MODE_UNKNOWN_1 1
-#define BOOT_POLICY_GET_BOOT_FILE_MODE_UNKNOWN_3 3
+#define APPLE_BOOT_POLICY_MODE_1 1
+#define APPLE_BOOT_POLICY_MODE_3 3
 
 typedef
 EFI_STATUS
