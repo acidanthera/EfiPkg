@@ -13,28 +13,28 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 **/
 
-#ifndef APPLE_IMAGE_CODEC_H
-#define APPLE_IMAGE_CODEC_H
+#ifndef APPLE_IMAGE_CONVERSION_H
+#define APPLE_IMAGE_CONVERSION_H
 
-#define APPLE_IMAGE_CODEC_PROTOCOL_GUID               \
+#define APPLE_IMAGE_CONVERSION_PROTOCOL_GUID          \
   { 0x0DFCE9F6, 0xC4E3, 0x45EE,                       \
     {0xA0, 0x6A, 0xA8, 0x61, 0x3B, 0x98, 0xA5, 0x07 } }
 
 //
 // Protocol revision
 //
-#define APPLE_IMAGE_CODEC_PROTOCOL_REVISION 0x20000
+#define APPLE_IMAGE_CONVERSION_PROTOCOL_REVISION 0x20000
 
 //
 // Generic protocol extension capable of opening any file,
 // possibly by chainloading other files
 //
-#define APPLE_IMAGE_CODEC_PROTOCOL_ANY_EXTENSION 0
+#define APPLE_IMAGE_CONVERSION_PROTOCOL_ANY_EXTENSION 0
 
 //
 // Interface version for Ver-suffixed functions
 //
-#define APPLE_IMAGE_CODEC_PROTOCOL_INTERFACE_V1 1
+#define APPLE_IMAGE_CONVERSION_PROTOCOL_INTERFACE_V1 1
 
 typedef
 EFI_STATUS
@@ -81,7 +81,7 @@ EFI_STATUS
      OUT UINTN           *RawImageDataSize
   );
 
-typedef struct APPLE_IMAGE_CODEC_PROTOCOL_
+typedef struct APPLE_IMAGE_CONVERSION_PROTOCOL_
 {
   UINT64                 Revision;
   UINTN                  FileExt;
@@ -90,8 +90,8 @@ typedef struct APPLE_IMAGE_CODEC_PROTOCOL_
   DECODE_IMAGE_DATA      DecodeImageData;
   GET_IMAGE_DIMS_VER     GetImageDimsVer;
   DECODE_IMAGE_DATA_VER  DecodeImageDataVer;
-} APPLE_IMAGE_CODEC_PROTOCOL;
+} APPLE_IMAGE_CONVERSION_PROTOCOL;
 
-extern EFI_GUID gAppleImageCodecProtocolGuid;
+extern EFI_GUID gAppleImageConversionProtocolGuid;
 
-#endif //APPLE_IMAGE_CODEC_H
+#endif //APPLE_IMAGE_CONVERSION_H
