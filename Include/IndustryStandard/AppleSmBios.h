@@ -76,7 +76,7 @@ enum {
   AppleProcessorClassM7 = 14
 };
 
-typedef UINT8 APPLE_PROCESSOR_TYPE[2];
+typedef UINT16 APPLE_PROCESSOR_TYPE;
 
 // APPLE_SMBIOS_TABLE_TYPE131
 typedef PACKED struct {
