@@ -78,6 +78,11 @@ typedef struct {
 //   CONST CHAR8  *TechnicalName;
 // } PROCESSOR_INFO;
 //
+// The cpu types listed here originate from AppleSystemInfo.framework and are not
+// complete per se. The match of a certain CPU is firstly done by MajorType and
+// NumberOfCores, and MinorType does not need to be match. For a more complete
+// table refer to AppleProcessorType enum, which is built based on Mac dumps.
+//
 // <0201> 01 cores  Intel Core Solo                Intel Core Solo
 // <0201> 02 cores  Intel Core Duo                 Intel Core Duo
 // <0301> 01 cores  Intel Core 2 Solo              Intel Core 2 Solo
@@ -134,6 +139,32 @@ typedef struct {
 // <0F01> 18 cores  Intel Xeon W                   Intel Xeon W
 // <1001> 06 cores  Intel Core i9                  Intel Core i9
 //
+
+//
+// Apple Processor Type Information - Processor Types.
+//
+enum {
+  AppleProcessorTypeCore2Solo   = 0x0201,
+  AppleProcessorTypeCore2Duo    = 0x0301,
+  AppleProcessorTypeXeonQuad    = 0x0402,
+  AppleProcessorTypeXeon        = 0x0501,
+  AppleProcessorTypeCorei5      = 0x0601,
+  AppleProcessorTypeCorei7      = 0x0701,
+  AppleProcessorTypeCorei3      = 0x0901,
+  AppleProcessorTypeGen2Corei5m = 0x0602,
+  AppleProcessorTypeGen2Corei7m = 0x0702,
+  AppleProcessorTypeGen2Corei3m = 0x0901,
+  AppleProcessorTypeGen2Corei5  = 0x0603,
+  AppleProcessorTypeGen2Corei7  = 0x0703,
+  AppleProcessorTypeGen2Corei3  = 0x0903,
+  AppleProcessorTypeGen3Corei5m = 0x0604,
+  AppleProcessorTypeGen3Corei7m = 0x0704,
+  AppleProcessorTypeGen3Corei3m = 0x0904,
+  AppleProcessorTypeGen3Corei5  = 0x0605,
+  AppleProcessorTypeGen3Corei7  = 0x0705,
+  AppleProcessorTypeGen3Corei3  = 0x0905,
+  AppleProcessorTypeGen3Xeon    = 0x0A01
+};
 
 // APPLE_PROCESSOR_TYPE_CLASS
 
