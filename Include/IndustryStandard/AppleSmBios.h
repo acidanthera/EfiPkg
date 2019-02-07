@@ -80,7 +80,7 @@ typedef struct {
 //
 // The cpu types listed here originate from AppleSystemInfo.framework and are not
 // complete per se. The match of a certain CPU is firstly done by MajorType and
-// NumberOfCores, and MinorType does not need to be match. For a more complete
+// NumberOfCores, and MinorType does not need to match. For a more complete
 // table refer to AppleProcessorType enum, which is built based on Mac dumps.
 //
 // <0201> 01 cores  Intel Core Solo                Intel Core Solo
@@ -139,36 +139,81 @@ typedef struct {
 // <0F01> 18 cores  Intel Xeon W                   Intel Xeon W
 // <1001> 06 cores  Intel Core i9                  Intel Core i9
 //
+// Also see here for a list of CPUs used on Mac models:
+// https://docs.google.com/spreadsheets/d/1x09b5-DGh8ozNwN5ZjAi7TMnOp4TDm6DbmrKu86i_bQ
+//
 
 //
 // Apple Processor Type Information - Processor Types.
 //
 enum {
-  AppleProcessorTypeCore2Solo   = 0x0201,
-  AppleProcessorTypeCore2Duo    = 0x0301,
-  AppleProcessorTypeXeonQuad    = 0x0402,
-  AppleProcessorTypeXeon        = 0x0501,
-  AppleProcessorTypeCorei5      = 0x0601,
-  AppleProcessorTypeCorei7      = 0x0701,
-  AppleProcessorTypeCorei3      = 0x0901,
-  AppleProcessorTypeGen2Corei5m = 0x0602,
-  AppleProcessorTypeGen2Corei7m = 0x0702,
-  AppleProcessorTypeGen2Corei3m = 0x0901,
-  AppleProcessorTypeGen2Corei5  = 0x0603,
-  AppleProcessorTypeGen2Corei7  = 0x0703,
-  AppleProcessorTypeGen2Corei3  = 0x0903,
-  AppleProcessorTypeGen3Corei5m = 0x0604,
-  AppleProcessorTypeGen3Corei7m = 0x0704,
-  AppleProcessorTypeGen3Corei3m = 0x0904,
-  AppleProcessorTypeGen3Corei5  = 0x0605,
-  AppleProcessorTypeGen3Corei7  = 0x0705,
-  AppleProcessorTypeGen3Corei3  = 0x0905,
-  AppleProcessorTypeGen3Xeon    = 0x0A01
+  AppleProcessorTypeCoreSolo        = 0x0201,
+  AppleProcessorTypeCore2DuoType1   = 0x0301,
+  AppleProcessorTypeCore2DuoType2   = 0x0302,
+  AppleProcessorTypeXeonPenrynType1 = 0x0401, // may not be used
+  AppleProcessorTypeXeonPenrynType2 = 0x0402,
+  AppleProcessorTypeXeon            = 0x0501,
+  AppleProcessorTypeXeonE5          = 0x0A01,
+  
+  AppleProcessorTypeCorei5Type1     = 0x0601,
+  AppleProcessorTypeCorei7Type1     = 0x0701,
+  AppleProcessorTypeCorei3Type1     = 0x0901,
+  
+  AppleProcessorTypeCorei5Type2     = 0x0602,
+  AppleProcessorTypeCorei7Type2     = 0x0702,
+  AppleProcessorTypeCorei3Type2     = 0x0902,
+  
+  AppleProcessorTypeCorei5Type3     = 0x0603,
+  AppleProcessorTypeCorei7Type3     = 0x0703,
+  AppleProcessorTypeCorei3Type3     = 0x0903,
+  
+  AppleProcessorTypeCorei5Type4     = 0x0604,
+  AppleProcessorTypeCorei7Type4     = 0x0704,
+  AppleProcessorTypeCorei3Type4     = 0x0904,
+  
+  AppleProcessorTypeCorei5Type5     = 0x0605,
+  AppleProcessorTypeCorei7Type5     = 0x0705,
+  AppleProcessorTypeCorei3Type5     = 0x0905,
+  
+  AppleProcessorTypeCorei5Type6     = 0x0606, // i5 5250U (IMac16,1), i5 5675R (IMac16,2), i5 5257U (MacBookPro12,1)
+  AppleProcessorTypeCorei7Type6     = 0x0706, // ideal value for Broadwell i7, need confirmation
+  AppleProcessorTypeCorei3Type6     = 0x0906, // ideal value for Broadwell i3, need confirmation
+  
+  // placeholder for i5Type7 (maybe 0x0607 ???)
+  AppleProcessorTypeCorei7Type7     = 0x0707, // i7 6700HQ (MacBookPro13,3)
+  // placeholder for i3Type7 (maybe 0x0907 ???)
+  
+  AppleProcessorTypeCorei5Type8     = 0x0608, // i5 8210Y (MacBookAir8,1)
+  // placeholder for i7Type8 (maybe 0x0708 ???)
+  // placeholder for i3Type8 (maybe 0x0908 ???)
+  
+  AppleProcessorTypeCorei5Type9     = 0x0609, // i5 8259U (MacBookPro15,2)
+  AppleProcessorTypeCorei7Type9     = 0x0709, // i7 8850H (MacBookPro15,1)
+  // placeholder for i3Type9 (maybe 0x0909 ???)
+  
+  AppleProcessorTypeCoreMType1      = 0x0B01, // may not be used
+  AppleProcessorTypeCoreMType6      = 0x0B06, // M 5Y51 (MacBook8,1)
+
+  AppleProcessorTypeCoreM3Type1     = 0x0C01, // may not be used
+  AppleProcessorTypeCoreM3Type7     = 0x0C07, // m3-7Y32 (MacBook10,1)
+
+  AppleProcessorTypeCoreM5Type1     = 0x0D01, // may not be used
+  AppleProcessorTypeCoreM5Type7     = 0x0D07, // m5-6Y54 (MacBook9,1)
+
+  AppleProcessorTypeCoreM7Type1     = 0x0E01, // may not be used
+  AppleProcessorTypeCoreM7Type7     = 0x0E07, // might be used on Core m7 (SKL), need confirmation
+
+  AppleProcessorTypeXeonW           = 0x0F01, // iMacPro1,1
+  
+  AppleProcessorTypeCorei9Type1     = 0x1001, // may not be used
+  AppleProcessorTypeCorei9Type5     = 0x1005, // SKL-X i9, most likely to be invalid!
+  AppleProcessorTypeCorei9Type9     = 0x1009  // ideal value for Coffee Lake i9, need confirmation
 };
 
 // APPLE_PROCESSOR_TYPE_CLASS
 
 enum {
+  AppleProcessorMajorUnknown     = 0x00,
   AppleProcessorMajorCore        = 0x02,
   AppleProcessorMajorCore2       = 0x03,
   AppleProcessorMajorXeonPenryn  = 0x04,
