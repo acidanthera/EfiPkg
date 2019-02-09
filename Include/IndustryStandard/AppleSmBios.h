@@ -175,7 +175,7 @@ enum {
   AppleProcessorTypeCorei7Type5     = 0x0705,
   AppleProcessorTypeCorei3Type5     = 0x0905,
   
-  AppleProcessorTypeCorei5Type6     = 0x0606, // i5 5250U (IMac16,1), i5 5675R (IMac16,2), i5 5257U (MacBookPro12,1)
+  AppleProcessorTypeCorei5Type6     = 0x0606, // i5 5250U (iMac16,1, MacBookAir7,1 and 7,2), i5 5675R (iMac16,2), i5 5257U (MacBookPro12,1)
   AppleProcessorTypeCorei7Type6     = 0x0706, // ideal value for Broadwell i7, need confirmation
   AppleProcessorTypeCorei3Type6     = 0x0906, // ideal value for Broadwell i3, need confirmation
   
@@ -187,7 +187,7 @@ enum {
   // placeholder for i7Type8 (maybe 0x0708 ???)
   // placeholder for i3Type8 (maybe 0x0908 ???)
   
-  AppleProcessorTypeCorei5Type9     = 0x0609, // i5 8259U (MacBookPro15,2)
+  AppleProcessorTypeCorei5Type9     = 0x0609, // i5 8259U (MacBookPro15,2), i5 8500B (Macmini8,1)
   AppleProcessorTypeCorei7Type9     = 0x0709, // i7 8850H (MacBookPro15,1)
   // placeholder for i3Type9 (maybe 0x0909 ???)
   
