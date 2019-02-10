@@ -94,7 +94,7 @@ typedef struct APPLE_DISK_IMAGE_BLOCK_DATA_ {
     APPLE_DISK_IMAGE_CHECKSUM   Checksum;
 
     UINT32                      ChunkCount;
-    APPLE_DISK_IMAGE_CHUNK      Chunks[0];
+    APPLE_DISK_IMAGE_CHUNK      Chunks[];
 } APPLE_DISK_IMAGE_BLOCK_DATA;
 
 //
