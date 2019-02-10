@@ -41,25 +41,19 @@
 //
 // Disk image checksum type.
 //
-enum {
-    AppleDiskImageChecksumTypeCrc32 = 0x00000002
-};
-typedef UINT32 APPLE_DISK_IMAGE_CHECKSUM_TYPE;
+#define APPLE_DISK_IMAGE_CHECKSUM_TYPE_CRC32    0x00000002
 
 //
 // Disk image chunk type.
 //
-enum {
-    AppleDiskImageChunkTypeZero     = 0x0,
-    AppleDiskImageChunkTypeRaw      = 0x1,
-    AppleDiskImageChunkTypeIgnore   = 0x2,
-    AppleDiskImageChunkTypeAdc      = 0x80000004,
-    AppleDiskImageChunkTypeZlib     = 0x80000005,
-    AppleDiskImageChunkTypeBz2      = 0x80000006,
-    AppleDiskImageChunkTypeComment  = 0x7FFFFFFE,
-    AppleDiskImageChunkTypeLast     = 0xFFFFFFFF
-};
-typedef UINT32 APPLE_DISK_IMAGE_CHUNK_TYPE;
+#define APPLE_DISK_IMAGE_CHUNK_TYPE_ZERO        0x00000000
+#define APPLE_DISK_IMAGE_CHUNK_TYPE_RAW         0x00000001
+#define APPLE_DISK_IMAGE_CHUNK_TYPE_IGNORE      0x00000002
+#define APPLE_DISK_IMAGE_CHUNK_TYPE_ADC         0x80000004
+#define APPLE_DISK_IMAGE_CHUNK_TYPE_ZLIB        0x80000005
+#define APPLE_DISK_IMAGE_CHUNK_TYPE_BZ2         0x80000006
+#define APPLE_DISK_IMAGE_CHUNK_TYPE_COMMENT     0x7FFFFFFE
+#define APPLE_DISK_IMAGE_CHUNK_TYPE_LAST        0xFFFFFFFF
 
 #pragma pack(push, 1)
 
@@ -67,21 +61,21 @@ typedef UINT32 APPLE_DISK_IMAGE_CHUNK_TYPE;
 // Disk image checksum.
 //
 typedef struct APPLE_DISK_IMAGE_CHECKSUM_ {
-    APPLE_DISK_IMAGE_CHECKSUM_TYPE  Type;
-    UINT32                          Size;
-    UINT32                          Data[APPLE_DISK_IMAGE_CHECKSUM_SIZE];
+    UINT32  Type;
+    UINT32  Size;
+    UINT32  Data[APPLE_DISK_IMAGE_CHECKSUM_SIZE];
 } APPLE_DISK_IMAGE_CHECKSUM;
 
 //
 // Disk image chunk (in XML).
 //
 typedef struct APPLE_DISK_IMAGE_CHUNK_ {
-    APPLE_DISK_IMAGE_CHUNK_TYPE Type;
-    UINT32                      Comment;
-    UINT64                      SectorNumber;
-    UINT64                      SectorCount;
-    UINT64                      CompressedOffset;
-    UINT64                      CompressedLength;
+    UINT32  Type;
+    UINT32  Comment;
+    UINT64  SectorNumber;
+    UINT64  SectorCount;
+    UINT64  CompressedOffset;
+    UINT64  CompressedLength;
 } APPLE_DISK_IMAGE_CHUNK;
 
 //
