@@ -147,6 +147,7 @@ typedef struct {
 // Apple Processor Type Information - Processor Types.
 //
 enum {
+  AppleProcessorTypeUnknown         = 0x0000,
   AppleProcessorTypeCoreSolo        = 0x0201,
   AppleProcessorTypeCore2DuoType1   = 0x0301,
   AppleProcessorTypeCore2DuoType2   = 0x0302,
