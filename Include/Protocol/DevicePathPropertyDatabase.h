@@ -25,17 +25,20 @@ typedef struct {
   UINT8  Data[];
 } EFI_DEVICE_PATH_PROPERTY_DATA;
 
+// DEVICE_PATH_PROPERTY_BUFFER_NODE_HDR
+/// The node header structure.
+typedef struct {
+  UINT32 Size;                /// The size, in bytes, of the entire node.
+  UINT32 NumberOfProperties;  /// The number of properties within this node.
+} EFI_DEVICE_PATH_PROPERTY_BUFFER_NODE_HDR;
+
 // DEVICE_PATH_PROPERTY_BUFFER_NODE
 /// The structure defining the header of a Device Property node.
 typedef struct {
   /// The node header structure.
-  struct {
-    UINT32 Size;                /// The size, in bytes, of the entire node.
-    UINT32 NumberOfProperties;  /// The number of properties within this node.
-  }                             Hdr;
-
+  EFI_DEVICE_PATH_PROPERTY_BUFFER_NODE_HDR  Hdr;
   /// The device path for the current node.
-  EFI_DEVICE_PATH_PROTOCOL      DevicePath;
+  EFI_DEVICE_PATH_PROTOCOL                   DevicePath;
 
 ///// The begin of the Device Property data set.
 //EFI_DEVICE_PATH_PROPERTY_DATA Data;
