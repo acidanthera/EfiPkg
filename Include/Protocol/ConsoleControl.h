@@ -45,7 +45,7 @@ EFI_STATUS
 (EFIAPI *EFI_CONSOLE_CONTROL_PROTOCOL_GET_MODE) (
   IN  EFI_CONSOLE_CONTROL_PROTOCOL     *This,
   OUT EFI_CONSOLE_CONTROL_SCREEN_MODE  *Mode,
-  OUT BOOLEAN                          *GopUgaExists, OPTIONAL  
+  OUT BOOLEAN                          *GopUgaExists OPTIONAL,
   OUT BOOLEAN                          *StdInLocked OPTIONAL
   );
 
