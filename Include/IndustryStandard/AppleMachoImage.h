@@ -1114,9 +1114,8 @@ typedef struct {
 } MACH_X86_THREAD_STATE64;
 
 typedef union {
-  MACH_X86_THREAD_STATE32 *State32;
-  MACH_X86_THREAD_STATE64 *State64;
-  VOID                    *Pointer;
+  MACH_X86_THREAD_STATE32 State32;
+  MACH_X86_THREAD_STATE64 State64;
 } MACH_X86_THREAD_STATE;
 
 ///
