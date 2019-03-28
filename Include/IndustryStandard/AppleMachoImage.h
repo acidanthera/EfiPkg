@@ -1426,6 +1426,16 @@ typedef struct {
   UINT32 NumOfLocalRelocations;  ///< number of local relocation entries
 } MACH_DYSYMTAB_COMMAND;
 
+//
+// An indirect symbol table entry is simply a 32bit index into the symbol table
+// to the symbol that the pointer or stub is refering to.  Unless it is for a
+// non-lazy symbol pointer section for a defined symbol which strip(1) as
+// removed.  In which case it has the value INDIRECT_SYMBOL_LOCAL.  If the
+// symbol was also absolute INDIRECT_SYMBOL_ABS is or'ed with that.
+//
+#define MACH_INDIRECT_SYMBOL_LOCAL  0x80000000U
+#define MACH_INDIRECT_SYMBOL_ABS    0x40000000U
+
 ///
 /// The entries in the two-level namespace lookup hints table are twolevel_hint
 /// structs.  These provide hints to the dynamic link editor where to start
