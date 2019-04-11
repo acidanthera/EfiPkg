@@ -21,9 +21,9 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 //   uint32_t blessedSystemFolderID; // for OpenFirmware systems
 //   uint32_t blessedSystemFileID;   // for EFI systems
 //   uint32_t openWindowFolderID;    // deprecated, first link in linked list of folders to open at mount
-//   uint32_t blessedAlternateOSID;  // currently used for recovery
+//   uint32_t blessedAlternateOSID;  // currently used for FV2 recovery, inaccessible from UEFI
 //   uint32_t unused;                // formerly PowerTalk Inbox
-//   uint32_t blessedOSXFolderID;    // mislabeled, should be for OS 9
+//   uint32_t blessedOSXFolderID;    // currently used for normal recovery
 //   uint64_t volumeID;
 // };
 //
@@ -48,9 +48,9 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
   { 0x7BD1F02D, 0x9C2F, 0x4581,                \
     { 0xBF, 0x12, 0xD5, 0x4a, 0xBA, 0x0D, 0x98, 0xD6 } }
 
-// APPLE_BLESSED_ALTERNATE_OS_INFO_GUID
+// APPLE_BLESSED_OSX_FOLDER_INFO_GUID
 /// InformationType GUID exposed used to get alternative blessed file or folder's path.
-#define APPLE_BLESSED_ALTERNATE_OS_INFO_GUID  \
+#define APPLE_BLESSED_OSX_FOLDER_INFO_GUID  \
   { 0x893CA450, 0x5F5E, 0x48BA,             \
     { 0x85, 0x8F, 0x08, 0xC4, 0x5D, 0x80, 0x23, 0x18 } }
 
@@ -62,8 +62,8 @@ extern EFI_GUID gAppleBlessedSystemFileInfoGuid;
 /// A global variable storing the GUID of the APPLE_BLESSED_SYSTEM_FOLDER_INFO_GUID.
 extern EFI_GUID gAppleBlessedSystemFolderInfoGuid;
 
-// gAppleBlessedAlternateOsInfoGuid
-/// A global variable storing the GUID of the APPLE_BLESSED_ALTERNATE_OS_INFO_GUID.
-extern EFI_GUID gAppleBlessedAlternateOsInfoGuid;
+// gAppleBlessedOsxFolderInfoGuid
+/// A global variable storing the GUID of the APPLE_BLESSED_OSX_FOLDER_INFO_GUID.
+extern EFI_GUID gAppleBlessedOsxFolderInfoGuid;
 
 #endif // APPLE_BLESS_H
