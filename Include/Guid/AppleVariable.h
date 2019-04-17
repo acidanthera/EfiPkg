@@ -84,6 +84,13 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
     { 0x82, 0xA8, 0x3E, 0x13, 0x37, 0xDA, 0xFB, 0xFB } }
 
 ///
+/// The Apple Recovery Variable-vendor GUID.
+///
+#define APPLE_RECOVERY_VARIABLE_GUID     \
+  { 0x5EEB160F, 0x45FB, 0x4CE9,          \
+    { 0xB4, 0xE3, 0x61, 0x03, 0x59, 0xAB, 0xF6, 0xF8 } }
+
+///
 /// A global variable storing the GUID of the APPLE_VENDOR EFI variable scope.
 ///
 extern EFI_GUID gAppleVendorVariableGuid;
@@ -140,5 +147,10 @@ extern EFI_GUID gAppleNetbootVariableGuid;
 /// EFI variable  scope.
 ///
 extern EFI_GUID gAppleSecureBootVariableGuid;
+
+///
+/// A global variable storing the GUID of the APPLE_RECOVERY variable scope.
+///
+extern EFI_GUID gAppleRecoveryVariableGuid;
 
 #endif // APPLE_VARIABLE_H
