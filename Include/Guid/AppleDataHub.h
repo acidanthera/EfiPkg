@@ -13,6 +13,11 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 #ifndef APPLE_DATA_HUB_H
 #define APPLE_DATA_HUB_H
 
+//
+// Hack to avoid the need of framework headers.
+//
+typedef UINT16  STRING_REF;
+
 #include <Guid/DataHubRecords.h>
 
 // APPLE_PLATFORM_PRODUCER_NAME_GUID
