@@ -98,8 +98,9 @@ typedef struct {
   EFI_SUBCLASS_TYPE1_HEADER Header;
   UINT32                    KeySize;
   UINT32                    ValueSize;
-  CHAR16                    Key[];
-//UINTN                     Value[];
+  UINT8                     Data[];
+// CHAR16                    Key[];
+// UINT8                     Value[];
 } APPLE_PLATFORM_DATA_RECORD;
 
 // APPLE_ROM_RECORD
