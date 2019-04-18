@@ -34,38 +34,38 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 **/
 #define APPLE_FAILED_BOOT_VOLUME_UUID_VARIABLE L"AppleFailedBootVolumeUUID"
 
-//
-// Set into EFMU / AppleFailedBootVolumeUUID for cmd-opt-R
-// 68D7AFF4-8079-4281-9A1E-A04A51FB12E0
-//
+/**
+  Set into EFMU / AppleFailedBootVolumeUUID for cmd-opt-R
+  68D7AFF4-8079-4281-9A1E-A04A51FB12E0
+**/
 #define APPLE_RECOVERY_BOOT_NETWORK_GUID \
   { 0x68D7AFF4, 0x8079, 0x4281,          \
     { 0x9A, 0x1E, 0xA0, 0x4A, 0x51, 0xFB, 0x12, 0xE0 } }
 
-//
-// Set into EFMU / AppleFailedBootVolumeUUID for cmd-R
-// AF677042-9346-11E7-9F13-7200002BCC50
-//
+/**
+  Set into EFMU / AppleFailedBootVolumeUUID for cmd-R
+  AF677042-9346-11E7-9F13-7200002BCC50
+**/
 #define APPLE_RECOVERY_BOOT_DISK_GUID    \
   { 0xAF677042, 0x9346, 0x11E7,          \
     { 0x9F, 0x13, 0x72, 0x00, 0x00, 0x2B, 0xCC, 0x50 } }
 
-//
-// Apple DMG boot protocol GUID.
-// 85290934-28DC-4DF5-919A-60E28B1B9449
-//
+/**
+  Apple DMG boot protocol GUID.
+  85290934-28DC-4DF5-919A-60E28B1B9449
+**/
 #define APPLE_DMG_BOOT_PROTOCOL_GUID     \
   { 0x85290934, 0x28DC, 0x4DF5,          \
     { 0x91, 0x9A, 0x60, 0xE2, 0x8B, 0x1B, 0x94, 0x49 } }
 
-//
-// Apple DMG boot protocol revision.
-//
+/**
+  Apple DMG boot protocol revision.
+**/
 #define APPLE_DMG_BOOT_PROTOCOL_REVISION 0x20000
 
-//
-// Apple DMG boot protocol forward declaration.
-//
+/**
+  Apple DMG boot protocol forward declaration.
+**/
 typedef struct APPLE_DMG_BOOT_PROTOCOL_ APPLE_DMG_BOOT_PROTOCOL;
 
 /**
