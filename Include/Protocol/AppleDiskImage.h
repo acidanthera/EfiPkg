@@ -54,8 +54,11 @@ EFI_STATUS
   - gAppleDiskImageProtocolGuid (as NULL)
   Mounted dmg handle is to be connnected recursively on all protocols
   with connection status unchecked.
-  All the memory should be allocated as BootServicesData, as XNU will
-  handle the protection onwards (see di_root_ramfile).
+
+  Note, that DiskImage protocol does not protect DMG memory from the kernel.
+  It only works in UEFI scope. For the kernel to boot the parent protocol,
+  namely RamDisk, should have us covered by allocating DMG extent memory
+  as wired (EfiACPIMemoryNVS).
 
   @param[in]  DevicePath  Path to dmg file.
   @param[out] Handle      Dmg handle.

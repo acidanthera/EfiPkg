@@ -95,11 +95,14 @@ VOID
 
 /**
   Boot from specified dmg with full chunklist verification.
-  Chunklist is located by replacing .dmg with .chunklist or using RamDisk protocol.
+  Dmg is located by replacing appending L"dmg".
+  Chunklist is located by replacing appending L"chunklist".
+  After verificaction completion a RamDisk is created with a
+  SingleFile dmg file on it and UnverifiedBoot is called.
 
   @param[in]  This               Instance of this protocol.
-  @param[in]  ParentImageHandle  Parent handle to boot from.
-  @param[in]  DevicePath         Path to dmg file.
+  @param[in]  ParentImageHandle  Parent handle to boot from (local filesystem handle).
+  @param[in]  BaseDmgPath        Path to dmg file without dmg suffix (e.g. L"\\BaseSystem.").
   @param[in]  PreStartCallback   Callback invoked prior to starting booter.
   @param[in]  PostStartCallback  Callback invoked after starting booter.
   @param[in]  CallbackContext    Callback context for PreStartCallback and PostStartCallback.
@@ -118,7 +121,7 @@ EFI_STATUS
 (EFIAPI *APPLE_DMG_BOOT_VERIFIED_BOOT) (
   IN APPLE_DMG_BOOT_PROTOCOL    *This,
   IN EFI_HANDLE                 ParentImageHandle,
-  IN EFI_DEVICE_PATH_PROTOCOL   *DevicePath,
+  IN CONST CHAR16               *BaseDmgPath,
   IN APPLE_DMG_BOOT_CALLBACK    PreStartCallback OPTIONAL,
   IN APPLE_DMG_BOOT_CALLBACK    PostStartCallback OPTIONAL,
   IN VOID                       *CallbackContext OPTIONAL,
