@@ -58,7 +58,7 @@ typedef PACKED struct {
   /// Extentent address pointing to a sequence of allocated pages from
   /// EfiACPIMemoryNVS or EfiBootServicesData depending on RamDisk init.
   ///
-  UINT8                 *Start;
+  UINT64                Start;
   ///
   /// Actual size of the extent. Allocated area size may be >= Length.
   ///
