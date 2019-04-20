@@ -52,6 +52,9 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
   RAM Disk extent.
   When automatically allocating at RAM disk creation, extents are created
   on demand as long as contiguous memory is found in the firmware.
+
+  Please note, that this must match IOAddressRange type in XNU,
+  which can be found in iokit/IOKit/IOTypes.h.
 **/
 typedef PACKED struct {
   ///
