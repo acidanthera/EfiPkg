@@ -133,7 +133,7 @@ typedef PACKED struct {
 } APPLE_RAM_DISK_CONTEXT;
 
 /**
-  RAM Disk device path, 52 bytes in total.
+  RAM Disk vendor device path, 24 bytes in total.
 **/
 typedef PACKED struct {
   ///
@@ -148,6 +148,26 @@ typedef PACKED struct {
   /// Globally incremented counter to make every path unique.
   ///
   UINT32                    Counter;
+} APPLE_RAM_DISK_DP_VENDOR;
+
+/**
+  RAM Disk device path header for endpoint devices.
+**/
+typedef PACKED struct {
+  ///
+  /// Vendor device path.
+  ///
+  APPLE_RAM_DISK_DP_VENDOR  Vendor;
+  ///
+  /// Memmap device path.
+  ///
+  MEMMAP_DEVICE_PATH        MemMap;
+} APPLE_RAM_DISK_DP_HEADER;
+
+/**
+  RAM Disk device path, 52 bytes in total.
+**/
+typedef PACKED struct {
   ///
   /// Vendor device path with APPLE_RAM_DISK_PROTOCOL_GUID.
   /// Type             = HARDWARE_DEVICE_PATH.
@@ -159,6 +179,10 @@ typedef PACKED struct {
   ///
   /// Note: EndingAddress, per UEFI specification and edk2 implementation, is supposed
   /// to be the top usable address, not the top of the buffer. Perhaps there is a mistake here.
+  ///
+  APPLE_RAM_DISK_DP_VENDOR  Vendor;
+  ///
+  /// Memmap device path.
   ///
   MEMMAP_DEVICE_PATH        MemMap;
   ///
@@ -255,6 +279,7 @@ typedef struct {
   APPLE_RAM_DISK_GET_CONTEXT  GetRamDiskContext;
 } APPLE_RAM_DISK_PROTOCOL;
 
+VERIFY_SIZE_OF (APPLE_RAM_DISK_DP_VENDOR, 24);
 VERIFY_SIZE_OF (APPLE_RAM_DISK_DP, 52);
 VERIFY_SIZE_OF (APPLE_RAM_DISK_EXTENT, 16);
 VERIFY_SIZE_OF (APPLE_RAM_DISK_EXTENT_TABLE, 4096);
