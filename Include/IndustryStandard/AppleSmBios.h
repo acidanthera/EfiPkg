@@ -189,7 +189,7 @@ enum {
   // placeholder for i3Type8 (maybe 0x0908 ???)
   
   AppleProcessorTypeCorei5Type9     = 0x0609, // i5 8259U (MacBookPro15,2), i5 8500B (Macmini8,1)
-  AppleProcessorTypeCorei7Type9     = 0x0709, // i7 8850H (MacBookPro15,1)
+  AppleProcessorTypeCorei7Type9     = 0x0709, // i7 8850H (MacBookPro15,1), i7 8700B (Macmini8,1)
   // placeholder for i3Type9 (maybe 0x0909 ???)
   
   AppleProcessorTypeCoreMType1      = 0x0B01, // may not be used
