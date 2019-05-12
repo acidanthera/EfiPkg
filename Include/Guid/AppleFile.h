@@ -45,4 +45,10 @@ extern EFI_GUID gApplePasswordUIFileGuid;
 
 extern EFI_GUID gAppleUTDMUIAppFileGuid;
 
+#define APPLE_LEGACY_LOAD_APP_FILE_GUID  \
+  { 0x2B0585EB, 0xD8B8, 0x49A9,          \
+    { 0x8B, 0x8C, 0xE2, 0x1B, 0x01, 0xAE, 0xF2, 0xB7 } }
+
+extern EFI_GUID gAppleLegacyLoadAppFileGuid;
+
 #endif // APPLE_FILE_H
