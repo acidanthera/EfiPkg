@@ -13,13 +13,15 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 #ifndef APPLE_FILE_H
 #define APPLE_FILE_H
 
-// APPLE_FILE_1_GUID
-#define APPLE_FILE_1_GUID        \
-  { 0x95C8C131, 0x4467, 0x4447,  \
+//
+// ASCII content stored in legacy firmwares.
+//
+#define APPLE_FIRMWARE_INFO_FILE_GUID  \
+  { 0x95C8C131, 0x4467, 0x4447,        \
     { 0x8A, 0x71, 0xF0, 0x87, 0xAF, 0xCA, 0x07, 0xA5 } }
 
-// gAppleFile1Guid
-extern EFI_GUID gAppleFile1Guid;
+// gAppleFirmwareInfoFileGuid
+extern EFI_GUID gAppleFirmwareInfoFileGuid;
 
 #define APPLE_SLING_SHOT_FILE_GUID  \
   { 0xD5B366C7, 0xDB85, 0x455F,   \
