@@ -55,15 +55,39 @@ EFI_STATUS
 
 //
 // Neither is used at this moment.
+// https://opensource.apple.com/source/kext_tools/kext_tools-528.220.8/KextAudit/efi_smc.h.auto.html
 //
-#define APPLE_BOOT_POLICY_MODE_1 1
-#define APPLE_BOOT_POLICY_MODE_3 3
+typedef enum {
+  // Boot Policy not valid retry.
+  BootPolicyNotReady,
+
+  // Boot Selected macOS.
+  BootPolicyOk,
+
+  // Boot Recovery OS, update bridgeOS.
+  BootPolicyUpdate,
+
+  // Full system reboot, boot selected macOS.
+  BootPolicyReboot,
+
+  // Version unknown boot to recovery OS to get more info.
+  BootPolicyUnknown,
+
+  // Update failed take the failure path.
+  BootPolicyBridgeOSUpdateFailed,
+
+  // Boot Recovery OS to change security policy.
+  BootPolicyRecoverySecurityPolicyUpdate,
+
+  // Valid values will be less that this version.
+  BootPolicyMaxValue
+} BOOT_POLICY_ACTION;
 
 typedef
 EFI_STATUS
 (EFIAPI *BOOT_POLICY_GET_BOOT_FILE_EX) (
   IN  EFI_HANDLE                Device,
-  IN  UINT32                    Mode,
+  IN  BOOT_POLICY_ACTION        Action,
   OUT EFI_DEVICE_PATH_PROTOCOL  **FilePath
   );
 
