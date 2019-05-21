@@ -174,7 +174,7 @@ enum {
   AppleProcessorTypeCorei7Type4     = 0x0704,
   AppleProcessorTypeCorei3Type4     = 0x0904,
   
-  AppleProcessorTypeCorei5Type5     = 0x0605,
+  AppleProcessorTypeCorei5Type5     = 0x0605, // NOTE: we are putting 0x0609 on IM191 (i5-8600), although it should be 0x0605.
   AppleProcessorTypeCorei7Type5     = 0x0705,
   AppleProcessorTypeCorei3Type5     = 0x0905,
   
