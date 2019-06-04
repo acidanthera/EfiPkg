@@ -12,8 +12,23 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 #ifndef APPLE_SMC_H
 #define APPLE_SMC_H
 
+//
+// SMC uses Big Endian byte order to store keys.
+// For some reason AppleSmcIo protocol in UEFI takes little endian keys.
+// As this header is used by both UEFI and Kernel VirtualSMC parts,
+// we define SMC_MAKE_IDENTIFIER to produce Little Endian keys in UEFI (EFIAPI),
+// and Big Endian keys in all other places.
+//
+// NB: This code assumes Little Endian host byte order, which so far is the
+// only supported byte order in UEFI.
+//
+#ifdef EFIAPI
 #define SMC_MAKE_IDENTIFIER(A, B, C, D)  \
-  (((D) << 24) | ((C) << 16) | ((B) << 8) | (A))
+  ((UINT32)(((UINT32)(A) << 24U) | ((UINT32)(B) << 16U) | ((UINT32)(C) << 8U) | (UINT32)(D)))
+#else
+#define SMC_MAKE_IDENTIFIER(A, B, C, D)  \
+  ((UINT32)(((UINT32)(D) << 24U) | ((UINT32)(C) << 16U) | ((UINT32)(B) << 8U) | (UINT32)(A)))
+#endif
 
 // PMIO
 
