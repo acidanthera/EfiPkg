@@ -340,6 +340,12 @@ typedef UINT8 SMC_DATA_SIZE;
 #define SMC_KEY_NO_KEYS  SMC_MAKE_KEY ('#', 'K', 'e', 'y')
 #define SMC_KEY_LDKN     SMC_MAKE_KEY ('L', 'D', 'K', 'N')
 #define SMC_KEY_HBKP     SMC_MAKE_KEY ('H', 'B', 'K', 'P')
+#define SMC_KEY_KEY      SMC_MAKE_KEY ('#', 'K', 'E', 'Y')
+#define SMC_KEY_RMde     SMC_MAKE_KEY ('R', 'M', 'd', 'e')
+#define SMC_KEY_BRSC     SMC_MAKE_KEY ('B', 'R', 'S', 'C')
+#define SMC_KEY_MSLD     SMC_MAKE_KEY ('M', 'S', 'L', 'D')
+#define SMC_KEY_BATP     SMC_MAKE_KEY ('B', 'A', 'T', 'P')
+#define SMC_KEY_BBIN     SMC_MAKE_KEY ('B', 'B', 'I', 'N')
 
 typedef UINT32 SMC_KEY;
 typedef UINT32 SMC_KEY_INDEX;
