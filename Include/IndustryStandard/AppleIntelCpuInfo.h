@@ -19,6 +19,29 @@
 /// Last sync time: 4903.221.2.
 ///
 
+/*
+ *  CPU families (sysctl hw.cpufamily)
+ *
+ * These are meant to identify the CPU's marketing name - an
+ * application can map these to (possibly) localized strings.
+ * NB: the encodings of the CPU families are intentionally arbitrary.
+ * There is no ordering, and you should never try to deduce whether
+ * or not some feature is available based on the family.
+ * Use feature flags (eg, hw.optional.altivec) to test for optional
+ * functionality.
+ */
+#define CPUFAMILY_UNKNOWN           0
+#define CPUFAMILY_INTEL_6_13        0xaa33392b
+#define CPUFAMILY_INTEL_PENRYN      0x78ea4fbc
+#define CPUFAMILY_INTEL_NEHALEM     0x6b5a4cd2
+#define CPUFAMILY_INTEL_WESTMERE    0x573b5eec
+#define CPUFAMILY_INTEL_SANDYBRIDGE 0x5490b78c
+#define CPUFAMILY_INTEL_IVYBRIDGE   0x1f65e835
+#define CPUFAMILY_INTEL_HASWELL     0x10b282dc
+#define CPUFAMILY_INTEL_BROADWELL   0x582ed09c
+#define CPUFAMILY_INTEL_SKYLAKE     0x37fc219f
+#define CPUFAMILY_INTEL_KABYLAKE    0x0f817246
+
 /* CPU type, integer_t */
 typedef INT32 cpu_type_t;
 typedef INT32 cpu_subtype_t;
