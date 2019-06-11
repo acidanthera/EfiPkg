@@ -124,6 +124,14 @@ typedef struct
   UINT8  data[];
 } IOHibernateHandoff;
 
+typedef struct
+{
+  UINT8    signature[4];
+  UINT32   revision;
+  UINT8    booterSignature[20];
+  UINT8    wiredCryptKey[16];
+} AppleRTCHibernateVars;
+
 #pragma pack(pop)
 
 #endif // APPLE_HIBERNATE_H
