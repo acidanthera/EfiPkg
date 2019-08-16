@@ -22,7 +22,7 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
  { 0x24B73556, 0x2197, 0x4702,           \
    { 0x82, 0xA8, 0x3E, 0x13, 0x37, 0xDA, 0xFB, 0xF2 } }
 
-typedef struct APPLE_SECURE_BOOT_PROTOCOL APPLE_SECURE_BOOT_PROTOCOL;
+typedef struct APPLE_SECURE_BOOT_PROTOCOL_ APPLE_SECURE_BOOT_PROTOCOL;
 
 /**
   Sets the Secure Boot availability state.
@@ -48,6 +48,7 @@ VOID
   @param[in] SetFailureReason  Whether to set the failure reason.
 
   @retval EFI_SUCCESS             The file at DevicePath is correctly signed.
+  @retval EFI_LOAD_ERROR          The current policy is invalid.
   @retval EFI_INVALID_PARAMETER   One or more required parameters are NULL.
   @retval EFI_UNSUPPORTED         Secure Boot is currently unavailable or
                                   disabled.
@@ -78,6 +79,7 @@ EFI_STATUS
   @param[in] SetFailureReason  Whether to set the failure reason.
 
   @retval EFI_SUCCESS             ImageBuffer is correctly signed.
+  @retval EFI_LOAD_ERROR          The current policy is invalid.
   @retval EFI_INVALID_PARAMETER   One or more required parameters are NULL.
   @retval EFI_UNSUPPORTED         Secure Boot is currently unavailable or
                                   disabled.
@@ -192,8 +194,7 @@ EFI_STATUS
   @param[in] SetFailureReason  Whether to set the failure reason.
 
   @retval EFI_SUCCESS             The file at DevicePath is correctly signed.
-  @retval EFI_LOAD_ERROR          The current Secure Boot Windows policy is
-                                  does not allow this action.
+  @retval EFI_LOAD_ERROR          The current policy is invalid.
   @retval EFI_INVALID_PARAMETER   One or more required parameters are NULL.
   @retval EFI_UNSUPPORTED         Secure Boot is currently unavailable or
                                   disabled.
@@ -220,6 +221,7 @@ EFI_STATUS
   @param[in] SetFailureReason  Whether to set the failure reason.
 
   @retval EFI_SUCCESS             ImageBuffer is correctly signed.
+  @retval EFI_LOAD_ERROR          The current policy is invalid.
   @retval EFI_INVALID_PARAMETER   One or more required parameters are NULL.
   @retval EFI_UNSUPPORTED         Secure Boot is currently unavailable or
                                   disabled.
@@ -288,19 +290,19 @@ EFI_STATUS
   IN UINT8                       Reason
   );
 
-struct APPLE_SECURE_BOOT_PROTOCOL {
+struct APPLE_SECURE_BOOT_PROTOCOL_ {
   UINTN                               Revision;
   APPLE_SB_SET_AVAILABILITY           SetAvailability;
   APPLE_SB_VERIFY_IMG4_BY_PATH        VerifyImg4ByPath;
   APPLE_SB_VERIFY_IMG4                VerifyImg4;
-  APPLE_SB_GET_POLICY                 Getpolicy;
+  APPLE_SB_GET_POLICY                 GetPolicy;
   APPLE_SB_GET_FAILURE_REASON         GetFailureReason;
   APPLE_SB_SET_FAILURE_REASON         SetFailureReason;
   APPLE_SB_GET_KERNEL_FAILURE_REASON  GetKernelFailureReason;
   APPLE_SB_SET_KERNEL_FAILURE_REASON  SetKernelFailureReason;
   APPLE_SB_VERIFY_WINDOWS_BY_PATH     VerifyWindowsByPath;
   APPLE_SB_VERIFY_WINDOWS             VerifyWindows;
-  APPLE_SB_GET_WINDOWS_POLICY         GetWindowspolicy;
+  APPLE_SB_GET_WINDOWS_POLICY         GetWindowsPolicy;
   APPLE_SB_GET_WINDOWS_FAILURE_REASON GetWindowsFailureReason;
   APPLE_SB_SET_WINDOWS_FAILURE_REASON SetWindowsFailureReason;
 };
