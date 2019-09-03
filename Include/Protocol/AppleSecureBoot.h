@@ -24,6 +24,37 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 typedef struct APPLE_SECURE_BOOT_PROTOCOL_ APPLE_SECURE_BOOT_PROTOCOL;
 
+#define APPLE_SB_OBJ_TYPE(A, B, C, D)  \
+  (UINT32)(                            \
+    ((A) << 24UL)                      \
+  | ((B) << 16UL)                      \
+  | ((C) << 8UL)                       \
+  | ((D) << 0UL)                       \
+  )                                    \
+
+//
+// The keys are iterated in the order in which they are defined here in
+// AppleBds to validate any loaded image.
+//
+#define APPLE_SB_OBJ_EFIBOOT        APPLE_SB_OBJ_TYPE ('e', 'f', 'i', 'b')
+#define APPLE_SB_OBJ_EFIBOOT_DEBUG  APPLE_SB_OBJ_TYPE ('e', 'f', 'b', 'd')
+#define APPLE_SB_OBJ_EFIBOOT_BASE   APPLE_SB_OBJ_TYPE ('e', 'f', 'b', 'b')
+
+#define APPLE_SB_OBJ_MUPD  APPLE_SB_OBJ_TYPE ('m', 'u', 'p', 'd')
+#define APPLE_SB_OBJ_HPMU  APPLE_SB_OBJ_TYPE ('h', 'p', 'm', 'u')
+#define APPLE_SB_OBJ_THOU  APPLE_SB_OBJ_TYPE ('t', 'h', 'o', 'u')
+#define APPLE_SB_OBJ_GPUU  APPLE_SB_OBJ_TYPE ('g', 'p', 'u', 'u')
+#define APPLE_SB_OBJ_ETHU  APPLE_SB_OBJ_TYPE ('e', 't', 'h', 'u')
+#define APPLE_SB_OBJ_SDFU  APPLE_SB_OBJ_TYPE ('s', 'd', 'f', 'u')
+#define APPLE_SB_OBJ_DTHU  APPLE_SB_OBJ_TYPE ('d', 't', 'h', 'u')
+
+//
+// The keys are iterated in the order in which they are defined here in
+// boot.efi to validate the loaded kernel image.
+//
+#define APPLE_SB_OBJ_KERNEL        APPLE_SB_OBJ_TYPE ('m', 'k', 'r', 'n')
+#define APPLE_SB_OBJ_KERNEL_DEBUG  APPLE_SB_OBJ_TYPE ('m', 'k', 'r', 'd')
+
 /**
   Sets the Secure Boot availability state.
 
@@ -44,7 +75,7 @@ VOID
 
   @param[in] This              A pointer to the current protocol instance.
   @param[in] DevicePath        The device path to the image to validate.
-  @param[in] Type              The IMG4 Manifest type to validate against.
+  @param[in] ObjType           The IMG4 object type to validate against.
   @param[in] SetFailureReason  Whether to set the failure reason.
 
   @retval EFI_SUCCESS             The file at DevicePath is correctly signed.
@@ -63,7 +94,7 @@ EFI_STATUS
 (EFIAPI *APPLE_SB_VERIFY_IMG4_BY_PATH)(
   IN APPLE_SECURE_BOOT_PROTOCOL  *This,
   IN EFI_DEVICE_PATH_PROTOCOL    *DevicePath,
-  IN UINT32                      Type,
+  IN UINT32                      ObjType,
   IN BOOLEAN                     SetFailureReason
   );
 
@@ -75,7 +106,7 @@ EFI_STATUS
   @param[in] ImageSize         The size, in bytes, of ImageBuffer.
   @param[in] ManifestBuffer    The buffer of the IMG4 Manifest.
   @param[in] ManifestSize      The size, in bytes, of ManifestBuffer.
-  @param[in] Type              The IMG4 Manifest type to validate against.
+  @param[in] ObjType           The IMG4 object type to validate against.
   @param[in] SetFailureReason  Whether to set the failure reason.
 
   @retval EFI_SUCCESS             ImageBuffer is correctly signed.
@@ -95,7 +126,7 @@ EFI_STATUS
   IN UINTN                       ImageSize,
   IN CONST VOID                  *ManifestBuffer,
   IN UINTN                       ManifestSize,
-  IN UINT32                      Type,
+  IN UINT32                      ObjType,
   IN BOOLEAN                     SetFailureReason
   );
 

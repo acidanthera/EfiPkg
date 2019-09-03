@@ -34,7 +34,7 @@ enum {
   Verify the signature of ImageBuffer against Type of its IMG4 Manifest.
 
   @param[in]  This            The pointer to the current protocol instance.
-  @param[in]  Type            The IMG4 Manifest type to validate against.
+  @param[in]  ObjType         The IMG4 object type to validate against.
   @param[in]  ImageBuffer     The buffer to validate.
   @param[in]  ImageSize       The size, in bytes, of ImageBuffer.
   @param[in]  SbMode          The requested IMG4 Secure Boot mode.
@@ -53,7 +53,7 @@ typedef
 EFI_STATUS
 (EFIAPI *APPLE_IMG4_VERIFY)(
   IN  APPLE_IMG4_VERIFICATION_PROTOCOL  *This,
-  IN  UINT32                            Type,
+  IN  UINT32                            ObjType,
   IN  CONST VOID                        *ImageBuffer,
   IN  UINTN                             ImageSize,
   IN  UINT8                             SbMode,
