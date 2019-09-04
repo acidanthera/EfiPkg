@@ -93,7 +93,7 @@ EFI_STATUS
 
 typedef
 EFI_STATUS
-(EFIAPI *BOOT_POLICY_GET_BOOT_INFO) (
+(EFIAPI *BOOT_POLICY_DEVICE_PATH_TO_DIR_PATH) (
   IN  EFI_DEVICE_PATH_PROTOCOL  *DevicePath,
   OUT CHAR16                    **BootPathName,
   OUT EFI_HANDLE                *Device,
@@ -102,7 +102,7 @@ EFI_STATUS
 
 typedef
 EFI_STATUS
-(EFIAPI *BOOT_POLICY_GET_PATH_NAME_ON_APFS_RECOVERY) (
+(EFIAPI *BOOT_POLICY_GET_APFS_RECOVERY_FILE_PATH) (
   IN  EFI_DEVICE_PATH_PROTOCOL  *DevicePath,
   IN  CONST CHAR16              *PathName,
   OUT CHAR16                    **FullPathName,
@@ -113,7 +113,7 @@ EFI_STATUS
 
 typedef
 EFI_STATUS
-(EFIAPI *BOOT_POLICY_GET_APFS_RECOVERY_VOLUMES) (
+(EFIAPI *BOOT_POLICY_GET_ALL_APFS_RECOVERY_FILE_PATH) (
   IN  EFI_HANDLE  Handle,
   OUT VOID        **Volumes,
   OUT UINTN       *NumberOfEntries
@@ -123,12 +123,12 @@ EFI_STATUS
 /// The structure exposed by the APPLE_BOOT_POLICY_PROTOCOL.
 ///
 typedef struct {
-  UINTN                                      Revision;                   ///< The revision of the installed protocol.
-  BOOT_POLICY_GET_BOOT_FILE                  GetBootFile;                ///< Present as of Revision 1.
-  BOOT_POLICY_GET_BOOT_FILE_EX               GetBootFileEx;              ///< Present as of Revision 3.
-  BOOT_POLICY_GET_BOOT_INFO                  GetBootInfo;                ///< Present as of Revision 3.
-  BOOT_POLICY_GET_PATH_NAME_ON_APFS_RECOVERY GetPathNameOnApfsRecovery;  ///< Present as of Revision 3.
-  BOOT_POLICY_GET_APFS_RECOVERY_VOLUMES      GetApfsRecoveryVolumes;     ///< Present as of Revision 3.
+  UINTN                                       Revision;                    ///< The revision of the installed protocol.
+  BOOT_POLICY_GET_BOOT_FILE                   GetBootFile;                 ///< Present as of Revision 1.
+  BOOT_POLICY_GET_BOOT_FILE_EX                GetBootFileEx;               ///< Present as of Revision 3.
+  BOOT_POLICY_DEVICE_PATH_TO_DIR_PATH         DevicePathToDirPath;         ///< Present as of Revision 3.
+  BOOT_POLICY_GET_APFS_RECOVERY_FILE_PATH     GetApfsRecoveryFilePath;     ///< Present as of Revision 3.
+  BOOT_POLICY_GET_ALL_APFS_RECOVERY_FILE_PATH GetAllApfsRecoveryFilePath;  ///< Present as of Revision 3.
 } APPLE_BOOT_POLICY_PROTOCOL;
 
 ///
