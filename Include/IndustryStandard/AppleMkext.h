@@ -32,6 +32,10 @@
 //
 #define MKEXT_SIGNATURE         0x4D4F5358
 //
+// Signature "MOSX" used to identify an MKEXT file.
+//
+#define MKEXT_INVERT_SIGNATURE  0x58534F4D
+//
 // Version 1 format.
 //
 #define MKEXT_VERSION_V1        0x01008000
@@ -190,5 +194,14 @@ typedef struct {
   //
   UINT32              PlistFullSize;
 } MKEXT_V2_HEADER;
+
+//
+// Allow selecting correct header based on version.
+//
+typedef union {
+  MKEXT_CORE_HEADER   Common;
+  MKEXT_V1_HEADER     V1;
+  MKEXT_V2_HEADER     V2;
+} MKEXT_HEADER_ANY;
 
 #endif // APPLE_MKEXT_H
