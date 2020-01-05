@@ -141,7 +141,11 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 //
 #define FW_FEATURE_SUPPORTS_APFS_EXTRA                0x00100000U // 20
 #define FW_FEATURE_UNKNOWN_BIT21                      0x00200000U // 21
-#define FW_FEATURE_UNKNOWN_BIT22                      0x00400000U // 22
+//
+// Supports Apple Tamper Resistant Boot X. This is supposed to be activation lock.
+// See: /System/Library/CoreServices/Language Chooser.app/Contents/MacOS/Language Chooser
+//
+#define FW_FEATURE_SUPPORTS_TRBX                      0x00400000U // 22
 #define FW_FEATURE_UNKNOWN_BIT23                      0x00800000U // 23
 //
 // Supports platform security policy.
@@ -191,49 +195,49 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 // /System/Library/SystemProfiler/SPMemoryReporter.spreporter/Contents/MacOS/SPMemoryReporter
 //
 
-#define PT_FEATURE_UNKNOWN_BIT0                0x00000001 // 0
+#define PT_FEATURE_UNKNOWN_BIT0                0x00000001U // 0
 //
 // Has not replaceable system memory (RAM).
 //
-#define PT_FEATURE_HAS_SOLDERED_SYSTEM_MEMORY  0x00000002 // 1
+#define PT_FEATURE_HAS_SOLDERED_SYSTEM_MEMORY  0x00000002U // 1
 //
 // Has headless (connector-less) GPU present.
 //
-#define PT_FEATURE_HAS_HEADLESS_GPU            0x00000004 // 2
+#define PT_FEATURE_HAS_HEADLESS_GPU            0x00000004U // 2
 //
 // Supports host power management.
 //
-#define PT_FEATURE_SUPPORTS_HOST_PM            0x00000008 // 3
+#define PT_FEATURE_SUPPORTS_HOST_PM            0x00000008U // 3
 //
 // Supports Power Chime sound at boot.
 //
-#define PT_FEATURE_SUPPORTS_POWER_CHIME        0x00000010 // 4
-#define PT_FEATURE_UNKNOWN_BIT5                0x00000020 // 5
-#define PT_FEATURE_UNKNOWN_BIT6                0x00000040 // 6
-#define PT_FEATURE_UNKNOWN_BIT7                0x00000080 // 7
-#define PT_FEATURE_UNKNOWN_BIT8                0x00000100 // 8
-#define PT_FEATURE_UNKNOWN_BIT9                0x00000200 // 9
-#define PT_FEATURE_UNKNOWN_BIT10               0x00000400 // 10
-#define PT_FEATURE_UNKNOWN_BIT11               0x00000800 // 11
-#define PT_FEATURE_UNKNOWN_BIT12               0x00001000 // 12
-#define PT_FEATURE_UNKNOWN_BIT13               0x00002000 // 13
-#define PT_FEATURE_UNKNOWN_BIT14               0x00004000 // 14
-#define PT_FEATURE_UNKNOWN_BIT15               0x00008000 // 15
-#define PT_FEATURE_UNKNOWN_BIT16               0x00010000 // 16
-#define PT_FEATURE_UNKNOWN_BIT17               0x00020000 // 17
-#define PT_FEATURE_UNKNOWN_BIT18               0x00040000 // 18
-#define PT_FEATURE_UNKNOWN_BIT19               0x00080000 // 19
-#define PT_FEATURE_UNKNOWN_BIT20               0x00100000 // 20
-#define PT_FEATURE_UNKNOWN_BIT21               0x00200000 // 21
-#define PT_FEATURE_UNKNOWN_BIT22               0x00400000 // 22
-#define PT_FEATURE_UNKNOWN_BIT23               0x00800000 // 23
-#define PT_FEATURE_UNKNOWN_BIT24               0x01000000 // 24
-#define PT_FEATURE_UNKNOWN_BIT25               0x02000000 // 25
-#define PT_FEATURE_UNKNOWN_BIT26               0x04000000 // 26
-#define PT_FEATURE_UNKNOWN_BIT27               0x08000000 // 27
-#define PT_FEATURE_UNKNOWN_BIT28               0x10000000 // 28
-#define PT_FEATURE_UNKNOWN_BIT29               0x20000000 // 29
-#define PT_FEATURE_UNKNOWN_BIT30               0x40000000 // 30
-#define PT_FEATURE_UNKNOWN_BIT31               0x80000000 // 31
+#define PT_FEATURE_SUPPORTS_POWER_CHIME        0x00000010U // 4
+#define PT_FEATURE_UNKNOWN_BIT5                0x00000020U // 5
+#define PT_FEATURE_UNKNOWN_BIT6                0x00000040U // 6
+#define PT_FEATURE_UNKNOWN_BIT7                0x00000080U // 7
+#define PT_FEATURE_UNKNOWN_BIT8                0x00000100U // 8
+#define PT_FEATURE_UNKNOWN_BIT9                0x00000200U // 9
+#define PT_FEATURE_UNKNOWN_BIT10               0x00000400U // 10
+#define PT_FEATURE_UNKNOWN_BIT11               0x00000800U // 11
+#define PT_FEATURE_UNKNOWN_BIT12               0x00001000U // 12
+#define PT_FEATURE_UNKNOWN_BIT13               0x00002000U // 13
+#define PT_FEATURE_UNKNOWN_BIT14               0x00004000U // 14
+#define PT_FEATURE_UNKNOWN_BIT15               0x00008000U // 15
+#define PT_FEATURE_UNKNOWN_BIT16               0x00010000U // 16
+#define PT_FEATURE_UNKNOWN_BIT17               0x00020000U // 17
+#define PT_FEATURE_UNKNOWN_BIT18               0x00040000U // 18
+#define PT_FEATURE_UNKNOWN_BIT19               0x00080000U // 19
+#define PT_FEATURE_UNKNOWN_BIT20               0x00100000U // 20
+#define PT_FEATURE_UNKNOWN_BIT21               0x00200000U // 21
+#define PT_FEATURE_UNKNOWN_BIT22               0x00400000U // 22
+#define PT_FEATURE_UNKNOWN_BIT23               0x00800000U // 23
+#define PT_FEATURE_UNKNOWN_BIT24               0x01000000U // 24
+#define PT_FEATURE_UNKNOWN_BIT25               0x02000000U // 25
+#define PT_FEATURE_UNKNOWN_BIT26               0x04000000U // 26
+#define PT_FEATURE_UNKNOWN_BIT27               0x08000000U // 27
+#define PT_FEATURE_UNKNOWN_BIT28               0x10000000U // 28
+#define PT_FEATURE_UNKNOWN_BIT29               0x20000000U // 29
+#define PT_FEATURE_UNKNOWN_BIT30               0x40000000U // 30
+#define PT_FEATURE_UNKNOWN_BIT31               0x80000000U // 31
 
 #endif // APPLE_FEATURES_H
