@@ -79,6 +79,13 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
     { 0x97, 0x9E, 0xF5, 0xAE, 0x4D, 0x11, 0x5F, 0x13 } }
 
 ///
+/// The Apple Security-vendor GUID.
+///
+#define APPLE_SECURITY_VARIABLE_GUID \
+  { 0x7870DBED, 0x151D, 0x63FE,      \
+    { 0xF5, 0x88, 0x7C, 0x69, 0x94, 0x1C, 0xD0, 0x7B } }
+
+///
 /// The Apple Secure Boot Variable-vendor GUID.
 ///
 #define APPLE_SECURE_BOOT_VARIABLE_GUID  \
@@ -86,11 +93,18 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
     { 0x82, 0xA8, 0x3E, 0x13, 0x37, 0xDA, 0xFB, 0xFB } }
 
 ///
-/// The Apple Recovery Variable-vendor GUID.
+/// The Apple Startup Manager Variable-vendor GUID.
 ///
-#define APPLE_RECOVERY_VARIABLE_GUID     \
-  { 0x5EEB160F, 0x45FB, 0x4CE9,          \
+#define APPLE_STARTUP_MANAGER_VARIABLE_GUID  \
+  { 0x5EEB160F, 0x45FB, 0x4CE9,              \
     { 0xB4, 0xE3, 0x61, 0x03, 0x59, 0xAB, 0xF6, 0xF8 } }
+
+///
+/// The Apple Boot Variable Backup-vendor GUID.
+///
+#define APPLE_BACKUP_BOOT_VARIABLE_GUID      \
+  { 0xA5CE328C, 0x769D, 0x11E9,              \
+    { 0x94, 0xC7, 0x8C, 0x85, 0x90, 0x6B, 0xAC, 0x48 } }
 
 ///
 /// A global variable storing the GUID of the APPLE_VENDOR EFI variable scope.
@@ -99,6 +113,7 @@ extern EFI_GUID gAppleVendorVariableGuid;
 
 ///
 /// A global variable storing the GUID of the APPLE_BOOT EFI variable scope.
+/// AKA gAppleEFINVRAMGuid
 ///
 extern EFI_GUID gAppleBootVariableGuid;
 
@@ -106,11 +121,12 @@ extern EFI_GUID gAppleBootVariableGuid;
 /// A global variable storing the GUID of the APPLE_CORE_STORAGE EFI variable
 /// scope.
 ///
-extern EFI_GUID gAppleCoreStorageNvramGuid;
+extern EFI_GUID gAppleCoreStorageVariableGuid;
 
 ///
 /// A global variable storing the GUID of the APPLE_TAMPER_RESISTANT_BOOT EFI
 /// variable scope.
+/// AKA gAppleEFINVRAMTRBStagingCommandGuid.
 ///
 extern EFI_GUID gAppleTamperResistantBootVariableGuid;
 
@@ -129,6 +145,7 @@ extern EFI_GUID gApplePersonalizationVariableGuid;
 ///
 /// A global variable storing the GUID of
 /// the APPLE_TAMPER_RESISTANT_BOOT_SECURE_VARIABLE_GUID EFI variable scope.
+/// AKA gAppleEFINVRAMTRBSecureVariableGuid.
 ///
 extern EFI_GUID gAppleTamperResistantBootSecureVariableGuid;
 
@@ -145,14 +162,25 @@ extern EFI_GUID gAppleTamperResistantBootEfiUserVariableGuid;
 extern EFI_GUID gAppleNetbootVariableGuid;
 
 ///
+/// A global variable storing the GUID of the APPLE_SECURITY EFI variable
+/// scope.
+///
+extern EFI_GUID gAppleSecurityVariableGuid;
+
+///
 /// A global variable storing the GUID of the APPLE_SECURE_BOOT_VARIABLE_GUID
 /// EFI variable  scope.
 ///
 extern EFI_GUID gAppleSecureBootVariableGuid;
 
 ///
-/// A global variable storing the GUID of the APPLE_RECOVERY variable scope.
+/// A global variable storing the GUID of the APPLE_STARTUP_MANAGER variable scope.
 ///
-extern EFI_GUID gAppleRecoveryVariableGuid;
+extern EFI_GUID gAppleStartupManagerVariableGuid;
+
+///
+/// A global variable storing the GUID of the APPLE_BACKUP_BOOT variable scope.
+///
+extern EFI_GUID gAppleBackupBootVariableGuid;
 
 #endif // APPLE_VARIABLE_H

@@ -25,12 +25,12 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 **/
 
 /**
-  Failed boot poolicy variable in gAppleRecoveryVariableGuid.
+  Failed boot poolicy variable in gAppleStartupManagerVariableGuid.
 **/
 #define APPLE_FAILED_BOOT_POLICY_VARIABLE L"AppleFailedBootPolicy"
 
 /**
-  Failed boot volume variable in gAppleRecoveryVariableGuid (equal to EFMU).
+  Failed boot volume variable in gAppleStartupManagerVariableGuid (equal to EFMU).
 **/
 #define APPLE_FAILED_BOOT_VOLUME_UUID_VARIABLE L"AppleFailedBootVolumeUUID"
 
