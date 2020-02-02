@@ -107,6 +107,11 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
     { 0x94, 0xC7, 0x8C, 0x85, 0x90, 0x6B, 0xAC, 0x48 } }
 
 ///
+/// User interface scale variable
+///
+#define APPLE_UI_SCALE_VARIABLE_NAME  L"UIScale"
+
+///
 /// A global variable storing the GUID of the APPLE_VENDOR EFI variable scope.
 ///
 extern EFI_GUID gAppleVendorVariableGuid;
