@@ -108,8 +108,24 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 ///
 /// User interface scale variable
+/// gAppleVendorVariableGuid
 ///
 #define APPLE_UI_SCALE_VARIABLE_NAME  L"UIScale"
+
+typedef enum {
+  ApplePickerEntryReasonUnknown           = 0, ///< Unknown
+  ApplePickerEntryReasonManufacturingMode = 1, ///< IR Remote
+  ApplePickerEntryReasonNvram             = 2, ///< NVRAM
+  ApplePickerEntryReasonLeftOptKeyPress   = 3, ///< Left Option
+  ApplePickerEntryReasonRightOptKeyPress  = 4, ///< Right Option
+  ApplePickerEntryReasonBootDeviceTimeout = 5, ///< BDS Timeout
+} APPLE_PICKER_ENTRY_REASON;
+
+///
+/// BootPicker startup mode (32-bit integer).
+/// gAppleVendorVariableGuid
+///
+#define APPLE_PICKER_ENTRY_REASON_VARIABLE_NAME  L"PickerEntryReason"
 
 ///
 /// A global variable storing the GUID of the APPLE_VENDOR EFI variable scope.
