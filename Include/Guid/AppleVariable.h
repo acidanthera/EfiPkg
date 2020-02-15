@@ -108,9 +108,17 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 ///
 /// User interface scale variable
+/// UINT8: 1 or 2
 /// gAppleVendorVariableGuid
 ///
 #define APPLE_UI_SCALE_VARIABLE_NAME  L"UIScale"
+
+///
+/// User interface scale variable
+/// UINT32: RGBA
+/// gAppleVendorVariableGuid
+///
+#define APPLE_DEFAULT_BACKGROUND_COLOR_VARIABLE_NAME  L"DefaultBackgroundColor"
 
 typedef enum {
   ApplePickerEntryReasonUnknown           = 0, ///< Unknown
