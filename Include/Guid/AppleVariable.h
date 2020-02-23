@@ -114,7 +114,7 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 #define APPLE_UI_SCALE_VARIABLE_NAME  L"UIScale"
 
 ///
-/// User interface scale variable
+/// User interface scale variable.
 /// UINT32: RGBA
 /// gAppleVendorVariableGuid
 ///
@@ -130,10 +130,35 @@ typedef enum {
 } APPLE_PICKER_ENTRY_REASON;
 
 ///
-/// BootPicker startup mode (32-bit integer).
+/// BootPicker startup mode.
+/// UINT32: APPLE_PICKER_ENTRY_REASON.
 /// gAppleVendorVariableGuid
 ///
 #define APPLE_PICKER_ENTRY_REASON_VARIABLE_NAME  L"PickerEntryReason"
+
+#define APPLE_SYSTEM_AUDIO_VOLUME_MUTED        BIT7
+#define APPLE_SYSTEM_AUDIO_VOLUME_VOLUME_MASK  0x7FU
+
+///
+/// System audio volume.
+/// UINT8: APPLE_SYSTEM_AUDIO_VOLUME_VOLUME_MASK | APPLE_SYSTEM_AUDIO_VOLUME_VOLUME_MASK
+/// gAppleBootVariableGuid
+///
+#define APPLE_SYSTEM_AUDIO_VOLUME_VARIABLE_NAME  L"SystemAudioVolume"
+
+///
+/// System audio volume backup, restored by AppleEFIRuntime.kext at next reboot.
+/// UINT8: APPLE_SYSTEM_AUDIO_VOLUME_VOLUME_MASK | APPLE_SYSTEM_AUDIO_VOLUME_VOLUME_MASK
+/// gAppleBootVariableGuid
+///
+#define APPLE_SYSTEM_AUDIO_VOLUME_SAVED_VARIABLE_NAME  L"SystemAudioVolumeSaved"
+
+///
+/// System audio volume in decibels, created by AppleHDA.kext.
+/// UINT8: SystemAudioVolume'
+/// gAppleBootVariableGuid
+///
+#define APPLE_SYSTEM_AUDIO_VOLUME_SAVED_DB_NAME  L"SystemAudioVolumeDB"
 
 ///
 /// A global variable storing the GUID of the APPLE_VENDOR EFI variable scope.

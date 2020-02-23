@@ -68,7 +68,7 @@ EFI_STATUS
   All protocol members are optional and can be NULL.
 **/
 typedef struct {
-  APPLE_BEEP_GEN_BEEP  AppleBeepGenBeep; ///< Can be NULL.
+  APPLE_BEEP_GEN_BEEP  GenBeep; ///< Can be NULL.
 } APPLE_BEEP_GEN_PROTOCOL;
 
 extern EFI_GUID gAppleBeepGenProtocolGuid;
