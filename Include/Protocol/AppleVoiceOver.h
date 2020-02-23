@@ -152,7 +152,7 @@ EFI_STATUS
 
   @param[in]  This             VoiceOver protocol instance.
   @param[out] LanguageCode     Current language code (e.g. AppleVoiceOverLanguageRu).
-  @param[out] LanaguageString  Current language string (e.g. ru) or NULL.
+  @param[out] LanguageString   Current language string (e.g. ru) or NULL.
 
   @retval EFI_SUCCESS on successful language update.
   @retval EFI_INVALID_PARAMETER when the language is unsupported.
@@ -162,7 +162,7 @@ EFI_STATUS
 (EFIAPI *APPLE_VOICE_OVER_AUDIO_GET_LANGUAGE) (
   IN     APPLE_VOICE_OVER_AUDIO_PROTOCOL  *This,
   OUT    UINT8                            *LanguageCode,
-  OUT    CONST CHAR8                      **LanaguageString
+  OUT    CONST CHAR8                      **LanguageString
   );
 
 /**
