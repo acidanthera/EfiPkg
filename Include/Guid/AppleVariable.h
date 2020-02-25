@@ -158,7 +158,14 @@ typedef enum {
 /// UINT8: SystemAudioVolume'
 /// gAppleBootVariableGuid
 ///
-#define APPLE_SYSTEM_AUDIO_VOLUME_SAVED_DB_NAME  L"SystemAudioVolumeDB"
+#define APPLE_SYSTEM_AUDIO_VOLUME_SAVED_VARIABLE_DB_NAME  L"SystemAudioVolumeDB"
+
+///
+/// System language.
+/// String starting with language code (e.g. ru-RU:252).
+/// gAppleBootVariableGuid
+///
+#define APPLE_PREV_LANG_KB_VARIABLE_NAME   L"prev-lang:kb"
 
 ///
 /// A global variable storing the GUID of the APPLE_VENDOR EFI variable scope.
