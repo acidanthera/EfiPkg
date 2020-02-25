@@ -165,7 +165,7 @@ typedef enum {
 /// String starting with language code (e.g. ru-RU:252).
 /// gAppleBootVariableGuid
 ///
-#define APPLE_PREV_LANG_KB_VARIABLE_NAME   L"prev-lang:kb"
+#define APPLE_PREV_LANG_KBD_VARIABLE_NAME   L"prev-lang:kbd"
 
 ///
 /// A global variable storing the GUID of the APPLE_VENDOR EFI variable scope.
