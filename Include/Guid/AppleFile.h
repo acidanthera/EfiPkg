@@ -53,4 +53,32 @@ extern EFI_GUID gAppleUTDMUIAppFileGuid;
 
 extern EFI_GUID gAppleLegacyLoadAppFileGuid;
 
+///
+/// AE4C11C8-1D6C-F24E-A183-E1CA36D1A8A9
+///
+#define APPLE_HFS_PLUS_FILE_GUID  \
+  { 0xAE4C11C8, 0x1D6C, 0xF24E,   \
+    { 0xA1, 0x83, 0xE1, 0xCA, 0x36, 0xD1, 0xA8, 0xA9 } }
+
+extern EFI_GUID gAppleHfsPlusFileGuid;
+
+///
+/// 44883EC1-C77C-1749-B73D-30C7B468B556
+///
+#define APPLE_EX_FAT_DXE_FILE_GUID \
+  { 0x44883EC1, 0xC77C, 0x1749,    \
+    { 0xB7, 0x3D, 0x30, 0xC7, 0xB4, 0x68, 0xB5, 0x56 } }
+
+extern EFI_GUID gAppleExFatDxeFileGuid;
+
+///
+/// 3730EC36-868D-4DF6-88CF-30B791272F5C
+///
+#define APPLE_APFS_FILE_GUID    \
+  { 0x3730EC36, 0x868D, 0x4DF6, \
+    { 0x88, 0xCF, 0x30, 0xB7, 0x91, 0x27, 0x2F, 0x5C } }
+
+extern EFI_GUID gAppleApfsFileGuid;
+
+
 #endif // APPLE_FILE_H
