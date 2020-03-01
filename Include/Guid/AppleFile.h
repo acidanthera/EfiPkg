@@ -54,6 +54,15 @@ extern EFI_GUID gAppleUTDMUIAppFileGuid;
 extern EFI_GUID gAppleLegacyLoadAppFileGuid;
 
 ///
+/// 4CF484CD-135F-4FDC-BAFB-1AA104B48D36
+///
+#define APPLE_HFS_PLUS_DXE_FILE_GUID  \
+  { 0x4CF484CD, 0x135F, 0x4FDC,   \
+    { 0xBA, 0xFB, 0x1A, 0xA1, 0x04, 0xB4, 0x8D, 0x36 } }
+
+extern EFI_GUID gAppleHfsPlusDxeFileGuid;
+
+///
 /// AE4C11C8-1D6C-F24E-A183-E1CA36D1A8A9
 ///
 #define APPLE_HFS_PLUS_FILE_GUID  \
