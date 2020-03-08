@@ -168,6 +168,27 @@ typedef enum {
 #define APPLE_PREV_LANG_KBD_VARIABLE_NAME   L"prev-lang:kbd"
 
 ///
+/// Performance record data enable.
+/// UINT8: Any value to enable performance gathering (one time).
+/// gAppleBootVariableGuid
+///
+#define APPLE_EFI_BOOT_PERF_VARIABLE_NAME           L"efiboot-perf-record"
+
+///
+/// Performance record data address.
+/// UINT32: Physical address to EfiACPIReclaimMemory containing perf data.
+/// gAppleBootVariableGuid
+///
+#define APPLE_EFI_BOOT_PERF_ADDRESS_VARIABLE_NAME   L"efiboot-perf-record-data"
+
+///
+/// Performance record data size.
+/// UINT32: Size of performance record data, usually 4096 bytes.
+/// gAppleBootVariableGuid
+///
+#define APPLE_EFI_BOOT_PERF_SIZE_VARIABLE_NAME      L"efiboot-perf-record-data-size"
+
+///
 /// A global variable storing the GUID of the APPLE_VENDOR EFI variable scope.
 ///
 extern EFI_GUID gAppleVendorVariableGuid;
