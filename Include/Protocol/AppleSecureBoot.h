@@ -30,7 +30,7 @@ typedef struct APPLE_SECURE_BOOT_PROTOCOL_ APPLE_SECURE_BOOT_PROTOCOL;
   | ((B) << 16UL)                      \
   | ((C) << 8UL)                       \
   | ((D) << 0UL)                       \
-  )                                    \
+  )
 
 //
 // The keys are iterated in the order in which they are defined here in
