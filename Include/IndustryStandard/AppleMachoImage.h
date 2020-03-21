@@ -261,6 +261,7 @@ enum {
   MachCpuFamilyIntelSkylake     = 0x37FC219F,
   MachCpuFamilyIntelKabyLake    = 0x0F817246,
   MachCpuFamilyIntelCoffeeLake  = MachCpuFamilyIntelKabyLake,
+  MachCpuFamilyIntelIceLake     = 0x38435547,
   //
   // The following synonyms are deprecated:
   //
@@ -286,6 +287,7 @@ enum {
   MachCpuFamilyArmTwister        = 0x92FB37C8,
   MachCpuFamilyArmHurricane      = 0x67CEEE93,
   MachCpuFamilyArmMonsoonMistral = 0xE81E7EF6,
+  MachCpuFamilyArmVortexTempest  = 0x07D34B9F,
 };
 
 typedef UINT32 MACH_CPU_FAMILY;
