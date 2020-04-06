@@ -21,8 +21,8 @@
 ///
 /// Maximum disk label width and height for 1x scale.
 ///
-#define APPLE_DISK_LABEL_MAX_WIDTH  340
-#define APPLE_DISK_LABEL_MAX_HEIGHT 12
+#define APPLE_DISK_LABEL_MAX_WIDTH  340U
+#define APPLE_DISK_LABEL_MAX_HEIGHT 12U
 
 #pragma pack(push, 1)
 
