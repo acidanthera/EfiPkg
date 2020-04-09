@@ -23,6 +23,8 @@
 ///
 #define APPLE_ICNS_IC07  SIGNATURE_32 ('i', 'c', '0', '7')
 #define APPLE_ICNS_IC13  SIGNATURE_32 ('i', 'c', '1', '3')
+#define APPLE_ICNS_IT32  SIGNATURE_32 ('i', 't', '3', '2')
+#define APPLE_ICNS_T8MK  SIGNATURE_32 ('t', '8', 'm', 'k')
 
 ///
 /// Normal disk icon dimension.
