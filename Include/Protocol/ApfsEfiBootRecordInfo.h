@@ -20,8 +20,7 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
   { 0x03B8D751, 0xA02F, 0x4FF8,               \
     { 0x9B, 0x1A, 0x55, 0x24, 0xAF, 0xA3, 0x94, 0x5F } }
 
-typedef struct  _APFS_EFIBOOTRECORD_LOCATION_INFO
-{
+typedef struct  _APFS_EFIBOOTRECORD_LOCATION_INFO {
   //
   // Handle of partition which contain EfiBootRecord section
   //
