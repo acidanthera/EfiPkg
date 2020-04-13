@@ -87,7 +87,38 @@
 //
 #define APFS_FUSION_TIER2_DEVICE_BYTE_ADDR 0x4000000000000000ULL
 
+//
+// Driver version
+//
+#define APFS_DRIVER_VERSION_MAGIC  SIGNATURE_32 ('A', 'P', 'F', 'S')
+
 #pragma pack(push, 1)
+
+/**
+  APFS driver version structure.
+**/
+typedef struct APFS_DRIVER_VERSION_ {
+  ///
+  /// Matches APFS_DRIVER_VERSION_MAGIC.
+  ///
+  UINT32   Magic;
+  ///
+  /// Matches MajorImageVersion << 16 | MinorImageVersion.
+  ///
+  UINT32   ImageVersion;
+  ///
+  /// Actual driver version.
+  ///
+  UINT64   Version;
+  ///
+  /// In ISO format (YYYY/MM/DD), e.g. 2020/03/06.
+  ///
+  CHAR8    Date[16];
+  ///
+  /// In ISO format (HH:MM:SS), e.g. 23:26:03.
+  ///
+  CHAR8    Time[16];
+} APFS_DRIVER_VERSION;
 
 /**
   A range of physical addresses.
