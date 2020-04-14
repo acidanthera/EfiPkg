@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 #ifndef APPLE_EVENT_H
 #define APPLE_EVENT_H
 
-// Related definitions
+#include <IndustryStandard/AppleHid.h>
 
 // Apple Event Type
 
