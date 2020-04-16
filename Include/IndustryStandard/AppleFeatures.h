@@ -167,6 +167,7 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 #define FW_FEATURE_DISABLE_MBA_S4_WORKAROUND          0x10000000U // 28
 //
 // Supports Windows UEFI boot (Windows 8 and newer).
+// Also known as UEFIWindowsBootCapable variable.
 // DMIsPreBootEnvironmentUEFIWindowsBootCapable
 //
 #define FW_FEATURE_SUPPORTS_UEFI_WINDOWS_BOOT         0x20000000U // 29

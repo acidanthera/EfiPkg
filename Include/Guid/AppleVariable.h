@@ -189,6 +189,26 @@ typedef enum {
 #define APPLE_EFI_BOOT_PERF_SIZE_VARIABLE_NAME      L"efiboot-perf-record-data-size"
 
 ///
+/// Hibernation wake log (mirror for APPLE_RTC_WAKE_LOG_ADDR).
+/// UINT8[4]: Normally printed like 0x%02X 0x%02X % 3d 0x%02X.
+/// gAppleBootVariableGuid
+///
+#define APPLE_WAKE_FAILURE_VARIABLE_NAME  L"wake-failure"
+
+///
+/// Force enable UEFI Windows support.
+/// CHAR8: '1'.
+/// gAppleBootVariableGuid
+///
+#define APPLE_UEFI_WINDOWS_BOOT_CAPABLE_VARIABLE_NAME  L"UEFIWindowsBootCapable"
+
+///
+/// Will install UEFI Windows on next reboot.
+/// CHAR8: '1'.
+/// gAppleBootVariableGuid
+///
+#define APPLE_INSTALL_WINDOWS_UEFI_VARIABLE_NAME L"InstallWindowsUEFI"
+///
 /// A global variable storing the GUID of the APPLE_VENDOR EFI variable scope.
 ///
 extern EFI_GUID gAppleVendorVariableGuid;
