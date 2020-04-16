@@ -189,6 +189,10 @@
 /**
   Mask of events, which happened during booting.
   These events are appended during the boot progress.
+
+  Note, unlike APPLE_RTC_WL_EVENT_ADDR/APPLE_RTC_WL_EVENT_EXTRA_ADDR,
+  which only get updated in hibernate wake, this value is always written
+  when a non-zero event is supplied.
 **/
 #define APPLE_RTC_WL_MASK_ADDR   0xB1
 
