@@ -208,6 +208,15 @@ typedef enum {
 /// gAppleBootVariableGuid
 ///
 #define APPLE_INSTALL_WINDOWS_UEFI_VARIABLE_NAME L"InstallWindowsUEFI"
+
+
+///
+/// BootCampt device path.
+/// UEFI Device Path.
+/// gAppleBootVariableGuid
+///
+#define APPLE_BOOT_CAMP_HD_VARIABLE_NAME L"BootCampHD"
+
 ///
 /// A global variable storing the GUID of the APPLE_VENDOR EFI variable scope.
 ///
