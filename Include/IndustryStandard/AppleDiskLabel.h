@@ -14,9 +14,16 @@
 #define APPLE_DISK_LABEL_H
 
 ///
-/// Magic number used to identify the disk label.
+/// Image contains 8-bit values, which are indices in the opacity palette.
+/// Colour is black.
 ///
-#define APPLE_DISK_LABEL_VERSION    1
+#define APPLE_DISK_LABEL_PALETTED   1
+
+///
+/// Image contains 8-bit values, which are BGRA sequences.
+/// For alpha 0xFF is fully transparent and 0x00 is fully opaque.
+///
+#define APPLE_DISK_LABEL_BGRA       2
 
 ///
 /// Maximum disk label width and height for 1x scale.
@@ -30,7 +37,7 @@
 /// Apple disk label structure, all fields are Big Endian.
 ///
 typedef struct APPLE_DISK_LABEL_ {
-  UINT8   Version;
+  UINT8   Type;
   UINT16  Width;
   UINT16  Height;
   UINT8   Data[];
