@@ -29,7 +29,7 @@
 ///
 /// Normal disk icon dimension.
 ///
-#define APPLE_DISK_ICON_DIMENSION 128
+#define APPLE_DISK_ICON_DIMENSION 128U
 
 #pragma pack(push, 1)
 
