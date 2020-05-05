@@ -72,7 +72,7 @@ EFI_STATUS
   @param[in,out]  Position      Starting position for extraction.
   @param[in,out]  BufferSize    Extraction buffer size.
   @param[out]     Buffer        Extraction buffer, optional.
-  @param[out]     Left          Amount of characters that did not fit the buffer, optional.
+  @param[out]     LostCharacters          Amount of characters that did not fit the buffer, optional.
 
   - Position is automatically updated to point to the end of the buffer if provided
     value is too large.

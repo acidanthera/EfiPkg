@@ -210,7 +210,7 @@ typedef PACKED struct {
   implementatation specific way. AllocateMemory = FALSE is never used, so it may be a bug.
 
   @param[in]  BlockCount         Block amount, ignored if AllocateMemory is FALSE.
-  @param[in]  ParentImageHandle  Block size, ignored if AllocateMemory is FALSE.
+  @param[in]  BlockSize          Block size, ignored if AllocateMemory is FALSE.
   @param[in]  AllocateMemory     Allocate disk memory.
   @param[in]  ReserveMemory      Mark memory as EfiACPIMemoryNVS, otherwise EfiBootServicesData.
   @param[in]  Handle             Resulting handle.

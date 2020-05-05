@@ -29,8 +29,6 @@ typedef struct APPLE_FIRMWARE_PASSWORD_PROTOCOL_ APPLE_FIRMWARE_PASSWORD_PROTOCO
 /// @param[in] This        This protocol.
 /// @param[in] Arg1
 ///
-/// @param[out] FilePath    Databuffer
-///
 /// @retval EFI_SUCCESS         The log was saved successfully.
 /// @retval other
 

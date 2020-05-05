@@ -383,7 +383,7 @@ EFI_STATUS
                                       EFI_EVENT is defined in CreateEvent() in
                                       the Unified Extensible Firmware Interface
                                       Specification.
-  @param[in]  TimeoutInMicrosecsond   Time to wait for APs to finish.
+  @param[in]  TimeoutInMicroSecs   Time to wait for APs to finish.
                                       - IA32, X64:
                                       If the value is zero, it means no timeout
                                       limit. The BSP waits until all APs finish.
@@ -411,7 +411,7 @@ EFI_STATUS
                                       If the value is non-zero, the BSP waits
                                       until dispatched AP finishes and then
                                       dispatch the next.
-  @param[in]  ProcedureArgument       The pointer to the optional parameter of the
+  @param[in]  ProcArguments       The pointer to the optional parameter of the
                                       function specified by Procedure.
   @param[out] FailedCPUList           List of APs that did not finish.
                                       - IA32, X64:
@@ -481,7 +481,7 @@ EFI_STATUS
                                      Type EFI_EVENT is defined in CreateEvent()
                                      in the Unified Extensible Firmware Interface
                                      Specification.
-  @param[in] TimeoutInMicrosecsond   Time to wait for APs to finish.
+  @param[in] TimeoutInMicroSecs   Time to wait for APs to finish.
                                      - IA32, X64:
                                      If the value is zero, it means no timeout
                                      limit. The BSP waits until the AP finishes.
@@ -497,7 +497,7 @@ EFI_STATUS
                                      time interval. If the value is zero, the length
                                      of time interval is 10ms. If the value is
                                      non-zero, the BSP waits until the AP finishes.
-  @param[in] ProcedureArgument       The pointer to the optional parameter of the
+  @param[in] ProcArguments       The pointer to the optional parameter of the
                                      function specified by Procedure.
 
   @retval EFI_SUCCESS             Specified AP has finished before the timeout
