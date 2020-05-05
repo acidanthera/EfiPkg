@@ -80,7 +80,7 @@ EFI_DEVICE_PATH_PROPERTY_DATABASE_PROTOCOL;
   @param[in]      Name        The Name of the requested property.
   @param[out]     Value       The Buffer allocated by the caller to return the
                               value of the property into.
-  @param[in, out] Size        On input the size of the allocated Value Buffer.
+  @param[in,out]  Size        On input the size of the allocated Value Buffer.
                               On output the size required to fill the Buffer.
 
   @retval EFI_BUFFER_TOO_SMALL  The memory required to return the value exceeds
@@ -149,7 +149,7 @@ EFI_STATUS
   @param[in]      This    Protocol instance pointer.
   @param[out]     Buffer  The Buffer allocated by the caller to return the
                           property Buffer into.
-  @param[in, out] Size    On input the size of the allocated Buffer.
+  @param[in,out]  Size    On input the size of the allocated Buffer.
                           On output the size required to fill the Buffer.
 
   @retval EFI_BUFFER_TOO_SMALL  The memory required to return the value exceeds
