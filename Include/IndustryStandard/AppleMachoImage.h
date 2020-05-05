@@ -49,8 +49,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 #if !defined(MACH_LITTLE_ENDIAN) && !defined(MACH_BIG_ENDIAN)
 #if defined (MDE_CPU_IA32) || defined(MDE_CPU_X64)
 #define MACH_LITTLE_ENDIAN
-#endif //< defined (MDE_CPU_IA32) || defined(MDE_CPU_X64)
-#endif //< !defined(MACH_LITTLE_ENDIAN) && !defined(MACH_BIG_ENDIAN)
+#endif ///< defined (MDE_CPU_IA32) || defined(MDE_CPU_X64)
+#endif ///< !defined(MACH_LITTLE_ENDIAN) && !defined(MACH_BIG_ENDIAN)
 
 ///
 /// CPU Type definitions
