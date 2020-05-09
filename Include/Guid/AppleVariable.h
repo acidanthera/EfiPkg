@@ -209,6 +209,12 @@ typedef enum {
 ///
 #define APPLE_INSTALL_WINDOWS_UEFI_VARIABLE_NAME L"InstallWindowsUEFI"
 
+///
+/// 7-bit packed panic information.
+/// Data blob from with indices in the range of [0000, 0400).
+/// gAppleBootVariableGuid
+///
+#define APPLE_PANIC_INFO_NO_VARIABLE_NAME L"AAPL,PanicInfo%04x"
 
 ///
 /// BootCampt device path.
