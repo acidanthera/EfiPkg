@@ -418,6 +418,7 @@ enum {
   SmcSystemStateNotifyPanicX86GlobalReset        = 4,
   SmcSystemStateNotifyPanicX86CpuCATERR          = 5,
   SmcSystemStateNotifyPanicACPIPanic             = 6,
+  SmcSystemStateNotifyPanicMacEFI                = 7,
 };
 
 // SMC_EVENT_CODE
